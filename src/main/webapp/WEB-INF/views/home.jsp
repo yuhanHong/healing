@@ -32,7 +32,7 @@ a:hover {
 	<a href="${root}/board/list.do">게시판</a>
 	<a href="${root}/fileBoard/list.do">파일게시판</a>
 	<c:if test="${id==null}">
-		<a href="${root}/member/register.do">회원가입</a>
+		<a href="${root}/member/register.do">회원가입 입니다</a>
 		<a href="${root}/member/login.do">로그인</a>
 	</c:if>
 	<c:if test="${id!=null}">
