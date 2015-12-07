@@ -29,7 +29,7 @@ a:hover {
 <body>
 	<c:set var="root" value="${pageContext.request.contextPath}"/>
 	<a href="${root}/">초기화면</a>
-	<a href="${root}/board/list.do">게시판</a>
+	<a href="${root}/board/list.do">게시판입니다</a>
 	<a href="${root}/fileBoard/list.do">파일게시판</a>
 	<c:if test="${id==null}">
 		<a href="${root}/member/register.do">회원가입</a>
