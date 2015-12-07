@@ -2,7 +2,7 @@ package com.healing.product.dto;
 
 public class ProductDto {
 	private int product_number;
-	private String pruduct_name;
+	private String product_name;
 	private String product_category;
 	private String product_country;
 	private int product_stay_date;
@@ -17,17 +17,18 @@ public class ProductDto {
 	private int product_bargain_day1;
 	private int product_bargain_rate2;
 	private int product_bargain_day2;
+	
 	public int getProduct_number() {
 		return product_number;
 	}
 	public void setProduct_number(int product_number) {
 		this.product_number = product_number;
 	}
-	public String getPruduct_name() {
-		return pruduct_name;
+	public String getProduct_name() {
+		return product_name;
 	}
-	public void setPruduct_name(String pruduct_name) {
-		this.pruduct_name = pruduct_name;
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
 	}
 	public String getProduct_category() {
 		return product_category;
