@@ -25,9 +25,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.healing.main" />
-	<context:component-scan base-package="com.healing.aop"/>
-	<context:component-scan base-package="com.healing.member" />
+	<context:component-scan base-package="com.healing" />
 	
 	<aop:aspectj-autoproxy/>
 	
