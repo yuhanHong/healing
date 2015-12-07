@@ -16,7 +16,7 @@
 		<property name="dataSource" ref="jndiDataSource"/>
 		<property name="mapperLocations">
 			<list>
-				<!-- <value>classpath:com/healing/member/dao/mapper/MemberMapper.xml</value> -->
+				<value>classpath:com/healing/member/dao/mapper/MemberMapper.xml</value>
 			</list>
 		</property>
 	</bean>
