@@ -85,6 +85,8 @@ $(function(){
 	<a href="${root}/guest/write.do">방명록</a>
 	<a href="${root}/photoAlbum/list.do">사진첩</a>
 	<a href="${root}/chat/chat.do">채팅</a>
+	<a href="${root}/order/write.do">예약</a>
+	
 	<div>
 		${member_name}님 환영합니다.
 	</div>

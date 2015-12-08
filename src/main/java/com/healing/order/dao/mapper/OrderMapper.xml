@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.orderMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
+	
+	<select id="orderProductRead" parameterType="int" resultType="com.healing.product.dto.ProductDto"> 
+		select * from product where product_number=#{product_number}	
+	</select>
+	
+	<insert id="orderInsert" parameterType="com.healing.order.dto.OrderDto">
+		insert into orders values(orders_order_number_seq.nextval,#{member_number},#{product_number},#{order_money},sysdate,#{order_price_adult},#{order_price_child},#{order_price_baby},#{order_adult},#{order_child},#{order_baby}	,#{payment_option}	,#{payment_state}	,#{order_name}	,#{order_email}	,#{order_phone},sysdate)	
+	</insert>
+	
+	<select id="getNewOrderDto" parameterType="int" resultType="com.healing.order.dto.OrderDto">
+		SELECT * FROM orders WHERE order_number=(SELECT max(order_number) FROM orders)
+	</select>
+</mapper>
