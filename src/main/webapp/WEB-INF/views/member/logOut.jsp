@@ -12,6 +12,7 @@
 	<c:remove var="member_id" scope="session"/>
 	<c:remove var="member_level" scope="session"/>
 	<c:remove var="member_name" scope="session"/>
+	<c:remove var="member_number" scope="session"/>
 	<script type="text/javascript">
 		alert("로그아웃되었습니다.");
 		location.href="${root}/";

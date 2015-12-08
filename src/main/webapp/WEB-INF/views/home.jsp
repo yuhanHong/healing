@@ -51,6 +51,7 @@ $(function(){
 		<c:set var="member_id" value="${memberDto.member_id}" scope="session"/>
 		<c:set var="member_level" value="${memberDto.member_level}" scope="session"/>
 		<c:set var="member_name" value="${memberDto.member_name}" scope="session"/>
+		<c:set var="member_number" value="${memberDto.member_number}" scope="session"/>
 	</c:if>
 	
 	<a href="${root}/">초기화면</a>
@@ -86,7 +87,7 @@ $(function(){
 	<a href="${root}/photoAlbum/list.do">사진첩</a>
 	<a href="${root}/chat/chat.do">채팅</a>
 	<a href="${root}/order/write.do">예약</a>
-	
+	<a href="${root}/adminOrder/adminOrder.do">관리자모드-예약관리.</a>
 	<div>
 		${member_name}님 환영합니다.
 	</div>

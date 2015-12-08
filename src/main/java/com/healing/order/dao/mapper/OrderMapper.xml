@@ -16,4 +16,8 @@
 	<select id="getNewOrderDto" parameterType="int" resultType="com.healing.order.dto.OrderDto">
 		SELECT * FROM orders WHERE order_number=(SELECT max(order_number) FROM orders)
 	</select>
+	
+	<select id="getMemberInfo" parameterType="int" resultType="com.healing.member.dto.MemberDto">
+		select * from member where member_number=#{member_number}		
+	</select>
 </mapper>

@@ -2,10 +2,27 @@
 
 
 #orderForm{
-	border: 2px solid red;
 	text-align: center;
+	margin-top: 50px;
+}
+#order_title{
+	text-align: left;
+	margin-bottom: 30px;
+}
+#orderPage{
+	border: 1px solid red;
+	width :940px;
+	margin:1px auto;
+	
 }
 
+#productInfo{
+	border: 1px solid gray;
+	background-color: lightgray;
+	height: 150px;
+	width :600px;
+	margin:1px auto;
+}
 #tabs{
 	margin:1px auto;
 	width:930px;

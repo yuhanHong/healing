@@ -40,26 +40,33 @@ function orderCheck(form,root){
 
 $(function() {
 	 $( "#tabs" ).tabs();
+	// $( "#time_select" ).selectmenu();
 	 
 	 var result=0;
+	 var adult_money=0;
+	 var child_money=0;
+	 var baby_money=0;
 	 
-	 $("#order_adult").click(function(){
-		 var adult_money=$("#hiddenInfo").children().eq(2).val()*$("#order_adult").val();
-		result=result+adult_money;
-		 $("#result_money").text(result);
-		 $("#order_money").val(result);
+	 $("#adult").click(function(){
+		adult_money=$("#hiddenInfo").children().eq(2).val()*$("#adult").val();
+		$("#order_adult").val($("#adult").val());
+		resultFun();
 	});
-	 $("#order_child").click(function(){
-		 var child_money=$("#hiddenInfo").children().eq(3).val()*$("#order_child").val();
-		 result=result+child_money;
-		 $("#result_money").text(result);
-		 $("#order_money").val(result);
+	 $("#child").click(function(){
+		 child_money=$("#hiddenInfo").children().eq(3).val()*$("#child").val();
+		 $("#order_child").val($("#child").val());
+		 resultFun();
 	});
-	 $("#order_baby").click(function(){
-		 var baby_money=$("#hiddenInfo").children().eq(4).val()*$("#order_baby").val();
-		result=result+baby_money;
-		 $("#result_money").text(result);
-		 $("#order_money").val(result);
+	 $("#baby").click(function(){
+		 baby_money=$("#hiddenInfo").children().eq(4).val()*$("#baby").val();
+		 $("#order_baby").val($("#baby").val());
+		 resultFun();
 	});
 	 
+	 function resultFun(){
+		 result=child_money+adult_money+baby_money;
+		 $("#result_money").text(result);
+		 $("#order_money").val(result);
+	 }
+ 
  });

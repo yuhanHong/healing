@@ -3,16 +3,24 @@ package com.healing.order.service;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.aop.HomeAspect;
+import com.healing.member.dto.MemberDto;
 import com.healing.order.dao.OrderDao;
 import com.healing.order.dto.OrderDto;
 import com.healing.product.dto.ProductDto;
 
+/**
+ * @이름 : OrderServiceImp
+ * @날짜 : 2015. 12. 8.
+ * @개발자 : 봉채윤
+ * @설명 :  예약Service
+ */
 @Component
 public class OrderServiceImp implements OrderService {
 
@@ -21,20 +29,32 @@ public class OrderServiceImp implements OrderService {
 		
 		private OrderDto orderDto;
 		private ProductDto productDto;
+		private MemberDto memberDto;
 		
 		@Override
 		public void orderProductRead(ModelAndView mav) {
 			// TODO Auto-generated method stub
 			Map<String, Object> map=mav.getModelMap();
 		    HttpServletRequest request = (HttpServletRequest) map.get("request");
-		      
+		    HttpSession session=request.getSession();
+		    
+		    int member_number=0;
+		    if(session.getAttribute("member_number")==null) {
+		    	//member_number=1;
+		    	memberDto=null;
+		    }else{
+			     member_number=(Integer) session.getAttribute("member_number");
+			     memberDto=orderDao.getMemberInfo(member_number);
+		  }
+		    
 		    int product_number=1;
 		    		//Integer.parseInt(request.getParameter("product_number"));
 		    productDto=orderDao.orderProductRead(product_number);
-		   int member_number=1;
-		   HomeAspect.logger.info(HomeAspect.logMsg+"///"+productDto.getProduct_name());
+		   //HomeAspect.logger.info(HomeAspect.logMsg+"///"+productDto.getProduct_name());
+		   //HomeAspect.logger.info(HomeAspect.logMsg+"///"+memberDto.getMember_name());
+		  
 		   mav.addObject("productDto", productDto);
-		   mav.addObject("member_number", member_number);
+		   mav.addObject("member", memberDto);
 		   mav.setViewName("order/order");
 		}
 

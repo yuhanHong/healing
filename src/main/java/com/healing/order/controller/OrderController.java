@@ -14,6 +14,12 @@ import com.healing.order.dto.OrderDto;
 import com.healing.order.service.OrderService;
 
 
+/**
+ * @이름 : OrderController
+ * @날짜 : 2015. 12. 8.
+ * @개발자 : 봉채윤
+ * @설명 : 예약 컨트롤러
+ */
 @Controller
 public class OrderController {
 
