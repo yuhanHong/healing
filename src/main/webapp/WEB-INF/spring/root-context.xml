@@ -16,8 +16,26 @@
 		<property name="dataSource" ref="jndiDataSource"/>
 		<property name="mapperLocations">
 			<list>
+				<value>classpath:com/healing/adminBanner/dao/mapper/AdminBannerMapper.xml</value>
+				<value>classpath:com/healing/adminInfo/dao/mapper/AdminInfoMapper.xml</value>
+				<value>classpath:com/healing/adminMember/dao/mapper/AdminMemberMapper.xml</value>
+				<value>classpath:com/healing/adminMode/dao/mapper/AdminModeMapper.xml</value>
+				<value>classpath:com/healing/adminOrder/dao/mapper/AdminOrderMapper.xml</value>
+				<value>classpath:com/healing/adminProduct/dao/mapper/AdminProductMapper.xml</value>
+				<value>classpath:com/healing/adminPushNotice/dao/mapper/AdminPushNoticeMapper.xml</value>
+				<value>classpath:com/healing/boardFaq/dao/mapper/BoardFaqMapper.xml</value>
+				<value>classpath:com/healing/boardNotice/dao/mapper/BoardNoticeMapper.xml</value>
+				<value>classpath:com/healing/boardQna/dao/mapper/BoardQnaMapper.xml</value>
+				<value>classpath:com/healing/chat/dao/mapper/ChatMapper.xml</value>
+				<value>classpath:com/healing/detailSearch/dao/mapper/DetailSearchMapper.xml</value>
+				<value>classpath:com/healing/freeplan/dao/mapper/FreeplanMapper.xml</value>
 				<value>classpath:com/healing/member/dao/mapper/MemberMapper.xml</value>
+				<value>classpath:com/healing/memberMypage/dao/mapper/MemberMypageMapper.xml</value>
+				<value>classpath:com/healing/memberSearch/dao/mapper/MemberSearchMapper.xml</value>
 				<value>classpath:com/healing/order/dao/mapper/OrderMapper.xml</value>
+				<value>classpath:com/healing/product/dao/mapper/ProductMapper.xml</value>
+				<value>classpath:com/healing/productLike/dao/mapper/ProductLikeMapper.xml</value>
+				<value>classpath:com/healing/search/dao/mapper/SearchMapper.xml</value>
 			</list>
 		</property>
 	</bean>
