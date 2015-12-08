@@ -47,11 +47,16 @@ $(function(){
 </script>
 </head>
 <body>
-	<c:if test="${memberDto.member_number!=null}">
+	<c:if test="${memberDto.member_delete==0}">
 		<c:set var="member_id" value="${memberDto.member_id}" scope="session"/>
 		<c:set var="member_level" value="${memberDto.member_level}" scope="session"/>
 		<c:set var="member_name" value="${memberDto.member_name}" scope="session"/>
 		<c:set var="member_number" value="${memberDto.member_number}" scope="session"/>
+	</c:if>
+	<c:if test="${memberDto.member_delete==1}">
+		<script type="text/javascript">
+			alert("탈퇴된 아이디 입니다.");
+		</script>
 	</c:if>
 	
 	<a href="${root}/">초기화면</a>
@@ -76,8 +81,8 @@ $(function(){
 		</div>
 	</c:if>
 	<c:if test="${member_id!=null}">
-		<a href="${root}/member/update.do">회원수정</a>
-		<a href="${root}/member/delete.do">회원탈퇴</a>
+		<a href="${root}/member/memberUpdate.do?member_id=${member_id}&member_number=${member_number}">회원수정</a>
+		<a href="${root}/member/memberDelete.do?member_id=${member_id}">회원탈퇴</a>
 		<a href="${root}/member/memberLogout.do">로그아웃</a>
 	</c:if>
 	<c:if test="${memberLevel=='AA'}">

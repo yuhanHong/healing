@@ -74,4 +74,31 @@ public class MemberController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value="/member/memberDelete.do",method=RequestMethod.GET)
+	public ModelAndView memberDelete(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		memberService.memberDelete(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/member/memberDeleteOk.do",method=RequestMethod.POST)
+	public ModelAndView memberDeleteOk(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		memberService.memberDeleteOk(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/member/memberUpdate.do",method=RequestMethod.GET)
+	public ModelAndView memberUpdate(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		memberService.memberUpdate(mav);
+		
+		return mav;
+	}
 }

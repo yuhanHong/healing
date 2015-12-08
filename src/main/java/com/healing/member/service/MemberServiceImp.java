@@ -60,9 +60,9 @@ public class MemberServiceImp implements MemberService {
 		int member_number=memberList.getMember_number();         // 회원번호
 		// HomeAspect.logger.info(HomeAspect.logMsg+"멤버셀렉트 넘버:"+member_number);
 		String interest=interestDto.getInterest_content(); // 관심정보
-		String result[]=interest.split(",");               // 스플릿으로 하나씩 뽑는다
-		
-		if(check>0 && interest.length()>0){                // 만약 회원가입이 정상적으로 이루어지고 관심여행지를 선택했다면
+		          
+		if(check>0 && interest!=null){     // 만약 회원가입이 정상적으로 이루어지고 관심여행지를 선택했다면
+			String result[]=interest.split(",");     // 스플릿으로 하나씩 뽑는다
 			for(int i=0;i<result.length;i++){              // 선택한 모든 관심정보를 for문으로 하나씩 넣는다
 				String interest_content=result[i];
 				int value=memberDao.InterestInsert(interest_content,member_number); // 관심정보를 DB에 넣는다.
@@ -132,5 +132,56 @@ public class MemberServiceImp implements MemberService {
 		// HomeAspect.logger.info(HomeAspect.logMsg+"로그인체크:"+member_number+","+id);
 		mav.addObject("memberDto",memberDto);
 		mav.setViewName("home");
+	}
+
+	@Override
+	public void memberDelete(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		String member_id=request.getParameter("member_id");
+		
+		mav.addObject("member_id",member_id);
+		mav.setViewName("member/memberDelete");
+	}
+
+	@Override
+	public void memberDeleteOk(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		String member_id=request.getParameter("member_id");
+		String member_password=request.getParameter("member_password");
+		// HomeAspect.logger.info(HomeAspect.logMsg+"탈퇴할 아이디 비번:"+member_id+","+member_password);
+		int member_delete=1;
+		
+		int check=memberDao.memberDelete(member_id,member_password, member_delete);
+		// HomeAspect.logger.info(HomeAspect.logMsg+"탈퇴체크:"+check);
+		
+		mav.addObject("check",check);
+		mav.setViewName("member/memberDeleteOk");
+	}
+
+	@Override
+	public void memberUpdate(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		String member_id=request.getParameter("member_id");
+		int member_number=Integer.parseInt(request.getParameter("member_number"));
+		
+		List<InterestDto> interestList=null;
+		MemberDto memberDto=memberDao.memberSelect2(member_id);
+		interestList=memberDao.interestSelect(member_number);
+		
+		// String member_eamil=memberDto.getMember_email();
+		// HomeAspect.logger.info(HomeAspect.logMsg+"수정이메일:"+member_eamil);
+		// HomeAspect.logger.info(HomeAspect.logMsg+"수정회원번호:"+member_number);
+		// String interest=interestDto.getInterest_content();
+		// HomeAspect.logger.info(HomeAspect.logMsg+"수정관심:"+interest);
+		
+		mav.addObject("memberDto",memberDto);
+		mav.addObject("interestList",interestList);
+		
+		mav.setViewName("member/memberUpdate");
 	}
 }

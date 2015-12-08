@@ -27,4 +27,16 @@
 	<select id="memberLoginCheck" parameterType="java.util.Map" resultType="com.healing.member.dto.MemberDto">
 		select * from member where member_id=#{member_id} and member_password=#{member_password}
 	</select>
+	
+	<update id="memberDelete" parameterType="java.util.Map">
+		update member set member_delete=#{member_delete} where member_id=#{member_id} and member_password=#{member_password}
+	</update>
+	
+	<select id="memberSelect2" parameterType="String" resultType="com.healing.member.dto.MemberDto">
+		select * from member where member_id=#{member_id}
+	</select>
+	
+	<select id="interestSelect" parameterType="int" resultType="com.healing.member.dto.InterestDto">
+		select * from interest where member_number=#{member_number}
+	</select>
 </mapper>

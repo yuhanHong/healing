@@ -2,6 +2,7 @@ package com.healing.member.dao;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,5 +69,27 @@ public class MemberDaoImp implements MemberDao {
 		hMap.put("member_password", member_password);
 		
 		return sessionTemplate.selectOne("dao.memberMapper.memberLoginCheck",hMap);
+	}
+
+	@Override
+	public int memberDelete(String member_id,String member_password,int member_delete) {
+		HashMap<String,Object> hMap=new HashMap<String,Object>();
+		hMap.put("member_id", member_id);
+		hMap.put("member_password", member_password);
+		hMap.put("member_delete", member_delete);
+		
+		return sessionTemplate.update("dao.memberMapper.memberDelete",hMap);
+	}
+
+	@Override
+	public MemberDto memberSelect2(String member_id) {
+		
+		return sessionTemplate.selectOne("dao.memberMapper.memberSelect2",member_id);
+	}
+
+	@Override
+	public List<InterestDto> interestSelect(int member_number) {
+		
+		return sessionTemplate.selectList("dao.memberMapper.interestSelect",member_number);
 	}
 }

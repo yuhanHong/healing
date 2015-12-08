@@ -10,4 +10,10 @@ public interface MemberService {
 	public void memberIdCheck(ModelAndView mav);
 
 	public void memberLogin(ModelAndView mav);
+	
+	public void memberDelete(ModelAndView mav);
+	
+	public void memberDeleteOk(ModelAndView mav);
+	
+	public void memberUpdate(ModelAndView mav);
 }
