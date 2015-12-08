@@ -3,7 +3,11 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="dao.adminInfoMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
-	
+<mapper namespace="dao.adminInfoMapper">	<!-- namespace : mapper를 식별해주는 식별자 -->
+	<insert id="infoInsert" parameterType="com.healing.adminInfo.dto.AdminInfoDto">
+		insert into company_info(company_number, report_number, register_number, company_name, company_introduce,
+								master_name, customer_number, person_charge, content, fax_number)
+		values(#{company_number}, #{report_number}, #{register_number}, #{company_name}, #{company_introduce}, 
+							#{master_name}, #{customer_number}, #{person_charge}, #{content}, #{fax_number})
+	</insert>
 </mapper>
-	

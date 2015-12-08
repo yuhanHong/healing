@@ -88,6 +88,7 @@ $(function(){
 	<a href="${root}/chat/chat.do">채팅</a>
 	<a href="${root}/order/write.do">예약</a>
 	<a href="${root}/adminOrder/adminOrder.do">관리자모드-예약관리.</a>
+	<a href="${root}/company/tourInfo.do">회사소개</a>
 	<div>
 		${member_name}님 환영합니다.
 	</div>
