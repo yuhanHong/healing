@@ -10,4 +10,21 @@
 		values(member_member_number_seq.nextval,#{member_name},#{member_id},#{member_password},
 		#{member_email},#{member_email_check},#{member_level},#{member_phone},#{member_date})
 	</insert>
+	
+	<select id="memberIdCheck" parameterType="String" resultType="String">
+		select member_id from member where member_id=#{member_id}
+	</select>
+	
+	<select id="memberSelect" parameterType="com.healing.member.dto.MemberDto" resultType="com.healing.member.dto.MemberDto">
+		select * from member where member_id=#{member_id}
+	</select>
+	
+	<insert id="interestInsert" parameterType="java.util.Map">
+		insert into interest(interest_number,member_number,interest_content)
+		values(interest_interest_number_seq.nextval,#{member_number},#{interest_content})
+	</insert>
+	
+	<select id="memberLoginCheck" parameterType="java.util.Map" resultType="com.healing.member.dto.MemberDto">
+		select * from member where member_id=#{member_id} and member_password=#{member_password}
+	</select>
 </mapper>

@@ -1,5 +1,0 @@
-
-function JoinFrom(){
-	alert("OK");
-}
-
