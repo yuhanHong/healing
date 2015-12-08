@@ -1,9 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="dao.boardNoticeMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
+<mapper namespace="dao.boardNoticeMapper">
+	<insert id="boardNoticeWriteInsert" parameterType="com.healing.boardNotice.dto.BoardNoticeDto">
+		insert into 
+			notice(notice_number, notice_title, notice_content, notice_writer, notice_date, notice_readCount, 
+					notice_file_name, notice_file_path, notice_file_size)
+		values
+			(notice_notice_number_seq.nextval, #{notice_title}, #{notice_content}, #{notice_writer}, #{notice_date}, 
+			#{notice_readCount},#{notice_file_name}, #{notice_file_path}, #{notice_file_size})
+	</insert>
 	
+	<insert id="boardNoticeWriteInsert2" parameterType="com.healing.boardNotice.dto.BoardNoticeDto">
+		insert into 
+			notice(notice_number, notice_title, notice_content, notice_writer, notice_date, notice_readCount)
+		values
+			(notice_notice_number_seq.nextval, #{notice_title}, #{notice_content}, #{notice_writer}, #{notice_date}, 
+			#{notice_readCount})
+	</insert>
+	
+	<select id="boardNoticeGetCount" resultType="int">
+		select count(*) from notice
+	</select>
+	
+	<select id="boardNoticeGetCountTitle" parameterType="String" resultType="int">
+		select count(*) from notice where notice_title like '%' || #{searchWord} || '%'
+	</select>
+	
+	<select id="boardNoticeGetCountContent" parameterType="String" resultType="int">
+		select count(*) from notice where notice_content like '%' || #{searchWord} || '%'
+	</select>
+	
+	<select id="boardNoticeGetList" parameterType="java.util.HashMap" resultType="com.healing.boardNotice.dto.BoardNoticeDto">
+		<![CDATA[
+			select * from
+				(select rownum rnum, g.* from
+				(select * from notice order by notice_number desc) g)
+			where
+				rnum between #{startRow} and #{endRow}
+		]]>
+	</select>
+	
+	<select id="boardNoticeGetListTitle" parameterType="java.util.HashMap" resultType="com.healing.boardNotice.dto.BoardNoticeDto">
+		<![CDATA[
+			select * from
+				(select rownum rnum, g.* from
+				(select * from notice where notice_title like '%' || #{searchWord} || '%' order by notice_number desc) g)
+			where
+				rnum between #{startRow} and #{endRow}
+		]]>
+	</select>
+	
+	<select id="boardNoticeGetListContent" parameterType="java.util.HashMap" resultType="com.healing.boardNotice.dto.BoardNoticeDto">
+		<![CDATA[
+			select * from
+				(select rownum rnum, g.* from
+				(select * from notice where notice_content like '%' || #{searchWord} || '%' order by notice_number desc) g)
+			where
+				rnum between #{startRow} and #{endRow}
+		]]>
+	</select>
+	
+	<update id="readCount" parameterType="int">
+		UPDATE
+			notice
+		SET
+			notice_readCount=notice_readCount+1
+		WHERE
+			notice_number=#{notice_number}
+	</update>
+	
+	<!-- Read -->
+	<select id="boardNoticeNumberPrev" parameterType="int" resultType="int">
+		<![CDATA[
+		SELECT nvl(MAX(notice_number),0) FROM notice WHERE notice_number < #{notice_number}
+		]]>
+	</select>
+	
+	<select id="boardNoticeNumberPrevTitle" parameterType="java.util.HashMap" resultType="int">
+		<![CDATA[
+		SELECT nvl(MAX(notice_number),0) FROM notice WHERE notice_number < #{notice_number} and notice_title like '%' || #{searchWord} || '%'
+		]]>
+	</select>
+	
+	<select id="boardNoticeNumberPrevContent" parameterType="java.util.HashMap" resultType="int">
+		<![CDATA[
+		SELECT nvl(MAX(notice_number),0) FROM notice WHERE notice_number < #{notice_number} and notice_content like '%' || #{searchWord} || '%'
+		]]>
+	</select>
+	
+	<select id="boardNoticeNumberNext" parameterType="int" resultType="int">
+		<![CDATA[
+		SELECT nvl(min(notice_number),0) FROM notice WHERE notice_number > #{notice_number}
+		]]>
+	</select>
+	
+	<select id="boardNoticeNumberNextTitle" parameterType="java.util.HashMap" resultType="int">
+		<![CDATA[
+		SELECT nvl(min(notice_number),0) FROM notice WHERE notice_number > #{notice_number} and notice_title like '%' || #{searchWord} || '%'
+		]]>
+	</select>
+	
+	<select id="boardNoticeNumberNextContent" parameterType="java.util.HashMap" resultType="int">
+		<![CDATA[
+		SELECT nvl(min(notice_number),0) FROM notice WHERE notice_number > #{notice_number} and notice_content like '%' || #{searchWord} || '%'
+		]]>
+	</select>
+	<!-- read 끝 -->
+	
+	<delete id="boardNoticeDelete" parameterType="int">
+		delete from notice where notice_number=#{notice_number}
+	</delete>
+	
+	<select id="boardNoticeSelect" parameterType="int" resultType="com.healing.boardNotice.dto.BoardNoticeDto">
+		select * from notice where notice_number=#{notice_number}
+	</select>
+	
+	<update id="boardNoticeUpdate" parameterType="com.healing.boardNotice.dto.BoardNoticeDto">
+		update
+			notice
+		set
+			notice_writer=#{notice_writer},
+			notice_title=#{notice_title},
+			notice_content=#{notice_content}
+		where
+			notice_number=#{notice_number}
+	</update>
+	
+	<update id="boardNoticeUpdate2" parameterType="com.healing.boardNotice.dto.BoardNoticeDto">
+		update
+			notice
+		set
+			notice_writer=#{notice_writer},
+			notice_title=#{notice_title},
+			notice_content=#{notice_content},
+			notice_file_name=#{notice_file_name},
+			notice_file_path=#{notice_file_path},
+			notice_file_size=#{notice_file_size}
+		where
+			notice_number=#{notice_number}
+	</update>
 </mapper>
-	

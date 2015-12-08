@@ -27,6 +27,12 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.healing" />
+	<context:component-scan base-package="com.java.aop"/>
+	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="defaultEncoding" value="utf-8"/>
+		<beans:property name="maxUploadSize" value="1024000"/>
+	</beans:bean>
 	
 	<aop:aspectj-autoproxy/>
 	
