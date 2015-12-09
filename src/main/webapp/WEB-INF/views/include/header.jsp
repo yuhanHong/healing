@@ -21,14 +21,7 @@
 </head>
 <body>
 	<div style="border:1px solid red; width:1250px">
-		<ul style="list-style-type:none ">
-			<li style="float:left">동남아시아여행</li>
-			<li style="float:left">인도여행</li>
-			<li style="float:left">베이징여행</li>
-			<li style="float:left">커뮤니티</li>
-			<li style="float:left">커뮤니티</li>
-			<li>커뮤니티</li>			
-		</ul>
+		<c:import url="../home.jsp"/>
 	</div>
 	<div style="border:1px solid blue; width:250px; height:800px; float:left">
 		<ul id="introduce" style="list-style-type:none;">

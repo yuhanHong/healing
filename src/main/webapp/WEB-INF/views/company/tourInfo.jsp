@@ -10,10 +10,12 @@
 <body>
 	<c:import url="../include/header.jsp"/>
 	<div id="auto_info" style="border:1px solid orange; margin-left:250px;width:1000px; height:800px">
-		<h3>회사소개</h3>
+		<h3 style="margin:20px">회사소개</h3>
 		<div style="border:1px solid skyblue; margin:20px;width:950px; height:500px; overflow:scroll">
 <pre>
-IMF를 겪으면서 시작한 투어야 여행사가 벌써 15년을 넘어 20년을 향해가고 있습니다.
+<h3>해외여행을 통해 고객님들께 힐링을 느끼도록 해드리겠습니다.</h3>
+
+IMF를 겪으면서 시작한 (주)힐링투어가 벌써 15년을 넘어 20년을 향해가고 있습니다.
 지나보면 많은 일들이 있었습니다.
 
 ‘알짜배기 유럽’ 책과 ‘유럽 5대박물관 미술관 음성해설서’를 내면서 부산에서 서울에 진출하여 지방에서 올라온 여행사로서는 

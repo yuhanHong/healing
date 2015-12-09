@@ -10,5 +10,6 @@
 <body>
 	<c:set var="root" value="${pageContext.request.contextPath}"/>
 	<a href="${root}/admin/infoInsert.do">회사정보 등록</a>
+	<a href="${root}/adminBanner/bannerInsert.do">관리자모드 - 추천상품등록</a>
 </body>
 </html>

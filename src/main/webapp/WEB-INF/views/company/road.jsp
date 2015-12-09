@@ -15,63 +15,56 @@
 <script type="text/javascript" src="${root}/js/xhr.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?"></script>
 <script type="text/javascript">
-	function toServer(){
-		var addr = $("#addr")[0].value;
-		//alert(addr);
-		
-		var url = "https://maps.googleapis.com/maps/api/geocode/json";
-		var params = "address="+addr+"&sensor=true";
-		
-		sendRequest("GET", url, fromServer, params);
-	}
-	
-	function fromServer(){
-		if(xhr.readyState == 4 && xhr.status == 200){
-			//alert(xhr.responseText);
-			processJson();
+	 function findRoad(){
+		// 1. 지도 로드하기(사용자 DomDocument에 지도 로딩)
+		var myLatlng = new google.maps.LatLng(37.402332, 127.107040);	 // 위도, 경도
+		var options = {
+				zoom: 15,
+				center: myLatlng,
+				mapTypeId: google.maps.MapTypeId.ROADMAP,		// 기본 - 로드맵 설정
+				//mapTypeId: google.maps.MapTypeId.TERRAIN,		// 지도 - 지형 체크설정
+				//scrollwheel: false
 		}
-	}
-	
-	function processJson(){
-		var obj = JSON.parse(xhr.responseText);
-		console.log(obj);
-		var lat = obj.results[0].geometry.location.lat;		// 위도
-		var lng = obj.results[0].geometry.location.lng;		// 경도
-		alert(lat + "," + lng);
+		var map = new google.maps.Map(document.getElementById("map"), options);
 		
-		/*var map = {
-			center: new google.maps.LatLng(lat, lng),
-			zoom: 14
-		};
-		new google.maps.Map(document.getElementById("map"), map);*/
-		
-		var map = 
-			new google.maps.Map(document.getElementById('map'), {
-			center: {lat: lat, lng: lng},		// lat : 위도, lng : 경도
-			zoom: 14,
-			mapTypeId: google.maps.MapTypeId.TERRAIN
-			//scrollwheel: false
+		// 2. 마커 사용하기(마커 생성)
+		var marker = new google.maps.Marker({
+			position: myLatlng,	 //{lat: 37.402332, lng: 127.107040},
+			map: map,
+			title: "힐링투어(Healing Tour)"
 		});
 		
-		var marker = new google.maps.Marker({
-			position: {lat: lat, lng: lng},
-			map: map,
-			title: obj.results[0].formatted_address
+		// 정보창에 들어갈 텍스트 내용
+		var contentString = "<div>"
+							+ "<span>여행사 이름 : </span><span style='width:150px'>힐링투어</span>"
+							+"</div><div>"
+							+ "<span>여행사 주소 : </span><span>경기도 성남시 분당구 삼평동 대왕판교로 670길 유스페이스2 B동 8층</span>"
+							+ "</div><div>"
+							+ "<span>전화번호 : </span><span>TEL. 070-5039-5802 ~ 10</span>"
+							+ "</div>";
+		
+		// 3. 정보창 사용하기(정보창 생성)
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
+		
+		// 4. 이벤트 사용하기(마커 클릭 시 정보창 활성화 이벤트 등록)
+		google.maps.event.addListener(marker, 'click', function(){
+			infowindow.open(map, marker);
 		});
 	}
 </script>
 </head>
-<body>
+<body onload="findRoad()">
 	<c:import url="../include/header.jsp"/>
 	
 	<div id="auto_info" style="border:1px solid orange; margin-left:250px;width:1000px; height:800px">
-		<h3> 찾아오시는길</h3>
-		
-		<input id="addr" type="text"/>
-		<input type="button" value="클릭" onclick="toServer()"/>
-		<br/><br/>
-		
-		<div id="map"></div>
+		<h3 style="margin:20px">찾아오시는 길</h3>
+		<div id="map" style="margin:20px"></div>
+		<div style="margin:20px">
+			<h3>[교통편]</h3>
+			신분당선 판교역 4번출구 ▶ 마을버스(602-1, 602-2, 71, 73, 75) ▶ H스퀘어(하이펙스) 하차 ▶ 도보로 5~10분 거리
+		</div>
 	</div>
 </body>
 </html>

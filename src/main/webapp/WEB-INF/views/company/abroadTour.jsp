@@ -11,13 +11,13 @@
 	<c:import url="../include/header.jsp"/>
 	
 	<div id="auto_info" style="border:1px solid orange; margin-left:250px;width:1000px; height:800px">
-		<h3>해외여행이용약관</h3>
+		<h3 style="margin:20px">해외여행이용약관</h3>
 		<div style="border:1px solid skyblue; margin:20px;width:950px; height:500px; overflow:scroll">
 			
 <pre>
 제 1조 (목적) 
 
-이 약관은 투어야여행사와 여행자가 체결한 국외여행계약의 세부 이행 및 준수사항을 정함을 목적으로 합니다. 
+이 약관은 (주)힐링투어와 여행자가 체결한 국외여행계약의 세부 이행 및 준수사항을 정함을 목적으로 합니다. 
 
 
 제 2조 (여행업자와 여행자 의무) 
