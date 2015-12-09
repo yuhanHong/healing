@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.healing.aop.HomeAspect;
+import com.healing.member.dto.MemberDto;
 import com.healing.order.dto.OrderDto;
+import com.healing.product.dto.ProductDto;
 
 @Component
 public class AdminOrderDaoImp implements AdminOrderDao {
@@ -80,5 +82,24 @@ public class AdminOrderDaoImp implements AdminOrderDao {
 		}
 		
 		return orderList;
+	}
+
+
+	@Override
+	public OrderDto adminOrderRead(int order_number) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("dao.adminOrderMapper.adminOrderRead",order_number);
+	}
+
+	@Override
+	public ProductDto adminProductRead(int product_number) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("dao.orderMapper.orderProductRead",product_number);
+	}
+
+	@Override
+	public MemberDto adminOrderMember(int member_number) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("dao.orderMapper.getMemberInfo",member_number);
 	}
 }

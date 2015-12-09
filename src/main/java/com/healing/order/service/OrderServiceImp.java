@@ -66,7 +66,7 @@ public class OrderServiceImp implements OrderService {
 		    
 		    orderDto=(OrderDto) map.get("orderDto");
 		    
-		    if(orderDto.getPayment_option().equals("card")){
+		    if(orderDto.getPayment_option().equals("카드")){
 		    	orderDto.setPayment_state("결제완료");
 		    }else{
 		    	orderDto.setPayment_state("입금전");

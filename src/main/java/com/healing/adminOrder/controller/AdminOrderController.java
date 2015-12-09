@@ -18,7 +18,7 @@ public class AdminOrderController {
 	private AdminOrderService adminOrderService;
 	
 	@RequestMapping(value="/adminOrder/adminOrder.do",method=RequestMethod.GET)
-	public ModelAndView AdminOrderSearch(HttpServletRequest request, HttpServletResponse response){
+	public ModelAndView adminOrderSearch(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);	
 		adminOrderService.adminOrderSearch(mav);
@@ -27,7 +27,7 @@ public class AdminOrderController {
 	}
 	
 	@RequestMapping(value="/adminOrder/adminOrderSearchOne.do",method=RequestMethod.GET)
-	public ModelAndView AdminOrderSearchOne(HttpServletRequest request, HttpServletResponse response){
+	public ModelAndView adminOrderSearchOne(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
 		adminOrderService.adminOrderSearchOne(mav);
@@ -35,10 +35,19 @@ public class AdminOrderController {
 	}
 	
 	@RequestMapping(value="/adminOrder/adminOrderSearchMulti.do",method=RequestMethod.GET)
-	public ModelAndView AdminOrderSearchMulti(HttpServletRequest request, HttpServletResponse response){
+	public ModelAndView adminOrderSearchMulti(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
 		adminOrderService.adminOrderSearchMulti(mav);
+		return mav;
+	}
+	
+	@RequestMapping(value="/adminOrder/adminOrderRead.do",method=RequestMethod.GET)
+	public ModelAndView adminOrderRead(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminOrderService.adminOrderRead(mav);
+		
 		return mav;
 	}
 }

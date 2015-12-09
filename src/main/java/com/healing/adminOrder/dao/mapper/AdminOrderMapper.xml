@@ -61,4 +61,8 @@
 	<select id="getadminOrderSearchMultiOrderGuest" parameterType="java.util.HashMap" resultType="com.healing.order.dto.OrderDto">
 		SELECT * FROM (select * from orders where order_date between to_date(#{start_date},'YYYY/MM/DD')AND to_date(#{end_date},'YYYY/MM/DD')+1) where member_number=1 order by order_number desc
 	</select>
+	
+	<select id="adminOrderRead" parameterType="int" resultType="com.healing.order.dto.OrderDto">
+		select * from orders where order_number=#{order_number}
+	</select>
 </mapper>

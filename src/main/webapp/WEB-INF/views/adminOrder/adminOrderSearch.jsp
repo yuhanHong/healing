@@ -54,7 +54,7 @@
 				<c:forEach var="orderDto" items="${orderList }">
 				<tr>
 					<td><fmt:formatDate value="${orderDto.order_date}" type="date"/> </td>
-					<td>${orderDto.order_number}</td>
+					<td><a href="javascript:orderAdminRead('${root}','${orderDto.order_number}')" >${orderDto.order_number}</a></td>
 					<td>${orderDto.order_name}</td>
 					<td>${orderDto.product_name}</td>
 					<td>성인 :${orderDto.order_adult}명<br/>아동 :${orderDto.order_child}명<br/>유아 :${orderDto.order_baby}명</td>

@@ -7,4 +7,5 @@ public interface AdminOrderService {
 	public void adminOrderSearch(ModelAndView mav);
 	public void adminOrderSearchOne(ModelAndView mav);
 	public void adminOrderSearchMulti(ModelAndView mav);
+	public void adminOrderRead(ModelAndView mav);
 }

@@ -50,9 +50,6 @@ function adminOrderSearch(root){
 	}
 }
 
-
-
-
 $(function() {	
 	 $( ".datepicker" ).datepicker({
 	      showOn: "button",
@@ -94,3 +91,9 @@ $(function() {
 	 }
 	 
  });
+
+function orderAdminRead(root,order_number){
+	url=root+"/adminOrder/adminOrderRead.do?order_number="+order_number;
+	var myWindow = window.open(url, "", "width=400, height=600, resizable=0");
+	
+}

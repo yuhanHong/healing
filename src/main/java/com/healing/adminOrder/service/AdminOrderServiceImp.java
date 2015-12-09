@@ -13,7 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.adminOrder.dao.AdminOrderDao;
 import com.healing.aop.HomeAspect;
+import com.healing.member.dto.MemberDto;
 import com.healing.order.dto.OrderDto;
+import com.healing.product.dto.ProductDto;
 
 @Component
 public class AdminOrderServiceImp implements AdminOrderService {
@@ -63,6 +65,24 @@ public class AdminOrderServiceImp implements AdminOrderService {
 		List<OrderDto> orderList=adminOrderDao.adminOrderSearchMulti(search_label,search_input,start_date,end_date);
 		mav.addObject("orderList", orderList);	    
 		mav.setViewName("adminOrder/adminOrderSearch");
+	}
+
+	@Override
+	public void adminOrderRead(ModelAndView mav) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map=mav.getModelMap();
+	    HttpServletRequest request = (HttpServletRequest) map.get("request");
+	    
+	    int order_number=Integer.parseInt(request.getParameter("order_number"));
+	    OrderDto orderDto=adminOrderDao.adminOrderRead(order_number);
+	    ProductDto productDto=adminOrderDao.adminProductRead(orderDto.getProduct_number());
+	    MemberDto memberDto=adminOrderDao.adminOrderMember(orderDto.getMember_number());
+	    
+	    mav.addObject("orderDto", orderDto);	    
+	    mav.addObject("productDto", productDto);	
+	    mav.addObject("memberDto", memberDto);	
+	    mav.setViewName("adminOrder/adminOrderRead");
+	
 	}
 	
 	
