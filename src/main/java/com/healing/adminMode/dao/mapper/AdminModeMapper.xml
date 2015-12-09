@@ -4,6 +4,16 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="dao.adminModeMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
+	<insert id="adminModeCreate" parameterType="com.healing.adminMode.dto.AdminModeDto">
+		insert into admin(admin_number,admin_name,admin_id,admin_password,admin_email,admin_level)
+		values(admin_admin_number_seq.nextval,#{admin_name},#{admin_id},#{admin_password},#{admin_email},#{admin_level})
+	</insert>
 	
+	<select id="adminModeLogin" parameterType="java.util.Map" resultType="com.healing.adminMode.dto.AdminModeDto">
+		select * from admin where admin_id=#{admin_id} and admin_password=#{admin_password}
+	</select>
+	
+	<select id="adminModeSelect" resultType="com.healing.adminMode.dto.AdminModeDto">
+		select * from admin
+	</select>
 </mapper>
-	

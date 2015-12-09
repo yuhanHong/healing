@@ -39,4 +39,13 @@
 	<select id="interestSelect" parameterType="int" resultType="com.healing.member.dto.InterestDto">
 		select * from interest where member_number=#{member_number}
 	</select>
+	
+	<update id="memberUpdate" parameterType="com.healing.member.dto.MemberDto">
+		update member set member_password=#{member_password},member_phone=#{member_phone},
+		member_email=#{member_email},member_email_check=#{member_email_check} where member_id=#{member_id}
+	</update>
+	
+	<delete id="interestDelete" parameterType="int">
+		delete from interest where member_number=#{member_number}
+	</delete>
 </mapper>

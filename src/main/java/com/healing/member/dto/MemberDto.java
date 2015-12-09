@@ -17,7 +17,7 @@ public class MemberDto {
 	private String member_email;
 	private String member_email_check;
 	private String member_level;
-	private int member_phone;
+	private String member_phone;
 	private Date member_date;
 	private int member_delete;
 	
@@ -63,10 +63,11 @@ public class MemberDto {
 	public void setMember_level(String member_level) {
 		this.member_level = member_level;
 	}
-	public int getMember_phone() {
+
+	public String getMember_phone() {
 		return this.member_phone;
 	}
-	public void setMember_phone(int member_phone) {
+	public void setMember_phone(String member_phone) {
 		this.member_phone = member_phone;
 	}
 	public Date getMember_date() {

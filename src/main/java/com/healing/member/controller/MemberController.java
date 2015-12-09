@@ -101,4 +101,16 @@ public class MemberController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value="/member/memberUpdateOk.do",method=RequestMethod.POST)
+	public ModelAndView memberUpdateOk(HttpServletRequest request, HttpServletResponse response,MemberDto memberDto, InterestDto interestDto){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("memberDto",memberDto);
+		mav.addObject("interestDto",interestDto);
+		memberService.memberUpdateOk(mav);
+		
+		return mav;
+	}
+	
 }

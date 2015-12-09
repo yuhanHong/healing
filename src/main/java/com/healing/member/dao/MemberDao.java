@@ -23,4 +23,8 @@ public interface MemberDao {
 	public MemberDto memberSelect2(String member_id);
 	
 	public List<InterestDto> interestSelect(int member_number);
+	
+	public int memberUpdate(MemberDto memberDto);
+	
+	public int interestDelete(int member_number);
 }

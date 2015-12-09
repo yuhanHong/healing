@@ -10,6 +10,7 @@
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/jquery-ui.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/member/memberJoin.css"/>
 <script type="text/javascript" src="${root}/js/memberScript/memberScript.js"></script>
  <script>
   $(function() {
@@ -18,42 +19,65 @@
   </script>
 </head>
 <body>
-<div>
-	<h3>회원가입</h3>
+<div id="joinTotal">
+	
+	<div id="minititle">member Join</div>
+	<div id="title">Healing 회원가입</div>
 	<form action="${root}/member/memberJoinOk.do" name="memberForm" method="POST" onsubmit="return joinForm(this)">
-		<div align="center">
-			<div id="memberId">
-				아이디
-				<input type="text" name="member_id" onkeypress="idCheck(memberForm,'${root}')" onkeyup="idCheck(memberForm,'${root}')"/>
-			</div>
-			<div>
-				비밀번호
-				<input type="password" name="member_password"/>
-			</div>
-			<div>
-				비밀번호확인
-				<input type="password" name="passwordCheck"/>
-			</div>
-			<div>
-				이름
-				<input type="text" name="member_name"/>
-			</div>
-			<div>
-				전화번호
-				<input type="text" name="member_phone"/>
-			</div>
-			<div>
-				e-mail
-				<input type="text" name="member_email"/>
+		<div>
+			<div id="memberSection">
+				<div id="memberId">
+					<div id="subj">아이디</div>
+					<div id="fieldDiv">
+						<input type="text" size="50" id="field" name="member_id" size="20" maxlength="10" onkeypress="idCheck(memberForm,'${root}')" onkeyup="idCheck(memberForm,'${root}')"/>
+					</div>
+					<div id="exFieldi">&nbsp;</div>
+				</div>
 				
-				수신동의&nbsp;
-				yes
-				<input type="radio" name="member_email_check" value="yes"/>
-				no
-				<input type="radio" name="member_email_check" value="no" checked="checked"/>
+				<div>
+					<div id="subj">비밀번호</div>
+					<div id="fieldDiv">
+						<input type="password" size="50" id="field" name="member_password"/>
+					</div>
+					<div id="exField">&nbsp;</div>
+				</div>
+				<div>
+					<div id="subj">비밀번호확인</div>
+					<div id="fieldDiv">
+						<input type="password" size="50" id="field" name="passwordCheck"/>
+					</div>
+					<div id="exField">&nbsp;</div>
+				</div>
+				<div>
+					<div id="subj">이름</div>
+					<div id="fieldDiv">
+						<input type="text" size="50" id="field" name="member_name"/>
+					</div>
+					<div id="exField">&nbsp;</div>
+				</div>
+				<div>
+					<div id="subj">전화번호</div>
+					<div id="fieldDiv">
+						<input type="text" size="50" id="field" name="member_phone"/>
+					</div>
+					<div id="exField">&nbsp;</div>
+				</div>
+				<div>
+					<div id="subj">이메일</div>
+					<div id="fieldDiv">
+						<input type="text" size="50" id="field" name="member_email"/>
+					</div>
+					<div id="exField">
+						수신동의&nbsp;
+						yes
+						<input type="radio" name="member_email_check" value="yes"/>
+						no
+						<input type="radio" name="member_email_check" value="no" checked="checked"/>
+					</div>
+				</div>
 			</div>
 			<br/>
-			<div id="tabs" style="width:500px;">
+			<div id="tabs" style="width:800px;">
 			  <ul>
 			    <li><a href="#tabs-1">동남아</a></li>
 			    <li><a href="#tabs-2">중국</a></li>

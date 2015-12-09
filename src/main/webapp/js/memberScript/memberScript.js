@@ -67,15 +67,15 @@ function idCheck(form,root){
 		success:function(data){
 			var result=data;
 			// alert(result);
-			
+			/*<div id="exField">*/
 			if(result=="same"){
-				$("#idCheck").remove();
-				var str="<div id='idCheck' style='color:red;'>사용이 불가능한 아이디 입니다.</div>";
-				$("#memberId").prepend(str);
+				$("#exFieldi").remove();
+				var str="<div id='exFieldi' style='color:red; font-size:12px;'>사용이 불가능한 아이디 입니다.</div>";
+				$("#memberId").append(str);
 			}else if(result=="ok"){
-				$("#idCheck").remove();
-				var str="<div id='idCheck' style='color:red;'>사용가능한 아이디 입니다.</div>";
-				$("#memberId").prepend(str);
+				$("#exFieldi").remove();
+				var str="<div id='exFieldi' style='color:red; font-size:12px;'>사용가능한 아이디 입니다.</div>";
+				$("#memberId").append(str);
 			}
 			
 		},

@@ -19,11 +19,13 @@
 </head>
 <body>
 	<h3>회원가입</h3>
-	<form action="${root}/member/memberJoinOk.do" name="memberForm" method="POST" onsubmit="return joinForm(this)">
+	<form action="${root}/member/memberUpdateOk.do" name="memberForm" method="POST" onsubmit="return joinForm(this)">
 		<div align="center">
 			<div id="memberId">
 				아이디
-				<input type="text" name="member_id" value="${memberDto.member_id}" disabled="disabled" onkeypress="idCheck(memberForm,'${root}')" onkeyup="idCheck(memberForm,'${root}')"/>
+				<input type="text" value="${memberDto.member_id}" disabled="disabled"/>
+				<input type="hidden" name="member_id" value="${memberDto.member_id}"/>
+				<input type="hidden" name="member_number" value="${member_number}"/>
 			</div>
 			<div>
 				비밀번호
@@ -82,23 +84,22 @@
 			    	<input type="checkbox" name="interest_content" value="오키나와"/>오키나와 &nbsp;&nbsp;
 				    <input type="checkbox" name="interest_content" value="훗카이도"/>훗카이도 &nbsp;&nbsp;
 			   		<input type="checkbox" name="interest_content" value="쿄토"/>쿄토 &nbsp;&nbsp;
+			   		
 			    </p>
 			  </div>
-			<%--    ${interestList.interest_content} --%>
-			<%--  <c:forEach var="interest" items="${interestList.interest_content}">
-				${interest.interest_content}
-				 <script type="text/javascript">
+			<c:forEach var="interest" items="${interestList}">
+				<script type="text/javascript">
 					for(var i=0;i<memberForm.interest_content.length;i++){
-						if(memberForm.interest_content[i].value=="${interest}"){
+						if(memberForm.interest_content[i].value=="${interest.interest_content}"){
 							memberForm.interest_content[i].checked=true;
 						}
 					}
 				</script>
-			</c:forEach> --%>
+			</c:forEach>
 			</div>
 			<div>
-				<input type="submit" value="가입"/>
-				<input type="reset" value="취소"/>
+				<input type="submit" value="수정"/>
+				<input type="button" onclick="location.href='${root}/'" value="취소"/>
 			</div>
 		</div>
 	</form>

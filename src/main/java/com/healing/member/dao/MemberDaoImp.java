@@ -92,4 +92,16 @@ public class MemberDaoImp implements MemberDao {
 		
 		return sessionTemplate.selectList("dao.memberMapper.interestSelect",member_number);
 	}
+
+	@Override
+	public int memberUpdate(MemberDto memberDto) {
+		
+		return sessionTemplate.update("dao.memberMapper.memberUpdate",memberDto);
+	}
+
+	@Override
+	public int interestDelete(int member_number) {
+		
+		return sessionTemplate.delete("dao.memberMapper.interestDelete",member_number);
+	}
 }

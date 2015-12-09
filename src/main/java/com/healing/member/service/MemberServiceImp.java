@@ -176,12 +176,46 @@ public class MemberServiceImp implements MemberService {
 		// String member_eamil=memberDto.getMember_email();
 		// HomeAspect.logger.info(HomeAspect.logMsg+"수정이메일:"+member_eamil);
 		// HomeAspect.logger.info(HomeAspect.logMsg+"수정회원번호:"+member_number);
-		// String interest=interestDto.getInterest_content();
-		// HomeAspect.logger.info(HomeAspect.logMsg+"수정관심:"+interest);
+		// HomeAspect.logger.info(HomeAspect.logMsg+"수정회원번호:"+interestList);
 		
 		mav.addObject("memberDto",memberDto);
 		mav.addObject("interestList",interestList);
 		
 		mav.setViewName("member/memberUpdate");
+	}
+
+	@Override
+	public void memberUpdateOk(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		MemberDto memberDto=(MemberDto)map.get("memberDto");
+		InterestDto interestDto=(InterestDto)map.get("interestDto");
+		
+		// String member_phone=memberDto.getMember_phone();
+		String interest=interestDto.getInterest_content();
+		int member_number=Integer.parseInt(request.getParameter("member_number"));
+		// HomeAspect.logger.info(HomeAspect.logMsg+"수정될 회원번호:"+member_number);
+		// HomeAspect.logger.info(HomeAspect.logMsg+"수정된정보:"+member_phone+","+interest_content);
+		
+		int check=memberDao.memberUpdate(memberDto);
+		// HomeAspect.logger.info(HomeAspect.logMsg+"수정체크1:"+check);
+		int value=0;
+		if(check>0){
+			int vlaue=memberDao.interestDelete(member_number);
+			// HomeAspect.logger.info(HomeAspect.logMsg+"관심삭제체크:"+vlaue);
+			value=1;
+		}
+		// HomeAspect.logger.info(HomeAspect.logMsg+"관심삭제체크:"+value);
+		
+		if(value>0 && interest!=null){     // 만약 회원수정이 정상적으로 이루어지고 관심여행지를 선택했다면
+			String result[]=interest.split(",");     // 스플릿으로 하나씩 뽑는다
+			for(int i=0;i<result.length;i++){              // 선택한 모든 관심정보를 for문으로 하나씩 넣는다
+				String interest_content=result[i];
+				int value2=memberDao.InterestInsert(interest_content,member_number); // 관심정보를 DB에 넣는다.
+				HomeAspect.logger.info(HomeAspect.logMsg+"관심여행지 체크:"+value2);
+			}
+		}
+		mav.addObject("check",check);
+		mav.setViewName("member/memberupdateOk");
 	}
 }

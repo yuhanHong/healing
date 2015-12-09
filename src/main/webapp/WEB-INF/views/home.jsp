@@ -62,7 +62,7 @@ $(function(){
 	<a href="${root}/">초기화면</a>
 	<a href="${root}/board/list.do">게시판입니다</a>
 	<a href="${root}/fileBoard/list.do">파일게시판</a>
-	<c:if test="${memberDto.member_id==null}">
+	<c:if test="${member_id==null}">
 		<a href="${root}/member/memberJoin.do">회원가입 입니다</a>
 		<a href="#" id="login">로그인</a>
 		<div id="loginPage" style="display:none" title="로그인">
@@ -97,5 +97,10 @@ $(function(){
 	<div>
 		${member_name}님 환영합니다.
 	</div>
+	   <br/><br/>
+   <a href = "${root}/boardNotice/write.do">Notice 게시판 write</a>
+	<a href = "${root}/boardNotice/list.do">Notice 게시판 list</a>
+	 <br/><br/>
+	<a href = "${root}/adminHome.do">관리자 시작지점</a>
 </body>
 </html>
