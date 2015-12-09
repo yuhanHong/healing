@@ -101,5 +101,7 @@ $(function(){
    <br/><br/>
    <a href = "${root}/boardNotice/write.do">Notice 게시판 write</a>
 	<a href = "${root}/boardNotice/list.do">Notice 게시판 list</a>
+	
+	<a href = "${root}/boardQna/list.do">Q&A 게시판 list</a>
 </body>
 </html>

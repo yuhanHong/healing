@@ -5,5 +5,39 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="dao.boardQnaMapper">
+	<select id="boardQnaGetMaxNumber" resultType="int">
+		select nvl(max(qna_group_number),0) from qna
+	</select>
 	
+	<update id="boardQnaNumberUpdate" parameterType="com.healing.boardQna.dto.BoardQnaDto">
+		update 
+			qna
+		set
+			qna_sequence_number = 1
+		where
+			qna_group_number = #{qna_group_number}
+	</update>
+	
+	<insert id="boardQnaInsert" parameterType="com.healing.boardQna.dto.BoardQnaDto">
+		insert into
+			qna(qna_number, qna_sort, qna_title, qna_content, qna_writer, qna_date, qna_password,
+				qna_group_number, qna_sequence_number, qna_readCount)
+		values
+			(qna_qna_number_seq.nextval, #{qna_sort}, #{qna_title}, #{qna_content}, #{qna_writer}, #{qna_date},
+			#{qna_password}, #{qna_group_number}, #{qna_sequence_number}, #{qna_readCount})
+	</insert>
+	
+	<select id="boardQnaGetCount" resultType="int">
+		select count(*) from qna
+	</select>
+	
+	<select id="boardQnaGetList" parameterType="java.util.HashMap" resultType="com.healing.boardQna.dto.BoardQnaDto">
+		<![CDATA[
+		select * from
+			(select rownum rnum, g.* from
+			(select * from qna order by qna_number desc) g)
+		where
+			rnum between #{startRow} and #{endRow}
+		]]>
+	</select>
 </mapper>

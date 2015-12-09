@@ -12,9 +12,16 @@ public class BoardQnaDto {
 	private String qna_password;
 	private int qna_group_number;
 	private int qna_sequence_number;
+	private int qna_readCount;
 	
 	public int getQna_number() {
 		return qna_number;
+	}
+	public int getQna_readCount() {
+		return qna_readCount;
+	}
+	public void setQna_readCount(int qna_readCount) {
+		this.qna_readCount = qna_readCount;
 	}
 	public void setQna_number(int qna_number) {
 		this.qna_number = qna_number;

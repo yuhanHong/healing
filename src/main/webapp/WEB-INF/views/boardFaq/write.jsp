@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Notice 게시판 글작성</title>
+<title>FAQ 게시판 글작성</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<link rel="stylesheet" type="text/css" href="${root}/css/boardNotice/board.css"/>
-<script type="text/javascript" src="${root}/js/boardNotice/boardNoticeWrite.js"></script>
+<link rel="stylesheet" type="text/css" href=""/>
+<script type="text/javascript" src=""></script>
 </head>
 <body>
 	<div >
@@ -24,43 +24,42 @@
 			</div>
 		</div>
 		<div class="boardContent">
-			<div>공지사항 작성</div>
+			<div>자주 묻는 질문 작성</div>
 			<hr>
-			<form class="" action="${root}/boardNotice/write.do" method="post" onsubmit="return boardNoticeForm(this)" enctype="multipart/form-data">
-				<input type = "hidden" name = "notice_number" value = "${notice_number}"/>
+			<form class="" action="${root}/boardFaq/write.do" method="post" onsubmit="return boardFaqForm(this)">
+				<input type = "hidden" name = "faq_number" value = "${faq_number}"/>
 				
 				<div class="line">
-					<label class="title">작성자</label>
+					<label class="title">구분</label>
 					<span class="content">
-						<input type="text" name="notice_writer"/>
+						<input type="radio" name="faq_sort" value="package" checked="checked">패키지여행
+						<input type="radio" name="faq_sort" value="free">자유여행
+						<input type="radio" name="faq_sort" value="air">항공
+						<input type="radio" name="faq_sort" value="hotel">호텔
+						<input type="radio" name="faq_sort" value="reservation">예약/결제
+						<input type="radio" name="faq_sort" value="homepage">홈페이지
+						<input type="radio" name="faq_sort" value="etc">기타
 					</span>
 				</div>
 				
 				<div class="line">
 					<label class="title">제목</label>
 					<span class="content">
-						<input type="text" name="notice_title"/>
+						<input type="text" name="faq_title"/>
 					</span>
 				</div>
 			
 				<div class="line" style="height:230px;">
 					<label class="title" style="height:230px;">내용</label>
 					<span class="content" style="height:230px;">
-						<textarea rows="14" cols="67" name="notice_content"></textarea>
-					</span>
-				</div>
-				
-				<div class="line">
-					<label class="title">파일명</label>
-					<span class="content">
-						<input type="file" name="file"/>
+						<textarea rows="14" cols="67" name="faq_content"></textarea>
 					</span>
 				</div>
 				
 				<div class="line" style="width:598px; border-width:2px; text-align:center;">
 					<input type="submit" value="등록"/>
 					<input type="reset" value="취소"/>
-					<input type="button" value="목록보기" onclick="location.href='${root}/boardNotice/list.do?pageNumber=${currentPage}'"/>
+					<input type="button" value="목록보기" onclick="location.href='${root}/boardFaq/list.do'"/>
 				</div>		
 			</form>
 		</div>

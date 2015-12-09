@@ -5,5 +5,50 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="dao.boardFaqMapper">
+	<insert id="boardFaqWriteInsert" parameterType="com.healing.boardFaq.dto.BoardFaqDto">
+		insert into
+			faq(faq_number, faq_sort, faq_title, faq_content)
+		values
+			(faq_faq_number_seq.nextval, #{faq_sort}, #{faq_title}, #{faq_content})
+	</insert>
 	
+	<select id="boardFaqGetCount" parameterType="String" resultType="int">
+		select count(*) from faq where faq_sort = #{faq_sort}
+	</select>
+	
+	<select id="boardFaqGetCountSearch" parameterType="String" resultType="int">
+		SELECT count(*) FROM faq WHERE faq_title LIKE '%' || #{searchWord} || '%'
+	</select>
+	
+	<select id="boardFaqGetList" parameterType="String" resultType="com.healing.boardFaq.dto.BoardFaqDto">
+		SELECT * FROM
+			(SELECT ROWNUM rnum, g.* FROM
+			(select * from faq where faq_sort = #{faq_sort} order by faq_number desc) g)
+	</select>
+	
+	<select id="boardFaqGetListSearch" parameterType="String" resultType="com.healing.boardFaq.dto.BoardFaqDto">
+		SELECT * FROM
+			(SELECT ROWNUM rnum, g.* FROM
+			(select * from faq where faq_title LIKE '%' || #{searchWord} || '%' 
+														order by faq_number desc) g)
+	</select>
+	
+	<delete id="boardFaqDelete" parameterType="int">
+		delete from faq where faq_number=#{faq_number}
+	</delete>
+	
+	<select id="boardFaqSelect" parameterType="int" resultType="com.healing.boardFaq.dto.BoardFaqDto">
+		select * from faq where faq_number=#{faq_number}
+	</select>
+	
+	<update id="boardFaqUpdate" parameterType="com.healing.boardFaq.dto.BoardFaqDto">
+		update
+			faq
+		set
+			faq_sort=#{faq_sort}, 
+			faq_title=#{faq_title}, 
+			faq_content=#{faq_content}
+		where 
+			faq_number = #{faq_number}
+	</update>
 </mapper>

@@ -34,8 +34,13 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		
 		int notice_number = 0;
 		
+		String pageNumber = request.getParameter("pageNumber");
+		if(pageNumber==null) pageNumber = "1";
+		int currentPage = Integer.parseInt(pageNumber);
+		
 		HomeAspect.logger.info(HomeAspect.logMsg+notice_number);
 		
+		mav.addObject("currentPage", currentPage);
 		mav.addObject("notice_number", notice_number);
 		mav.setViewName("/boardNotice/write");
 	}
@@ -48,6 +53,7 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		
 		boardNoticeDto.setNotice_readCount(0);
 		boardNoticeDto.setNotice_date(new Date());
+		boardNoticeDto.setNotice_content(boardNoticeDto.getNotice_content().replace("\r\n", "<br/>"));
 		
 		MultipartFile upFile = request.getFile("file");
 		String fileName=Long.toString(System.currentTimeMillis())+"_"+upFile.getOriginalFilename();
@@ -55,7 +61,7 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		HomeAspect.logger.info(HomeAspect.logMsg+fileName+","+fileSize);
 		
 		if(fileSize != 0){
-			File path= new File("C:\\noticePhoto\\");
+			File path= new File("C:\\healing\\workspace\\healing\\src\\main\\webapp\\resources\\noticePhoto");
 			path.mkdir();
 			
 			if(path.exists() && path.isDirectory()){
@@ -227,6 +233,8 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 			boardNoticeDto.setNotice_file_name(boardNoticeDto.getNotice_file_name().substring(index));
 		}
 		
+		boardNoticeDto.setNotice_content(boardNoticeDto.getNotice_content().replace("<br/>", "\r\n"));
+		
 		mav.addObject("boardNoticeDto",boardNoticeDto);
 		mav.addObject("pageNumber",pageNumber);
 		
@@ -245,7 +253,7 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		HomeAspect.logger.info(HomeAspect.logMsg+fileName+","+fileSize);
 		
 		if(fileSize != 0){
-			File path= new File("C:\\noticePhoto\\");
+			File path= new File("C:\\healing\\workspace\\healing\\src\\main\\webapp\\resources\\noticePhoto");
 			path.mkdirs();
 
 			if(path.exists() && path.isDirectory()){
@@ -278,6 +286,8 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		HomeAspect.logger.info(HomeAspect.logMsg+"notice_file_name:"+boardNoticeDto.getNotice_file_name());
 		HomeAspect.logger.info(HomeAspect.logMsg+"notice_file_path:"+boardNoticeDto.getNotice_file_path());
 		HomeAspect.logger.info(HomeAspect.logMsg+"notice_file_size:"+boardNoticeDto.getNotice_file_size());
+		
+		boardNoticeDto.setNotice_content(boardNoticeDto.getNotice_content().replace("\r\n", "<br/>"));
 		
 		int check = boardNoticeDao.boardNoticeUpdate(boardNoticeDto);
 		HomeAspect.logger.info(HomeAspect.logMsg+check);
