@@ -14,6 +14,7 @@
 </head>
 <body>
 <jsp:include page="../home.jsp"/>
+<hr/>
 	<form id="orderForm" action="${root}/order/write.do"  method ="post" onsubmit="return orderCheck(this,'${root}')">
 		<div id="orderPage">
 			<!-- Page Info -->

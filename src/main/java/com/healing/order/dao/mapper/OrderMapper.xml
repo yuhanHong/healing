@@ -10,7 +10,7 @@
 	</select>
 	
 	<insert id="orderInsert" parameterType="com.healing.order.dto.OrderDto">
-		insert into orders values(orders_order_number_seq.nextval,#{member_number},#{product_number},#{order_money},sysdate,#{order_price_adult},#{order_price_child},#{order_price_baby},#{order_adult},#{order_child},#{order_baby}	,#{payment_option}	,#{payment_state}	,#{order_name}	,#{order_email}	,#{order_phone},sysdate)	
+		insert into orders values(orders_order_number_seq.nextval,#{member_number},#{product_number},#{order_money},sysdate,#{order_price_adult},#{order_price_child},#{order_price_baby},#{order_adult},#{order_child},#{order_baby}	,#{payment_option}	,#{payment_state}	,#{order_name}	,#{order_email}	,#{order_phone},sysdate,#{product_name})	
 	</insert>
 	
 	<select id="getNewOrderDto" parameterType="int" resultType="com.healing.order.dto.OrderDto">

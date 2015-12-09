@@ -48,17 +48,17 @@ $(function() {
 	 var baby_money=0;
 	 
 	 $("#adult").click(function(){
-		adult_money=$("#hiddenInfo").children().eq(2).val()*$("#adult").val();
+		adult_money=$("#hiddenInfo").children().eq(1).val()*$("#adult").val();
 		$("#order_adult").val($("#adult").val());
 		resultFun();
 	});
 	 $("#child").click(function(){
-		 child_money=$("#hiddenInfo").children().eq(3).val()*$("#child").val();
+		 child_money=$("#hiddenInfo").children().eq(2).val()*$("#child").val();
 		 $("#order_child").val($("#child").val());
 		 resultFun();
 	});
 	 $("#baby").click(function(){
-		 baby_money=$("#hiddenInfo").children().eq(4).val()*$("#baby").val();
+		 baby_money=$("#hiddenInfo").children().eq(3).val()*$("#baby").val();
 		 $("#order_baby").val($("#baby").val());
 		 resultFun();
 	});

@@ -19,8 +19,26 @@ public class AdminOrderController {
 	
 	@RequestMapping(value="/adminOrder/adminOrder.do",method=RequestMethod.GET)
 	public ModelAndView AdminOrderSearch(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);	
+		adminOrderService.adminOrderSearch(mav);
 				
-		return new ModelAndView("adminOrder/adminOrderSearch");
+		return mav;
 	}
 	
+	@RequestMapping(value="/adminOrder/adminOrderSearchOne.do",method=RequestMethod.GET)
+	public ModelAndView AdminOrderSearchOne(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminOrderService.adminOrderSearchOne(mav);
+		return mav;
+	}
+	
+	@RequestMapping(value="/adminOrder/adminOrderSearchMulti.do",method=RequestMethod.GET)
+	public ModelAndView AdminOrderSearchMulti(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminOrderService.adminOrderSearchMulti(mav);
+		return mav;
+	}
 }

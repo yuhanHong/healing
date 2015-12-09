@@ -30,7 +30,14 @@ public class OrderDto {
 	private String order_email;
 	private String order_phone;
 	private Date start_time;
+	private String product_name;
 	
+	public String getProduct_name() {
+		return product_name;
+	}
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
 	public Date getStart_time() {
 		return start_time;
 	}

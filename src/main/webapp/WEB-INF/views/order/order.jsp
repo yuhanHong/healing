@@ -17,6 +17,7 @@
 </head>
 <body>
 <jsp:include page="../home.jsp"/>
+<hr/>
 	<form id="orderForm" action="${root}/order/write.do"  method ="post" onsubmit="return orderCheck(this,'${root}')">
 		<div id="orderPage">
 			<!-- Page Info -->
@@ -39,6 +40,7 @@
 				<input id="order_adult" type="hidden" name="order_adult" value="0"/>
 				<input id="order_child" type="hidden" name="order_child"value="0"/>
 				<input id="order_baby" type="hidden" name="order_baby"value="0"/>
+				<input type="hidden" name="product_name" value="${productDto.product_name}"/>	
 			</div>
 			<div class="orderDiv">
 							

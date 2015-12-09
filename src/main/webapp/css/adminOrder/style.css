@@ -9,26 +9,23 @@
 	text-align: left;
 	margin-bottom: 30px;
 }
-#orderPage{
-	width :940px;
+#adminOrderSearch{
+	border: 1px solid red;
+	width :700px;
 	margin:1px auto;
 	
 }
 
-#productInfo{
+#adminSearchTable{
 	border: 1px solid gray;
 	background-color: lightgray;
 	height: 150px;
-	width :600px;
+	
 	margin:1px auto;
 }
-#tabs{
-	margin:1px auto;
-	width:930px;
-	font-size: 11px;
-	height: 500px;
-	overflow : hidden;
-	text-align: left;
+.adminSearchDiv{
+	margin-top: 10px;
+	margin-left: 10px;
 }
 
 #tabsDiv{
@@ -36,13 +33,11 @@
 	height: 470px;
 }
 
-.stipulationType1{
-	 border:0;
-	 width:auto;
-	 height:auto; 
-	 overflow:visible; 
-	 padding:10px 10px; 
-	 font-size: 12px;"
+#search_result{
+	text-align: center;
+	border: 2px solid red;
+	font-size: 13px;
+	width:800
 }
 
 .orderDiv{
