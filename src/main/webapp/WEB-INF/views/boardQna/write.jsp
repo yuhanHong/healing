@@ -16,6 +16,7 @@
 				$(".is-check").css("display", "block");
 			}else{
 				$(".is-check").css("display", "none");
+				$("input[name='qna_password']").val("");	// 체크박스 해제 시 작성했던 비밀번호도 지워짐
 			}
 		});
 	});
@@ -43,47 +44,75 @@
 				<input type = "hidden" name = "qna_sequence_number" value = "${qna_sequence_number}"/>
 				<input type = "hidden" name = "pageNumber" value = "${currentPage}"/>
 				
-				<!-- 만약 회원인 경우 작성자를 자동 입력, 비회원인 경우 직접 입력 -->
 				<div class="line">
 					<label class="title">작성자</label>		
 					<span class="content">
-						<input type="text" name="qna_writer"/>
+						<input type="text" name="qna_writer"
+						<c:if test="${qna_number>0}">value="관리자" disabled="disabled"</c:if>/>
+						<c:if test="${qna_number>0}"> 
+							<input type="hidden" name="qna_writer" value="관리자"/>
+						</c:if>
 					</span>
 				</div>
 				
 				<div class="line">
 					<label class="title">제목</label>
 					<span class="content">
-						<input type="text" name="qna_title"/>
+						<input type="text" name="qna_title"
+						<c:if test="${qna_number>0}">value="[답글]${boardQnaDto.qna_title}" disabled="disabled"</c:if>  />
+						<c:if test="${qna_number>0}"> 
+							<input type="hidden" name="qna_title" value="${boardQnaDto.qna_title}"/>
+						</c:if>
 					</span>
 				</div>
 				
-				<div class="line">
-					<div>
-						<label class="title">비공개 여부</label>
+				<c:if test="${qna_number==0}">		<!-- 답변글이 아닌 경우만 비밀번호 입력 받을 수 있음 -->
+					<div class="line">
+						<div>
+							<label class="title">비공개 여부</label>
+							<span class="content">
+								<input type="checkbox" name="chk_pwd" value="chk_pwd"/> 비공개로 하기
+							</span>
+						</div>
+						
+						<div class="is-check">
+							<label class="title">비밀번호</label>
+							<span class="content">
+								<input type="text" name="qna_password"/>
+							</span>
+						</div>
+					</div>
+				</c:if>
+				
+				<!-- 답변글일 경우 비밀번호를 null 값으로 자동 전달한다. -->
+				<c:if test="${qna_number>0}">
+					<input type="hidden" name="qna_password"/>
+				</c:if>
+				
+				<c:if test="${qna_number==0}">
+					<div class="line">
+						<label class="title">문의 구분</label>
 						<span class="content">
-							<input type="checkbox" name="chk_pwd" value="chk_pwd"/> 비공개로 하기
+							<input type="radio" name="qna_sort" value="reservation" checked="checked">예약
+							<input type="radio" name="qna_sort" value="payment">결제
+							<input type="radio" name="qna_sort" value="product">상품
+							<input type="radio" name="qna_sort" value="etc">기타
 						</span>
 					</div>
-					
-					<div class="is-check">
-						<label class="title">비밀번호</label>
+				</c:if>
+				
+				<c:if test="${qna_number>0}">
+					<div class="line">
+						<label class="title">문의 구분</label>
 						<span class="content">
-							<input type="text" name="qna_password"/>
+							<input type="radio" name="qna_sort" value="reservation" <c:if test="${boardQnaDto.qna_sort eq 'reservation'}">checked="checked"</c:if>>예약
+							<input type="radio" name="qna_sort" value="payment" <c:if test="${boardQnaDto.qna_sort eq 'payment'}">checked="checked"</c:if>>결제 
+							<input type="radio" name="qna_sort" value="product" <c:if test="${boardQnaDto.qna_sort eq 'product'}">checked="checked"</c:if>>상품
+							<input type="radio" name="qna_sort" value="etc" <c:if test="${boardQnaDto.qna_sort eq 'etc'}">checked="checked"</c:if>>기타
 						</span>
 					</div>
-				</div>
-			
-				<div class="line">
-					<label class="title">문의 구분</label>
-					<span class="content">
-						<input type="radio" name="qna_sort" value="reservation" checked="checked">예약
-						<input type="radio" name="qna_sort" value="payment">결제
-						<input type="radio" name="qna_sort" value="product">상품
-						<input type="radio" name="qna_sort" value="etc">기타
-					</span>
-				</div>
-			
+				</c:if>
+				
 				<div class="line" style="height:230px;">
 					<label class="title" style="height:230px;">내용</label>
 					<span class="content" style="height:230px;">

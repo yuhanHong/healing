@@ -157,15 +157,8 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		HomeAspect.logger.info(HomeAspect.logMsg+searchSort+","+searchWord);
 		
 		List<BoardNoticeDto> boardNoticeList = null;
-		if(searchSort == null || searchSort.equals("")){
-			boardNoticeList = boardNoticeDao.boardNoticeReadSelect(notice_number, searchWord, searchSort);
-		}else{
-			if(searchSort.equals("titleSort")){	
-				boardNoticeList = boardNoticeDao.boardNoticeReadSelect(notice_number, searchWord, searchSort);
-			}else if(searchSort.equals("contentSort")){
-				boardNoticeList = boardNoticeDao.boardNoticeReadSelect(notice_number, searchWord, searchSort);
-			}
-		}
+		
+		boardNoticeList = boardNoticeDao.boardNoticeReadSelect(notice_number, searchWord, searchSort);
 		HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeList.size());
 		
 		BoardNoticeDto boardNoticeDto = boardNoticeList.get(0);

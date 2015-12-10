@@ -13,7 +13,14 @@ public class BoardQnaDto {
 	private int qna_group_number;
 	private int qna_sequence_number;
 	private int qna_readCount;
+	private int qna_reply;
 	
+	public int getQna_reply() {
+		return qna_reply;
+	}
+	public void setQna_reply(int qna_reply) {
+		this.qna_reply = qna_reply;
+	}
 	public int getQna_number() {
 		return qna_number;
 	}

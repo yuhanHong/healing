@@ -8,28 +8,26 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<link rel="stylesheet" type="text/css" href="${root}/css/boardNotice/board.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/boardNotice/boardNotice.css"/>
+<script type="text/javascript" src="${root}/js/boardNotice/boardNotice.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type = "text/javascript">
-function readFunc(notice_number, currentPage, root, searchSort, searchWord){
-	var url = root+"/boardNotice/read.do?notice_number="+notice_number+"&pageNumber="+currentPage+"&searchSort="+searchSort+"&searchWord="+searchWord;
-	//alert(url);
-	location.href = url;
-}
-
-function boardNoticeSearch(root){
-	var searchWord = $("input[name='search']").val();
-	var searchSort = $("select[name='sorting']").val();
-	//alert(searchWord+","+searchSort);
-	var url = root+"/boardNotice/list.do?searchWord="+searchWord+"&searchSort="+searchSort;
-	location.href= url;
-}
 </script>
 </head>
 <body>
-	<div>
-		<div><a href="${root}/boardNotice/write.do">공지사항 등록</a></div>
-		<div>공지사항</div>
+	<div class="Outline">
+		
+		<div>
+			<div>
+				<img src="http://localhost:8181/main/resources/boardNoticeImg/img01.PNG" align="center">
+				<span >공지사항</span>
+			</div>
+			
+			<c:if test="${memberLevel=='AA'}">
+				<div style="margin-left: 780px;"><a href="${root}/boardNotice/write.do">공지사항 등록</a></div>
+			</c:if>
+		</div>
+		
 		<c:if test="${count==0}">
 			<div class = "board_title">
 				<ul>

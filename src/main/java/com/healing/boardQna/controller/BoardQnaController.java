@@ -41,4 +41,37 @@ public class BoardQnaController {
 		boardQnaService.boardQnaList(mav);
 		return mav; 
 	}
+	
+	@RequestMapping(value="/boardQna/read.do", method=RequestMethod.GET)
+	public ModelAndView boardQnaRead(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request",request);
+		boardQnaService.boardQnaRead(mav);
+		return mav; 
+	}
+	
+	@RequestMapping(value="/boardQna/delete.do", method=RequestMethod.GET)
+	public ModelAndView boardQnaDelete(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request",request);
+		boardQnaService.boardQnaDelete(mav);
+		return mav; 
+	}
+	
+	@RequestMapping(value="/boardQna/update.do", method=RequestMethod.GET)
+	public ModelAndView boardQnaUpdate(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request",request);
+		boardQnaService.boardQnaUpdate(mav);
+		return mav; 
+	}
+	
+	@RequestMapping(value="/boardQna/update.do", method=RequestMethod.POST)
+	public ModelAndView boardQnaUpdateOk(HttpServletRequest request, HttpServletResponse response, BoardQnaDto boardQnaDto){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("boardQnaDto",boardQnaDto);
+		boardQnaService.boardQnaUpdateOk(mav);
+		return mav; 
+	}
 }

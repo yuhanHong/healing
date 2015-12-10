@@ -10,20 +10,8 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <link rel="stylesheet" type="text/css" href=""/>
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
+<script type="text/javascript" src="${root}/js/boardQna/boardQna.js"></script>
 <script type = "text/javascript">
-function readFunc(notice_number, currentPage, root, searchSort, searchWord){
-	var url = root+"/boardNotice/read.do?notice_number="+notice_number+"&pageNumber="+currentPage+"&searchSort="+searchSort+"&searchWord="+searchWord;
-	//alert(url);
-	location.href = url;
-}
-
-function boardNoticeSearch(root){
-	var searchWord = $("input[name='search']").val();
-	var searchSort = $("select[name='sorting']").val();
-	//alert(searchWord+","+searchSort);
-	var url = root+"/boardNotice/list.do?searchWord="+searchWord+"&searchSort="+searchSort;
-	location.href= url;
-}
 </script>
 </head>
 <body>
@@ -62,16 +50,19 @@ function boardNoticeSearch(root){
 						<li>${boardQnaDto.qna_number}</li>
 						<li>${boardQnaDto.qna_sort}</li>
 						<li>
-							<a href="javascript:readFunc('${boardQnaDto.qna_number}','${currentPage}','${root}','${searchSort}','${searchWord}')">
+							<a href="javascript:readFunc('${root}', '${boardQnaDto.qna_password}','${boardQnaDto.qna_number}','${currentPage}','${searchSort}','${searchWord}')">
 								${boardQnaDto.qna_title}
 							</a>
 						</li>
 						<li>${boardQnaDto.qna_writer}</li>
 						<li><fmt:formatDate value="${boardQnaDto.qna_date}" type="date"/></li>
-						<c:if test="">
-							<li></li>
+						<c:if test="${boardQnaDto.qna_reply == 1}">
+							<li>답변완료</li>
 						</c:if>
 						
+						<c:if test="${boardQnaDto.qna_reply == 0}">
+							<li>답변미완료</li>
+						</c:if>
 					</ul>
 				</div>
 			</c:forEach>
@@ -79,56 +70,44 @@ function boardNoticeSearch(root){
 		
 		
 		<div align = "center">
-			<c:if test="${searchWord == null }">
-				<c:if test="${count>0}">
-					<c:set var="pageBlock" value="${3}"/>
-					<c:set var="pageCount" value="${count/boardSize + (count%boardSize==0?0:1)}"/>
+			<c:if test="${count>0}">
+				<c:set var="pageBlock" value="${3}"/>
+				<c:set var="pageCount" value="${count/boardSize + (count%boardSize==0?0:1)}"/>
 				
-					<fmt:parseNumber var="result" value="${(currentPage-1)/pageBlock}" integerOnly="true"/>
-					<c:set var="startPage" value="${result*pageBlock+1}"/>
-					<c:set var="endPage" value="${startPage+pageBlock-1}"/>
+				<fmt:parseNumber var="result" value="${(currentPage-1)/pageBlock}" integerOnly="true"/>
+				<c:set var="startPage" value="${result*pageBlock+1}"/>
+				<c:set var="endPage" value="${startPage+pageBlock-1}"/>
 				
-					<c:if test="${endPage > pageCount}">
-						<c:set var="endPage" value="${pageCount}"/>
-					</c:if>
+				<c:if test="${endPage > pageCount}">
+					<c:set var="endPage" value="${pageCount}"/>
+				</c:if>
+				
+				<c:if test="${searchWord == null }">
 				
 					<c:if test="${startPage > pageBlock}">
-						<a href="${root}/boardNotice/list.do?pageNumber=${startPage-pageBlock}">[이전]</a>
+						<a href="${root}/boardQna/list.do?pageNumber=${startPage-pageBlock}">[이전]</a>
 					</c:if>
 				
 					<c:forEach var="i" begin="${startPage}" end="${endPage}">
-						<a href="${root}/boardNotice/list.do?pageNumber=${i}">[${i}]</a>
+						<a href="${root}/boardQna/list.do?pageNumber=${i}">[${i}]</a>
 					</c:forEach>
 					
 					<c:if test="${endPage < pageCount}">
-						<a href="${root}/boardNotice/list.do?pageNumber=${startPage+pageBlock}">[다음]</a>
+						<a href="${root}/boardQna/list.do?pageNumber=${startPage+pageBlock}">[다음]</a>
 					</c:if>
 				</c:if>
-			</c:if>
-			
-			<c:if test="${searchWord != null }">
-				<c:if test="${count>0}">
-					<c:set var="pageBlock" value="${3}"/>
-					<c:set var="pageCount" value="${count/boardSize + (count%boardSize==0?0:1)}"/>
 				
-					<fmt:parseNumber var="result" value="${(currentPage-1)/pageBlock}" integerOnly="true"/>
-					<c:set var="startPage" value="${result*pageBlock+1}"/>
-					<c:set var="endPage" value="${startPage+pageBlock-1}"/>
-				
-					<c:if test="${endPage > pageCount}">
-						<c:set var="endPage" value="${pageCount}"/>
-					</c:if>
-				
+				<c:if test="${searchWord != null }">
 					<c:if test="${startPage > pageBlock}">
-						<a href="${root}/boardNotice/list.do?pageNumber=${startPage-pageBlock}&searchWord=${searchWord}&searchSort=${searchSort}">[이전]</a>
+						<a href="${root}/boardQna/list.do?pageNumber=${startPage-pageBlock}&searchWord=${searchWord}&searchSort=${searchSort}">[이전]</a>
 					</c:if>
 				
 					<c:forEach var="i" begin="${startPage}" end="${endPage}">
-						<a href="${root}/boardNotice/list.do?pageNumber=${i}&searchWord=${searchWord}&searchSort=${searchSort}">[${i}]</a>
+						<a href="${root}/boardQna/list.do?pageNumber=${i}&searchWord=${searchWord}&searchSort=${searchSort}">[${i}]</a>
 					</c:forEach>
 					
 					<c:if test="${endPage < pageCount}">
-						<a href="${root}/boardNotice/list.do?pageNumber=${startPage+pageBlock}&searchWord=${searchWord}&searchSort=${searchSort}">[다음]</a>
+						<a href="${root}/boardQna/list.do?pageNumber=${startPage+pageBlock}&searchWord=${searchWord}&searchSort=${searchSort}">[다음]</a>
 					</c:if>
 				</c:if>
 			</c:if>
@@ -138,9 +117,10 @@ function boardNoticeSearch(root){
 			<select name="sorting">
 				<option value="titleSort">제목</option>	
 				<option value="contentSort">내용</option>
+				<option value="writerSort">작성자</option>
 			</select>
 			<input type="text" name = "search" />
-			<input type="button" name = "btn" value="검색" onclick="javascript:boardNoticeSearch('${root}')"/>
+			<input type="button" name = "btn" value="검색" onclick="javascript:boardQnaSearch('${root}')"/>
 		</div>
 	</div>
 </body>

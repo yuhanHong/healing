@@ -13,9 +13,9 @@
 		update 
 			qna
 		set
-			qna_sequence_number = 1
+			qna_reply = 1
 		where
-			qna_group_number = #{qna_group_number}
+			qna_number = #{qna_number}
 	</update>
 	
 	<insert id="boardQnaInsert" parameterType="com.healing.boardQna.dto.BoardQnaDto">
@@ -28,16 +28,96 @@
 	</insert>
 	
 	<select id="boardQnaGetCount" resultType="int">
-		select count(*) from qna
+		select count(*) from qna where qna_sequence_number=0
+	</select>
+	
+	<select resultType="int" id="boardQnaGetCountTitle" parameterType="String"> 
+		select count(*) from qna where qna_title like '%' || #{searchWord} || '%' and qna_sequence_number=0
+	</select>
+
+	<select resultType="int" id="boardQnaGetCountContent" parameterType="String"> 
+		select count(*) from qna where qna_content like '%' || #{searchWord} || '%' and qna_sequence_number=0
+	</select>
+
+	<select resultType="int" id="boardQnaGetCountWriter" parameterType="String"> 
+		select count(*) from qna where qna_writer like '%' || #{searchWord} || '%' and qna_sequence_number=0
 	</select>
 	
 	<select id="boardQnaGetList" parameterType="java.util.HashMap" resultType="com.healing.boardQna.dto.BoardQnaDto">
 		<![CDATA[
 		select * from
 			(select rownum rnum, g.* from
-			(select * from qna order by qna_number desc) g)
+			(select * from  qna where qna_sequence_number=0 order by qna_number desc) g)
 		where
 			rnum between #{startRow} and #{endRow}
 		]]>
 	</select>
+	
+	<select resultType="com.healing.boardQna.dto.BoardQnaDto" id="boardQnaGetListSearchTitle" parameterType="java.util.HashMap">
+		<![CDATA[ 
+			select * from 
+				(select rownum rnum, g.* from 
+				(select * from qna where qna_title like '%' || #{searchWord} || '%' and qna_sequence_number=0
+				 order by qna_number desc) g) 
+			where rnum between #{startRow} and #{endRow} 
+		]]>
+	</select>
+
+	<select resultType="com.healing.boardQna.dto.BoardQnaDto" id="boardQnaGetListSearchContent" parameterType="java.util.HashMap">
+		<![CDATA[ 
+			select * from 
+				(select rownum rnum, g.* from 
+				(select * from qna where qna_content like '%' || #{searchWord} || '%' and qna_sequence_number=0
+				order by qna_number desc) g) 
+			where rnum between #{startRow} and #{endRow} 
+		]]>
+	</select>
+
+	<select resultType="com.healing.boardQna.dto.BoardQnaDto" id="boardQnaGetListSearchWriter" parameterType="java.util.HashMap">
+		<![CDATA[ 
+			select * from 
+				(select rownum rnum, g.* from 
+				(select * from qna where qna_writer like '%' || #{searchWord} || '%' and qna_sequence_number=0
+				order by qna_number desc) g) 
+			where rnum between #{startRow} and #{endRow} 
+		]]>
+	</select>
+	
+	<update id="readCount" parameterType="int">
+		update qna set qna_readCount=qna_readCount+1 where qna_number = #{qna_number}
+	</update>
+	
+	<select id="boardQnaSelect" parameterType="int" resultType="com.healing.boardQna.dto.BoardQnaDto">
+		select * from qna where qna_number = #{qna_number}
+	</select>
+	
+	<select id="boardQnaReadList" parameterType="int" resultType="com.healing.boardQna.dto.BoardQnaDto">
+		select * from qna where qna_group_number = #{qna_group_number}
+	</select>
+	
+	<delete id="boardQnaDelete" parameterType="int">
+		delete from qna where qna_number = #{qna_number}
+	</delete>
+	
+	<update id="boardQnaUpdate" parameterType="com.healing.boardQna.dto.BoardQnaDto">
+		update 
+				qna
+			set
+				qna_writer=#{qna_writer},
+				qna_title=#{qna_title},
+				qna_password=#{qna_password},
+				qna_sort=#{qna_sort},
+				qna_content=#{qna_content}
+			where
+				qna_number=#{qna_number}
+	</update>
+	
+	<update id="boardQnaUpdateReply" parameterType="com.healing.boardQna.dto.BoardQnaDto">
+		UPDATE 
+			qna
+		SET
+			qna_reply = 0
+		WHERE
+			qna_group_number=#{qna_group_number} and qna_sequence_number=0
+	</update>
 </mapper>

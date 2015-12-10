@@ -6,4 +6,8 @@ public interface BoardQnaService {
 	public void boardQnaWrite(ModelAndView mav);
 	public void boardQnaWriteOk(ModelAndView mav);
 	public void boardQnaList(ModelAndView mav);
+	public void boardQnaRead(ModelAndView mav);
+	public void boardQnaDelete(ModelAndView mav);
+	public void boardQnaUpdate(ModelAndView mav);
+	public void boardQnaUpdateOk(ModelAndView mav);
 }

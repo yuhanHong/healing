@@ -1,0 +1,140 @@
+@CHARSET "UTF-8";
+
+/**/
+.Outline{
+	border:1px solid black; width:900px;
+	margin:0px auto;
+}
+
+a:link{color:black; text-decoration: none;}
+a:visited{color:black; text-decoration: none;}
+a:hover{color:black; text-decoration: none;}
+li{list-style: none; float:left; text-align:center;}
+
+ul,li {margin:0; padding:0;} 
+
+.board_title{
+	border:1px solid #cccccc; background-color: #EAEAEA;
+	border-left-color: #ffffff; border-right-color: #ffffff;
+	border-top-color: #000000; border-top-width: 0.2em;
+	margin-top:7px; height:50px;
+}
+
+.board_title ul{
+	width:850px; height:48px; 
+	margin-top: 1px;
+}
+
+.board_title ul li{
+	border:1px solid #cccccc;
+	height:47px; line-height: 47px; text-align: left;
+}
+
+.board_title ul li:nth-child(1){
+	width:60px;
+}
+
+.board_title ul li:nth-child(2){
+	width:530px; text-align: center;
+}
+
+.board_title ul li:nth-child(3){
+	width:140px; 
+}
+
+.board_title ul li:nth-child(4){
+	width:60px; 
+}
+
+.board{
+	border:1px solid #cccccc; background-color: #ffffff;
+	border-left-color: #ffffff; border-right-color: #ffffff;
+	border-top-color: #cccccc;
+	height:47px;
+}
+
+.board ul{
+	width:850px; height:48px; margin-top: 1px; 
+}
+
+.board ul li{
+	border:1px solid #cccccc;
+	height:46px; line-height: 46px; text-align:left;
+}
+
+.board ul li:nth-child(1){
+	width:60px;
+}
+
+.board ul li:nth-child(2){
+	width:515px; 
+}
+
+.board ul li:nth-child(3){
+	width:150px; 
+}
+
+.board ul li:nth-child(4){
+	width:60px; text-align:center;
+}
+
+
+
+
+
+/*
+.boardList{
+	border:1px solid black; float:left;
+	width:200px; overflow:hidden;
+}
+
+.boardList_li{
+	border:0px solid black;
+	width:190px; margin:0px auto;
+}
+
+.boardList_li li{
+	list-style:none; 
+	border:0px solid black;
+	width:170px; height:30px; 
+	line-height:30px;
+	margin-top: 15px;
+}
+
+.boardContent{
+	border: 1px solid black; float:left;
+	width:700px; overflow:hidden; margin-left:50px;
+}
+
+.line{
+	width:600px; height:40px; float:left;
+	border:0px solid black; line-height: 40px;
+}
+
+.title{
+	height:40px; line-height: 40px;
+	border:0px solid black;
+}
+
+.content{
+	height:40px; line-height: 40px;
+	border:0px solid black;
+	margin-left: 15px;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
