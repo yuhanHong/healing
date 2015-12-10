@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+/* home.jsp 스타일 시트 지정 */
+body{
+   font-size:13px;
+}
+
+a:link {
+	text-decoration:none;
+	color:blue
+}
+
+a:visited {
+	text-decoration:none;
+	color:red
+}
+
+a:hover {
+	text-decoration:underline;
+	color:black
+}

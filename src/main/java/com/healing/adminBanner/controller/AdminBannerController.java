@@ -1,5 +1,8 @@
 package com.healing.adminBanner.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +22,14 @@ public class AdminBannerController {
 	@Autowired
 	private AdminBannerService adminBannerService;
 	
-	@RequestMapping(value="adminBanner/bannerInsert.do", method=RequestMethod.GET)
-	public ModelAndView bannerInsert(){
-		return new ModelAndView("adminBanner/bannerInsert");
+	@RequestMapping(value="adminBanner/bannerInsert.do", method=RequestMethod.POST)
+	public ModelAndView bannerInsert(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		adminBannerService.bannerInsert(mav);
+		
+		return mav;
 	}
 	
 	/*@RequestMapping(value="adminBanner/bannerSearch.do", method=RequestMethod.POST)

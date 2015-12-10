@@ -1,5 +1,7 @@
 package com.healing.adminBanner.service;
 
-public interface AdminBannerService {
+import org.springframework.web.servlet.ModelAndView;
 
+public interface AdminBannerService {
+	public void bannerInsert(ModelAndView mav);
 }

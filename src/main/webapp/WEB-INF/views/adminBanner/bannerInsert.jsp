@@ -34,7 +34,7 @@
 </head>
 <body>
 	<div style="border:1px solid red; width:1250px">
-		<c:import url="../home.jsp"/>
+		<c:import url="../adminHome.jsp"/>
 	</div>
 	<div style="border:1px solid blue; width:250px; height:800px; float:left">
 		<div align="center"><h3>[관리자모드 - 추천상품]</h3></div>
