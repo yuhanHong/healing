@@ -14,6 +14,14 @@
 	</select>
 	
 	<select id="adminModeSelect" resultType="com.healing.adminMode.dto.AdminModeDto">
-		select * from admin
+		select * from admin order by admin_number
 	</select>
+	
+	<update id="adminModeUpdate" parameterType="com.healing.adminMode.dto.AdminModeDto">
+		update admin set admin_name=#{admin_name},admin_id=#{admin_id},admin_email=#{admin_email},admin_level=#{admin_level} where admin_number=#{admin_number}
+	</update>
+	
+	<delete id="adminModeDelete" parameterType="int">
+		delete from admin where admin_number=#{admin_number}
+	</delete>
 </mapper>

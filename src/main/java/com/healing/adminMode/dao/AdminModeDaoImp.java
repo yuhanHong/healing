@@ -31,8 +31,20 @@ public class AdminModeDaoImp implements AdminModeDao {
 	}
 
 	@Override
-	public List<AdminModeDto> adminMedSelect() {
+	public List<AdminModeDto> adminModeSelect() {
 		
 		return sqlSessionTemplate.selectList("dao.adminModeMapper.adminModeSelect");
+	}
+
+	@Override
+	public int adminModeUpdate(AdminModeDto adminModeDto) {
+		
+		return sqlSessionTemplate.update("dao.adminModeMapper.adminModeUpdate",adminModeDto);
+	}
+
+	@Override
+	public int adminDelete(int admin_number) {
+		
+		return sqlSessionTemplate.delete("dao.adminModeMapper.adminModeDelete",admin_number);
 	}
 }

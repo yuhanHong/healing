@@ -52,10 +52,35 @@ public class AdminModeServiceImp implements AdminModeService {
 		
 		List<AdminModeDto> adminList=null;
 		
-		adminList=adminModeDao.adminMedSelect();
-		HomeAspect.logger.info(HomeAspect.logMsg+"입력받은 로그인정보:"+adminList);
+		adminList=adminModeDao.adminModeSelect();
+		// HomeAspect.logger.info(HomeAspect.logMsg+"입력받은 로그인정보:"+adminList);
 		
 		mav.addObject("adminList",adminList);
 		mav.setViewName("adminMode/adminModeUpdate");
+	}
+
+	@Override
+	public void adminModeUpdateOk(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
+		AdminModeDto adminModeDto=(AdminModeDto)map.get("adminModeDto");
+
+		int check=adminModeDao.adminModeUpdate(adminModeDto);
+		// HomeAspect.logger.info(HomeAspect.logMsg+"수정체크:"+check);
+		
+		mav.addObject("check",check);
+		mav.setViewName("adminMode/adminModeUpdateOk");
+	}
+
+	@Override
+	public void adminModeDelete(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();		
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		int admin_number=Integer.parseInt(request.getParameter("admin_number"));
+		
+		int check=adminModeDao.adminDelete(admin_number);
+		// HomeAspect.logger.info(HomeAspect.logMsg+"삭제체크:"+check);
+		mav.addObject("check",check);
+		mav.setViewName("adminMode/adminModeDelete");
 	}
 }

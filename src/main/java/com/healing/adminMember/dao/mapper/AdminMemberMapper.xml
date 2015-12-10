@@ -4,6 +4,41 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="dao.adminMemberMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
+	<select id="adminMemberList" resultType="com.healing.member.dto.MemberDto">
+		select * from member
+	</select>
 	
+	<select id="adminMemberSortId" resultType="com.healing.member.dto.MemberDto">
+		SELECT * FROM MEMBER ORDER BY member_id
+	</select>
+	
+	<select id="adminMemberSortName" resultType="com.healing.member.dto.MemberDto">
+		SELECT * FROM MEMBER ORDER BY member_name
+	</select>
+	
+	<select id="adminMemberSortDate" resultType="com.healing.member.dto.MemberDto">
+		SELECT * FROM MEMBER ORDER BY member_date
+	</select>
+	
+	<select id="adminMemberSortPurchase" resultType="com.healing.member.dto.MemberDto">
+		SELECT * FROM MEMBER ORDER BY member_purchase
+	</select>
+	
+	<select id="adminMemberSearchName" parameterType="String" resultType="com.healing.member.dto.MemberDto" >
+		SELECT * FROM MEMBER WHERE member_name LIKE '%' ||#{search}|| '%'
+	</select>
+	
+	<select id="adminMemberSearchId" parameterType="String" resultType="com.healing.member.dto.MemberDto">
+		SELECT * FROM MEMBER WHERE member_id LIKE '%' ||#{search}|| '%'
+	</select>
+	
+	<select id="adminMemberSearchPhone" parameterType="String" resultType="com.healing.member.dto.MemberDto">
+		SELECT * FROM MEMBER WHERE member_phone LIKE '%' ||#{search}|| '%'
+	</select>
+	
+	<select id="adminMemberPrice" parameterType="java.util.Map" resultType="com.healing.member.dto.MemberDto">
+		<![CDATA[
+			select * from member where member_purchase>=#{min} and member_purchase<=#{max}
+		]]>
+	</select>
 </mapper>
-	

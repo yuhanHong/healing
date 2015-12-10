@@ -9,5 +9,9 @@ public interface AdminModeDao {
 	
 	public AdminModeDto adminModeLogin(String admin_id,String admin_password);
 	
-	public List<AdminModeDto> adminMedSelect();
+	public List<AdminModeDto> adminModeSelect();
+	
+	public int adminModeUpdate(AdminModeDto adminModeDto);
+	
+	public int adminDelete(int admin_number);
 }

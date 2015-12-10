@@ -20,7 +20,14 @@ public class MemberDto {
 	private String member_phone;
 	private Date member_date;
 	private int member_delete;
+	private int member_purchase;
 	
+	public int getMember_purchase() {
+		return this.member_purchase;
+	}
+	public void setMember_purchase(int member_purchase) {
+		this.member_purchase = member_purchase;
+	}
 	public int getMember_number() {
 		return this.member_number;
 	}

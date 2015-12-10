@@ -27,7 +27,7 @@
 		</ul>
 		<br/>
 		
-		<c:forEach var="admin" items="${adminList}">
+		<c:forEach var="admin" items="${adminList}" varStatus="status">
 			<form action="${root}/adminMode/adminModeUpdateOk.do" method="POST" name="adminForm" onsubmit="return adminUpdateForm(this)">
 				<ul>
 					<li id="adminList">
@@ -46,36 +46,32 @@
 						</c:if>
 						
 						<c:if test="${admin.admin_level!='Master'}">
-							<select name="level">
+							<c:set var="a" value="${status.index}"/>
+							
+							<select name="admin_level">
 								<option value="게시판관리자">게시판관리자</option>
 								<option value="상담사">상담사</option>
 							</select>
+							
 							<script type="text/javascript">
-								// console.log($("select[name='level']").length);
-								var vel=$("select[name='level']");
-								//console.log(vel[0][0]);
-								console.log(vel.length);
-								//console.log(vel[0][1]);
-								for(var i=0;i<vel.length;i++){				
-									if(vel[0][i].value=="${admin.admin_level}"){
-										// console.log(vel[0][i]);
-										// console.log('${admin.admin_level}');
-										vel[0][i].selected=true;
+								var vel=$("select[name='admin_level']");
+								var b='${status.index-1}';
+								for(var i=0;i<2;i++){		
+									if(vel[b][i].value=="${admin.admin_level}"){
+										vel[b][i].selected=true;
 									}
 								} 
 							</script>
 						</c:if>
-					<%-- 	<input type="text" value="${admin.admin_level}" size="15"/> --%>
 					</li>
 					<li id="adminList">${admin.admin_number}</li>
 					<li id="adminList">
 						<input type="submit" value="수정"/>
 						<c:if test="${admin.admin_level!='Master'}">
-							<input type="button" value="삭제"/>
+							<input type="button" value="삭제" onclick="location.href='${root}/adminMode/adminModeDelete.do?admin_number=${admin.admin_number}'"/>
 						</c:if>
 					</li>
 				</ul>
-
 				<br/><br/>
 			</form>
 		</c:forEach>

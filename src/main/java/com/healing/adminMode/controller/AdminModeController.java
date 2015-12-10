@@ -63,11 +63,22 @@ public class AdminModeController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/adminMode/adminModeUpdateOk.do",method=RequestMethod.GET)
-	public ModelAndView adminModeUpdateOk(HttpServletRequest request, HttpServletResponse response){
+	@RequestMapping(value="/adminMode/adminModeUpdateOk.do",method=RequestMethod.POST)
+	public ModelAndView adminModeUpdateOk(HttpServletRequest request, HttpServletResponse response,AdminModeDto adminModeDto){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
+		mav.addObject("adminModeDto",adminModeDto);
 		
+		adminModeService.adminModeUpdateOk(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/adminMode/adminModeDelete.do",method=RequestMethod.GET)
+	public ModelAndView adminModeDelete(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminModeService.adminModeDelete(mav);
 		return mav;
 	}
 }
