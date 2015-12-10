@@ -4,6 +4,12 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="dao.adminBannerMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
+	<select id="productSelect0" parameterType="java.util.HashMap" resultType="com.healing.adminBanner.dto.AdminBannerDto">
+		select * from product where product_name like '%'||#{product_name}||'%'
+	</select>
 	
+	<select id="productSelect1" parameterType="java.util.HashMap" resultType="com.healing.adminBanner.dto.AdminBannerDto">
+		select * from product where product_country like '%'||#{product_country}||'%'
+	</select>
 </mapper>
 	

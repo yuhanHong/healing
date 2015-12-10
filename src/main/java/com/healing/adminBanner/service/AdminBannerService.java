@@ -4,4 +4,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 public interface AdminBannerService {
 	public void bannerInsert(ModelAndView mav);
+	
+	public void bannerSearch(ModelAndView mav);
 }

@@ -1,5 +1,7 @@
 package com.healing.adminBanner.dao;
 
-public interface AdminBannerDao {
+import com.healing.product.dto.ProductDto;
 
+public interface AdminBannerDao {
+	public ProductDto productSelect(String product, String keyword);
 }

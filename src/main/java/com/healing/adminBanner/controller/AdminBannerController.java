@@ -22,7 +22,14 @@ public class AdminBannerController {
 	@Autowired
 	private AdminBannerService adminBannerService;
 	
-	@RequestMapping(value="adminBanner/bannerInsert.do", method=RequestMethod.POST)
+	/**
+	 * @함수이름 : bannerInsert
+	 * @리턴타입 : ModelAndView
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 전현준
+	 * @함수설명 : 페이지 이동 함수(bannerInsert.jsp)
+	 */
+	@RequestMapping(value="adminBanner/bannerInsert.do", method={RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView bannerInsert(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
@@ -32,9 +39,21 @@ public class AdminBannerController {
 		return mav;
 	}
 	
-	/*@RequestMapping(value="adminBanner/bannerSearch.do", method=RequestMethod.POST)
-	public ModelAndView bannerSearch(){
+	/**
+	 * @함수이름 : bannerSearch
+	 * @리턴타입 : ModelAndView
+	 * @작성일 : 2015. 12. 10.
+	 * @개발자 : 전현준
+	 * @함수설명 : 추천 상품 검색
+	 */
+	@RequestMapping(value="adminBanner/bannerSearch.do", method=RequestMethod.POST)
+	public ModelAndView bannerSearch(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("response", response);
 		
-	}*/
+		adminBannerService.bannerSearch(mav);
+		
+		return null;
+	}
 }
