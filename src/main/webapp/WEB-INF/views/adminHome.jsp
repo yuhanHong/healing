@@ -6,8 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>healing</title>
+<script type="text/javascript" src="${root}/js/adminHome/adminHome.js"></script>
 </head>
 <body>
+	<form name="adminHome">
+		<input type="hidden" name="admin_id">
+		<input type="hidden" name="admin_pw">
 	<c:if test="${admin.admin_name!=null}">
  		<c:set var="admin_number" value="${admin.admin_number}" scope="session"/>
  		<c:set var="admin_name" value="${admin.admin_name}" scope="session"/>
@@ -21,9 +25,10 @@
 		<a href = "${root}/adminMember/adminMember.do">관리자 회원관리</a>
 	<c:if test="${admin_name!=null}">
 		<a href = "${root}/adminMode/adminModeLogout.do?admin_number=${admin_number}">로그아웃</a>
+		<a href="javascript:pageMove('${root}', '${admin.admin_id}', '${admin.admin_password}')">관리자모드 - 추천상품등록</a>
 	</c:if>
 	<br/>
-	
+	</form>
  	
  	<c:if test="${admin_number!=null}">
  		<h3>${admin_name}님 ${admin_level}계정으로 로그인하셨습니다.</h3>
