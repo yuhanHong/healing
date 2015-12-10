@@ -81,7 +81,52 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	    mav.addObject("orderDto", orderDto);	    
 	    mav.addObject("productDto", productDto);	
 	    mav.addObject("memberDto", memberDto);	
-	    mav.setViewName("adminOrder/adminOrderRead");
+	
+	}
+
+	@Override
+	public void adminOrderModyfy(ModelAndView mav) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map=mav.getModelMap();
+	    HttpServletRequest request = (HttpServletRequest) map.get("request");
+	    OrderDto orderDto=(OrderDto)map.get("orderDto");
+	    
+	    HomeAspect.logger.info(HomeAspect.logMsg+"///orderMoney"+orderDto.getOrder_money()+"//modimoney"+orderDto.getOrder_modify_money());
+	   
+	    if(orderDto.getOrder_pay()<orderDto.getOrder_money()){
+	    	orderDto.setPayment_state("추가 결제필요");
+	    }else if(orderDto.getOrder_pay()>orderDto.getOrder_money()){
+	    	orderDto.setPayment_state("부분 환불 필요");
+	    }else{
+	    	orderDto.setPayment_state("결제완료");
+	    }
+
+	    adminOrderDao.adminOrderModify(orderDto);
+	    mav.addObject("orderDto", orderDto);	    
+		
+	    
+	}
+
+	@Override
+	public void adminOrderPay(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+	    HttpServletRequest request = (HttpServletRequest) map.get("request");
+	   
+	    int order_number=Integer.parseInt(request.getParameter("order_number")); 
+
+	    adminOrderDao.adminOrderPay(order_number);
+	    
+	}
+
+	@Override
+	public void adminOrderCancle(ModelAndView mav) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map=mav.getModelMap();
+	    HttpServletRequest request = (HttpServletRequest) map.get("request");
+	   
+	    int order_number=Integer.parseInt(request.getParameter("order_number")); 
+
+	    adminOrderDao.adminOrderCancle(order_number);
 	
 	}
 	

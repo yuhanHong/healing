@@ -77,8 +77,13 @@ $(function(){
 	<a href="${root}/guest/write.do">방명록</a>
 	<a href="${root}/photoAlbum/list.do">사진첩</a>
 	<a href="${root}/chat/chat.do">채팅</a>
-	<a href="${root}/order/write.do">예약</a>
+
 	<a href="${root}/company/tourInfo.do">회사소개</a>
+	
+	<br/>채윤<br/>
+		
+	<a href="${root}/order/write.do">예약</a>
+	<a href="${root}/adminOrder/adminOrder.do">관리자모드-예약관리.</a><br/>
 	
 	<div>
 		<c:if test="${member_name != null}">

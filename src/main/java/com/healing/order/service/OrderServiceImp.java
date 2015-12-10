@@ -68,8 +68,10 @@ public class OrderServiceImp implements OrderService {
 		    
 		    if(orderDto.getPayment_option().equals("카드")){
 		    	orderDto.setPayment_state("결제완료");
+		    	orderDto.setOrder_pay(orderDto.getOrder_money());
 		    }else{
 		    	orderDto.setPayment_state("입금전");
+		    	orderDto.setOrder_pay(0);
 		    }
 		   int check= orderDao.orderInsert(orderDto);
 		   HomeAspect.logger.info(HomeAspect.logMsg+"///"+check+":  orderInsert Check");

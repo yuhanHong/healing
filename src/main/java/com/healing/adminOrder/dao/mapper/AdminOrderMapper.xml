@@ -65,4 +65,17 @@
 	<select id="adminOrderRead" parameterType="int" resultType="com.healing.order.dto.OrderDto">
 		select * from orders where order_number=#{order_number}
 	</select>
+	
+	<update id="adminOrderModify" parameterType="com.healing.order.dto.OrderDto">
+		update orders set order_money=#{order_money},order_name=#{order_name}, order_phone=#{order_phone},order_email=#{order_email},order_adult=#{order_adult}, order_child=#{order_child}, order_baby=#{order_baby},order_modify_money=#{order_modify_money}, payment_state=#{payment_state} where order_number=#{order_number}
+	</update>
+	
+	<update id="adminOrderPay" parameterType="java.util.HashMap">
+		update orders set payment_state=#{state}, order_modify_money=0, order_pay=order_money where order_number=#{order_number}
+	</update>
+	
+	<update id="adminOrderCancle" parameterType="java.util.HashMap">
+		update orders set payment_state=#{state}, order_modify_money=0, order_pay=0, order_money=0, order_adult=0, order_child=0, order_baby=0 where order_number=#{order_number}
+		
+	</update>
 </mapper>

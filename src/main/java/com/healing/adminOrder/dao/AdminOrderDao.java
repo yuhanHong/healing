@@ -16,4 +16,7 @@ public interface AdminOrderDao {
 	public OrderDto adminOrderRead(int order_number);
 	public ProductDto adminProductRead(int product_number);
 	public MemberDto adminOrderMember(int member_number);
+	public int adminOrderModify(OrderDto orderDto);
+	public int adminOrderPay(int order_number);
+	public int adminOrderCancle(int order_number);
 }

@@ -24,6 +24,7 @@ public class AdminOrderDaoImp implements AdminOrderDao {
 		return sqlSessionTemplate.selectList("dao.adminOrderMapper.getAllOrderList");
 	}
 
+	//검색어 검색
 	@Override
 	public List<OrderDto> adminOrderSearchOne(int search_label, String search_input) {
 		// TODO Auto-generated method stub
@@ -50,6 +51,7 @@ public class AdminOrderDaoImp implements AdminOrderDao {
 		return orderList;
 	}
 
+	//날짜와 검색어 중복 검색
 	@Override
 	public List<OrderDto> adminOrderSearchMulti(int search_label, String search_input, String start_date,
 			String end_date) {
@@ -101,5 +103,33 @@ public class AdminOrderDaoImp implements AdminOrderDao {
 	public MemberDto adminOrderMember(int member_number) {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectOne("dao.orderMapper.getMemberInfo",member_number);
+	}
+
+	@Override
+	public int adminOrderModify(OrderDto orderDto) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.update("dao.adminOrderMapper.adminOrderModify",orderDto);
+	}
+
+	@Override
+	public int adminOrderPay(int order_number) {
+		// TODO Auto-generated method stub
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		
+		String state="결제완료";
+		map.put("state", state);
+		map.put("order_number", order_number);
+		return sqlSessionTemplate.update("dao.adminOrderMapper.adminOrderPay",map);
+	}
+
+	@Override
+	public int adminOrderCancle(int order_number) {
+		// TODO Auto-generated method stub
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		
+		String state="예약취소";
+		map.put("state", state);
+		map.put("order_number", order_number);
+		return sqlSessionTemplate.update("dao.adminOrderMapper.adminOrderCancle",map);
 	}
 }

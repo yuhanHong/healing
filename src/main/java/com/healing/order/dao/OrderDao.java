@@ -10,4 +10,5 @@ public interface OrderDao {
 	public int orderInsert(OrderDto orderDto);
 	public OrderDto getNewOrderDto();
 	public MemberDto getMemberInfo(int member_number);
+	
 }

@@ -53,47 +53,15 @@ function adminOrderSearch(root){
 $(function() {	
 	 $( ".datepicker" ).datepicker({
 	      showOn: "button",
-	      buttonImage: "images/calendar.gif",
+	      buttonImage: "http://localhost:8181/main/resources/adminOrder/calendar.JPG",
 	      buttonImageOnly: true,
 	      dateFormat:"yy/mm/dd",
 	      buttonText: "Select date"
     });
-
-
-
-	// $( "#time_select" ).selectmenu();
-	 
-	 var result=0;
-	 var adult_money=0;
-	 var child_money=0;
-	 var baby_money=0;
-	 
-	 $("#adult").click(function(){
-		adult_money=$("#hiddenInfo").children().eq(2).val()*$("#adult").val();
-		$("#order_adult").val($("#adult").val());
-		resultFun();
-	});
-	 $("#child").click(function(){
-		 child_money=$("#hiddenInfo").children().eq(3).val()*$("#child").val();
-		 $("#order_child").val($("#child").val());
-		 resultFun();
-	});
-	 $("#baby").click(function(){
-		 baby_money=$("#hiddenInfo").children().eq(4).val()*$("#baby").val();
-		 $("#order_baby").val($("#baby").val());
-		 resultFun();
-	});
-	 
-	 function resultFun(){
-		 result=child_money+adult_money+baby_money;
-		 $("#result_money").text(result);
-		 $("#order_money").val(result);
-	 }
-	 
  });
 
 function orderAdminRead(root,order_number){
 	url=root+"/adminOrder/adminOrderRead.do?order_number="+order_number;
-	var myWindow = window.open(url, "", "width=400, height=600, resizable=0");
+	var myWindow = window.open(url, "", "width=550, height=400, resizable=0");
 	
 }

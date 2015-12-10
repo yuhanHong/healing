@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.adminOrder.service.AdminOrderService;
+import com.healing.order.dto.OrderDto;
 
 @Controller
 public class AdminOrderController {
@@ -47,7 +48,52 @@ public class AdminOrderController {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
 		adminOrderService.adminOrderRead(mav);
+		mav.setViewName("adminOrder/adminOrderRead");
 		
+		return mav;
+	}
+	
+	@RequestMapping(value="/adminOrder/adminOrderModify.do",method=RequestMethod.GET)
+	public ModelAndView adminOrderModify(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminOrderService.adminOrderRead(mav);
+		mav.setViewName("adminOrder/adminOrderModify");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/adminOrder/adminOrderModify.do",method=RequestMethod.POST)
+	public ModelAndView adminOrderModifyOk(HttpServletRequest request, HttpServletResponse response,OrderDto orderDto){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("orderDto",orderDto);
+		
+		adminOrderService.adminOrderModyfy(mav);
+		adminOrderService.adminOrderRead(mav);
+		mav.setViewName("adminOrder/adminOrderRead");
+		return mav;
+	}
+		
+	@RequestMapping(value="/adminOrder/adminOrderPay.do",method=RequestMethod.GET)
+	public ModelAndView adminOrderPay(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		adminOrderService.adminOrderPay(mav);
+		adminOrderService.adminOrderRead(mav);
+		mav.setViewName("adminOrder/adminOrderModify");
+		return mav;
+	}
+		
+	@RequestMapping(value="/adminOrder/adminOrderCancle.do",method=RequestMethod.GET)
+	public ModelAndView adminOrderCancle(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		adminOrderService.adminOrderCancle(mav);
+		adminOrderService.adminOrderRead(mav);
+		mav.setViewName("adminOrder/adminOrderRead");
 		return mav;
 	}
 }

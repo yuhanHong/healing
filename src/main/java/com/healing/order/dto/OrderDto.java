@@ -31,7 +31,21 @@ public class OrderDto {
 	private String order_phone;
 	private Date start_time;
 	private String product_name;
+	private int order_modify_money;
+	private int order_pay;
 	
+	public int getOrder_pay() {
+		return order_pay;
+	}
+	public void setOrder_pay(int order_pay) {
+		this.order_pay = order_pay;
+	}
+	public int getOrder_modify_money() {
+		return order_modify_money;
+	}
+	public void setOrder_modify_money(int order_modify_money) {
+		this.order_modify_money = order_modify_money;
+	}
 	public String getProduct_name() {
 		return product_name;
 	}

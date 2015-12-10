@@ -17,11 +17,12 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
+<jsp:include page="../home.jsp"/>
 	<form>
 		<div id="adminOrderSearch" class="container">
 			<h2>예약관리</h2>
 			<div id="adminSearchTable" class="well">
-				<div class="adminSearchDiv"><label>날짜 선택 : </label> <input type="text" class="datepicker" id="start_date" name="start_date" size="15"/>~<input type="text" class="datepicker" id="end_date" name="end_date" size="15"/></div>
+				<div class="adminSearchDiv"><label>날짜 선택 : </label> <input type="text" class="datepicker" id="start_date" name="start_date" size="15"/><b>&nbsp;&nbsp;~&nbsp;&nbsp;</b><input type="text" class="datepicker" id="end_date" name="end_date" size="15"/></div>
 				<div class="adminSearchDiv"><label>검색 조건 : </label> 
 						<select id="search_label">
 							<option>전체검색</option>
@@ -41,15 +42,15 @@
 		</div>
 		<div id="search_result">
 			<table border="1" style="margin: 30px auto" >
-				<tr>
-					<td width="100">예약 날짜</td>
-					<td width="100">예약 번호</td>
-					<td width="70">예약자 명</td>
-					<td width="100">상품 명</td>
-					<td width="70">예약 인원</td>
-					<td width="100">결제 금액</td>
-					<td width="70">결제 방법</td>
-					<td width="70">예약 상태</td>
+				<tr id="table_firstTr">
+					<td  width="100">예약 날짜</td>
+					<td  width="100">예약 번호</td>
+					<td  width="70">예약자 명</td>
+					<td  width="100">상품 명</td>
+					<td  width="70">예약 인원</td>
+					<td  width="100">결제 금액</td>
+					<td  width="70">결제 방법</td>
+					<td  width="70">예약 상태</td>
 				</tr>
 				<c:forEach var="orderDto" items="${orderList }">
 				<tr>

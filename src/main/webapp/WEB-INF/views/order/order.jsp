@@ -103,8 +103,9 @@
 				<input type="radio" name="payment_option" value="무통장 입금" ><label>무통장 입금</label>
 			</div>
 			<div class="orderDiv">
-				<b>최종 결제 금액 : &nbsp;&nbsp;&nbsp;&nbsp;  <font id="result_money"></font>&nbsp;&nbsp;&nbsp;&nbsp;원</b>
-				<input type="hidden" id="order_money" name="order_money" >
+				<b>예매 금액 :   
+					<font id="result_money"><fmt:formatNumber value="${orderDto.order_money}" pattern="###,###"/></font>원</b>
+					<input type="hidden" id="order_money" name="order_money" value="0">
 			</div>
 			<br/><br/><br/>
 			<div id="tabs" class="orderDiv">
