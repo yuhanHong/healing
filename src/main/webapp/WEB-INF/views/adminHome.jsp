@@ -21,15 +21,6 @@
  		<c:set var="admin_level" value="${admin.admin_level}" scope="session"/>
  	</c:if>
  	
-	<a href = "${root}/adminMode/adminModeCreate.do">관리자 계정생성</a>&nbsp;&nbsp;&nbsp;
-	<c:if test="${admin_level=='Master'}">
-		<a href = "${root}/adminMode/adminModeUpdate.do">관리자 계정관리</a>
-	</c:if>
-		<a href = "${root}/adminMember/adminMember.do">관리자 회원관리</a>
-	<c:if test="${admin_name!=null}">
-		<a href = "${root}/adminMode/adminModeLogout.do?admin_number=${admin_number}">로그아웃</a>
-		<a href="javascript:pageMove('${root}', '${admin.admin_id}', '${admin.admin_password}')">관리자모드 - 추천상품등록</a>
-	</c:if>
 	<br/>
 	</form>
  	

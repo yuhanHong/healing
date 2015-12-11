@@ -8,6 +8,22 @@
 	document.title="힐링투어에 오신 것을 환영합니다!";
 </script>
 
+<script type="text/javascript">
+$(function(){
+	$("#loginPage").dialog({
+		autoOpen:false
+	});
+	
+	$("#login").on("click",function(){
+		$("#loginPage").dialog("open");
+	});
+	
+	$("#loginClose").on("click",function(){
+		$("#loginPage").dialog("close");
+	});
+});
+</script>
+
 <div>
 	<c:if test="${memberDto.member_delete==0}">
 		<c:set var="member_id" value="${memberDto.member_id}" scope="session"/>
@@ -55,7 +71,6 @@
 	<a href="${root}/company/tourInfo.do">회사소개</a> / 
 	
 	<a href="${root}/order/write.do">예약</a> / 
-	<a href="${root}/adminOrder/adminOrder.do">관리자모드-예약관리</a> / 
 	
 	<a href = "${root}/boardNotice/write.do">Notice 게시판 write</a> / 
 	<a href = "${root}/boardNotice/list.do">Notice 게시판 list</a> / 

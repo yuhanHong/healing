@@ -11,21 +11,7 @@
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery-ui.js"></script>
 <script type="text/javascript" src="${root}/js/memberScript/memberScript.js"></script>
-<script type="text/javascript">
-$(function(){
-	$("#loginPage").dialog({
-		autoOpen:false
-	});
-	
-	$("#login").on("click",function(){
-		$("#loginPage").dialog("open");
-	});
-	
-	$("#loginClose").on("click",function(){
-		$("#loginPage").dialog("close");
-	});
-});
-</script>
+
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
