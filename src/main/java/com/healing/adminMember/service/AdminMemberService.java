@@ -1,6 +1,10 @@
 package com.healing.adminMember.service;
 
+import java.util.List;
+
 import org.springframework.web.servlet.ModelAndView;
+
+import com.healing.member.dto.MemberDto;
 
 public interface AdminMemberService {
 	
@@ -10,5 +14,5 @@ public interface AdminMemberService {
 	
 	public void adminMemberSearch(ModelAndView mav);
 	
-	public void adminMemberPrice(ModelAndView mav);
+	public List<MemberDto> adminMemberPrice(ModelAndView mav);
 }

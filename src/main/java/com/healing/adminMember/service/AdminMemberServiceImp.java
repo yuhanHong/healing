@@ -82,7 +82,7 @@ public class AdminMemberServiceImp implements AdminMemberService {
 	}
 
 	@Override
-	public void adminMemberPrice(ModelAndView mav) {
+	public List<MemberDto> adminMemberPrice(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
 		HttpServletResponse response=(HttpServletResponse)map.get("response");
@@ -92,11 +92,13 @@ public class AdminMemberServiceImp implements AdminMemberService {
 		
 		// HomeAspect.logger.info(HomeAspect.logMsg+"min,max벨류"+minvalue+","+maxvalue);
 		
-		List<MemberDto> adminMemberList=null;
-		adminMemberList=adminMemberDao.adminMemberPrice(min,max);
+		List<MemberDto> list=null;
+		list=adminMemberDao.adminMemberPrice(min,max);
+		
+		return list;
 		
 		// HomeAspect.logger.info(HomeAspect.logMsg+"결과"+adminMemberList);
-		mav.addObject("adminMemberList",adminMemberList);
-		mav.setViewName("adminMember/adminMember");
+		/*mav.addObject("adminMemberList",adminMemberList);
+		mav.setViewName("adminMember/adminMember");*/
 	}
 }
