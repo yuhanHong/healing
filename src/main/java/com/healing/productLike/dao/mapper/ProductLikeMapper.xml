@@ -5,5 +5,12 @@
 
 <mapper namespace="dao.productLikeMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
 	
+	<insert id="productLikeinsert" parameterType="java.util.HashMap">
+		insert into product_like values(product_like_number_seq.nextval,#{member_number},#{product_number},sysdate)		
+	</insert>
+	
+	<select id="getProductLikeList" parameterType="int" resultType="com.healing.productLike.dto.ProductLikeDto">
+		select * from product_like where member_number=#{member_number} order by like_number desc
+	</select>
 </mapper>
 	

@@ -84,6 +84,9 @@ $(function(){
 	<div>
 		<c:if test="${member_name != null}">
 			${member_name}님 환영합니다.
+
+			<br/><br/>
+			<a href = "${root}/productLike/productLikeList.do?member_number=2">관심상품 보러가기</a> 
 		</c:if>
 	</div>
 	

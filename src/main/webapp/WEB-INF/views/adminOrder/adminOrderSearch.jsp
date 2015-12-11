@@ -20,6 +20,36 @@
 	<jsp:include page="../adminHeader.jsp"/>
 	<jsp:include page="../adminSide.jsp"/>
 
+	<input type="button" id="product_like" value="관심상품 추가"/>
+	
+	<script type="text/javascript">
+		$("#product_like").click(function(){
+			
+			var url="${root}/productLike/productLikeinsert.do?product_number=1&member_number=2";
+			var check=confirm("관심 상품으로 등록하시겠습니까?");
+			if(check==true){
+				$.ajax({
+					url:url,
+					type:"get",
+					dataType:"text",
+					success:function(data){
+						var result=data;
+						
+						if(result=="1"){
+							alert("등록이 되었습니다.");
+						}else {
+							alert("등록이 실패되었습니다.");
+						}	
+					},
+					error:function(xhr, status, errorMsg){
+						alert(xhr+","+status+","+errorMsg);
+					}
+				});
+			}else{
+				return;
+			}
+		});
+	</script>
 	<form>
 		<div id="adminOrderSearch" class="container">
 			<h2>예약관리</h2>
@@ -43,7 +73,7 @@
 			</div>				
 		</div>
 		<div id="search_result">
-			<table border="1" style="margin: 30px auto" >
+			<table border="1" style="width: 690px;table-layout: fixed;">
 				<tr id="table_firstTr">
 					<td  width="100">예약 날짜</td>
 					<td  width="100">예약 번호</td>
@@ -52,7 +82,7 @@
 					<td  width="70">예약 인원</td>
 					<td  width="100">결제 금액</td>
 					<td  width="70">결제 방법</td>
-					<td  width="70">예약 상태</td>
+					<td  width="80">예약 상태</td>
 				</tr>
 				<c:forEach var="orderDto" items="${orderList }">
 				<tr>
