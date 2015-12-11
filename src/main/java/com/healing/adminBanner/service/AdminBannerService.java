@@ -6,4 +6,6 @@ public interface AdminBannerService {
 	public void bannerInsert(ModelAndView mav);
 	
 	public void bannerSearch(ModelAndView mav);
+	
+	public void bannerRecommandInsert(ModelAndView mav);
 }

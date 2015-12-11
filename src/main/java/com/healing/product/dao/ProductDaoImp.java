@@ -1,8 +1,13 @@
 package com.healing.product.dao;
 
+import java.util.HashMap;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.healing.aop.HomeAspect;
+import com.healing.product.dto.ProductDto;
 
 /**
  * @이름 : ProductDao
@@ -14,5 +19,6 @@ import org.springframework.stereotype.Component;
 public class ProductDaoImp implements ProductDao {
 
 	@Autowired
-	private SqlSessionTemplate sessionTemplate;
+	private SqlSessionTemplate sqlSessionTemplate;
+	
 }

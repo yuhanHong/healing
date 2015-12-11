@@ -15,12 +15,12 @@
                     //statusbar: true,	
                     width: 450,			// 슬라이드 배너의 가로크기 조절
                     height: 338,		// 슬라이드 배너의 세로크기 조절
-                    affect: 'fade',	// fade로 변경시 서서히 사라지고 나타나는 형태로 바뀜(fade, slide)
+                    affect: 'slide',	// fade로 변경시 서서히 사라지고 나타나는 형태로 바뀜(fade, slide)
                     axis: 'x', 			// y로 변경시 세로슬라이드로 바뀜
                     mousewheel: true,	// 마우스 휠 사용여부 (true, false)
                     navigator: '#main_bn_btn a',
-                    duration: 100,		// 배너 바뀌는 속도
-					autoslide: 500		// 배너 바뀌는 딜레이 조절
+                    duration: 500,		// 배너 바뀌는 속도
+					autoslide: 30000		// 배너 바뀌는 딜레이 조절
                 });
             });
         </script>

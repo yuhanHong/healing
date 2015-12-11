@@ -7,5 +7,5 @@ package com.healing.product.dao;
  * @설명 : 상품조회 DAO 인터페이스
  */
 public interface ProductDao {
-
+	
 }

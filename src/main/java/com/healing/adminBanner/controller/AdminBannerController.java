@@ -56,4 +56,23 @@ public class AdminBannerController {
 		
 		return null;
 	}
+	
+	/**
+	 * @함수이름 : bannerRecommandInsert
+	 * @리턴타입 : ModelAndView
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 전현준
+	 * @함수설명 : 추천상품 테이블에 insert한 후 Service거친후 bannerInsert.jsp 페이지로 이동하는 함수
+	 */
+	@RequestMapping(value="/adminBanner/bannerRecommandInsert.do", method=RequestMethod.GET)
+	public ModelAndView bannerRecommandInsert(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("response", response);
+		
+		adminBannerService.bannerRecommandInsert(mav);
+		
+		mav.setViewName("adminBanner/bannerInsert");	// 추천상품 테이블에 데이트 추가 후 검색페이지(bannerInsert.jsp)로 이동
+		return mav;
+	}
 }

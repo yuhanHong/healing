@@ -4,7 +4,7 @@
 
 <!-- admin sidebar starts -->
 
-<div style="width: 130px; float: left;">
+<div style="width: 200px; height:1200px; float: left; border:1px solid blue;">
 	
 	<a href = "${root}/adminMode/adminModeCreate.do">관리자 계정생성</a><br/>
 	<c:if test="${admin_level=='Master'}">
@@ -13,7 +13,7 @@
 		<a href = "${root}/adminMember/adminMember.do">관리자 회원관리</a><br/>
 	<c:if test="${admin_name!=null}">
 		<a href = "${root}/adminMode/adminModeLogout.do?admin_number=${admin_number}">로그아웃</a><br/>
-		<a href="javascript:pageMove('${root}', '${admin.admin_id}', '${admin.admin_password}')">관리자모드 - 추천상품등록</a><br/>
+		<a href = "${root}/adminBanner/bannerInsert.do">관리자모드 - 추천상품등록</a><br/>
 	</c:if>
 	<hr/>
 	<a href="${root}/adminOrder/adminOrder.do">관리자모드-예약관리</a> <br/>
