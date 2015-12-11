@@ -8,76 +8,81 @@
 <meta charset="UTF-8">
 <title>상품문의 읽기</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/boardQna/boardQna.css"/>
 <script type="text/javascript" src="${root}/js/boardQna/boardQna.js"></script>
 </head>
 <body>
 	<jsp:include page="../header.jsp"/>
 	
-	<div>
-		<div>상품문의</div>
-		<hr/>
-		<div>
-			<label>제목</label>
-			<span>
-				${boardQnaList[0].qna_title}
-			</span>
-		</div>
-		
+	<div class="Outline">
 		<div>
 			<div>
-				<label>작성자</label>
-				<span>
+				<img src="http://localhost:8181/main/resources/boardImg/img01.PNG" align="center"> 
+				<span>상품문의</span>
+			</div>
+		</div>
+		<hr/>
+		<div class="line" style="margin-top: 20px;">
+			<div class="title">제목</div>
+			<div class="content" style="width:650px; text-align: left;">
+				${boardQnaList[0].qna_title}
+			</div>
+		</div>
+		
+		<div class="line">
+			<div>
+				<div class="title">작성자</div>
+				<div class="content" style="margin-right: 315px;">
 					${boardQnaList[0].qna_writer}
-				</span>
+				</div>
 			</div>
 				
 			<div>
-				<label>등록일</label>
-				<span>
+				<div class="title">등록일</div>
+				<div class="content"  style="width:110px;">
 					<fmt:formatDate value="${boardQnaList[0].qna_date}" type="date"/>
-				</span>
+				</div>
 			</div>
 			
 			<div>
-				<label>조회</label>
-				<span>
+				<div class="title">조회수</div>
+				<div class="content" style="width:40px;">
 					${boardQnaList[0].qna_readCount}
-				</span>
+				</div>
 			</div>
 		</div>
 		
-		<div>
+		<div class="line">
 			<div>
-				<label>구분</label>
-				<span>
+				<div class="title">구분</div>
+				<div class="content">
 					${boardQnaList[0].qna_sort}
-				</span>
+				</div>
 			</div>
 			
 			<div>
-				<label>답변여부</label>
+				<div class="title" style="width:80px;">답변여부</div>
 				<c:if test="${boardQnaList[1] != null}">
-					<span>
-						답변완료
-					</span>
+					<div class="content">
+						<img src="http://localhost:8181/main/resources/boardImg/complete.PNG" align="center">
+					</div>
 				</c:if>
 				
 				<c:if test="${boardQnaList[1] == null}">
-					<span>
-						답변미완료
-					</span>
+					<div class="content">
+						<img src="http://localhost:8181/main/resources/boardImg/wait.PNG" align="center">
+					</div>
 				</c:if>
 			</div>
 		</div>
 		
-		<div class="line" style="height:230px;">
-			<label class="title" style="height:230px;">내용</label>
-			<span class="content" style="height:230px;">
-				<textarea rows="14" cols="67">${boardQnaList[0].qna_content}</textarea>
+		<div class="lineContent" style="height:230px;">
+			<span class="textContent" style="height:230px;">
+				<textarea rows="15" cols="102" readonly style="border-color:#ffffff;">${boardQnaList[0].qna_content}</textarea>
 			</span>
 		</div>
 		
-		<div>
+		<div class="searchDiv" style="height:40px; line-height: 40px; text-align: center;">
 			<input type="button" value="목록" 
 			onclick="location.href='${root}/boardQna/list.do?pageNumber=${pageNumber}&searchSort=${searchSort}&searchWord=${searchWord}'"/>
 			<!-- 답변 작성은 관리자 전용 버튼, 답변이 이미 작성되있으면 '답변작성' 버튼 출력 않고
@@ -110,23 +115,22 @@
 		<hr/>
 		
 		<c:if test="${boardQnaList[1] != null}">
-			<div>
-				<div>
-					<label>제목</label>
-					<span>
+			<div style="margin-top: 40px;">
+				<div class="line">
+					<label class="title">제목</label>
+					<span class="content">
 						[답변]${boardQnaList[1].qna_title}
 					</span>
 				</div>
 				
-				<div class="line" style="height:230px;">
-					<label class="title" style="height:230px;">내용</label>
-					<span class="content" style="height:230px;">
-						<textarea rows="14" cols="67">${boardQnaList[1].qna_content}</textarea>
+				<div class="lineContent" style="height:230px;">
+					<span class="textContent" style="height:230px;">
+						<textarea rows="15" cols="102" readonly style="border-color:#ffffff;">${boardQnaList[1].qna_content}</textarea>
 					</span>
 				</div>
 				
 				<!-- '수정','삭제' 버튼은 관리자 전용 -->
-				<div>
+				<div class="searchDiv" style="height:40px; line-height: 40px; text-align: center;">
 					<input type="button" value="수정" onclick="updateFunc('${boardQnaList[1].qna_number}',
 																 '${pageNumber}',
 																 '${searchSort}',

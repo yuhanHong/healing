@@ -21,7 +21,7 @@
 		
 		<div>
 			<div>
-				<img src="http://localhost:8181/main/resources/boardNoticeImg/img01.PNG" align="center">
+				<img src="http://localhost:8181/main/resources/boardImg/img01.PNG" align="center">
 				<span >공지사항</span>
 			</div>
 			
@@ -122,14 +122,16 @@
 				</c:if>
 			</c:if>
 		</div>
-		
-		<div>
-			<select name="sorting">
-				<option value="titleSort">제목</option>	
-				<option value="contentSort">내용</option>
-			</select>
-			<input type="text" name = "search" />
-			<input type="button" name = "btn" value="검색" onclick="javascript:boardNoticeSearch('${root}')"/>
+
+		<div class="searchDiv">
+			<div>
+				<select name="sorting">
+					<option value="titleSort">제목</option>
+					<option value="contentSort">내용</option>
+				</select> 
+				<input type="text" name="search" /> 
+				<input type="button" name="btn" value="검색" onclick="javascript:boardNoticeSearch('${root}')" />
+			</div>
 		</div>
 	</div>
 	

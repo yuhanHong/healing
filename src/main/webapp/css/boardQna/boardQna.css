@@ -1,5 +1,131 @@
 @CHARSET "UTF-8";
 
 .is-check{
-	display:none;
+	display:none; 
+}
+
+.Outline{
+	border:0px solid black; width:740px;
+	margin:0px auto;
+}
+
+a:link{color:black; text-decoration: none;}
+a:visited{color:black; text-decoration: none;}
+a:hover{color:black; text-decoration: none;}
+li{list-style: none; float:left; text-align:center;}
+
+ul,li {margin:0; padding:0;} 
+
+/* list.jsp */
+.board_title{
+	border:1px solid #cccccc; background-color: #EAEAEA;
+	border-left-color: #ffffff; border-right-color: #ffffff;
+	border-top-color: #000000; border-top-width: 0.2em;
+	margin-top:7px; height:50px;
+}
+
+.board_title ul{
+	width:865px; height:48px; 
+	margin-top: 1px;
+}
+
+.board_title ul li{
+	height:47px; line-height: 47px; text-align: center;
+}
+
+.board_title ul li:nth-child(1){
+	width:50px;
+}
+
+.board_title ul li:nth-child(2){
+	width:60px;
+}
+
+.board_title ul li:nth-child(3){
+	width:355px; 
+}
+
+.board_title ul li:nth-child(4){
+	width:80px; 
+}
+
+.board_title ul li:nth-child(5){
+	width:90px; 
+}
+
+.board_title ul li:nth-child(6){
+	width:90px; 
+}
+
+.board{
+	border:1px solid #cccccc; background-color: #ffffff;
+	border-left-color: #ffffff; border-right-color: #ffffff;
+	border-top-color: #ffffff; border-bottom-color:#cccccc;
+	height:47px;
+}
+
+.board ul{
+	width:865px; height:48px; margin-top: 1px; 
+}
+
+.board ul li{
+	height:46px; line-height: 46px; text-align:center;
+}
+
+.board ul li:nth-child(1){
+	width:50px;
+}
+
+.board ul li:nth-child(2){
+	width:60px; 
+}
+
+.board ul li:nth-child(3){
+	width:355px; text-align:left;
+}
+
+.board ul li:nth-child(4){
+	width:80px; 
+}
+
+.board ul li:nth-child(5){
+	width:90px; 
+}
+
+.board ul li:nth-child(6){
+	width:90px; 
+}
+
+.searchDiv{
+	height:80px; line-height:80px;
+	border:1px solid #EAEAEA;
+	background-color: #F6F6F6; margin-top: 15px;
+	text-align: center;
+}
+
+.line{
+	border:1px solid black;
+	height:40px; line-height: 40px;
+	border-top-color: #cccccc;
+	border-bottom-color: #ffffff;
+	border-right-color: #ffffff;
+	border-left-color: #ffffff;
+}
+
+.title{
+	border:0px solid black; font-weight:bold;
+	float:left; width:60px; text-align: center;
+}
+
+.content{
+	border:0px solid black;
+	float:left; width:80px; text-align: left;
+}
+
+.lineContent{
+	border:1px solid black;
+	border-top-color: #cccccc;
+	border-bottom-color: #ffffff;
+	border-right-color: #ffffff;
+	border-left-color: #ffffff;
 }

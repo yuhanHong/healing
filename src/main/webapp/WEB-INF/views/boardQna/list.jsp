@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<link rel="stylesheet" type="text/css" href=""/>
+<link rel="stylesheet" type="text/css" href="${root}/css/boardQna/boardQna.css"/>
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/boardQna/boardQna.js"></script>
 <script type = "text/javascript">
@@ -17,9 +17,18 @@
 <body>
 	<jsp:include page="../header.jsp"/>
 	
-	<div>
-		<div><a href="${root}/boardQna/write.do">문의하기</a></div>
-		<div>상품문의</div>
+	<div class="Outline">
+		<div>
+			<div style="float:left;">
+				<img src="http://localhost:8181/main/resources/boardImg/img01.PNG" align="center">
+				<span >상품문의</span>
+			</div>
+			
+			<div style="margin-left: 630px;">
+				<input type="button" onclick="location.href='${root}/boardQna/write.do'" value="문의사항 등록"/>
+			</div>
+		</div>
+		
 		<c:if test="${count==0}">
 			<div class = "board_title">
 				<ul>
@@ -50,20 +59,40 @@
 				<div class = "board" >
 					<ul>
 						<li>${boardQnaDto.qna_number}</li>
-						<li>${boardQnaDto.qna_sort}</li>
+						<li>
+							<c:if test="${boardQnaDto.qna_sort eq 'payment'}">
+								결제
+							</c:if>
+							<c:if test="${boardQnaDto.qna_sort eq 'reservation'}">
+								예약
+							</c:if>
+							<c:if test="${boardQnaDto.qna_sort eq 'product'}">
+								상품
+							</c:if>
+							<c:if test="${boardQnaDto.qna_sort eq 'etc'}">
+								기타
+							</c:if>
+						</li>
 						<li>
 							<a href="javascript:readFunc('${root}', '${boardQnaDto.qna_password}','${boardQnaDto.qna_number}','${currentPage}','${searchSort}','${searchWord}')">
 								${boardQnaDto.qna_title}
+								<c:if test="${boardQnaDto.qna_password ne null}">
+									<img src="http://localhost:8181/main/resources/boardImg/lock.PNG" align="center">
+								</c:if>
 							</a>
 						</li>
 						<li>${boardQnaDto.qna_writer}</li>
 						<li><fmt:formatDate value="${boardQnaDto.qna_date}" type="date"/></li>
 						<c:if test="${boardQnaDto.qna_reply == 1}">
-							<li>답변완료</li>
+							<li>
+								<img src="http://localhost:8181/main/resources/boardImg/complete.PNG" align="center">
+							</li>
 						</c:if>
 						
 						<c:if test="${boardQnaDto.qna_reply == 0}">
-							<li>답변미완료</li>
+							<li>
+								<img src="http://localhost:8181/main/resources/boardImg/wait.PNG" align="center">
+							</li>
 						</c:if>
 					</ul>
 				</div>
@@ -115,7 +144,7 @@
 			</c:if>
 		</div>
 		
-		<div>
+		<div class="searchDiv">
 			<select name="sorting">
 				<option value="titleSort">제목</option>	
 				<option value="contentSort">내용</option>

@@ -7,20 +7,27 @@
 <meta charset="UTF-8">
 <title>FAQ 수정</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/boardFaq/boardFaq.css"/>
 <script type="text/javascript" src=""></script>
 </head>
 <body>
 	<jsp:include page="../header.jsp"/>
 	
-	<div class="boardContent">
-			<div>FAQ 수정</div>
+	<div class="Outline">
+		
+			<div>
+				<div>
+					<img src="http://localhost:8181/main/resources/boardImg/img01.PNG" align="center"> 
+					<span>FAQ 수정</span>
+				</div>
+			</div>
 			<hr>
 			<form class="" action="${root}/boardFaq/update.do" method="post" onsubmit="return boardFaqForm(this)">
 				
 				<input type = "hidden" name = "faq_number" value = "${boardFaqDto.faq_number}"/>
 				<input type = "hidden" name = "searchWord" value = "${searchWord}"/>
 				
-				<div class="line">
+				<div class="line" style="margin-top: 20px;">
 					<label class="title">분류</label>
 					<span class="content">
 						<input type="radio" name="faq_sort" <c:if test="${boardFaqDto.faq_sort eq 'package'}">checked="checked"</c:if> value="package"/>패키지여행
@@ -40,14 +47,16 @@
 					</span>
 				</div>
 			
-				<div class="line" style="height:230px;">
-					<label class="title" style="height:230px;">내용</label>
-					<span class="content" style="height:230px;">
-						<textarea rows="14" cols="67" name="faq_content">${boardFaqDto.faq_content}</textarea>
-					</span>
+				<div class="lineContent" style="height:240px;">
+					<div style="margin-top:10px;">
+						<label class="title" style="height:230px;">내용</label>
+						<span class="textContent" style="height:230px;">
+							<textarea rows="14" cols="92" name="faq_content">${boardFaqDto.faq_content}</textarea>
+						</span>
+					</div>
 				</div>
 				
-				<div class="line" style="width:598px; border-width:2px; text-align:center;">
+				<div class="searchDiv">
 					<input type="submit" value="수정"/>
 					<input type="reset" value="취소"/>
 					<input type="button" value="목록보기" onclick="location.href='${root}/boardFaq/list.do?faq_sort=${faq_sort}&searchWord=${searchWord}'"/>

@@ -2,7 +2,7 @@
 
 /**/
 .Outline{
-	border:1px solid black; width:900px;
+	border:0px solid black; width:740px;
 	margin:0px auto;
 }
 
@@ -13,6 +13,8 @@ li{list-style: none; float:left; text-align:center;}
 
 ul,li {margin:0; padding:0;} 
 
+/* list.jsp */
+
 .board_title{
 	border:1px solid #cccccc; background-color: #EAEAEA;
 	border-left-color: #ffffff; border-right-color: #ffffff;
@@ -21,53 +23,51 @@ ul,li {margin:0; padding:0;}
 }
 
 .board_title ul{
-	width:850px; height:48px; 
+	width:865px; height:48px; 
 	margin-top: 1px;
 }
 
 .board_title ul li{
-	border:1px solid #cccccc;
-	height:47px; line-height: 47px; text-align: left;
+	height:47px; line-height: 47px; text-align: center;
 }
 
 .board_title ul li:nth-child(1){
-	width:60px;
+	width:60px; margin-right: 10px;
 }
 
 .board_title ul li:nth-child(2){
-	width:530px; text-align: center;
+	width:430px; text-align: center;
 }
 
 .board_title ul li:nth-child(3){
-	width:140px; 
+	width:150px; 
 }
 
 .board_title ul li:nth-child(4){
-	width:60px; 
+	width:97px; 
 }
 
 .board{
 	border:1px solid #cccccc; background-color: #ffffff;
 	border-left-color: #ffffff; border-right-color: #ffffff;
-	border-top-color: #cccccc;
+	border-top-color: #ffffff; border-bottom-color:#cccccc;
 	height:47px;
 }
 
 .board ul{
-	width:850px; height:48px; margin-top: 1px; 
+	width:865px; height:48px; margin-top: 1px; 
 }
 
 .board ul li{
-	border:1px solid #cccccc;
-	height:46px; line-height: 46px; text-align:left;
+	height:46px; line-height: 46px; text-align:center;
 }
 
 .board ul li:nth-child(1){
-	width:60px;
+	width:60px; margin-right: 10px;
 }
 
 .board ul li:nth-child(2){
-	width:515px; 
+	width:430px; text-align:left;
 }
 
 .board ul li:nth-child(3){
@@ -75,66 +75,41 @@ ul,li {margin:0; padding:0;}
 }
 
 .board ul li:nth-child(4){
-	width:60px; text-align:center;
+	width:97px; 
 }
 
-
-
-
-
-/*
-.boardList{
-	border:1px solid black; float:left;
-	width:200px; overflow:hidden;
+.searchDiv{
+	height:80px; line-height:80px;
+	border:1px solid #EAEAEA;
+	background-color: #F6F6F6; margin-top: 15px;
+	text-align: center;
 }
 
-.boardList_li{
-	border:0px solid black;
-	width:190px; margin:0px auto;
-}
-
-.boardList_li li{
-	list-style:none; 
-	border:0px solid black;
-	width:170px; height:30px; 
-	line-height:30px;
-	margin-top: 15px;
-}
-
-.boardContent{
-	border: 1px solid black; float:left;
-	width:700px; overflow:hidden; margin-left:50px;
-}
-
+/* read.jsp */
 .line{
-	width:600px; height:40px; float:left;
-	border:0px solid black; line-height: 40px;
+	border:1px solid black;
+	height:40px; line-height: 40px;
+	border-top-color: #cccccc;
+	border-bottom-color: #ffffff;
+	border-right-color: #ffffff;
+	border-left-color: #ffffff;
 }
 
 .title{
-	height:40px; line-height: 40px;
-	border:0px solid black;
+	border:0px solid black; font-weight:bold;
+	float:left; width:60px; text-align: center;
 }
 
 .content{
-	height:40px; line-height: 40px;
 	border:0px solid black;
-	margin-left: 15px;
+	float:left; width:80px; text-align: left;
 }
-*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.lineContent{
+	border:1px solid black;
+	border-top-color: #cccccc;
+	border-bottom-color: #ffffff;
+	border-right-color: #ffffff;
+	border-left-color: #ffffff;
+}
 

@@ -12,10 +12,9 @@
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/boardFaq/boardFaq.js"></script>
 <script type="text/javascript">
-	
 	$(function(){	
 		
-		$("li").click(function(){				// 클릭 했을 때 id 값을 가져와 class를 생성, 제거를 반복한다.
+		$(".is-open").click(function(){				// 클릭 했을 때 id 값을 가져와 class를 생성, 제거를 반복한다.
 			var id = $(this).attr("id");
 			$("#"+id).toggleClass("is-open");
 		});
@@ -26,29 +25,49 @@
 <body>
 	<jsp:include page="../header.jsp"/>
 	
-	<div>
+	<div class="Outline">	
 		<div>
-			<a href="">
-				<input type="button" value="문의하기" name="btn_qna"/>
-			</a>문의하기
-		</div>
+			<div style="float:left;">
+				<img src="http://localhost:8181/main/resources/boardImg/img01.PNG" align="center">
+				<span >자주 묻는 질문</span>
+			</div>
+			
+			<div style="margin-left: 640px;">
+				<input type="button" onclick="location.href='${root}/boardFaq/write.do'" value="FAQ 등록"/>
+			</div>
+		</div>		
+		<hr/>
 		
-		<div>
+		<div class="searchDiv">
 			<label>자주 묻는 질문 검색</label>
 			<span>
-				<input type="text" name="searchWord"/>
+				<input type="text" name="searchWord" style="height:24px;"/>
 				<input type="button" value="검색" onclick="javascript:boardFaqSearch('${root}')"/>
 			</span>
 		</div>
 		
-		<div>
-			<a href="${root}/boardFaq/list.do?faq_sort=package"><input type="button" name="btn_package" value="패키지여행"/></a>
-			<a href="${root}/boardFaq/list.do?faq_sort=free"><input type="button" name="btn_free" value="자유여행"/></a>
-			<a href="${root}/boardFaq/list.do?faq_sort=air"><input type="button" name="btn_air" value="항공"/></a>
-			<a href="${root}/boardFaq/list.do?faq_sort=hotel"><input type="button" name="btn_hotel" value="호텔"/></a>
-			<a href="${root}/boardFaq/list.do?faq_sort=reservation"><input type="button" name="btn_reservation" value="예약/결제"/></a>
-			<a href="${root}/boardFaq/list.do?faq_sort=homepage"><input type="button" name="btn_homepage" value="홈페이지"/></a>
-			<a href="${root}/boardFaq/list.do?faq_sort=etc"><input type="button" name="btn_etc" value="기타"/></a>
+		<div class="sortBtn">
+			<a href="${root}/boardFaq/list.do?faq_sort=package"><input type="button" name="btn_package" value="패키지여행" 
+																	onMouseOver="this.style.backgroundColor='#47C83E'"
+																	onMouseOut="this.style.backgroundColor='#8C8C8C'" /></a>
+			<a href="${root}/boardFaq/list.do?faq_sort=free"><input type="button" name="btn_free" value="자유여행"
+																	onMouseOver="this.style.backgroundColor='#47C83E'"
+																	onMouseOut="this.style.backgroundColor='#8C8C8C'" /></a>
+			<a href="${root}/boardFaq/list.do?faq_sort=air"><input type="button" name="btn_air" value="항공"
+																	onMouseOver="this.style.backgroundColor='#47C83E'"
+																	onMouseOut="this.style.backgroundColor='#8C8C8C'" /></a>
+			<a href="${root}/boardFaq/list.do?faq_sort=hotel"><input type="button" name="btn_hotel" value="호텔"
+																	onMouseOver="this.style.backgroundColor='#47C83E'"
+																	onMouseOut="this.style.backgroundColor='#8C8C8C'" /></a>
+			<a href="${root}/boardFaq/list.do?faq_sort=reservation"><input type="button" name="btn_reservation" value="예약/결제"
+																	onMouseOver="this.style.backgroundColor='#47C83E'"
+																	onMouseOut="this.style.backgroundColor='#8C8C8C'" /></a>
+			<a href="${root}/boardFaq/list.do?faq_sort=homepage"><input type="button" name="btn_homepage" value="홈페이지"	
+																	onMouseOver="this.style.backgroundColor='#47C83E'"
+																	onMouseOut="this.style.backgroundColor='#8C8C8C'" /></a>
+			<a href="${root}/boardFaq/list.do?faq_sort=etc"><input type="button" name="btn_etc" value="기타"
+																	onMouseOver="this.style.backgroundColor='#47C83E'"
+																	onMouseOut="this.style.backgroundColor='#8C8C8C'" /></a>
 		</div>
 		
 		<c:if test="${count==0}">
@@ -58,32 +77,28 @@
 		</c:if>
 		
 		<c:if test="${count>0}">
-			<div>
+			<div style="margin-top: 20px;">
 				<c:forEach var="boardFaqDto" items="${boardFaqList}">
-					<div class = "" >
+					<div class = "line" >
 						<ul>
 							<li class ="is-open" id="${boardFaqDto.faq_number}">
-								<dl>
-									<dt>
-										<i></i>
-										${boardFaqDto.faq_title}
-										<i></i>
-									</dt>
+								<div>
+									<div>
+										<div class="title">Q.</div>
+										<div class="content">${boardFaqDto.faq_title}</div>
+									</div>
 									
-									<dd>
-										<i></i>									
-										<p>${boardFaqDto.faq_content}</p>
-									</dd>
-								</dl>
+									<div class="answer">
+										<div class="title">A.</div>						
+										<div class="content">${boardFaqDto.faq_content}</div>
+										<div>
+											<input type="button" value="수정" onclick = "javascript:updateFunc('${boardFaqDto.faq_number}','${root}','${faq_sort}','${searchWord}')"/>
+											<input type="button" value="삭제" onclick = "javascript:deleteFunc('${boardFaqDto.faq_number}','${root}','${faq_sort}','${searchWord}')"/>
+										</div>
+									</div>
+								</div>
 							</li>
 						</ul>
-						<div>
-							<input type="button" value="수정" onclick = "javascript:updateFunc('${boardFaqDto.faq_number}','${root}','${faq_sort}','${searchWord}')"/>
-							<input type="button" value="삭제" onclick = "javascript:deleteFunc('${boardFaqDto.faq_number}','${root}','${faq_sort}','${searchWord}')"/>
-						</div>
-				<!--  	<c:if test="${memberLevel=='AA'}"> -->
-						
-				<!--	</c:if> 	-->
 					</div>
 				</c:forEach>
 			</div>
