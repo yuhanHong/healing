@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+
+.productLikeTable ul li{
+
+	padding: 4px;
+	display: block;
+	width:100px;
+	float:left;
+	border: 1px solid gray;
+	text-align: center;
+	height: 38px;
+	line-height:38px;
+	
+}
+
+.productLikeTable ul li:nth-child(1){
+	width:30px;
+}
+.productLikeTable ul li:nth-child(2){
+	width:300px;
+}
+.productLikeTable ul li:nth-child(4){
+	line-height: 11px;
+}
+
+.productLikeTable {
+
+	margin:-1px;
+	overflow: hidden;
+}
+
+.productLikeTable ul{
+
+	margin: 0px;
+	
+}
+.productLikeTableFirst li{
+	background-color: lightgray;
+	font-weight: bold;
+}

@@ -43,4 +43,23 @@ public class ProductLikeController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/productLike/productLikeAllDelete.do",method=RequestMethod.GET)
+	public ModelAndView productLikeAllDelete(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);	
+		
+		productLikeService.productLikeAllDelete(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/productLike/productLikeSelectDel.do",method=RequestMethod.GET)
+	public ModelAndView productLikeSelectDel(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);	
+		
+		productLikeService.productLikeSelectDel(mav);
+		
+		return mav;
+	}
 }

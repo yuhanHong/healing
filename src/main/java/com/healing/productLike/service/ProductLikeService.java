@@ -12,5 +12,6 @@ public interface ProductLikeService {
 
 	public void productLikeinsert(ModelAndView mav);
 	public void productLikeList(ModelAndView mav);
-	
+	public void productLikeAllDelete(ModelAndView mav);
+	public void productLikeSelectDel(ModelAndView mav);
 }

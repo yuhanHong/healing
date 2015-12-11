@@ -35,4 +35,16 @@ public class ProductLikeDaoImp implements ProductLikeDao {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectList("dao.productLikeMapper.getProductLikeList",member_number);
 	}
+
+	@Override
+	public int productLikeAllDelete(int member_number) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.delete("dao.productLikeMapper.productLikeAllDelete",member_number);
+	}
+
+	@Override
+	public int productLikeSelectDel(int like_number) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.delete("dao.productLikeMapper.productLikeSelectDel",like_number);
+	}
 }
