@@ -23,6 +23,8 @@
 </script>
 </head>
 <body>
+	<jsp:include page="../header.jsp"/>
+	
 	<div >
 		<div class="">
 			<div>고객센터</div>
@@ -128,5 +130,7 @@
 			</form>
 		</div>
 	</div>
+	
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

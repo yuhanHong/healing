@@ -18,6 +18,8 @@
   </script>
 </head>
 <body>
+	<jsp:include page="../header.jsp"/>
+	
 	<h3>회원가입</h3>
 	<form action="${root}/member/memberUpdateOk.do" name="memberForm" method="POST" onsubmit="return joinForm(this)">
 		<div align="center">
@@ -104,5 +106,7 @@
 		</div>
 	</form>
 
+	
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

@@ -54,9 +54,14 @@
 </script>
 </head>
 <body>
+	<jsp:include page="../adminHeader.jsp"/>
+	<jsp:include page="../adminSide.jsp"/>
+	
+	<%-- 
 	<div style="border:1px solid red; width:1250px">
 		<c:import url="../adminHome.jsp"/>
 	</div>
+	 --%>
 	<div style="border:1px solid blue; width:250px; height:1200px; float:left">
 		<div align="center"><h3>[관리자모드 - 추천상품]</h3></div>
 		<ul style="list-style-type: none">

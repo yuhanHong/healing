@@ -15,6 +15,8 @@
 </script>
 </head>
 <body>
+	<jsp:include page="../header.jsp"/>
+	
 	<div class="Outline">
 		
 		<div>
@@ -130,5 +132,7 @@
 			<input type="button" name = "btn" value="검색" onclick="javascript:boardNoticeSearch('${root}')"/>
 		</div>
 	</div>
+	
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

@@ -9,6 +9,9 @@
 <script type="text/javascript" src="${root}/js/adminHome/adminHome.js"></script>
 </head>
 <body>
+	<jsp:include page="adminHeader.jsp"/>
+	<jsp:include page="adminSide.jsp"/>
+	
 	<form name="adminHome">
 		<input type="hidden" name="admin_id">
 		<input type="hidden" name="admin_pw">

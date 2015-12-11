@@ -17,7 +17,9 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-<jsp:include page="../home.jsp"/>
+	<jsp:include page="../adminHeader.jsp"/>
+	<jsp:include page="../adminSide.jsp"/>
+
 	<form>
 		<div id="adminOrderSearch" class="container">
 			<h2>예약관리</h2>

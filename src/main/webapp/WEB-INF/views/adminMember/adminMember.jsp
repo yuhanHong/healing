@@ -41,6 +41,9 @@ $(function(){
 </script>
 </head>
 <body>
+	<jsp:include page="../adminHeader.jsp"/>
+	<jsp:include page="../adminSide.jsp"/>
+	
 <h3>관리자 회원관리</h3>
 
 <div id="adm_main">

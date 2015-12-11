@@ -23,6 +23,8 @@
 </script>
 </head>
 <body>
+	<jsp:include page="../header.jsp"/>
+	
 	<div class="boardContent">
 			<div>문의사항 수정</div>
 			<hr>
@@ -96,5 +98,7 @@
 			</div>	
 		</form>
 		</div>
+	
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

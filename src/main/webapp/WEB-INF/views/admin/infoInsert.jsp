@@ -8,6 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="../adminHeader.jsp"/>
+	<jsp:include page="../adminSide.jsp"/>
+	
 	<c:set var="root" value="${pageContext.request.contextPath }"/>
 	<div>
 		<div align="center">

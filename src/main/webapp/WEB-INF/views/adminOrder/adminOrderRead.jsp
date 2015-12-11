@@ -19,6 +19,9 @@
 
 </head>
 <body>
+	<jsp:include page="../adminHeader.jsp"/>
+	<jsp:include page="../adminSide.jsp"/>
+	
 	<form id="orderForm">
 		<div>
 		

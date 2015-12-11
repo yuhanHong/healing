@@ -19,6 +19,8 @@
   </script>
 </head>
 <body>
+	<jsp:include page="../header.jsp"/>
+	
 <div id="joinTotal">
 	
 	<div id="minititle">member Join</div>
@@ -110,5 +112,7 @@
 		</div>
 	</form>
 </div>
+	
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

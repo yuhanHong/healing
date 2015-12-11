@@ -19,6 +19,9 @@
 
 </head>
 <body>
+	<jsp:include page="../adminHeader.jsp"/>
+	<jsp:include page="../adminSide.jsp"/>
+	
 	<form id="orderForm" action="${root}/adminOrder/adminOrderModify.do"  method ="post" onsubmit="return orderCheck(this,'${root}')">
 		<div>
 			<!-- hidden-->

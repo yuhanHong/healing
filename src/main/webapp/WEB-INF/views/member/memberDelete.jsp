@@ -9,6 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="../header.jsp"/>
+	
 	<form action="${root}/member/memberDeleteOk.do" method="POST">
 		<h3>회원탈퇴</h3>
 		<div>
@@ -25,5 +27,7 @@
 			<input type="reset" value="취소"/>			
 		</div>
 	</form>
+	
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

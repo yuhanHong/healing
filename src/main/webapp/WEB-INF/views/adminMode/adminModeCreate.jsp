@@ -9,6 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="../adminHeader.jsp"/>
+	<jsp:include page="../adminSide.jsp"/>
+	
 	<h3>관리자 계정생성</h3>
 	<br/><br/>
 	<form action="${root}/adminMode/adminModeCreateOk.do" name="adminModeFrom" method="POST" onsubmit="return adminModeFrom(this)">

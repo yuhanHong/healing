@@ -24,6 +24,8 @@
 </script>
 </head>
 <body>
+	<jsp:include page="../header.jsp"/>
+	
 	<div>
 		<div>
 			<a href="">
@@ -87,5 +89,7 @@
 			</div>
 		</c:if>
 	</div>
+	
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

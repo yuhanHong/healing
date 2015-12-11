@@ -28,6 +28,8 @@
 </script>
 </head>
 <body>
+	<jsp:include page="../header.jsp"/>
+	
 	<div>공지사항</div>
 	<hr>
 	<div>
@@ -102,5 +104,7 @@
 			</span>
 		</div>
 	</div>
+	
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

@@ -11,6 +11,8 @@
 <script type="text/javascript" src="${root}/js/boardNotice/boardNoticeWrite.js"></script>
 </head>
 <body>
+	<jsp:include page="../header.jsp"/>
+	
 	<div >
 		<div class="boardList">
 			<div>고객센터</div>
@@ -65,5 +67,7 @@
 			</form>
 		</div>
 	</div>
+	
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

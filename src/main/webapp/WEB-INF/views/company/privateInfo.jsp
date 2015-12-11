@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:import url="../include/header.jsp"/>
+	<jsp:include page="../header.jsp"/>
 	
 	<div id="auto_info" style="border:1px solid orange; margin-left:250px;width:1000px; height:800px">
 		<h3 style="margin:20px">개인정보취급방침</h3>
@@ -72,5 +72,7 @@
 </pre>
 		</div>
 	</div>
+	
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

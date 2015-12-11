@@ -14,6 +14,9 @@
 <script type="text/javascript" src="${root}/js/adminMode/adminModeUpdate.js"></script>
 </head>
 <body>
+	<jsp:include page="../adminHeader.jsp"/>
+	<jsp:include page="../adminSide.jsp"/>
+	
 	<div>
 		<h3>관리자 계정관리</h3>
 	</div>

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:import url="../include/header.jsp"/>
+	<jsp:include page="../header.jsp"/>
 	<div id="auto_info" style="border:1px solid orange; margin-left:250px;width:1000px; height:800px">
 		<h3 style="margin:20px">회사소개</h3>
 		<div style="border:1px solid skyblue; margin:20px;width:950px; height:500px; overflow:scroll">
@@ -39,6 +39,8 @@ IMF를 겪으면서 시작한 (주)힐링투어가 벌써 15년을 넘어 20년�
 감사합니다.
 </pre>
 		</div>
-	</div>		
+	</div>
+	
+	<jsp:include page="../footer.jsp"/>		
 </body>
 </html>

@@ -22,7 +22,13 @@ import com.healing.product.dto.ProductDto;
 public class AdminProductController {
 	@Autowired
 	private AdminProductService adminProductService;
-	
+
+	/**
+	 * @함수이름 : productWrite
+	 * @작성일 : 2015. 12. 7.
+	 * @개발자 : 홍유한
+	 * @함수설명 : admin이 상품을 등록할 때 호출하여 productWrite.jsp를 엽니다.
+	 */
 	@RequestMapping(value="/adminProduct/productWrite.do",method=RequestMethod.GET)
 	public ModelAndView productWrite(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
@@ -32,6 +38,12 @@ public class AdminProductController {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : productWriteOk
+	 * @작성일 : 2015. 12. 7.
+	 * @개발자 : 홍유한
+	 * @함수설명 : admin이 상품을 등록을 완료할때 호출하여  productWriteOk.jsp를 엽니다.
+	 */
 	@RequestMapping(value="/adminProduct/productWrite.do",method=RequestMethod.POST)
 	public ModelAndView productWriteOk(HttpServletRequest request, HttpServletResponse response, ProductDto productDto){
 		ModelAndView mav=new ModelAndView();
@@ -40,5 +52,4 @@ public class AdminProductController {
 		
 		return mav;
 	}
-
 }

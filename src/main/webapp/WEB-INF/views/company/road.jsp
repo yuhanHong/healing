@@ -56,7 +56,7 @@
 </script>
 </head>
 <body onload="findRoad()">
-	<c:import url="../include/header.jsp"/>
+	<jsp:include page="../header.jsp"/>
 	
 	<div id="auto_info" style="border:1px solid orange; margin-left:250px;width:1000px; height:800px">
 		<h3 style="margin:20px">찾아오시는 길</h3>
@@ -66,5 +66,7 @@
 			신분당선 판교역 4번출구 ▶ 마을버스(602-1, 602-2, 71, 73, 75) ▶ H스퀘어(하이펙스) 하차 ▶ 도보로 5~10분 거리
 		</div>
 	</div>
+	
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

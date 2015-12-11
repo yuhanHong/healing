@@ -15,6 +15,8 @@
 </script>
 </head>
 <body>
+	<jsp:include page="../header.jsp"/>
+	
 	<div>
 		<div><a href="${root}/boardQna/write.do">문의하기</a></div>
 		<div>상품문의</div>
@@ -123,5 +125,7 @@
 			<input type="button" name = "btn" value="검색" onclick="javascript:boardQnaSearch('${root}')"/>
 		</div>
 	</div>
+	
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

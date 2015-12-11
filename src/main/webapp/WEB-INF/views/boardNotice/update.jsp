@@ -10,6 +10,8 @@
 <script type="text/javascript" src="${root}/js/boardNotice/boardNoticeWrite.js"></script>
 </head>
 <body>
+	<jsp:include page="../header.jsp"/>
+	
 	<div class="boardContent">
 			<div>공지사항 수정</div>
 			<hr>
@@ -52,5 +54,7 @@
 				</div>		
 			</form>
 		</div>
+	
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

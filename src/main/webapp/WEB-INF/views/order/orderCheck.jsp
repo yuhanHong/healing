@@ -13,7 +13,8 @@
 <script type="text/javascript" src="${root}/js/order/order.js"></script>
 </head>
 <body>
-<jsp:include page="../home.jsp"/>
+	<jsp:include page="../header.jsp"/>
+	
 <hr/>
 	<form id="orderForm" action="${root}/order/write.do"  method ="post" onsubmit="return orderCheck(this,'${root}')">
 		<div id="orderPage">
@@ -55,5 +56,7 @@
 			</div>
 		</div>
 	</form>
+	
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

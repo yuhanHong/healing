@@ -11,6 +11,8 @@
 <script type="text/javascript" src="${root}/js/boardQna/boardQna.js"></script>
 </head>
 <body>
+	<jsp:include page="../header.jsp"/>
+	
 	<div>
 		<div>상품문의</div>
 		<hr/>
@@ -141,5 +143,7 @@
 			</div>
 		</c:if>
 	</div>
+	
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>
