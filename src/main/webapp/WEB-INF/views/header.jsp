@@ -6,11 +6,19 @@
 
 <link rel="stylesheet" type="text/css" href="${root}/css/home/home.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/jquery-ui.css"/>
+
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery-ui.js"></script>
 <script type="text/javascript" src="${root}/js/memberScript/memberScript.js"></script>
 <script type="text/javascript">
+	//브라우저의 타이틀 변경
 	document.title="힐링투어에 오신 것을 환영합니다!";
+
+	//브라우저의 아이콘 변경
+	var link = document.createElement('link');
+    link.rel = 'Shortcut Icon';
+    link.href = '${root}/resources/icons/H.ico';
+    document.getElementsByTagName('head')[0].appendChild(link);
 </script>
 
 <script type="text/javascript">
