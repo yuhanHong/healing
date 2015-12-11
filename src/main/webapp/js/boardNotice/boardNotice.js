@@ -11,3 +11,20 @@ function boardNoticeSearch(root){
 	var url = root+"/boardNotice/list.do?searchWord="+searchWord+"&searchSort="+searchSort;
 	location.href= url;
 }
+
+function deleteFunc(notice_number, pageNumber, root){
+	var check = confirm("공지사항 글을 삭제하시겠습니까?");
+	if(check){
+		var url = root+"/boardNotice/delete.do?notice_number="+notice_number+"&pageNumber="+pageNumber;
+		location.href=url;
+	}else{
+		alert("글 삭제가 취소되었습니다.");
+	}
+	
+}
+
+function updateFunc(notice_number, pageNumber, root){
+	//alert(notice_number + "," + pageNumber + "," + root);
+	var url = root+"/boardNotice/update.do?notice_number="+notice_number+"&pageNumber="+pageNumber;
+	location.href=url;
+}

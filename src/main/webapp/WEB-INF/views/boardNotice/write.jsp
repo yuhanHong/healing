@@ -7,67 +7,60 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Notice 게시판 글작성</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<link rel="stylesheet" type="text/css" href="${root}/css/boardNotice/board.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/boardNotice/boardNotice.css"/>
 <script type="text/javascript" src="${root}/js/boardNotice/boardNoticeWrite.js"></script>
 </head>
 <body>
 	<jsp:include page="../header.jsp"/>
-	
-	<div >
-		<div class="boardList">
-			<div>고객센터</div>
-			<hr>
-			<div class="boardList_li">
-				<ul>
-					<li>공지사항</li>
-					<li>자주 묻는 질문</li>
-					<li>상품문의</li>
-				</ul>
+
+	<div class="Outline">
+		<div>
+			<div>
+				<img src="http://localhost:8181/main/resources/boardImg/img01.PNG" align="center"> 
+				<span>공지사항</span>
 			</div>
 		</div>
-		<div class="boardContent">
-			<div>공지사항 작성</div>
-			<hr>
-			<form class="" action="${root}/boardNotice/write.do" method="post" onsubmit="return boardNoticeForm(this)" enctype="multipart/form-data">
-				<input type = "hidden" name = "notice_number" value = "${notice_number}"/>
-				
-				<div class="line">
-					<label class="title">작성자</label>
-					<span class="content">
-						<input type="text" name="notice_writer"/>
-					</span>
+		<hr>
+		<form class="" action="${root}/boardNotice/write.do" method="post" onsubmit="return boardNoticeForm(this)" enctype="multipart/form-data">
+			<input type="hidden" name="notice_number" value="${notice_number}" />
+
+			<div class="line">
+				<div class="title">작성자</div> 
+				<div class="content"> 
+					<input type="text" size="20" name="notice_writer" />
 				</div>
-				
-				<div class="line">
-					<label class="title">제목</label>
-					<span class="content">
-						<input type="text" name="notice_title"/>
-					</span>
+			</div>
+
+			<div class="line">
+				<div class="title">제목</div> 
+				<div class="content"> 
+					<input type="text" size="90" name="notice_title" />
 				</div>
+			</div>
+
+			<div class="lineContent" style="height: 240px;">
+				<div style="margin-top:10px;">
+					<div class="title" style="height: 230px;">내용</div> 
+					<div class="textContent" style="height: 230px;"> 
+						<textarea rows="14" cols="92"  name="notice_content" ></textarea>
+					</div>
+				</div>
+			</div>
 			
-				<div class="line" style="height:230px;">
-					<label class="title" style="height:230px;">내용</label>
-					<span class="content" style="height:230px;">
-						<textarea rows="14" cols="67" name="notice_content"></textarea>
-					</span>
+			<div class="line">
+				<div class="title" >파일명</div> 
+				<div class="content" > 
+					<input type="file" name="file" />
 				</div>
-				
-				<div class="line">
-					<label class="title">파일명</label>
-					<span class="content">
-						<input type="file" name="file"/>
-					</span>
-				</div>
-				
-				<div class="line" style="width:598px; border-width:2px; text-align:center;">
-					<input type="submit" value="등록"/>
-					<input type="reset" value="취소"/>
-					<input type="button" value="목록보기" onclick="location.href='${root}/boardNotice/list.do?pageNumber=${currentPage}'"/>
-				</div>		
-			</form>
-		</div>
+			</div>
+			
+			<div class="searchDiv" >
+				<input type="submit" value="등록" /> <input type="reset" value="취소" />
+				<input type="button" value="목록보기" onclick="location.href='${root}/boardNotice/list.do?pageNumber=${currentPage}'" />
+			</div>
+		</form>
 	</div>
-	
+
 	<jsp:include page="../footer.jsp"/>
 </body>
 </html>

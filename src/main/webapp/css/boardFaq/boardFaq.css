@@ -1,5 +1,71 @@
 @CHARSET "UTF-8";
 
-.is-open dd{
+.is-open .answer{
 	display:none;
+}
+
+.Outline{
+	border:0px solid black; width:740px;
+	margin:0px auto; overflow:hidden;
+}
+
+a:link{color:black; text-decoration: none;}
+a:visited{color:black; text-decoration: none;}
+a:hover{color:black; text-decoration: none;}
+li{list-style: none; float:left; text-align:center;}
+
+ul,li {margin:0; padding:0;} 
+
+.searchDiv{
+	height:80px; line-height:80px;
+	border:1px solid #EAEAEA;
+	background-color: #F6F6F6; margin-top: 15px;
+	text-align: center;
+}
+
+.img_button{
+	width:50px; height:30px; vertical-align: middle;
+}
+
+.sortBtn{
+	border:0px solid black; margin-top: 40px;
+	height:40px; line-height: 40px; 
+}
+
+.sortBtn input{
+	border:0px solid black; width:100px; height:40px;
+	font-size: 1.1em; font-weight: bold; color:#ffffff;
+	background-color: #8C8C8C;	
+}
+
+.line{
+	border:1px solid black;
+	height:40px; line-height: 40px;
+	border-top-color: #cccccc;
+	border-bottom-color: #ffffff;
+	border-right-color: #ffffff;
+	border-left-color: #ffffff;
+}
+
+.title{
+	border:0px solid black; font-weight:bold;
+	float:left; width:60px; text-align: center;
+	height:40px; 
+}
+
+.content{
+	border:0px solid black;
+	width:737px; text-align: left;
+}
+
+.lineContent{
+	border:1px solid black;
+	border-top-color: #cccccc;
+	border-bottom-color: #ffffff;
+	border-right-color: #ffffff;
+	border-left-color: #ffffff;
+}
+
+.answer{
+	background-color: #F6F6F6;
 }
