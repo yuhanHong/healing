@@ -4,7 +4,7 @@
 
 <!-- admin sidebar starts -->
 
-<div style="width: 200px; height:1200px; float: left; border:1px solid blue;">
+<div style="width: 130px; float: left; border:0px solid blue;">
 	
 	<a href = "${root}/adminMode/adminModeCreate.do">관리자 계정생성</a><br/>
 	<c:if test="${admin_level=='Master'}">

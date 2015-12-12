@@ -15,6 +15,8 @@
 <script type="text/javascript" src="${root}/js/adminMember/adminMember.js"></script>
 <script type="text/javascript">
 $(function(){
+	var minvalue,maxvalue;
+	
 	$( "#slider-range" ).slider({
 		range: true,
 		min: 0,
@@ -22,78 +24,62 @@ $(function(){
 		step: 1000000,
 		slide: function( event, ui ) {
 			$( "#amount" ).val( ui.values[ 0 ] +"원" +"~"+ui.values[ 1 ] + "원" );
-			var minvalue=ui.values[ 0 ];
-			var maxvalue=ui.values[ 1 ];
-			$("#slider-range").click(function(){
-				var str="${root}";
-				str+="/adminMember/adminMemberPrice.do?min=";
-				str+=minvalue;
-				str+="&max=";
-				str+=maxvalue;
-				
-				$.ajax({
-					type:"get"		// 포스트방식
-					,url:str		// url 주소
-					,dataType:"json"
-					,success:function(args){	//응답이 성공 상태 코드를 반환하면 호출되는 함수
-						 $(".adm_list").remove();
-						 for(var i=0; i<args.data.length; i++){			 
-							 var form="<div class='adm_list'>";
-								 form+="<ul>";
-								 form+="<li id='adm_member_name'>"+args.data[i].member_name+"</li>";
-								 form+="<li id='adm_member_id'>"+args.data[i].member_id+"</li>";
-								 form+="<li id='adm_member_phone'>"+args.data[i].member_phone+"</li>";
-								 form+="<li id='adm_member_email'>"+args.data[i].member_email+"</li>";
-								 form+="<li id='adm_member_date'>"+dateFormatter(args.data[i].member_date)+"</li>";
-								 form+="<li id='adm_member_purchase'>"+args.data[i].member_purchase+"</li>";
-								 form+="<li id='adm_member_level'>"+args.data[i].member_level+"</li>";
-								 form+="</ul>";
-								 form+="</div>";
-								 $("#adm_memberin").append(form);
-						 }
-					}
-				    ,error:function(e) {	// 이곳의 ajax에서 에러가 나면 얼럿창으로 에러 메시지 출력
-				    	alert(e.responseText);
-				    }
-				});
-				
-			});
+			minvalue=ui.values[ 0 ];
+			maxvalue=ui.values[ 1 ];
 		}
 	});
-	$( "#amount" ).val( $( "#slider-range" ).slider( "values", 0 )+"원" +
-	"~" + $( "#slider-range" ).slider( "values", 0 ) +"원" );
+	$( "#amount" ).val( "0" + "원" + " ~ " + "0" +"원" );
+	
+	$("html").mouseup(function(){
+		if (maxvalue==undefined) return false;
+		
+		var str="${root}";
+		str+="/adminMember/adminMemberPrice.do?min=";
+		str+=minvalue;
+		str+="&max=";
+		str+=maxvalue;
+		
+		$.ajax({
+			type:"get"		// 포스트방식
+			,url:str		// url 주소
+			,dataType:"json"
+			,success:function(args){	//응답이 성공 상태 코드를 반환하면 호출되는 함수
+				 $(".adm_list").remove();
+				 for(var i=0; i<args.data.length; i++){			 
+					 var form="<div class='adm_list'>";
+						 form+="<ul>";
+						 form+="<li id='adm_member_name'>"+args.data[i].member_name+"</li>";
+						 form+="<li id='adm_member_id'>"+args.data[i].member_id+"</li>";
+						 form+="<li id='adm_member_phone'>"+args.data[i].member_phone+"</li>";
+						 form+="<li id='adm_member_email'>"+args.data[i].member_email+"</li>";
+						 form+="<li id='adm_member_date'>"+dateFormatter(args.data[i].member_date)+"</li>";
+						 form+="<li id='adm_member_purchase'>"+args.data[i].member_purchase+"</li>";
+						 form+="<li id='adm_member_level'>"+args.data[i].member_level+"</li>";
+						 form+="</ul>";
+						 form+="</div>";
+						 $("#adm_memberin").append(form);
+				 }
+			}
+		    ,error:function(e) {	// 이곳의 ajax에서 에러가 나면 얼럿창으로 에러 메시지 출력
+		    	alert(e.responseText);
+		    }
+		});
+		$( "#amount" ).val( minvalue+"원" + " ~ " + maxvalue +"원" );
+		$("#maxValue").val(maxvalue);
+		$("#minValue").val(minvalue);
+	});
 });
 
-function dateFormatter(date){
-	var dateSplit=date.split(" ");
-	var year=dateSplit[5]+"";
-	var month=dateSplit[1];
-	if(month=="Jan") month="01";
-	else if(month=="Feb") month="02";
-	else if(month=="Mar") month="03";
-	else if(month=="Apr") month="04";
-	else if(month=="May") month="05";
-	else if(month=="Jun") month="06";
-	else if(month=="Jul") month="07";
-	else if(month=="Aug") month="08";
-	else if(month=="Sep") month="09";
-	else if(month=="Oct") month="10";
-	else if(month=="Nov") month="11";
-	else if(month=="Dec") month="12";
-	
-	var day=dateSplit[2]+"";
-	
-	return year + "/" + month + "/" + day;
-}
 </script>
 </head>
 <body>
 	<jsp:include page="../adminHeader.jsp"/>
 	<jsp:include page="../adminSide.jsp"/>
-	
-<h3>관리자 회원관리</h3>
 
 <div id="adm_main">
+	<div id="amd_title">
+		<h3>관리자 회원관리</h3>
+	</div>
 	<form action="${root}/adminMember/adminMemberSearch.do" method="POST">
 		<div id="adm_firstMenu">
 			<ul>
@@ -120,32 +106,36 @@ function dateFormatter(date){
 			</ul>
 		</div>
 	</form>
-	<div id="adm_secondMenu">
-		<ul>
-			<li class="adm_secondMenu_option" id="adm_arange">
-				<select name="sort" onchange="location.href='${root}/adminMember/adminMemberSort.do?value='+(this.options[this.selectedIndex].value)">
-					<option value="title">정렬방식</option>
-					<option value="id" id="id">아이디</option>
-					<option value="name">이름</option>
-					<option value="date">가입날짜</option>
-					<option value="purchase">구매액</option>					
-				</select>
-			</li>
-			<li class="adm_secondMenu_option" style="width:50px;">
-				<input type="button" value="변경"/>
-			</li>
-			<li class="adm_secondMenu_option" style="width:80px;">
-				<select>
-					<option>일반회원</option>
-					<option>vip</option>
-				</select>
-			</li>
-			<li class="adm_secondMenu_option">
-				<input type="text" id="amount" size="15"/>
-			</li>
-			<li id="slider-range" style="height:10px;" class="adm_secondMenu_option"></li>
-		</ul>
-	</div>
+	<form action="${root}/adminMember/adminMemberChangeLevel.do" method="POST" >
+		<div id="adm_secondMenu">
+			<input type="hidden" name="maxValue" id="maxValue"/>
+			<input type="hidden" name="minValue" id="minValue"/>
+			<ul>
+				<li class="adm_secondMenu_option" id="adm_arange">
+					<select name="sort" onchange="location.href='${root}/adminMember/adminMemberSort.do?value='+(this.options[this.selectedIndex].value)">
+						<option value="title">정렬방식</option>
+						<option value="id" id="id">아이디</option>
+						<option value="name">이름</option>
+						<option value="date">가입날짜</option>
+						<option value="purchase">구매액</option>					
+					</select>
+				</li>
+				<li class="adm_secondMenu_option" style="width:50px;">
+					<input type="submit" value="변경" id="changeButton"/>
+				</li>
+				<li class="adm_secondMenu_option"  style="width:80px;">
+					<select name="memberLevel" id="memberLevel">
+						<option value="nomal">일반회원</option>
+						<option value="vip">vip</option>
+					</select>
+				</li>
+				<li class="adm_secondMenu_option">
+					<input type="text" id="amount" size="15" disabled="disabled" name="amount"/>
+				</li>
+				<li id="slider-range" class="adm_secondMenu_option"></li>
+			</ul>
+		</div>
+	</form>
 	<div id="adm_memberMenu">
 		<ul>
 			<li id="adm_member_name">이름</li>
@@ -161,8 +151,10 @@ function dateFormatter(date){
 	<c:forEach var="adminMember" items="${adminMemberList}">
 		<div id="adm_memberin">
 			<div class="adm_list">
-				<ul>
-					<li id="adm_member_name">${adminMember.member_name}</li>
+				<ul id="adm_ul">
+					<li id="adm_member_name">
+						<a href="javascript:adminMemberUpdate('${root}','${adminMember.member_number}')">${adminMember.member_name}</a>
+					</li>
 					<li id="adm_member_id">${adminMember.member_id}</li>
 					<li id="adm_member_phone">${adminMember.member_phone}</li>
 					<li id="adm_member_email">${adminMember.member_email}</li>

@@ -1,14 +1,18 @@
 @CHARSET "UTF-8";
+#amd_title{
+	width:300px;
+	margin-left:100px;
+}
 
 #adm_main{
 	width:1200px; overflow:hidden;
-	margin-left:100px; margin-top:50px;
+	 margin-top:10px; margin-left:0px;
 	border: 0px solid red;
 }
 
 #adm_firstMenu{
 	width:90%; overflow:hidden;
-	margin-left:50px;
+	margin-left:10px;
 	border: 0px solid blue;
 }
 
@@ -20,7 +24,7 @@
 }
 #adm_secondMenu{
 	width:90%; overflow:hidden;
-	margin-left:50px;
+	margin-left:10px;
 	border: 0px solid blue;
 }
 
@@ -29,6 +33,7 @@
 	float:right;
 	border: 0px solid yellow;
 	list-style-type: none;
+	margin-left:5px;
 	
 }
 #adm_arange{
@@ -39,22 +44,25 @@
 }
 
 #slider-range{
-	width:250px; height:30px;
+	width:250px; height:10px;
 	float:right;
+	border: 1px solid #c0c0c0;
+	margin-top:7px;
 }
 
 #adm_memberMenu{
 	width:90%; overflow:hidden;
-	margin-left:50px;
+	margin-left:10px;
 	border: 0px solid blue;
 }
 #adm_memberin{
 	width:90%; overflow:hidden;
-	margin-left:50px;
+	margin-left:10px;
 	border: 0px solid blue;
 }
 
-/* ----------------------------------------------- */
+
+/* -----------------------------------------------*/
 #adm_member_name{
 	width:100px; height:30px;
 	float:left;
@@ -104,4 +112,3 @@
 	list-style-type: none;
 	text-align: center;
 }
-

@@ -16,7 +16,7 @@
 	document.getElementsByTagName('head')[0].appendChild(link);
 </script>
 
-<div style="width: 1070px;">
+<div style="width: 1200px;">
 	admin 헤더1
 	<hr/>
 	admin 헤더2

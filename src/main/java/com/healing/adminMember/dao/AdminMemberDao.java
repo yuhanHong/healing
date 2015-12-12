@@ -23,5 +23,10 @@ public interface AdminMemberDao {
 	public List<MemberDto> adminMemberSearchPhone(String search);
 	
 	public List<MemberDto> adminMemberPrice(int min,int max);
-
+	
+	public int adminMemberChange(int minValue,int maxValue,String member_level);
+	
+	public MemberDto adminMemberSelect(int member_number);
+	
+	public int amdinMemberUpdate(MemberDto memberDto);
 }

@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+#adm_updateForm{
+	width:400px; overflow:hidden;
+	margin-left:5px; margin-top:5px;
+	border: 0px solid red;
+}
+
+#adm_update{
+	width:90%; overflow:hidden;
+	margin-left:3px;
+	border: 0px solid blue;
+}
+
+#adm_content{
+	width:100px; height:30px;
+	float:left;
+	border: 0px solid yellow;
+	list-style-type: none;
+}
+#adm_content1{
+	width:100px; height:30px;
+	float:left;
+	border: 0px solid yellow;
+	list-style-type: none;
+}

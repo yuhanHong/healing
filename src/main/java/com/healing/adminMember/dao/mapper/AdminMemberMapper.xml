@@ -38,7 +38,22 @@
 	
 	<select id="adminMemberPrice" parameterType="java.util.Map" resultType="com.healing.member.dto.MemberDto">
 		<![CDATA[
-			select * from member where member_purchase>=#{min} and member_purchase<=#{max}
+			select * from member where member_purchase>=#{min} and member_purchase<=#{max} order by member_purchase
 		]]>
 	</select>
+	
+	<update id="adminMemberChange" parameterType="java.util.Map">
+		<![CDATA[
+			update member set member_level=#{member_level} where member_purchase>=#{minValue} and member_purchase<=#{maxValue}
+		]]>
+	</update>
+	
+	<select id="adminMemberSelect" parameterType="int" resultType="com.healing.member.dto.MemberDto">
+		select * from member where member_number=#{member_number}
+	</select>
+	
+	<update id="adminMemberUpdate" parameterType="com.healing.member.dto.MemberDto">
+		update member set member_id=#{member_id},member_phone=#{member_phone},member_email=#{member_email},member_level=#{member_level}
+		where member_number=#{member_number}
+	</update>
 </mapper>

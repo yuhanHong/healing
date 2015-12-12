@@ -68,4 +68,35 @@ public class AdminMemberController {
 		}
 		return null;
 	}
+	
+	@RequestMapping(value="/adminMember/adminMemberChangeLevel.do",method=RequestMethod.POST)
+	public ModelAndView adminMemberChangeLevel(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		adminMemberService.adminMemberChangeLevel(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/adminMember/adminMemberUpdate.do",method=RequestMethod.GET)
+	public ModelAndView adminMemberUpdate(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		adminMemberService.adminMemberUpdate(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/adminMember/adminMemberUpdateOk.do",method=RequestMethod.POST)
+	public ModelAndView adminMemberUpdateOk(HttpServletRequest request, HttpServletResponse response, MemberDto memberDto){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("memberDto",memberDto);
+		
+		adminMemberService.adminMemberUpdateOk(mav);
+		
+		return mav;
+	}
 }

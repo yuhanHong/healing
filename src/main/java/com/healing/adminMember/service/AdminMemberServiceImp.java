@@ -1,7 +1,5 @@
 package com.healing.adminMember.service;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
@@ -96,9 +94,49 @@ public class AdminMemberServiceImp implements AdminMemberService {
 		list=adminMemberDao.adminMemberPrice(min,max);
 		
 		return list;
+	}
+
+	@Override
+	public void adminMemberChangeLevel(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
 		
-		// HomeAspect.logger.info(HomeAspect.logMsg+"결과"+adminMemberList);
-		/*mav.addObject("adminMemberList",adminMemberList);
-		mav.setViewName("adminMember/adminMember");*/
+		int maxValue=Integer.parseInt(request.getParameter("maxValue"));
+		int minValue=Integer.parseInt(request.getParameter("minValue"));
+		String member_level=request.getParameter("memberLevel");
+		// HomeAspect.logger.info(HomeAspect.logMsg+"min,max벨류"+maxValue+","+minValue+","+member_level);
+		
+		int check=adminMemberDao.adminMemberChange(minValue,maxValue,member_level);
+		// HomeAspect.logger.info(HomeAspect.logMsg+"등급변경체크:"+check);
+		
+		mav.addObject("check",check);
+		mav.setViewName("adminMember/adminMemberChange");
+	}
+
+	@Override
+	public void adminMemberUpdate(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		int member_number=Integer.parseInt(request.getParameter("member_number"));
+		
+		// HomeAspect.logger.info(HomeAspect.logMsg+"멤버넘버:"+member_number);
+		MemberDto memberDto=adminMemberDao.adminMemberSelect(member_number);
+		
+		mav.addObject("memberDto",memberDto);
+		mav.setViewName("adminMember/adminMemberUpdate");
+	}
+
+	@Override
+	public void adminMemberUpdateOk(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
+		MemberDto memberDto=(MemberDto) map.get("memberDto");
+		
+		int member_number=memberDto.getMember_number();
+		int check=adminMemberDao.amdinMemberUpdate(memberDto);
+		
+		mav.addObject("check",check);
+		mav.addObject("member_number",member_number);
+		mav.setViewName("adminMember/adminMemberUpdateOk");
 	}
 }

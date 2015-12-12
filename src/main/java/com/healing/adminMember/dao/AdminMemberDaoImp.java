@@ -71,4 +71,26 @@ public class AdminMemberDaoImp implements AdminMemberDao {
 		
 		return sqlSessionTemplate.selectList("dao.adminMemberMapper.adminMemberPrice",hMap);
 	}
+
+	@Override
+	public int adminMemberChange(int minValue, int maxValue, String member_level) {
+		HashMap<String,Object> hMap=new HashMap<String,Object>();
+		hMap.put("minValue", minValue);
+		hMap.put("maxValue", maxValue);
+		hMap.put("member_level", member_level);
+		
+		return sqlSessionTemplate.update("dao.adminMemberMapper.adminMemberChange",hMap);
+	}
+
+	@Override
+	public MemberDto adminMemberSelect(int member_number) {
+		
+		return sqlSessionTemplate.selectOne("dao.adminMemberMapper.adminMemberSelect",member_number);
+	}
+
+	@Override
+	public int amdinMemberUpdate(MemberDto memberDto) {
+		
+		return sqlSessionTemplate.update("dao.adminMemberMapper.adminMemberUpdate",memberDto);
+	}
 }

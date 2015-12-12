@@ -661,8 +661,8 @@ button.ui-button::-moz-focus-inner {
 .ui-slider .ui-slider-handle {
 	position: absolute;
 	z-index: 2;
-	width: 1.2em;
-	height: 1.2em;
+	width: 1.0em;
+	height: 1.0em;
 	cursor: default;
 	-ms-touch-action: none;
 	touch-action: none;
@@ -674,6 +674,7 @@ button.ui-button::-moz-focus-inner {
 	display: block;
 	border: 0;
 	background-position: 0 0;
+	background-color: #c0c0c0;
 }
 
 /* support: IE8 - See #6727 */

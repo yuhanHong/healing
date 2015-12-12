@@ -15,4 +15,10 @@ public interface AdminMemberService {
 	public void adminMemberSearch(ModelAndView mav);
 	
 	public List<MemberDto> adminMemberPrice(ModelAndView mav);
+	
+	public void adminMemberChangeLevel(ModelAndView mav);
+	
+	public void adminMemberUpdate(ModelAndView mav);
+	
+	public void adminMemberUpdateOk(ModelAndView mav);
 }
