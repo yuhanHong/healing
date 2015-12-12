@@ -1,6 +1,8 @@
 package com.healing.adminOrder.service;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -128,6 +130,55 @@ public class AdminOrderServiceImp implements AdminOrderService {
 
 	    adminOrderDao.adminOrderCancle(order_number);
 	
+	}
+
+	@Override
+	public void adminOrderStats(ModelAndView mav) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map=mav.getModelMap();
+	    HttpServletRequest request = (HttpServletRequest) map.get("request");
+	   
+	    Date date=new Date();
+	    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+	    
+	    String today=sdf.format(date);
+		
+	    List<Integer> todaySalesList=adminOrderDao.getTodaySales(today);
+	    int todaySales=todaySalesList.get(0);
+
+	    List<Integer> todayPayList=adminOrderDao.getTodayPay(today);
+	    int todayPay=todayPayList.get(0);
+	    
+	    mav.addObject("todaySales", todaySales);
+	    mav.addObject("todayPay", todayPay); 
+	}
+
+	@Override
+	public void adminOrderStatsSearch(ModelAndView mav) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map=mav.getModelMap();
+	    HttpServletRequest request = (HttpServletRequest) map.get("request");
+	  
+	    String start_date=request.getParameter("start_date");
+	    String end_date=request.getParameter("end_date");
+	    String select=request.getParameter("select");
+
+	    List<String> salesList=null;
+	    List<String> payList=null;
+	    int payListpay=0;
+	    HomeAspect.logger.info(HomeAspect.logMsg+"///adminOrderStatsSearch//"+select);
+	    if(select.equals("day")){
+	    	
+	    	salesList=adminOrderDao.adminOrderStatsSearchDay(start_date,end_date);
+//	    	payList=adminOrderDao.adminOrderStatsSearchDayPay(start_date,end_date);
+	    	payListpay=adminOrderDao.adminOrderStatsSearchDayPay(start_date,end_date);
+//	    	HomeAspect.logger.info(HomeAspect.logMsg+"///adminOrderStatsSearch//"+salesList.size()+"/"+payList.size);
+	    }
+
+	    HomeAspect.logger.info(HomeAspect.logMsg+"///adminOrderStatsSearch//payListpay하하하"+payListpay);
+		mav.addObject("salesList", salesList);	    
+		mav.addObject("payList", payListpay);	    
+		mav.setViewName("adminOrder/adminOrderSearch");
 	}
 	
 	

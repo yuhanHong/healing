@@ -19,7 +19,7 @@
 <body>
 	<jsp:include page="../adminHeader.jsp"/>
 	<jsp:include page="../adminSide.jsp"/>
-
+	
 	<input type="button" id="product_like" value="관심상품 추가"/>
 	
 	<script type="text/javascript">
@@ -51,8 +51,9 @@
 		});
 	</script>
 	<form>
+	<h2>예약관리</h2>
 		<div id="adminOrderSearch" class="container">
-			<h2>예약관리</h2>
+			
 			<div id="adminSearchTable" class="well">
 				<div class="adminSearchDiv"><label>날짜 선택 : </label> <input type="text" class="datepicker" id="start_date" name="start_date" size="15"/><b>&nbsp;&nbsp;~&nbsp;&nbsp;</b><input type="text" class="datepicker" id="end_date" name="end_date" size="15"/></div>
 				<div class="adminSearchDiv"><label>검색 조건 : </label> 

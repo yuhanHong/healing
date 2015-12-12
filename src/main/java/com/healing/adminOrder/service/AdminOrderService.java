@@ -11,4 +11,6 @@ public interface AdminOrderService {
 	public void adminOrderModyfy(ModelAndView mav);
 	public void adminOrderPay(ModelAndView mav);
 	public void adminOrderCancle(ModelAndView mav);
+	public void adminOrderStats(ModelAndView mav);
+	public void adminOrderStatsSearch(ModelAndView mav);
 }

@@ -96,4 +96,24 @@ public class AdminOrderController {
 		mav.setViewName("adminOrder/adminOrderRead");
 		return mav;
 	}
+		
+	@RequestMapping(value="/adminOrder/adminOrderStats.do",method=RequestMethod.GET)
+	public ModelAndView adminOrderStats(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		adminOrderService.adminOrderStats(mav);
+		mav.setViewName("adminOrder/adminOrderStats");
+		return mav;
+	}
+	
+	@RequestMapping(value="/adminOrder/adminOrderStatsSearch.do",method=RequestMethod.GET)
+	public ModelAndView adminOrderStatsSearch(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		adminOrderService.adminOrderStatsSearch(mav);
+		mav.setViewName("adminOrder/adminOrderStats");
+		return mav;
+	}
 }

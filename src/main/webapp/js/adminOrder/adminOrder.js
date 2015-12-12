@@ -13,7 +13,7 @@ function adminOrderSearch(root){
 		alert("기간을 정확하게 선택해주세요.");
 		return;
 	}
-	
+
 	// 검색어가 있는 경우
 	if($("#search_input").val()!=""){
 		var select_num=0;
@@ -58,6 +58,11 @@ $(function() {
 	      dateFormat:"yy/mm/dd",
 	      buttonText: "Select date"
     });
+		
+	$("#start_date").press(function(){
+		alert("달력에서 날짜를 선택해주세요.");
+		$("#start_date").val("");
+	});
  });
 
 function orderAdminRead(root,order_number){

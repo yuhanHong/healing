@@ -78,4 +78,29 @@
 		update orders set payment_state=#{state}, order_modify_money=0, order_pay=0, order_money=0, order_adult=0, order_child=0, order_baby=0 where order_number=#{order_number}
 		
 	</update>
+	
+	<select id="getTodaySales" parameterType="String" resultType="int">
+		select nvl(sum(order_money),0) from orders where order_date>#{today}
+	</select>
+	
+	<select id="getTodayPay" parameterType="String" resultType="int">
+		select nvl(sum(order_pay),0) from orders where order_date>#{today}
+	</select>
+	
+	<select id="adminOrderStatsSearchDay" parameterType="java.util.HashMap" resultType="String">
+		SELECT TO_CHAR(order_date,'yy/mm/DD'), sum(order_money) FROM (SELECT * FROM orders 	WHERE order_date BETWEEN to_date(#{start_date},'YYYY/MM/DD') AND to_date(#{end_date},'YYYY/MM/DD')+1) GROUP BY to_char(order_date,'yy/mm/DD') order by 1 desc
+	</select>
+	
+	<select id="adminOrderStatsSearchDayPay" parameterType="java.util.HashMap" resultType="String">
+		SELECT TO_CHAR(order_date,'yy/mm/DD'), sum(order_pay) FROM (SELECT * FROM orders 	WHERE order_date BETWEEN to_date(#{start_date},'YYYY/MM/DD') AND to_date(#{end_date},'YYYY/MM/DD')+1) GROUP BY to_char(order_date,'yy/mm/DD') order by 1 desc
+	</select>
+
+		<select id="adminOrderStatsSearchDayPay2" resultType="int">
+		SELECT sum(order_money)
+FROM (SELECT * FROM orders 
+		WHERE order_date between to_date('2015/12/08','YYYY/MM/DD')
+		AND to_date('2015/12/08','YYYY/MM/DD')+1) 
+GROUP BY to_char(order_date,'yy/mm/DD')
+ORDER BY 1 DESC
+	</select>
 </mapper>

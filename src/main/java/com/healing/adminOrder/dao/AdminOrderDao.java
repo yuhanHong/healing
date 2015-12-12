@@ -19,4 +19,9 @@ public interface AdminOrderDao {
 	public int adminOrderModify(OrderDto orderDto);
 	public int adminOrderPay(int order_number);
 	public int adminOrderCancle(int order_number);
+	public List<Integer> getTodaySales(String today);
+	public List<Integer> getTodayPay(String today);
+	public List<String> adminOrderStatsSearchDay(String start_date,String end_date);
+//	public List<String> adminOrderStatsSearchDayPay(String start_date,String end_date);
+	public int adminOrderStatsSearchDayPay(String start_date,String end_date);
 }

@@ -132,4 +132,39 @@ public class AdminOrderDaoImp implements AdminOrderDao {
 		map.put("order_number", order_number);
 		return sqlSessionTemplate.update("dao.adminOrderMapper.adminOrderCancle",map);
 	}
+
+	@Override
+	public List<Integer> getTodaySales(String today) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("dao.adminOrderMapper.getTodaySales",today);
+	}
+
+	@Override
+	public List<Integer> getTodayPay(String today) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("dao.adminOrderMapper.getTodayPay",today);
+	}
+
+	@Override
+	public List<String> adminOrderStatsSearchDay(String start_date,String end_date) {
+		// TODO Auto-generated method stub
+		HashMap<String, String> map=new HashMap<String, String>();
+		map.put("start_date", start_date);
+		map.put("end_date", end_date);
+	
+		return sqlSessionTemplate.selectList("dao.adminOrderMapper.adminOrderStatsSearchDay",map);
+	}
+
+	@Override
+	public int adminOrderStatsSearchDayPay(String start_date, String end_date) {
+		// TODO Auto-generated method stub
+		HashMap<String, String> map=new HashMap<String, String>();
+		map.put("start_date", start_date);
+		map.put("end_date", end_date);
+	
+//		HomeAspect.logger.info(HomeAspect.logMsg + "하하하" + sqlSessionTemplate.selectOne("dao.adminOrderMapper.adminOrderStatsSearchDayPay2",map));
+		
+		return sqlSessionTemplate.selectOne("dao.adminOrderMapper.adminOrderStatsSearchDayPay2",map);
+//		return sqlSessionTemplate.selectList("dao.adminOrderMapper.adminOrderStatsSearchDayPay",map);
+	}
 }
