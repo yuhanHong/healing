@@ -9,6 +9,8 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp"/>
+	<jsp:include page="companySide.jsp"/>
+	
 	<div id="auto_info" style="border:1px solid orange; margin-left:250px;width:1000px; height:800px">
 		<h3 style="margin:20px">회사소개</h3>
 		<div style="border:1px solid skyblue; margin:20px;width:950px; height:500px; overflow:scroll">
