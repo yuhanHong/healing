@@ -1,5 +1,15 @@
 @CHARSET "UTF-8";
 
+#amd_up{
+	width:300px; overflow:hidden;
+	margin-left:5px; margin-top:5px;
+}
+
+#amd_up_title{
+	list-style-type: none;
+	float: left;
+}
+
 #adm_updateForm{
 	width:400px; overflow:hidden;
 	margin-left:5px; margin-top:5px;

@@ -12,10 +12,39 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/jquery-ui.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/adminMember/adminMemberUpdate.css"/>
 <script type="text/javascript" src="${root}/js/adminMember/adminMember.js"></script>
+<script type="text/javascript">
+	function kick(root,member_number){
+		// alert(root+","+member_number);
+		var check=confirm("정말로 추방하시겠습니까");
+		if(check){
+			location.href=root+"/adminMember/adminMemberKick.do?member_number="+member_number;
+		}
+	}
+	
+	function restore(root,member_number){
+		var check=confirm("정말로 복구 하시겠습니까");
+		if(check){
+			location.href=root+"/adminMember/adminMemberRestore.do?member_number="+member_number;
+		}
+	}
+</script>
 </head>
 <body>
-	<h3>${memberDto.member_name} 회원님의 정보</h3>
-	<a href="">${memberDto.member_name}님의 예약정보</a>
+	<div id="amd_up">
+		<ul>
+			<li id="amd_up_title"><h3>${memberDto.member_name} 회원님의 정보</h3></li>
+			<c:if test="${memberDto.member_delete==1}">
+				<li id="amd_up_title" style="color:red;">탈퇴된 회원입니다.</li>
+			</c:if>
+			
+			<c:if test="${memberDto.member_delete==2}">
+				<li id="amd_up_title" style="color:red;">추방된 회원입니다.</li>
+			</c:if>
+		</ul>
+		<ul>
+			<li id="amd_up_title"><a href="">${memberDto.member_name}님의 예약정보</a></li>
+		</ul>
+	</div>
 	<form action="${root}/adminMember/adminMemberUpdateOk.do" method="POST">
 		<div id="adm_updateForm">
 			<div id="adm_update">
@@ -46,15 +75,6 @@
 							<option value="vip">vip</option>
 						</select>
 						<script type="text/javascript">
-// 							var vel=$("select[name='member_level']");
-// 							alert(vel.val);
-							
-// 							for(var i=0;i<2;i++){		
-// 								console.log(vel[i].value);
-// 								if(vel[i].value=="${memberDto.member_level}"){
-// 									vel[i].selected=true;
-// 								}
-// 							}
 							var sel=adm_content1.children[0];
 							
 							for(var i=0;i<sel.children.length;i++){	
@@ -62,7 +82,6 @@
 									sel[i].selected=true;
 								}
 							}
-							
 						</script>
 					</li>
 				</ul>
@@ -71,7 +90,14 @@
 				<ul>
 					<li id="adm_content"><input type="submit" value="수정"/></li>
 					<li id="adm_content"><input type="button" value="닫기" onclick="javascript:self.close()"/></li>
-					<li id="adm_content"><input type="button" value="추방"/></li>
+					
+					<c:if test="${memberDto.member_delete==0 }">
+						<li id="adm_content"><input type="button" value="추방" onclick="javascript:kick('${root}','${memberDto.member_number}')"/></li>
+					</c:if>
+					
+					<c:if test="${memberDto.member_delete>0 }">
+						<li id="adm_content"><input type="button" value="복구" onclick="javascript:restore('${root}','${memberDto.member_number}')"/></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>

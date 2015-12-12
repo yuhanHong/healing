@@ -21,4 +21,8 @@ public interface AdminMemberService {
 	public void adminMemberUpdate(ModelAndView mav);
 	
 	public void adminMemberUpdateOk(ModelAndView mav);
+	
+	public void adminMemberKick(ModelAndView mav);
+	
+	public void adminMemberRestore(ModelAndView mav);
 }

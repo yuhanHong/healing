@@ -99,4 +99,23 @@ public class AdminMemberController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value="/adminMember/adminMemberKick.do",method=RequestMethod.GET)
+	public ModelAndView adminMemberKick(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminMemberService.adminMemberKick(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/adminMember/adminMemberRestore.do",method=RequestMethod.GET)
+	public ModelAndView adminMemberRestore(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		adminMemberService.adminMemberRestore(mav);
+		
+		return mav;
+		
+	}
 }

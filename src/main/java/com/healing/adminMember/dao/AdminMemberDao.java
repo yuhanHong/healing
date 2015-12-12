@@ -16,6 +16,12 @@ public interface AdminMemberDao {
 	
 	public List<MemberDto> adminMemberSortPurchase();
 	
+	public List<MemberDto> adminMemberSortNomal();
+	
+	public List<MemberDto> adminMemberSortVip();
+	
+	public List<MemberDto> adminMemberSortDelete();
+	
 	public List<MemberDto> adminMemberSearchName(String search);
 	
 	public List<MemberDto> adminMemberSearchId(String search);
@@ -29,4 +35,9 @@ public interface AdminMemberDao {
 	public MemberDto adminMemberSelect(int member_number);
 	
 	public int amdinMemberUpdate(MemberDto memberDto);
+	
+	public int adminMemberKick(int member_delete,int member_number);
+	
+	public int adminMemberRestore(int member_delete,int member_number);
+	
 }

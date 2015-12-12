@@ -120,6 +120,15 @@ $(function(){
 						<option value="purchase">구매액</option>					
 					</select>
 				</li>
+				
+				<li class="adm_secondMenu_option" id="adm_arange">
+					<select name="level_sort" onchange="location.href='${root}/adminMember/adminMemberSort.do?value='+(this.options[this.selectedIndex].value)">
+						<option value="title">등급별</option>
+						<option value="nomal">일반회원</option>
+						<option value="vip">vip회원</option>
+						<option value="delete">탈퇴된회원</option>
+					</select>
+				</li>
 				<li class="adm_secondMenu_option" style="width:50px;">
 					<input type="submit" value="변경" id="changeButton"/>
 				</li>
@@ -162,7 +171,20 @@ $(function(){
 						<fmt:formatDate value="${adminMember.member_date}" pattern="yyyy/MM/dd"/>
 					</li>
 					<li id="adm_member_purchase">${adminMember.member_purchase}</li>
-					<li id="adm_member_level">${adminMember.member_level}</li>
+					<c:if test="${adminMember.member_delete==0}">
+						<li id="adm_member_level">${adminMember.member_level}</li>
+					</c:if>
+					
+					<c:if test="${adminMember.member_delete>0}">
+						<c:if test="${adminMember.member_delete==1}">
+							<c:set var="delete" value="탈퇴"/>
+						</c:if>
+						
+						<c:if test="${adminMember.member_delete==2}">
+							<c:set var="delete" value="추방"/>
+						</c:if>
+						<li id="adm_member_level">${delete}</li>
+					</c:if>
 				</ul>
 			</div>
 		</div>

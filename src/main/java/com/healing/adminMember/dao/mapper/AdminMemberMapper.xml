@@ -24,6 +24,18 @@
 		SELECT * FROM MEMBER ORDER BY member_purchase
 	</select>
 	
+	<select id="adminMemberSortNomal" resultType="com.healing.member.dto.MemberDto">
+		SELECT * FROM MEMBER where member_level='nomal'
+	</select>
+	
+	<select id="adminMemberSortVip" resultType="com.healing.member.dto.MemberDto">
+		SELECT * FROM MEMBER where member_level='vip'
+	</select>
+	
+	<select id="adminMemberSortDelete" resultType="com.healing.member.dto.MemberDto">
+		SELECT * FROM MEMBER where member_delete='2' or member_delete='1'
+	</select>
+	
 	<select id="adminMemberSearchName" parameterType="String" resultType="com.healing.member.dto.MemberDto" >
 		SELECT * FROM MEMBER WHERE member_name LIKE '%' ||#{search}|| '%'
 	</select>
@@ -55,5 +67,13 @@
 	<update id="adminMemberUpdate" parameterType="com.healing.member.dto.MemberDto">
 		update member set member_id=#{member_id},member_phone=#{member_phone},member_email=#{member_email},member_level=#{member_level}
 		where member_number=#{member_number}
+	</update>
+	
+	<update id="adminMemberKick" parameterType="java.util.Map">
+		update member set member_delete=#{member_delete} where member_number=#{member_number}
+	</update>
+	
+	<update id="adminMemberRestore" parameterType="java.util.Map">
+		update member set member_delete=#{member_delete} where member_number=#{member_number}
 	</update>
 </mapper>

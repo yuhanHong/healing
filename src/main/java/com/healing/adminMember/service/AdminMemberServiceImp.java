@@ -50,6 +50,12 @@ public class AdminMemberServiceImp implements AdminMemberService {
 			adminMemberList=adminMemberDao.adminMemberSortDate();
 		}else if(value.equals("purchase")){
 			adminMemberList=adminMemberDao.adminMemberSortPurchase();
+		}else if(value.equals("nomal")){
+			adminMemberList=adminMemberDao.adminMemberSortNomal();
+		}else if(value.equals("vip")){
+			adminMemberList=adminMemberDao.adminMemberSortVip();
+		}else if(value.equals("delete")){
+			adminMemberList=adminMemberDao.adminMemberSortDelete();
 		}
 		
 		mav.addObject("adminMemberList",adminMemberList);
@@ -138,5 +144,36 @@ public class AdminMemberServiceImp implements AdminMemberService {
 		mav.addObject("check",check);
 		mav.addObject("member_number",member_number);
 		mav.setViewName("adminMember/adminMemberUpdateOk");
+	}
+
+	@Override
+	public void adminMemberKick(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		int member_delete=2;
+		int member_number=Integer.parseInt(request.getParameter("member_number"));
+		
+		int check=adminMemberDao.adminMemberKick(member_delete,member_number);
+		
+		mav.addObject("check",check);
+		mav.addObject("member_number",member_number);
+		mav.setViewName("adminMember/adminMemberKickOk");
+	}
+
+	@Override
+	public void adminMemberRestore(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		int member_delete=0;
+		int member_number=Integer.parseInt(request.getParameter("member_number"));
+		
+		int check=adminMemberDao.adminMemberRestore(member_delete,member_number);
+		
+		mav.addObject("check",check);
+		mav.addObject("member_number",member_number);
+		mav.setViewName("adminMember/adminMemberRestoreOk");
+		
 	}
 }

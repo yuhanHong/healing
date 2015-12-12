@@ -44,6 +44,24 @@ public class AdminMemberDaoImp implements AdminMemberDao {
 		
 		return sqlSessionTemplate.selectList("dao.adminMemberMapper.adminMemberSortPurchase");
 	}
+	
+	@Override
+	public List<MemberDto> adminMemberSortNomal() {
+	
+		return sqlSessionTemplate.selectList("dao.adminMemberMapper.adminMemberSortNomal");
+	}
+
+	@Override
+	public List<MemberDto> adminMemberSortVip() {
+		
+		return sqlSessionTemplate.selectList("dao.adminMemberMapper.adminMemberSortVip");
+	}
+
+	@Override
+	public List<MemberDto> adminMemberSortDelete() {
+		
+		return sqlSessionTemplate.selectList("dao.adminMemberMapper.adminMemberSortDelete");
+	}
 
 	@Override
 	public List<MemberDto> adminMemberSearchName(String search) {
@@ -93,4 +111,23 @@ public class AdminMemberDaoImp implements AdminMemberDao {
 		
 		return sqlSessionTemplate.update("dao.adminMemberMapper.adminMemberUpdate",memberDto);
 	}
+
+	@Override
+	public int adminMemberKick(int member_delete, int member_number) {
+		HashMap<String,Integer> hMap=new HashMap<String,Integer>();
+		hMap.put("member_delete", member_delete);
+		hMap.put("member_number", member_number);
+		
+		return sqlSessionTemplate.update("dao.adminMemberMapper.adminMemberKick",hMap);
+	}
+
+	@Override
+	public int adminMemberRestore(int member_delete, int member_number) {
+		HashMap<String,Integer> hMap=new HashMap<String,Integer>();
+		hMap.put("member_delete", member_delete);
+		hMap.put("member_number", member_number);
+		
+		return sqlSessionTemplate.update("dao.adminMemberMapper.adminMemberRestore",hMap);
+	}
+
 }
