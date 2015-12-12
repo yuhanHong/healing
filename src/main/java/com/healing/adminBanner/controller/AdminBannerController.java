@@ -62,7 +62,7 @@ public class AdminBannerController {
 	 * @리턴타입 : ModelAndView
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 전현준
-	 * @함수설명 : 추천상품 테이블에 insert한 후 Service거친후 bannerInsert.jsp 페이지로 이동하는 함수
+	 * @함수설명 : 추천상품 테이블에 등록(insert)한 후 Service거친후 bannerInsert.jsp 페이지로 이동하는 함수
 	 */
 	@RequestMapping(value="/adminBanner/bannerRecommandInsert.do", method=RequestMethod.GET)
 	public ModelAndView bannerRecommandInsert(HttpServletRequest request, HttpServletResponse response){
@@ -75,4 +75,45 @@ public class AdminBannerController {
 		mav.setViewName("adminBanner/bannerInsert");	// 추천상품 테이블에 데이트 추가 후 검색페이지(bannerInsert.jsp)로 이동
 		return mav;
 	}
+	
+	@RequestMapping(value="/adminBanner/bannerRecommandSelect.do", method=RequestMethod.GET)
+	public ModelAndView bannerRecommandSelect(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("response", response);
+		
+		adminBannerService.bannerRecommandSelect(mav);
+
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : bannerRecommandDelete
+	 * @리턴타입 : ModelAndView
+	 * @작성일 : 2015. 12. 12.
+	 * @개발자 : 전현준
+	 * @함수설명 : 추천상품 테이블에 삭제(delete)한 후 Service거친후 bannerInsert.jsp 페이지로 이동하는 함수
+	 */
+	@RequestMapping(value="/adminBanner/bannerRecommandDelete.do", method=RequestMethod.GET)
+	public ModelAndView bannerRecommandDelete(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("response", response);
+		
+		adminBannerService.bannerRecommandDelete(mav);
+		
+		mav.setViewName("adminBanner/bannerInsert");	// 추천상품 테이블에 데이트 추가 후 검색페이지(bannerInsert.jsp)로 이동
+		return mav;
+	}
+	
+	
+	/*@RequestMapping(value="/adminBanner/bannerRecommandSelect.do", method=RequestMethod.GET)
+	public ModelAndView boardList(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		
+		adminBannerService.bannerList(mav);
+		
+		return mav;
+	}*/
 }

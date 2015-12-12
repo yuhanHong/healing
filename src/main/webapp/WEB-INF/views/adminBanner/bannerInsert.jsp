@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <c:set var="root" value="${pageContext.request.contextPath }"/>
 <html>
@@ -50,13 +51,36 @@
 		</div>
 		
 		<h3>추천상품리스트</h3>
-		<div id="result2">
 		
+		1) 추천상품리스트 조회하기 : <input type="button" value="조회" onclick="productSelect('${root}')">
+		<input type="button" value="이전으로" onclick="productPrevious('${root}')">
+		<div id="result2">
+			<div class="result2">
+				<div class="recommand1">체크</div>
+				<div class="recommand1">상품번호</div>
+				<div class="recommand1_1">상품명</div>
+				<div class="recommand1">나라명</div>
+				<div class="recommand1">숙박일</div>
+				<div class="recommand1">출발가능인원수</div>
+				<div class="recommand1">조회수</div>
+				<div class="recommand1">평균평점</div>
+			</div>
+			<c:forEach var="product" items="${productDto}">
+				<div class="result3">
+					<div class="recommand2"><input type="checkbox" name="check2" value="${product.product_number}"></div>
+					<div class="recommand2">${product.product_number}</div>
+					<div class="recommand2_1">${product.product_name}</div>
+					<div class="recommand2">${product.product_country}</div>
+					<div class="recommand2">${product.product_stay_date}</div>
+					<div class="recommand2">${product.product_size}</div>
+					<div class="recommand2">${product.product_readcount}</div>
+					<div class="recommand2">${product.product_average_score}</div>
+				</div>
+			</c:forEach>
 		</div>
 		
 		<div style="width:350px;" align="center">
-			<input type="button" value="등록">
-			<input type="button" value="삭제">
+			<input type="button" value="삭제" onclick="productdelete('${root}')">
 		</div>
 	</div>
 </body>

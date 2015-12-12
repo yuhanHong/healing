@@ -2,6 +2,7 @@ package com.healing.adminBanner.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,12 @@ public class AdminBannerDaoImp implements AdminBannerDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
+	/**
+	 * @함수이름 : productSelect
+	 * @작성일 : 2015. 12. 11.
+	 * @개발자 : 전현준
+	 * @함수설명 : 추천 상품 검색(sqlSessionTemplate 변수로 xml파일 이동에서 sql문 실행)
+	 */
 	@Override
 	public List<ProductDto> productSelect(String product, String keyword) {
 		HashMap<String, Object> hMap = new HashMap<String, Object>();
@@ -36,5 +43,29 @@ public class AdminBannerDaoImp implements AdminBannerDao {
 	public int bannerRecommandInsert(int productNumber) {
 		return sqlSessionTemplate.insert("dao.adminBannerMapper.bannerInsert", productNumber);
 	}
+
+	@Override
+	public List<ProductDto> recBannerSelect() {
+		return sqlSessionTemplate.selectList("dao.adminBannerMapper.recBannerSelect");
+	}
+
+	@Override
+	public int bannerRecommandDelete(int productNumber) {
+		return sqlSessionTemplate.delete("dao.adminBannerMapper.bannerDelete", productNumber);
+	}
+
+	/*@Override
+	public int getBannerCount() {
+		return sqlSessionTemplate.selectOne("dao.adminBannerMapper.bannerCount");
+	}
+
+	@Override
+	public List<ProductDto> getBannerList(int startRow, int endRow) {
+		Map<String, Integer> hMap = new HashMap<String, Integer>();
+		hMap.put("startRow", startRow);
+		hMap.put("endRow", endRow);
+		
+		return sqlSessionTemplate.selectList("dao.adminBannerMapper.getBannerList", hMap);
+	}*/
 
 }

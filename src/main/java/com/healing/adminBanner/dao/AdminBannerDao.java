@@ -8,4 +8,12 @@ public interface AdminBannerDao {
 	public List<ProductDto> productSelect(String product, String keyword);
 	
 	public int bannerRecommandInsert(int productNumber);
+	
+	public List<ProductDto> recBannerSelect();
+	
+	public int bannerRecommandDelete(int productNumber);
+	
+	/*public int getBannerCount();
+	
+	public List<ProductDto> getBannerList(int startRow, int endRow);*/
 }

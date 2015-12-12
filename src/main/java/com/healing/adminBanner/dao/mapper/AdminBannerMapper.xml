@@ -15,5 +15,37 @@
 	<insert id="bannerInsert" parameterType="int">
 		insert into banner values(banner_banner_number_seq.nextval, #{productNumber})
 	</insert>
+	
+	<select id="recBannerSelect" resultType="com.healing.product.dto.ProductDto">
+		<![CDATA[
+			SELECT p.product_number, 
+				p.product_name, 
+				p.product_country, 
+				p.product_stay_date,
+				p.product_size,
+				p.product_readcount,
+				p.product_average_score
+			FROM banner b, product p
+			WHERE b.product_number = p.product_number
+		]]>
+	</select>
+	
+	<delete id="bannerDelete" parameterType="int">
+		delete from banner where product_number=#{product_number}
+	</delete>
+	
+	<!-- <select id="bannerCount" resultType="int">
+		SELECT count(*) FROM banner b, product p
+		WHERE b.product_number = p.product_number
+	</select>
+	
+	<select id="getBannerList" resultType="com.healing.product.dto.ProductDto" parameterType="java.util.Map">
+		<![CDATA[
+			select * from
+				(select rownum rnum, a.* from
+					(select * from product order by product_number asc) a)
+			where rnum >= #{startRow} and rnum <= #{endRow}
+		]]>
+	</select> -->
 </mapper>
 	

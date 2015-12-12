@@ -22,8 +22,6 @@ import com.healing.product.dto.ProductDto;
 public class AdminBannerServiceImp implements AdminBannerService {
 	@Autowired
 	private AdminBannerDao adminBannerDao;
-	@Autowired
-	private ProductDao productDao;
 
 	/**
 	 * @함수이름 : bannerInsert
@@ -101,4 +99,73 @@ public class AdminBannerServiceImp implements AdminBannerService {
 			//HomeAspect.logger.info(HomeAspect.logMsg + Integer.parseInt(insertList[i]));
 		}
 	}
+
+	/**
+	 * @함수이름 : bannerRecommandSelect
+	 * @작성일 : 2015. 12. 12.
+	 * @개발자 : 전현준
+	 * @함수설명 : 관리자 - 추천상품 리스트 조회(equi join)
+	 */
+	@Override
+	public void bannerRecommandSelect(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		List<ProductDto> productDto = adminBannerDao.recBannerSelect();
+		HomeAspect.logger.info(HomeAspect.logMsg + productDto);
+		
+		mav.addObject("productDto", productDto);
+		mav.setViewName("adminBanner/bannerInsert");
+	}
+	
+	/**
+	 * @함수이름 : bannerRecommandDelete
+	 * @작성일 : 2015. 12. 12.
+	 * @개발자 : 전현준
+	 * @함수설명 : url로 보내진 ,(쉼표)를 split으로 나눈 후 추천 상품 테이블에 삭제하는 함수
+	 */
+	@Override
+	public void bannerRecommandDelete(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		String str = request.getParameter("str");
+		String[] insertList = str.split(",");
+		
+		for(int i=1; i<insertList.length;i++){
+			adminBannerDao.bannerRecommandDelete(Integer.parseInt(insertList[i]));
+			//HomeAspect.logger.info(HomeAspect.logMsg + Integer.parseInt(insertList[i]));
+		}
+		
+	}
+
+	/*@Override
+	public void bannerList(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		int productSize = 10;
+		String pageNumber = request.getParameter("pageNumber");
+		if(pageNumber == null) pageNumber = "1";
+		
+		int currentPage = Integer.parseInt(pageNumber);
+		int startRow = (currentPage-1) * productSize +1;
+		int endRow = currentPage * productSize;
+		
+		int count = adminBannerDao.getBannerCount();
+		HomeAspect.logger.info(HomeAspect.logMsg + count);
+		
+		List<ProductDto> productList = null;
+		if(count > 0){
+			productList = adminBannerDao.getBannerList(startRow, endRow);
+		}
+		
+		HomeAspect.logger.info(HomeAspect.logMsg + productList.size());
+		
+		mav.addObject("productList", productList);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("count", count);
+		mav.addObject("productSize", productSize);
+		mav.setViewName("adminBanner/bannerInsert");
+	}*/
 }

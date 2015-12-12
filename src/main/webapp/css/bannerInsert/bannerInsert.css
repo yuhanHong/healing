@@ -23,7 +23,7 @@ select{
 }
 
 #result2{		/* 추천상품리스트 전체적인 틀 스타일 */
-	width:700px; height:400px; 
+	width:1030px; height:400px; 
 	margin:10px; border:1px solid skyblue;
 }
 

@@ -8,4 +8,9 @@ public interface AdminBannerService {
 	public void bannerSearch(ModelAndView mav);
 	
 	public void bannerRecommandInsert(ModelAndView mav);
+	
+	public void bannerRecommandSelect(ModelAndView mav);
+	
+	public void bannerRecommandDelete(ModelAndView mav);
+	/*public void bannerList(ModelAndView mav);*/
 }

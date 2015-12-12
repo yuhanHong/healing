@@ -66,8 +66,8 @@ $(function(){
 
 
 /**
- * @함수 : jquery 함수
- * @함수설명 : 추천상품 리스트 테이블에 등록(테이블명 : adminBanner)
+ * @함수이름 : productInsert
+ * @함수설명 : 추천상품 리스트 테이블에 등록(테이블명 : banner)
  * @개발자 : 전현준
  * @개발날짜 : 2015. 12. 11
  */
@@ -82,6 +82,48 @@ function productInsert(root){
 		}
 	}
 	var url = root + "/adminBanner/bannerRecommandInsert.do?str="+str;
+	
+	location.href = url;
+}
+
+/**
+ * @함수이름 : productSelect
+ * @함수설명 : 추천상품 리스트 테이블에 조회(테이블명 : banner + product ===> Equi Join)
+ * @개발자 : 전현준
+ * @개발날짜 : 2015. 12. 12
+ */
+function productSelect(root){
+	var url = root + "/adminBanner/bannerRecommandSelect.do";
+	location.href = url;
+}
+
+/**
+ * @함수이름 : productPrevious
+ * @함수설명 : 추천상품 리스트 테이블에 조회 후 이전 버튼 눌렀을때 페이지 이동
+ * @개발자 : 전현준
+ * @개발날짜 : 2015. 12. 12
+ */
+function productPrevious(root){
+	var url = root + "/adminBanner/bannerInsert.do";
+	location.href = url;
+}
+
+/**
+ * @함수이름 : productdelete
+ * @함수설명 : 추천상품 리스트 테이블 DB 데이터 삭제(테이블명 banner)
+ * @개발자 : 전현준
+ * @개발날짜 : 2015. 12. 12
+ */
+function productdelete(root){
+	var check = false;
+	var str = "";
+	var checkValue = $("input[name='check2']");
+	for(var i=0; i<checkValue.length; i++){
+		if(checkValue[i].checked == true){
+			str += "," + checkValue[i].value;
+		}
+	}
+	var url = root + "/adminBanner/bannerRecommandDelete.do?str="+str;
 	
 	location.href = url;
 }
