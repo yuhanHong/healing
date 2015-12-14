@@ -6,14 +6,20 @@ import java.util.Date;
 public class FlightDto {
 	private int flight_number;
 	private int product_number;
-	private Date start_date;
-	private Timestamp start_time;
-	private String start_airline;
-	private String start_city;
-	private Date end_date;
-	private Timestamp end_time;
-	private String end_airline;
-	private String end_city;
+	private int flight_occupancy;
+	private Date flight_start_date;
+	private Timestamp flight_start_departure;
+	private Timestamp flight_start_arrival;
+	private String flight_start_airline;
+	private Timestamp flight_start_departure_city;
+	private Timestamp flight_start_arrival_city;
+	private Date flight_end_date;
+	private Timestamp flight_end_departure;
+	private Timestamp flight_end_arrival;
+	private String flight_end_airline;
+	private Timestamp flight_end_departure_city;
+	private Timestamp flight_end_arrival_city;
+	
 	public int getFlight_number() {
 		return flight_number;
 	}
@@ -26,52 +32,82 @@ public class FlightDto {
 	public void setProduct_number(int product_number) {
 		this.product_number = product_number;
 	}
-	public Date getStart_date() {
-		return start_date;
+	public int getFlight_occupancy() {
+		return flight_occupancy;
 	}
-	public void setStart_date(Date start_date) {
-		this.start_date = start_date;
+	public void setFlight_occupancy(int flight_occupancy) {
+		this.flight_occupancy = flight_occupancy;
 	}
-	public Timestamp getStart_time() {
-		return start_time;
+	public Date getFlight_start_date() {
+		return flight_start_date;
 	}
-	public void setStart_time(Timestamp start_time) {
-		this.start_time = start_time;
+	public void setFlight_start_date(Date flight_start_date) {
+		this.flight_start_date = flight_start_date;
 	}
-	public String getStart_airline() {
-		return start_airline;
+	public Timestamp getFlight_start_departure() {
+		return flight_start_departure;
 	}
-	public void setStart_airline(String start_airline) {
-		this.start_airline = start_airline;
+	public void setFlight_start_departure(Timestamp flight_start_departure) {
+		this.flight_start_departure = flight_start_departure;
 	}
-	public String getStart_city() {
-		return start_city;
+	public Timestamp getFlight_start_arrival() {
+		return flight_start_arrival;
 	}
-	public void setStart_city(String start_city) {
-		this.start_city = start_city;
+	public void setFlight_start_arrival(Timestamp flight_start_arrival) {
+		this.flight_start_arrival = flight_start_arrival;
 	}
-	public Date getEnd_date() {
-		return end_date;
+	public String getFlight_start_airline() {
+		return flight_start_airline;
 	}
-	public void setEnd_date(Date end_date) {
-		this.end_date = end_date;
+	public void setFlight_start_airline(String flight_start_airline) {
+		this.flight_start_airline = flight_start_airline;
 	}
-	public Timestamp getEnd_time() {
-		return end_time;
+	public Timestamp getFlight_start_departure_city() {
+		return flight_start_departure_city;
 	}
-	public void setEnd_time(Timestamp end_time) {
-		this.end_time = end_time;
+	public void setFlight_start_departure_city(Timestamp flight_start_departure_city) {
+		this.flight_start_departure_city = flight_start_departure_city;
 	}
-	public String getEnd_airline() {
-		return end_airline;
+	public Timestamp getFlight_start_arrival_city() {
+		return flight_start_arrival_city;
 	}
-	public void setEnd_airline(String end_airline) {
-		this.end_airline = end_airline;
+	public void setFlight_start_arrival_city(Timestamp flight_start_arrival_city) {
+		this.flight_start_arrival_city = flight_start_arrival_city;
 	}
-	public String getEnd_city() {
-		return end_city;
+	public Date getFlight_end_date() {
+		return flight_end_date;
 	}
-	public void setEnd_city(String end_city) {
-		this.end_city = end_city;
+	public void setFlight_end_date(Date flight_end_date) {
+		this.flight_end_date = flight_end_date;
+	}
+	public Timestamp getFlight_end_departure() {
+		return flight_end_departure;
+	}
+	public void setFlight_end_departure(Timestamp flight_end_departure) {
+		this.flight_end_departure = flight_end_departure;
+	}
+	public Timestamp getFlight_end_arrival() {
+		return flight_end_arrival;
+	}
+	public void setFlight_end_arrival(Timestamp flight_end_arrival) {
+		this.flight_end_arrival = flight_end_arrival;
+	}
+	public String getFlight_end_airline() {
+		return flight_end_airline;
+	}
+	public void setFlight_end_airline(String flight_end_airline) {
+		this.flight_end_airline = flight_end_airline;
+	}
+	public Timestamp getFlight_end_departure_city() {
+		return flight_end_departure_city;
+	}
+	public void setFlight_end_departure_city(Timestamp flight_end_departure_city) {
+		this.flight_end_departure_city = flight_end_departure_city;
+	}
+	public Timestamp getFlight_end_arrival_city() {
+		return flight_end_arrival_city;
+	}
+	public void setFlight_end_arrival_city(Timestamp flight_end_arrival_city) {
+		this.flight_end_arrival_city = flight_end_arrival_city;
 	}
 }
