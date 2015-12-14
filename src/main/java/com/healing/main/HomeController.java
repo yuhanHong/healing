@@ -40,4 +40,9 @@ public class HomeController {
 	public String adminHome(Locale locale, Model model) {
 		return "adminHome";
 	}
+	
+	@RequestMapping(value = "/menu.do", method = RequestMethod.GET)
+	public String menu(Locale locale, Model model) {
+		return "menu";
+	}
 }
