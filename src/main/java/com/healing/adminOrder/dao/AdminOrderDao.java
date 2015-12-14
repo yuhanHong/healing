@@ -1,6 +1,7 @@
 package com.healing.adminOrder.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.core.annotation.Order;
 
@@ -19,9 +20,19 @@ public interface AdminOrderDao {
 	public int adminOrderModify(OrderDto orderDto);
 	public int adminOrderPay(int order_number);
 	public int adminOrderCancle(int order_number);
-	public List<Integer> getTodaySales(String today);
-	public List<Integer> getTodayPay(String today);
+	public int getTodaySales(String today);
+	public int getTodayPay(String today);
+	
+	//일별 통계
+	public List<String> adminOrderStatsSearchDate(String start_date, String end_date);
 	public List<String> adminOrderStatsSearchDay(String start_date,String end_date);
-//	public List<String> adminOrderStatsSearchDayPay(String start_date,String end_date);
-	public int adminOrderStatsSearchDayPay(String start_date,String end_date);
+	public List<String> adminOrderStatsSearchDayPay(String start_date,String end_date);
+	//월별 통계
+	public List<String>adminOrderStatsSearchMonthly(String start_date,String end_date);
+	public List<String> adminOrderStatsSearchMonth(String start_date,String end_date);
+	public List<String> adminOrderStatsSearchMonthPay(String start_date,String end_date);
+	//년도별 통계
+	public List<String> adminOrderStatsSearchyearly();
+	public List<String> adminOrderStatsSearchyear();
+	public List<String> adminOrderStatsSearchyearPay();
 }

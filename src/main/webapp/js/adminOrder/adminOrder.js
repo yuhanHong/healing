@@ -59,9 +59,13 @@ $(function() {
 	      buttonText: "Select date"
     });
 		
-	$("#start_date").press(function(){
+	$("#start_date").keyup(function(){
 		alert("달력에서 날짜를 선택해주세요.");
 		$("#start_date").val("");
+	});
+	$("#end_date").keyup(function(){
+		alert("달력에서 날짜를 선택해주세요.");
+		$("#end_date").val("");
 	});
  });
 

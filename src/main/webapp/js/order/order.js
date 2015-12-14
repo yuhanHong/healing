@@ -74,6 +74,7 @@ $(function() {
 function numberFormatter(result){
 	var len=(result+"").length;
 	var rest=len%3;
+	if(rest == 0) rest=3;
 	
 	for(var i=0;i<len/3-1;i++){
 		result=interceptString(result,rest+i*4);

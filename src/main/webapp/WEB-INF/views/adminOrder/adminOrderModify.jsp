@@ -116,7 +116,7 @@
 			</div>
 				
 			<div class="adminOrderDiv" style="text-align: right;margin-right: 80px; margin-top: 10px;">
-				<input type="button" value="주문취소" onclick="return orderCancle('${root}','${orderDto.order_number}')"/>
+				<input type="button" value="주문취소" onclick="return orderCancel('${root}','${orderDto.order_number}')"/>
 				<input type="submit" value="확인"/>
 				<input type="button" value="취소" onclick="javascript:self.close()"/>
 			</div>

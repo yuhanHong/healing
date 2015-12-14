@@ -85,6 +85,7 @@
 					<td  width="70">결제 방법</td>
 					<td  width="80">예약 상태</td>
 				</tr>
+
 				<c:forEach var="orderDto" items="${orderList }">
 				<tr>
 					<td><fmt:formatDate value="${orderDto.order_date}" type="date"/> </td>

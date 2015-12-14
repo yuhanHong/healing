@@ -18,7 +18,7 @@
 	</c:if>
 	<hr/>
 	<a href="${root}/adminOrder/adminOrder.do">관리자모드-예약관리</a> <br/>
-	<a href="${root}/adminOrder/adminOrderStats.do"/> - 매출 통계</a>
+	<a href="${root}/adminOrder/adminOrderStats.do"> - 매출 통계</a>
 	<hr/>
 	<h3>admin side3</h3>
 	<hr/>

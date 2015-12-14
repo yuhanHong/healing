@@ -77,7 +77,7 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	    
 	    int order_number=Integer.parseInt(request.getParameter("order_number"));
 	    OrderDto orderDto=adminOrderDao.adminOrderRead(order_number);
-	    ProductDto productDto=adminOrderDao.adminProductRead(orderDto.getProduct_number());
+	    ProductDto productDto=adminOrderDao.adminProductRead(orderDto.getFlight_number());
 	    MemberDto memberDto=adminOrderDao.adminOrderMember(orderDto.getMember_number());
 	    
 	    mav.addObject("orderDto", orderDto);	    
@@ -121,7 +121,7 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	}
 
 	@Override
-	public void adminOrderCancle(ModelAndView mav) {
+	public void adminOrderCancel(ModelAndView mav) {
 		// TODO Auto-generated method stub
 		Map<String, Object> map=mav.getModelMap();
 	    HttpServletRequest request = (HttpServletRequest) map.get("request");
@@ -135,19 +135,14 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	@Override
 	public void adminOrderStats(ModelAndView mav) {
 		// TODO Auto-generated method stub
-		Map<String, Object> map=mav.getModelMap();
-	    HttpServletRequest request = (HttpServletRequest) map.get("request");
 	   
 	    Date date=new Date();
 	    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 	    
 	    String today=sdf.format(date);
 		
-	    List<Integer> todaySalesList=adminOrderDao.getTodaySales(today);
-	    int todaySales=todaySalesList.get(0);
-
-	    List<Integer> todayPayList=adminOrderDao.getTodayPay(today);
-	    int todayPay=todayPayList.get(0);
+	    int todaySales=adminOrderDao.getTodaySales(today);
+	    int todayPay=adminOrderDao.getTodayPay(today);
 	    
 	    mav.addObject("todaySales", todaySales);
 	    mav.addObject("todayPay", todayPay); 
@@ -163,22 +158,57 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	    String end_date=request.getParameter("end_date");
 	    String select=request.getParameter("select");
 
+	    List<String> dateList=null;
 	    List<String> salesList=null;
 	    List<String> payList=null;
-	    int payListpay=0;
 	    HomeAspect.logger.info(HomeAspect.logMsg+"///adminOrderStatsSearch//"+select);
+	    
+	    //일별로 선택한 경우
 	    if(select.equals("day")){
-	    	
+	    	dateList=adminOrderDao.adminOrderStatsSearchDate(start_date,end_date);
 	    	salesList=adminOrderDao.adminOrderStatsSearchDay(start_date,end_date);
-//	    	payList=adminOrderDao.adminOrderStatsSearchDayPay(start_date,end_date);
-	    	payListpay=adminOrderDao.adminOrderStatsSearchDayPay(start_date,end_date);
-//	    	HomeAspect.logger.info(HomeAspect.logMsg+"///adminOrderStatsSearch//"+salesList.size()+"/"+payList.size);
+	    	payList=adminOrderDao.adminOrderStatsSearchDayPay(start_date,end_date);
 	    }
-
-	    HomeAspect.logger.info(HomeAspect.logMsg+"///adminOrderStatsSearch//payListpay하하하"+payListpay);
-		mav.addObject("salesList", salesList);	    
-		mav.addObject("payList", payListpay);	    
-		mav.setViewName("adminOrder/adminOrderSearch");
+	    
+	    //월별로 선택한 경우
+	    if(select.equals("month")){
+	    	
+	    	start_date=start_date.substring(0, 7);
+	    	start_date+="/01";
+	    	
+	    	end_date=end_date.substring(0, 7);
+	    	
+	    	int sub= Integer.parseInt(end_date.substring(5, 7));
+	    	if(sub==1||sub==3||sub==5||sub==7||sub==8||sub==10||sub==12){
+	    		end_date+="/31";
+	    	}else if(sub==4||sub==6||sub==9||sub==11){
+	    		end_date+="/30";
+	    	}else{
+	    		end_date+="/28";
+	    	}
+	    	dateList=adminOrderDao.adminOrderStatsSearchMonthly(start_date,end_date);
+	    	salesList=adminOrderDao.adminOrderStatsSearchMonth(start_date,end_date);
+	    	payList=adminOrderDao.adminOrderStatsSearchMonthPay(start_date,end_date);
+	    }
+	    
+	    if(select.equals("year")){
+	    	dateList=adminOrderDao.adminOrderStatsSearchyearly();
+	    	salesList=adminOrderDao.adminOrderStatsSearchyear();
+	    	payList=adminOrderDao.adminOrderStatsSearchyearPay();
+	    }
+	    
+	    for(int i=0; i<dateList.size();i++){
+	    	HomeAspect.logger.info(HomeAspect.logMsg+dateList.get(i)+"//"+salesList.get(i)+"//"+payList.get(i));
+	    }
+	    int dateListLength=dateList.size();
+	    
+	    mav.addObject("dateListLength", dateListLength);	
+	    mav.addObject("select", select);	   
+	    mav.addObject("dateList", dateList);	    
+	    mav.addObject("salesList", salesList);	    
+		mav.addObject("payList", payList);	    
+		
+		adminOrderStats(mav);
 	}
 	
 	

@@ -16,5 +16,5 @@ function orderCancle(root,order_number){
 		 return false;
 	 }
 	 
-	 location.href=root+"/adminOrder/adminOrderCancle.do?order_number="+order_number;
+	 location.href=root+"/adminOrder/adminOrderCancel.do?order_number="+order_number;
 }

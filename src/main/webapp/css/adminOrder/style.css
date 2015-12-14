@@ -85,3 +85,23 @@ label{
 	text-align: right;
 }
 
+#adminOrderStatsResult ul li{
+	padding: 4px;
+	display: block;
+	width:150px;
+	float:left;
+	border: 1px solid gray;
+	text-align: center;
+}
+
+#adminOrderStatsResult{
+	margin-top:30px;
+	margin-left:265px;
+	overflow: hidden;
+	width:700px;
+}
+
+.adminOrderStatsResultFirst ul li{
+	background-color: lightgray;
+	font-weight: bold;
+}

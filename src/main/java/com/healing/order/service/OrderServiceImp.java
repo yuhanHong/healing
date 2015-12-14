@@ -79,7 +79,7 @@ public class OrderServiceImp implements OrderService {
 		   orderDto=orderDao.getNewOrderDto();
 		   HomeAspect.logger.info(HomeAspect.logMsg+"///"+orderDto.getOrder_number()+":  orderInsert resultnumber");
 		    
-		    productDto=orderDao.orderProductRead(orderDto.getProduct_number());
+		    productDto=orderDao.orderProductRead(orderDto.getFlight_number());
 		    
 		    mav.addObject("orderDto", orderDto);
 		    mav.addObject("productDto", productDto);

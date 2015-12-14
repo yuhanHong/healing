@@ -2,6 +2,7 @@ package com.healing.adminOrder.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -134,37 +135,91 @@ public class AdminOrderDaoImp implements AdminOrderDao {
 	}
 
 	@Override
-	public List<Integer> getTodaySales(String today) {
+	public int getTodaySales(String today) {
 		// TODO Auto-generated method stub
-		return sqlSessionTemplate.selectList("dao.adminOrderMapper.getTodaySales",today);
+		return sqlSessionTemplate.selectOne("dao.adminOrderMapper.getTodaySales",today);
 	}
 
 	@Override
-	public List<Integer> getTodayPay(String today) {
+	public int getTodayPay(String today) {
 		// TODO Auto-generated method stub
-		return sqlSessionTemplate.selectList("dao.adminOrderMapper.getTodayPay",today);
+		return sqlSessionTemplate.selectOne("dao.adminOrderMapper.getTodayPay",today);
 	}
 
 	@Override
-	public List<String> adminOrderStatsSearchDay(String start_date,String end_date) {
+	public  List<String> adminOrderStatsSearchDay(String start_date,String end_date) {
 		// TODO Auto-generated method stub
 		HashMap<String, String> map=new HashMap<String, String>();
 		map.put("start_date", start_date);
 		map.put("end_date", end_date);
 	
-		return sqlSessionTemplate.selectList("dao.adminOrderMapper.adminOrderStatsSearchDay",map);
+		return sqlSessionTemplate.selectList("dao.adminOrderMapper.adminOrderStatsSearchDay", map);
 	}
 
 	@Override
-	public int adminOrderStatsSearchDayPay(String start_date, String end_date) {
+	public List<String> adminOrderStatsSearchDayPay(String start_date, String end_date) {
 		// TODO Auto-generated method stub
 		HashMap<String, String> map=new HashMap<String, String>();
 		map.put("start_date", start_date);
 		map.put("end_date", end_date);
-	
-//		HomeAspect.logger.info(HomeAspect.logMsg + "하하하" + sqlSessionTemplate.selectOne("dao.adminOrderMapper.adminOrderStatsSearchDayPay2",map));
+
+		return sqlSessionTemplate.selectList("dao.adminOrderMapper.adminOrderStatsSearchDayPay",map);
+	}
+
+	@Override
+	public List<String> adminOrderStatsSearchDate(String start_date, String end_date) {
+		// TODO Auto-generated method stub
+		HashMap<String, String> map=new HashMap<String, String>();
+		map.put("start_date", start_date);
+		map.put("end_date", end_date);
 		
-		return sqlSessionTemplate.selectOne("dao.adminOrderMapper.adminOrderStatsSearchDayPay2",map);
-//		return sqlSessionTemplate.selectList("dao.adminOrderMapper.adminOrderStatsSearchDayPay",map);
+		return sqlSessionTemplate.selectList("dao.adminOrderMapper.adminOrderStatsSearchDate", map);
+	}
+
+	@Override
+	public List<String> adminOrderStatsSearchMonthly(String start_date, String end_date) {
+		// TODO Auto-generated method stub
+		HashMap<String, String> map=new HashMap<String, String>();
+		map.put("start_date", start_date);
+		map.put("end_date", end_date);
+		
+		return sqlSessionTemplate.selectList("dao.adminOrderMapper.adminOrderStatsSearchMonthly", map);
+	}
+
+	@Override
+	public List<String> adminOrderStatsSearchMonth(String start_date, String end_date) {
+		// TODO Auto-generated method stub
+		HashMap<String, String> map=new HashMap<String, String>();
+		map.put("start_date", start_date);
+		map.put("end_date", end_date);
+		
+		return sqlSessionTemplate.selectList("dao.adminOrderMapper.adminOrderStatsSearchMonth", map);
+	}
+
+	@Override
+	public List<String> adminOrderStatsSearchMonthPay(String start_date, String end_date) {
+		// TODO Auto-generated method stub
+		HashMap<String, String> map=new HashMap<String, String>();
+		map.put("start_date", start_date);
+		map.put("end_date", end_date);
+
+		return sqlSessionTemplate.selectList("dao.adminOrderMapper.adminOrderStatsSearchMonthPay", map);
+	}
+
+	@Override
+	public List<String> adminOrderStatsSearchyearly() {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("dao.adminOrderMapper.adminOrderStatsSearchyearly");
+	}
+
+	@Override
+	public List<String> adminOrderStatsSearchyear() {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("dao.adminOrderMapper.adminOrderStatsSearchyear");
+	}
+	@Override
+	public List<String> adminOrderStatsSearchyearPay() {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("dao.adminOrderMapper.adminOrderStatsSearchyearPay");
 	}
 }

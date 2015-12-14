@@ -1,5 +1,7 @@
 package com.healing.adminOrder.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -86,12 +88,12 @@ public class AdminOrderController {
 		return mav;
 	}
 		
-	@RequestMapping(value="/adminOrder/adminOrderCancle.do",method=RequestMethod.GET)
+	@RequestMapping(value="/adminOrder/adminOrderCancel.do",method=RequestMethod.GET)
 	public ModelAndView adminOrderCancle(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
 		
-		adminOrderService.adminOrderCancle(mav);
+		adminOrderService.adminOrderCancel(mav);
 		adminOrderService.adminOrderRead(mav);
 		mav.setViewName("adminOrder/adminOrderRead");
 		return mav;
@@ -103,6 +105,8 @@ public class AdminOrderController {
 		mav.addObject("request",request);
 		
 		adminOrderService.adminOrderStats(mav);
+
+		mav.addObject("dateListLength",0);
 		mav.setViewName("adminOrder/adminOrderStats");
 		return mav;
 	}
