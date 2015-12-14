@@ -20,7 +20,7 @@
 	<a href="${root}/adminOrder/adminOrder.do">관리자모드-예약관리</a> <br/>
 	<a href="${root}/adminOrder/adminOrderStats.do"> - 매출 통계</a>
 	<hr/>
-	<h3>admin side3</h3>
+	<a href="${root}/adminProduct/productWrite.do">상품 등록</a>
 	<hr/>
 	<h3>admin side4</h3>
 	<hr/>
@@ -29,4 +29,4 @@
 	<h3>admin side6</h3>
 </div>
 
-<!-- admin sidebar starts -->
+<!-- admin sidebar ends -->
