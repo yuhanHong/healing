@@ -36,8 +36,27 @@ $(function() {
 	      buttonText: "Select date"
    });
 		
-	$("#start_date").press(function(){
-		alert("달력에서 날짜를 선택해주세요.");
-		$("#start_date").val("");
+
+	var chart = new CanvasJS.Chart("chartContainer", {
+	
+		theme: "theme2",//theme1
+		title:{
+			text: "Healing !"              
+		},
+		animationEnabled: true,   // change to true
+		data: [              
+		{
+			// Change type to "bar", "area", "spline", "pie",etc.
+			type: "column",
+			dataPoints: [
+
+			    { label: $("#ul").val(),  y: 10  }
+			  
+			]
+		}
+		]
 	});
+	chart.render();
+
+
 });

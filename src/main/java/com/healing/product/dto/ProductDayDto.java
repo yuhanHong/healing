@@ -1,6 +1,6 @@
 package com.healing.product.dto;
 
-public class ProductDay {
+public class ProductDayDto {
 	private int product_day_number;
 	private int product_number;
 	private int product_day_nth_day;

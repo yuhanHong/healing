@@ -11,14 +11,14 @@ public class FlightDto {
 	private Timestamp flight_start_departure;
 	private Timestamp flight_start_arrival;
 	private String flight_start_airline;
-	private Timestamp flight_start_departure_city;
-	private Timestamp flight_start_arrival_city;
+	private String flight_start_departure_city;
+	private String flight_start_arrival_city;
 	private Date flight_end_date;
 	private Timestamp flight_end_departure;
 	private Timestamp flight_end_arrival;
 	private String flight_end_airline;
-	private Timestamp flight_end_departure_city;
-	private Timestamp flight_end_arrival_city;
+	private String flight_end_departure_city;
+	private String flight_end_arrival_city;
 	
 	public int getFlight_number() {
 		return flight_number;
@@ -62,16 +62,16 @@ public class FlightDto {
 	public void setFlight_start_airline(String flight_start_airline) {
 		this.flight_start_airline = flight_start_airline;
 	}
-	public Timestamp getFlight_start_departure_city() {
+	public String getFlight_start_departure_city() {
 		return flight_start_departure_city;
 	}
-	public void setFlight_start_departure_city(Timestamp flight_start_departure_city) {
+	public void setFlight_start_departure_city(String flight_start_departure_city) {
 		this.flight_start_departure_city = flight_start_departure_city;
 	}
-	public Timestamp getFlight_start_arrival_city() {
+	public String getFlight_start_arrival_city() {
 		return flight_start_arrival_city;
 	}
-	public void setFlight_start_arrival_city(Timestamp flight_start_arrival_city) {
+	public void setFlight_start_arrival_city(String flight_start_arrival_city) {
 		this.flight_start_arrival_city = flight_start_arrival_city;
 	}
 	public Date getFlight_end_date() {
@@ -98,16 +98,16 @@ public class FlightDto {
 	public void setFlight_end_airline(String flight_end_airline) {
 		this.flight_end_airline = flight_end_airline;
 	}
-	public Timestamp getFlight_end_departure_city() {
+	public String getFlight_end_departure_city() {
 		return flight_end_departure_city;
 	}
-	public void setFlight_end_departure_city(Timestamp flight_end_departure_city) {
+	public void setFlight_end_departure_city(String flight_end_departure_city) {
 		this.flight_end_departure_city = flight_end_departure_city;
 	}
-	public Timestamp getFlight_end_arrival_city() {
+	public String getFlight_end_arrival_city() {
 		return flight_end_arrival_city;
 	}
-	public void setFlight_end_arrival_city(Timestamp flight_end_arrival_city) {
+	public void setFlight_end_arrival_city(String flight_end_arrival_city) {
 		this.flight_end_arrival_city = flight_end_arrival_city;
 	}
 }

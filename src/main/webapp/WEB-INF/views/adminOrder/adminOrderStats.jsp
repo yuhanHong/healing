@@ -13,7 +13,9 @@
 <script type="text/javascript" src="${root}/jquery/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/jquery-ui.css"/>
 <script type="text/javascript" src="${root}/js/adminOrder/adminOrder.js"></script>
+<script type="text/javascript" src="${root}/js/adminOrder/d3.js"></script>
 <script type="text/javascript" src="${root}/js/order/order.js"></script>
+<script src="//canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript" src="${root}/js/adminOrder/adminOrderStats.js"></script>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -22,7 +24,7 @@
 	<jsp:include page="../adminHeader.jsp"/>
 	<jsp:include page="../adminSide.jsp"/>
 
-<div>
+<div style="width:1200px;">
 	<h2 style="margin-top: 40px;">매출 통계</h2>
 	<div class="adminOrderDiv" id="salesTop">
 		<ul >
@@ -45,11 +47,15 @@
 			</div>
 		</div>
 	</div>	
-	<div id="adminOrderStatsResult">
+	
+	<!-- 결과 -->
+	<div id="adminOrderStatsResult" style="margin-bottom: 300px;">
 		<c:if test="${dateListLength==0}">
 			<h3 style="margin-top: 30px;margin-left: 220px;">검색 결과가 없습니다.</h3>
 		</c:if>
 		<c:if test="${dateListLength!=0}">
+			<!-- 그래프 -->
+			<div id="chartContainer" style="height: 300px; width: 800px;"></div>
 			<div class="adminOrderStatsResultFirst">
 				<ul>
 					<li>날짜</li>
@@ -64,7 +70,7 @@
 				
 				<div class="">
 					<ul>
-						<li>${dateList.get(i)}</li>
+						<li id="ul">${dateList.get(i)}</li>
 						<li><fmt:parseNumber value="${salesList.get(i)}" var="sales"/>
 							<fmt:formatNumber value="${sales}" pattern="###,###"/> 원</li>
 						<li><fmt:parseNumber value="${payList.get(i)}" var="pay"/>

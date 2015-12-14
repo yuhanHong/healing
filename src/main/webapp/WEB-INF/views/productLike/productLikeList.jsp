@@ -33,23 +33,24 @@
 				<ul class="productLikeUl">
 					<li><input type="checkbox" style="height: 36px;" class="check" value="${productDto.key}"></li>
 					<li>${productDto.value.product_name}</li>
-					<li>${productDto.value.product_stay_date}박</li>
+					<li>${productDto.value.product_stay_days}박</li>
 					<li style="font-size: 10px;">
 						성인:<fmt:formatNumber value="${productDto.value.product_price_adult}" pattern="###,###"/>원<br/>
 						아동:<fmt:formatNumber value="${productDto.value.product_price_child}" pattern="###,###"/>원<br/>
 						유아:<fmt:formatNumber value="${productDto.value.product_price_baby}" pattern="###,###"/>원
 					</li>
-					<li>항공정보 들어감</li>
-					<li><a href="#">이동</a></li>
+					<li>${flightMap.get(productDto.key).flight_start_departure}</li>
+ 			<!--		flightMap.get(productDto.key) = flightDto -->
+					<li><a href="#">${flightMap.get(productDto.key).flight_number}</a></li>
 				</ul>
 				</div>
 			</c:forEach>
 			<c:if test="${check==0 }">
-				<div style="margin:30px auto; margin-left: 280px;">
+				<div style="margin:30px auto; margin-left: 280px;margin-bottom: 200px;">
 					<h3>등록된 관심 상품이 없습니다.</h3>
 				</div>
 			</c:if>
-			<div style="margin-left: 600px; margin-top: 30px;">
+			<div style="margin-left: 600px; margin-top: 30px;margin-bottom: 200px;">
 				<input type="button" value="전체 선택" id="select" onclick="productSelect()"/>
 				<input type="button" value="선택 삭제" onclick="productLikeSelectDel('${root}','${member_number}')"/>
 				<input type="button" value="전체 삭제" onclick="location.href='${root}/productLike/productLikeAllDelete.do?member_number=${member_number}'"> 

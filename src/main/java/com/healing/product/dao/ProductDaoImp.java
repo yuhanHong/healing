@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.healing.aop.HomeAspect;
+import com.healing.product.dto.FlightDto;
 import com.healing.product.dto.ProductDto;
 
 /**
@@ -20,5 +21,10 @@ public class ProductDaoImp implements ProductDao {
 
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
+
+	@Override
+	public FlightDto productFlightRead(int flight_number) {
+		return sqlSessionTemplate.selectOne("dao.productMapper.productFlightRead",flight_number);
+	}
 	
 }

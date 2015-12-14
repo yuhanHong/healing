@@ -12,6 +12,7 @@
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/jquery-ui.css"/>
+<script src="//canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript" src="${root}/js/adminOrder/adminOrder.js"></script>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -25,7 +26,7 @@
 	<script type="text/javascript">
 		$("#product_like").click(function(){
 			
-			var url="${root}/productLike/productLikeinsert.do?product_number=1&member_number=2";
+			var url="${root}/productLike/productLikeinsert.do?flight_number=1&member_number=2";
 			var check=confirm("관심 상품으로 등록하시겠습니까?");
 			if(check==true){
 				$.ajax({

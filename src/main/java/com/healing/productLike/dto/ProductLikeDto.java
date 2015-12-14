@@ -11,11 +11,17 @@ import java.util.Date;
 public class ProductLikeDto {
 
 	private int like_number;
-	
 	private int member_number;
+	private int flight_number;
 	private int product_number;
 	private Date like_date;
 	
+	public int getFlight_number() {
+		return flight_number;
+	}
+	public void setFlight_number(int flight_number) {
+		this.flight_number = flight_number;
+	}
 	public int getMember_number() {
 		return member_number;
 	}

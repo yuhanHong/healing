@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.healing.aop.HomeAspect;
 import com.healing.order.dao.OrderDao;
 import com.healing.product.dao.ProductDao;
+import com.healing.product.dto.FlightDto;
 import com.healing.product.dto.ProductDto;
 import com.healing.productLike.dao.ProductLikeDao;
 import com.healing.productLike.dto.ProductLikeDto;
@@ -37,6 +38,9 @@ public class ProductLikeServiceImp implements ProductLikeService {
 	@Autowired
 	public OrderDao orderDao; 
 	
+	@Autowired
+	public ProductDao productDao; 
+	
 	@Override
 	public void productLikeinsert(ModelAndView mav) {
 		// TODO Auto-generated method stub
@@ -45,11 +49,11 @@ public class ProductLikeServiceImp implements ProductLikeService {
 		HttpServletResponse response=(HttpServletResponse)map.get("response");
 		
 		int member_number=Integer.parseInt(request.getParameter("member_number"));
-		int product_number=Integer.parseInt(request.getParameter("product_number"));
+		int flight_number=Integer.parseInt(request.getParameter("flight_number"));
 		
 	//	HomeAspect.logger.info(HomeAspect.logMsg+"productLikeinsert"+member_number+"/"+product_number);
 		
-		int check=productLikeDao.productLikeinsert(member_number,product_number);
+		int check=productLikeDao.productLikeinsert(member_number,flight_number);
 		HomeAspect.logger.info(HomeAspect.logMsg+"Insert check"+check);
 						
 		try {
@@ -71,26 +75,33 @@ public class ProductLikeServiceImp implements ProductLikeService {
 		
 		int member_number=Integer.parseInt(request.getParameter("member_number"));
 		List<ProductLikeDto> productLikeList=productLikeDao.getProductLikeList(member_number);
-	//	HomeAspect.logger.info(HomeAspect.logMsg+"productLikeList"+productLikeList.size());
-		
+		for(int i=0; i<productLikeList.size();i++){
+			HomeAspect.logger.info(HomeAspect.logMsg+"productLikeList"+productLikeList.get(i).getProduct_number());
+		}
 		//관심상품 번호마다 상품Dto 붙이기
 		HashMap<Integer, ProductDto> productMap=new HashMap<Integer, ProductDto>();
+		HashMap<Integer, FlightDto> flightMap=new HashMap<Integer, FlightDto>();
 		
 		int like_number=0;
 		int product_number=0;
+		int flight_number=0;
 		ProductLikeDto pld=null;
 		ProductDto productDto=null;
+		FlightDto flightDto=null;
 		
 		Iterator<ProductLikeDto> iter=productLikeList.iterator();
 		while(iter.hasNext()){
 			pld=iter.next();
 			//맵으로 넣어주기위해..
-			product_number=pld.getProduct_number();
 			like_number=pld.getLike_number();
 			
+			product_number=pld.getProduct_number();
 			productDto=orderDao.orderProductRead(product_number);
 			productMap.put(like_number, productDto);
 			
+			flight_number=pld.getFlight_number();
+			flightDto=productDao.productFlightRead(flight_number);
+			flightMap.put(like_number, flightDto);
 		}
 
 		int check=productMap.size();
@@ -99,8 +110,9 @@ public class ProductLikeServiceImp implements ProductLikeService {
 		mav.addObject("check",check);
 		mav.addObject("productMapSize",productMapSize);
 		mav.addObject("productMap",productMap);
+		mav.addObject("flightMap",flightMap);
 		mav.addObject("member_number",member_number);
-		
+
 		mav.setViewName("productLike/productLikeList");
 	}
 

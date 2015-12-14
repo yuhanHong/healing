@@ -16,6 +16,7 @@ public class OrderDto {
 	private int order_number;
 	private int member_number;
 	private int flight_number;
+	private int product_number;
 	private int order_money;
 	private Date order_date;
 	private int order_price_adult;
@@ -34,6 +35,12 @@ public class OrderDto {
 	private int order_modify_money;
 	private int order_pay;
 	
+	public int getProduct_number() {
+		return product_number;
+	}
+	public void setProduct_number(int product_number) {
+		this.product_number = product_number;
+	}
 	public int getOrder_pay() {
 		return order_pay;
 	}
