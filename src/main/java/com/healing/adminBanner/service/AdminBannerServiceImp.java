@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.adminBanner.dao.AdminBannerDao;
+import com.healing.adminBanner.dto.TestFileDto;
 import com.healing.aop.HomeAspect;
 import com.healing.product.dao.ProductDao;
 import com.healing.product.dto.ProductDto;
@@ -81,10 +82,10 @@ public class AdminBannerServiceImp implements AdminBannerService {
 	}
 
 	/**
-	 * @함수이름 : bannerRecommandInsert
+	 * @함수이름 : bannerRecommandUpdate
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 전현준
-	 * @함수설명 : url로 보내진 ,(쉼표)를 split으로 나눈 후 추천 상품 테이블에 등록하는 함수
+	 * @함수설명 : url로 보내진 ,(쉼표)를 split으로 나눈 후 배너 등록 상태값을 바꾸는 함수
 	 */
 	@Override
 	public void bannerRecommandInsert(ModelAndView mav) {
@@ -112,7 +113,7 @@ public class AdminBannerServiceImp implements AdminBannerService {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		List<ProductDto> productDto = adminBannerDao.recBannerSelect();
-		HomeAspect.logger.info(HomeAspect.logMsg + productDto);
+		//HomeAspect.logger.info(HomeAspect.logMsg + "로그BannerSelect" + productDto);
 		
 		mav.addObject("productDto", productDto);
 		mav.setViewName("adminBanner/bannerInsert");
@@ -122,7 +123,7 @@ public class AdminBannerServiceImp implements AdminBannerService {
 	 * @함수이름 : bannerRecommandDelete
 	 * @작성일 : 2015. 12. 12.
 	 * @개발자 : 전현준
-	 * @함수설명 : url로 보내진 ,(쉼표)를 split으로 나눈 후 추천 상품 테이블에 삭제하는 함수
+	 * @함수설명 : url로 보내진 ,(쉼표)를 split으로 나눈 후 상품 테이블에 배너상태값을 0으로 바꿔주는 함수
 	 */
 	@Override
 	public void bannerRecommandDelete(ModelAndView mav) {
@@ -137,6 +138,29 @@ public class AdminBannerServiceImp implements AdminBannerService {
 			//HomeAspect.logger.info(HomeAspect.logMsg + Integer.parseInt(insertList[i]));
 		}
 		
+	}
+
+	@Override
+	public void bannerPrint(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		int key = Integer.parseInt(request.getParameter("key"));
+		
+		List<TestFileDto> list = adminBannerDao.bannerPrint(key);
+		HomeAspect.logger.info(HomeAspect.logMsg + list);
+	}
+
+	@Override
+	public void bannerHome(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		String path = adminBannerDao.getPath();
+		HomeAspect.logger.info(HomeAspect.logMsg + path);
+		
+		mav.addObject("path",path);
+		mav.setViewName("/home");
 	}
 
 	/*@Override

@@ -12,27 +12,33 @@
 		select * from product where product_country like '%'||#{keyword}||'%'
 	</select>
 	
-	<insert id="bannerInsert" parameterType="int">
-		insert into banner values(banner_banner_number_seq.nextval, #{productNumber})
-	</insert>
+	<update id="bannerRecommandInsert" parameterType="int">
+		update product set product_banner=1 where product_number=#{product_number}
+	</update>
 	
 	<select id="recBannerSelect" resultType="com.healing.product.dto.ProductDto">
-		<![CDATA[
-			SELECT p.product_number, 
-				p.product_name, 
-				p.product_country, 
-				p.product_stay_date,
-				p.product_size,
-				p.product_readcount,
-				p.product_average_score
-			FROM banner b, product p
-			WHERE b.product_number = p.product_number
-		]]>
+		select product_number, 
+				product_name, 
+				product_country, 
+				product_stay_days,
+				product_size,
+				product_readcount,
+				product_average_score,
+				product_banner
+		from product order by product_number asc
 	</select>
 	
-	<delete id="bannerDelete" parameterType="int">
-		delete from banner where product_number=#{product_number}
-	</delete>
+	<update id="bannerRecommandDelete" parameterType="int">
+		update product set product_banner=0 where product_number=#{product_number}
+	</update>
+	
+	<select id="bannerFind" parameterType="int" resultType="com.healing.adminBanner.dto.TestFileDto">
+		select * from testfile where key=#{key}
+	</select>
+	
+	<select id="getPath" resultType="String">
+		select product_photo_filename from product_photo where product_number=#{product_number} order by product_photo_number asc
+	</select>
 	
 	<!-- <select id="bannerCount" resultType="int">
 		SELECT count(*) FROM banner b, product p

@@ -3,6 +3,8 @@
  * @함수설명 : 추천상품 검색 페이지를 검색을통해 상품정보를 ajax로 가져오는 함수
  * @개발자 : 전현준
  * @개발날짜 : 2015. 12. 11
+ * @수정내용 : 상품(product) 테이블 변경으로 인한 ajax로 받은 데이터 수정
+ * @수정날짜 : 2015. 12. 15
  */
 function searchForm(root){
 	var url = root + "/adminBanner/bannerSearch.do";
@@ -33,10 +35,10 @@ function searchForm(root){
 					div += "<div class='recommand2'>" + data.data[i].product_number + "</div>";
 					div += "<div class='recommand2_1'>" + data.data[i].product_name + "</div>";
 					div += "<div class='recommand2'>" + data.data[i].product_country + "</div>";
-					div += "<div class='recommand2'>" + data.data[i].product_stay_date + "</div>";
-					div += "<div class='recommand2'>" + data.data[i].product_size + "</div>";
+					div += "<div class='recommand2'>" + data.data[i].product_stay_days + "</div>";
 					div += "<div class='recommand2'>" + data.data[i].product_readcount + "</div>";
 					div += "<div class='recommand2'>" + data.data[i].product_average_score + "</div>";
+					div += "<div class='recommand2'>" + data.data[i].product_banner + "</div>";
 					div += "</div>";
 					result += div;
 				}
@@ -70,6 +72,8 @@ $(function(){
  * @함수설명 : 추천상품 리스트 테이블에 등록(테이블명 : banner)
  * @개발자 : 전현준
  * @개발날짜 : 2015. 12. 11
+ * @수정내용 : 메인배너 추천상품 등록 script단 처리
+ * @수정날짜 : 2015. 12. 15
  */
 
 function productInsert(root){
@@ -83,7 +87,18 @@ function productInsert(root){
 	}
 	var url = root + "/adminBanner/bannerRecommandInsert.do?str="+str;
 	
-	location.href = url;
+	if(str == ""){
+		alert("메인배너에 등록할 상품을 선택해주세요.");
+		return false;
+	}else if(str != ""){
+		if(confirm("추천상품을 메인배너에 등록하시겠습니까?")){
+			location.href = url;
+			alert("추천상품 등록을 완료하였습니다.")
+		}else{
+			alert("추천상품 등록을 취소합니다.");
+			return false;
+		}
+	}
 }
 
 /**
@@ -113,6 +128,8 @@ function productPrevious(root){
  * @함수설명 : 추천상품 리스트 테이블 DB 데이터 삭제(테이블명 banner)
  * @개발자 : 전현준
  * @개발날짜 : 2015. 12. 12
+ * @수정내용 : 메인배너 추천상품 삭제 script단 처리
+ * @수정날짜 : 2015. 12. 15
  */
 function productdelete(root){
 	var check = false;
@@ -123,7 +140,19 @@ function productdelete(root){
 			str += "," + checkValue[i].value;
 		}
 	}
+	
 	var url = root + "/adminBanner/bannerRecommandDelete.do?str="+str;
 	
-	location.href = url;
+	if(str == ""){
+		alert("메인배너에서 제거할 상품을 선택해주세요.");
+		return false;
+	}else if(str != ""){
+		if(confirm("추천상품을 메인배너에서 제거하시겠습니까?")){
+			location.href = url;
+			alert("메인배너에서 제거를 완료하였습니다.")
+		}else{
+			alert("메인배너 제거을 취소합니다.");
+			return false;
+		}
+	}
 }

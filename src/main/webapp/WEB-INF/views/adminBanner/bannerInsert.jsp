@@ -19,7 +19,7 @@
 	<jsp:include page="../adminSide.jsp"/>
 	
 	<div id="auto_info">
-		<h3>추천상품검색</h3>
+		<h3>상품검색</h3>
 		<br>
 		
 		<h4>상품을 검색해주세요.</h4>
@@ -39,20 +39,20 @@
 				<div class="recommand1_1">상품명</div>
 				<div class="recommand1">나라명</div>
 				<div class="recommand1">숙박일</div>
-				<div class="recommand1">출발가능인원수</div>
 				<div class="recommand1">조회수</div>
 				<div class="recommand1">평균평점</div>
+				<div class="recommand1">추천상품여부</div>
 			</div>
 		</div>
 		
 		<br>
 		<div style="width:350px;" align="center">
-			<input type="button" value="등록" onclick="productInsert('${root}')">
+			<input type="button" value="배너등록" onclick="productInsert('${root}')">
 		</div>
 		
-		<h3>추천상품리스트</h3>
+		<h3>배너리스트</h3>
 		
-		1) 추천상품리스트 조회하기 : <input type="button" value="조회" onclick="productSelect('${root}')">
+		1) 배너리스트 조회하기 : <input type="button" value="조회" onclick="productSelect('${root}')">
 		<input type="button" value="이전으로" onclick="productPrevious('${root}')">
 		<div id="result2">
 			<div class="result2">
@@ -61,9 +61,9 @@
 				<div class="recommand1_1">상품명</div>
 				<div class="recommand1">나라명</div>
 				<div class="recommand1">숙박일</div>
-				<div class="recommand1">출발가능인원수</div>
 				<div class="recommand1">조회수</div>
 				<div class="recommand1">평균평점</div>
+				<div class="recommand1">추천상품여부</div>
 			</div>
 			<c:forEach var="product" items="${productDto}">
 				<div class="result3">
@@ -71,16 +71,16 @@
 					<div class="recommand2">${product.product_number}</div>
 					<div class="recommand2_1">${product.product_name}</div>
 					<div class="recommand2">${product.product_country}</div>
-					<div class="recommand2">${product.product_stay_date}</div>
-					<div class="recommand2">${product.product_size}</div>
+					<div class="recommand2">${product.product_stay_days}</div>
 					<div class="recommand2">${product.product_readcount}</div>
 					<div class="recommand2">${product.product_average_score}</div>
+					<div class="recommand2">${product.product_banner}</div>
 				</div>
 			</c:forEach>
 		</div>
 		
 		<div style="width:350px;" align="center">
-			<input type="button" value="삭제" onclick="productdelete('${root}')">
+			<input type="button" value="배너제거" onclick="productdelete('${root}')">
 		</div>
 	</div>
 </body>

@@ -19,6 +19,7 @@ public class ProductDto {
 	private int product_bargain_day2;
 	private int product_readcount;
 	private float product_average_score;
+	private int product_banner;
 	
 	public int getProduct_number() {
 		return product_number;
@@ -127,5 +128,11 @@ public class ProductDto {
 	}
 	public void setProduct_average_score(float product_average_score) {
 		this.product_average_score = product_average_score;
+	}
+	public int getProduct_banner() {
+		return product_banner;
+	}
+	public void setProduct_banner(int product_banner) {
+		this.product_banner = product_banner;
 	}
 }

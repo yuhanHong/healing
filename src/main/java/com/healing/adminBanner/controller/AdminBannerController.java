@@ -31,7 +31,7 @@ public class AdminBannerController {
 	 */
 	@RequestMapping(value="adminBanner/bannerInsert.do", method={RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView bannerInsert(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav=new ModelAndView();
+		ModelAndView mav = new ModelAndView();
 		mav.addObject("request",request);
 		
 		adminBannerService.bannerInsert(mav);
@@ -62,7 +62,7 @@ public class AdminBannerController {
 	 * @리턴타입 : ModelAndView
 	 * @작성일 : 2015. 12. 11.
 	 * @개발자 : 전현준
-	 * @함수설명 : 추천상품 테이블에 등록(insert)한 후 Service거친후 bannerInsert.jsp 페이지로 이동하는 함수
+	 * @함수설명 : 메인배너에 등록(insert)한 후 Service거친후 bannerInsert.jsp 페이지로 이동하는 함수
 	 */
 	@RequestMapping(value="/adminBanner/bannerRecommandInsert.do", method=RequestMethod.GET)
 	public ModelAndView bannerRecommandInsert(HttpServletRequest request, HttpServletResponse response){
@@ -92,7 +92,7 @@ public class AdminBannerController {
 	 * @리턴타입 : ModelAndView
 	 * @작성일 : 2015. 12. 12.
 	 * @개발자 : 전현준
-	 * @함수설명 : 추천상품 테이블에 삭제(delete)한 후 Service거친후 bannerInsert.jsp 페이지로 이동하는 함수
+	 * @함수설명 : 상품 테이블에 메인배너 등록상태값을 0으로 바꾼후 Service거친후 bannerInsert.jsp 페이지로 이동하는 함수
 	 */
 	@RequestMapping(value="/adminBanner/bannerRecommandDelete.do", method=RequestMethod.GET)
 	public ModelAndView bannerRecommandDelete(HttpServletRequest request, HttpServletResponse response){
@@ -106,6 +106,27 @@ public class AdminBannerController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/adminBanner/bannerPrint.do", method=RequestMethod.GET)
+	public ModelAndView bannerPrint(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("response", response);
+		
+		adminBannerService.bannerPrint(mav);
+		
+		return null;
+	}
+	
+	@RequestMapping(value="/adminBanner/bannerHome.do", method=RequestMethod.GET)
+	public ModelAndView bannerHome(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("response", response);
+		
+		adminBannerService.bannerHome(mav);
+		
+		return mav;
+	}
 	
 	/*@RequestMapping(value="/adminBanner/bannerRecommandSelect.do", method=RequestMethod.GET)
 	public ModelAndView boardList(HttpServletRequest request, HttpServletResponse response){

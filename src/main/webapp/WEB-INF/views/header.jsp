@@ -7,9 +7,14 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/home/home.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/jquery-ui.css"/>
 
+<!-- 배너 관련 부분 스타일 시트 추가 -->
+<link rel="stylesheet" type="text/css" href="${root}/css/jquery.bxslider.css"/>
+
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery-ui.js"></script>
 <script type="text/javascript" src="${root}/js/memberScript/memberScript.js"></script>
+<!-- 배너 관련부분 스크립트 추가 -->
+<script type="text/javascript" src="${root}/jquery/jquery.bxslider.min.js"></script>
 <script type="text/javascript">
 	//브라우저의 타이틀 변경
 	document.title="힐링투어에 오신 것을 환영합니다!";
