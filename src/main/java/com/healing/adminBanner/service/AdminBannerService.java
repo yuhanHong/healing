@@ -13,4 +13,8 @@ public interface AdminBannerService {
 	
 	public void bannerRecommandDelete(ModelAndView mav);
 	/*public void bannerList(ModelAndView mav);*/
+	
+	public void bannerPrint(ModelAndView mav);
+	
+	public void bannerHome(ModelAndView mav);
 }

@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.healing.adminBanner.dto.TestFileDto;
 import com.healing.aop.HomeAspect;
 import com.healing.product.dto.ProductDto;
 
@@ -39,9 +40,15 @@ public class AdminBannerDaoImp implements AdminBannerDao {
 		return productDto;
 	}
 
+	/**
+	 * @함수이름 : bannerRecommandInsert
+	 * @작성일 : 2015. 12. 12.
+	 * @개발자 : 전현준
+	 * @함수설명 : 사용자 페이지에 메인베너를 등록시키는 함수(상태값 update)
+	 */
 	@Override
 	public int bannerRecommandInsert(int productNumber) {
-		return sqlSessionTemplate.insert("dao.adminBannerMapper.bannerInsert", productNumber);
+		return sqlSessionTemplate.update("dao.adminBannerMapper.bannerRecommandInsert", productNumber);
 	}
 
 	@Override
@@ -51,7 +58,17 @@ public class AdminBannerDaoImp implements AdminBannerDao {
 
 	@Override
 	public int bannerRecommandDelete(int productNumber) {
-		return sqlSessionTemplate.delete("dao.adminBannerMapper.bannerDelete", productNumber);
+		return sqlSessionTemplate.update("dao.adminBannerMapper.bannerRecommandDelete", productNumber);
+	}
+
+	@Override
+	public List<TestFileDto> bannerPrint(int key) {
+		return sqlSessionTemplate.selectList("dao.adminBannerMapper.bannerFind", key);
+	}
+
+	@Override
+	public String getPath() {
+		return sqlSessionTemplate.selectOne("dao.adminBannerMapper.getPath");
 	}
 
 	/*@Override

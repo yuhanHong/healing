@@ -32,9 +32,9 @@
 		update product set product_banner=0 where product_number=#{product_number}
 	</update>
 	
-	<select id="bannerFind" parameterType="int" resultType="com.healing.adminBanner.dto.TestFileDto">
+	<!-- <select id="bannerFind" parameterType="int" resultType="com.healing.adminBanner.dto.TestFileDto">
 		select * from testfile where key=#{key}
-	</select>
+	</select> -->
 	
 	<select id="getPath" resultType="String">
 		select product_photo_filename from product_photo where product_number=#{product_number} order by product_photo_number asc
