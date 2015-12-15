@@ -1,14 +1,18 @@
 package com.healing.adminOrder.service;
 
 
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
@@ -153,7 +157,7 @@ public class AdminOrderServiceImp implements AdminOrderService {
 		// TODO Auto-generated method stub
 		Map<String, Object> map=mav.getModelMap();
 	    HttpServletRequest request = (HttpServletRequest) map.get("request");
-	  
+	    HttpServletResponse response=(HttpServletResponse)map.get("response");
 	    String start_date=request.getParameter("start_date");
 	    String end_date=request.getParameter("end_date");
 	    String select=request.getParameter("select");
@@ -202,13 +206,29 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	    }
 	    int dateListLength=dateList.size();
 	    
-	    mav.addObject("dateListLength", dateListLength);	
-	    mav.addObject("select", select);	   
-	    mav.addObject("dateList", dateList);	    
-	    mav.addObject("salesList", salesList);	    
-		mav.addObject("payList", payList);	    
-		
-		adminOrderStats(mav);
+	    
+	    JSONArray jsonArray=new JSONArray();
+	    JSONObject rootObj = new JSONObject();
+	    
+	    
+	    for(int i=0; i<dateListLength;i++){
+	    	 JSONObject obj = new JSONObject();
+	    	 obj.put("date", dateList.get(i));
+	    	 obj.put("sales", salesList.get(i));
+	    	 obj.put("pay", payList.get(i));
+	    	 jsonArray.add(obj);
+	    }
+	    
+	    String statsString = jsonArray.toJSONString();
+	      System.out.println(statsString);
+	      
+	      try{
+		      response.setContentType("application/json;charset=UTF-8");
+		      PrintWriter out = response.getWriter();
+		      out.print(statsString);	    
+	      }catch(Exception e){
+	    	  e.printStackTrace();
+	      }
 	}
 	
 	

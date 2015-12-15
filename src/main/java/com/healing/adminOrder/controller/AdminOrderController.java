@@ -1,5 +1,6 @@
 package com.healing.adminOrder.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -115,9 +116,9 @@ public class AdminOrderController {
 	public ModelAndView adminOrderStatsSearch(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
-		
+		mav.addObject("response",response);
 		adminOrderService.adminOrderStatsSearch(mav);
-		mav.setViewName("adminOrder/adminOrderStats");
-		return mav;
+		
+		return null;
 	}
 }
