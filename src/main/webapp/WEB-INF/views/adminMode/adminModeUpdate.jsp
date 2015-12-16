@@ -16,68 +16,71 @@
 <body>
 	<jsp:include page="../adminHeader.jsp"/>
 	<jsp:include page="../adminSide.jsp"/>
-	
-	<div>
-		<h3>관리자 계정관리</h3>
-	</div>
-	<div>
-		<ul>
-			<li id="adminUpdateMenu">이름</li>
-			<li id="adminUpdateMenu">아이디</li>
-			<li id="adminUpdateMenu">이메일</li>
-			<li id="adminUpdateMenu">관리자타입</li>
-			<li id="adminUpdateMenu">관리자번호</li>
-		</ul>
-		<br/>
-		
-		<c:forEach var="admin" items="${adminList}" varStatus="status">
-			<form action="${root}/adminMode/adminModeUpdateOk.do" method="POST" name="adminForm" onsubmit="return adminUpdateForm(this)">
+	<div id="adu_main">
+		<div id="adu_title">
+			<h3>관리자 계정관리</h3>
+		</div>
+		<div id="adu_nav">
+			<div id="adu_menu">
 				<ul>
-					<li id="adminList">
-						<input type="text" name="admin_name" value="${admin.admin_name}" size="15"/>
-						<input type="hidden" name="admin_number" value="${admin.admin_number}"/>
-					</li>
-					<li id="adminList">
-						<input type="text" name="admin_id" value="${admin.admin_id}" size="15"/>
-					</li>
-					<li id="adminList">
-						<input type="text" name="admin_email" value="${admin.admin_email}" size="15"/>
-					</li>
-					<li id="adminList">
-						<c:if test="${admin.admin_level=='Master'}">
-							Master
-						</c:if>
-						
-						<c:if test="${admin.admin_level!='Master'}">
-							<c:set var="a" value="${status.index}"/>
-							
-							<select name="admin_level">
-								<option value="게시판관리자">게시판관리자</option>
-								<option value="상담사">상담사</option>
-							</select>
-							
-							<script type="text/javascript">
-								var vel=$("select[name='admin_level']");
-								var b='${status.index-1}';
-								for(var i=0;i<2;i++){		
-									if(vel[b][i].value=="${admin.admin_level}"){
-										vel[b][i].selected=true;
-									}
-								} 
-							</script>
-						</c:if>
-					</li>
-					<li id="adminList">${admin.admin_number}</li>
-					<li id="adminList">
-						<input type="submit" value="수정"/>
-						<c:if test="${admin.admin_level!='Master'}">
-							<input type="button" value="삭제" onclick="location.href='${root}/adminMode/adminModeDelete.do?admin_number=${admin.admin_number}'"/>
-						</c:if>
-					</li>
+					<li id="adminUpdateMenu">이름</li>
+					<li id="adminUpdateMenu">아이디</li>
+					<li id="adminUpdateMenu">이메일</li>
+					<li id="adminUpdateMenu">관리자타입</li>
+					<li id="adminUpdateMenu">관리자번호</li>
 				</ul>
-				<br/><br/>
-			</form>
-		</c:forEach>
+			</div>
+			<br/>
+			
+			<c:forEach var="admin" items="${adminList}" varStatus="status">
+				<form  id="adu_menu" action="${root}/adminMode/adminModeUpdateOk.do" method="POST" name="adminForm" onsubmit="return adminUpdateForm(this)">
+					<ul>
+						<li id="adminList">
+							<input type="text" name="admin_name" value="${admin.admin_name}" size="15"/>
+							<input type="hidden" name="admin_number" value="${admin.admin_number}"/>
+						</li>
+						<li id="adminList">
+							<input type="text" name="admin_id" value="${admin.admin_id}" size="15"/>
+						</li>
+						<li id="adminList">
+							<input type="text" name="admin_email" value="${admin.admin_email}" size="15"/>
+						</li>
+						<li id="adminList">
+							<c:if test="${admin.admin_level=='Master'}">
+								Master
+							</c:if>
+							
+							<c:if test="${admin.admin_level!='Master'}">
+								<c:set var="a" value="${status.index}"/>
+								
+								<select name="admin_level">
+									<option value="게시판관리자">게시판관리자</option>
+									<option value="상담사">상담사</option>
+								</select>
+								
+								<script type="text/javascript">
+									var vel=$("select[name='admin_level']");
+									var b='${status.index-1}';
+									for(var i=0;i<2;i++){		
+										if(vel[b][i].value=="${admin.admin_level}"){
+											vel[b][i].selected=true;
+										}
+									} 
+								</script>
+							</c:if>
+						</li>
+						<li id="adminList" style="width:100px;" >${admin.admin_number}</li>
+						<li id="adminList" style="width:100px;">
+							<input type="submit" value="수정"/>
+							<c:if test="${admin.admin_level!='Master'}">
+								<input type="button" value="삭제" onclick="location.href='${root}/adminMode/adminModeDelete.do?admin_number=${admin.admin_number}'"/>
+							</c:if>
+						</li>
+					</ul>
+					<br/><br/>
+				</form>
+			</c:forEach>
+		</div>
 	</div>
 </body>
 </html>

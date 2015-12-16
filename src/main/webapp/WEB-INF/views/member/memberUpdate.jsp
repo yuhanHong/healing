@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="${root}/css/member/memberUpdate.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/jquery-ui.css"/>
 <script type="text/javascript" src="${root}/js/memberScript/memberScript.js"></script>
  <script>
@@ -19,36 +20,50 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp"/>
-	
-	<h3>회원가입</h3>
+	<jsp:include page="../memberMypage/mypageSide.jsp"/>
+<div id="updateTotal">
+	<div id="title"><span>회원수정</span></div>
 	<form action="${root}/member/memberUpdateOk.do" name="memberForm" method="POST" onsubmit="return joinForm(this)">
-		<div align="center">
-			<div id="memberId">
-				아이디
-				<input type="text" value="${memberDto.member_id}" disabled="disabled"/>
+		<div id="memberSection">
+			<div id="memberOp">
+				<div id="subj"><span>아이디</span></div>
+				<div id="fieldDiv">
+					<input type="text" value="${memberDto.member_id}" disabled="disabled" size="40"/>
+					
+				</div>
 				<input type="hidden" name="member_id" value="${memberDto.member_id}"/>
 				<input type="hidden" name="member_number" value="${member_number}"/>
 			</div>
-			<div>
-				비밀번호
-				<input type="password" name="member_password"/>
+			<div id="memberOp">
+				<div id="subj"><span>비밀번호</span></div>
+				<div id="fieldDiv">
+					<input type="password" name="member_password" size="40"/>
+				</div>
 			</div>
-			<div>
-				비밀번호확인
-				<input type="password" name="passwordCheck"/>
+			<div id="memberOp">
+				<div id="subj"><span>비밀번호확인</span></div>
+				<div id="fieldDiv">
+					<input type="password" name="passwordCheck" size="40"/>
+				</div>
 			</div>
-			<div>
-				이름
-				<input type="text" name="member_name" value="${memberDto.member_name}" disabled="disabled"/>
+			<div id="memberOp">
+				<div id="subj"><span>이름</span></div>
+				<div id="fieldDiv">
+					<input type="text" name="member_name" value="${memberDto.member_name}" disabled="disabled" size="40"/>
+				</div>
 			</div>
-			<div>
-				전화번호
-				<input type="text" name="member_phone" value="${memberDto.member_phone}"/>
+			<div id="memberOp">
+				<div id="subj"><span>전화번호</span></div>
+				<div id="fieldDiv">
+					<input type="text" name="member_phone" value="${memberDto.member_phone}" size="40" />
+					
+				</div>
 			</div>
-			<div>
-				e-mail
-				<input type="text" name="member_email" value="${memberDto.member_email}"/>
-				
+			<div id="memberOp">
+				<div id="subj"><span>이메일</span></div>
+				<div id="fieldDiv">
+					<input type="text" name="member_email" value="${memberDto.member_email}" size="40"/>
+				</div>
 				수신동의&nbsp;
 				yes
 				<input type="radio" name="member_email_check" value="yes"/>
@@ -105,7 +120,7 @@
 			</div>
 		</div>
 	</form>
-
+</div>
 	
 	<jsp:include page="../footer.jsp"/>
 </body>

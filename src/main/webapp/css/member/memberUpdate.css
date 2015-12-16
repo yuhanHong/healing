@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+
+#updateTotal{
+	width:800px; overflow: hidden;
+	border: 0px solid red;
+}
+
+#title{
+	width:50%; height:50px;
+	border: 0px solid red;
+	line-height: 50px;
+	margin-left:60px;
+}
+
+#title span{
+	font-size: 40px;
+}
+
+#memberSection{
+	width:90%; overflow: hidden;
+	border: 0px solid blue;
+	margin-left:60px;
+}
+
+#memberOp{
+	width:100%; height:40px;
+	border: 0px solid blue;
+}
+
+#subj{
+	width:20%; height:35px; line-height:35px;
+	border: 0px solid yellow;
+	float: left;
+}
+
+#subj span{
+	font-size: 16px; font-weight: bold;
+}
+
+#fieldDiv{
+	width:50%; height:35px; line-height:35px;
+	border: 0px solid yellow;
+	float: left;
+}
+
+#fieldDiv input{
+	height:30px; font-size: 16px;
+}
+
+
+
+

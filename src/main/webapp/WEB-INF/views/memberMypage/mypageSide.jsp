@@ -12,6 +12,7 @@
 	width:170px; overflow:hidden;
 	 margin-top:0px; margin-left:0px;
 	border: 0px solid red;
+	float: left;
 }
 #ms_title{
 	width:100%; height:50px;
@@ -41,10 +42,10 @@
 	<div id="ms_main">
 		<div id="ms_title"><h3>마이페이지</h3></div>
 		<div id="ms_menu">
-			<div id="ms_menu_detail"><a href="">예약/결제 내역</a></div>
-			<div id="ms_menu_detail"><a href="">갔다온상품/후기</a></div>
+			<div id="ms_menu_detail"><a href="${root}/member/memberMypageOrder.do?member_number=${member_number}">예약/결제 내역</a></div>
+			<div id="ms_menu_detail"><a href="${root}/member/memberUpdate.do?member_id=${member_id}&member_number=${member_number}">회원정보수정</a></div>
+			<div id="ms_menu_detail"><a href="${root}/memberMypage/memberMypageRe.do">갔다온상품/후기</a></div>
 			<div id="ms_menu_detail"><a href="">관심상품정보</a></div>
-			<div id="ms_menu_detail"><a href="">회원정보수정</a></div>
 			<div id="ms_menu_detail"><a href="">회원탈퇴</a></div>
 		</div>
 	</div>

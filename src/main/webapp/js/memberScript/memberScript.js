@@ -1,6 +1,6 @@
 
 function joinForm(form){
-/*	if(form.member_id.value==""){
+	if(form.member_id.value==""){
 		alert("아이디는 반드시 입력하셔야합니다.");
 		form.member_id.focus();
 		return false;
@@ -49,14 +49,14 @@ function joinForm(form){
           form.member_phone.focus();
           return false;
    }
-*/
+
 
 }
 
-function idCheck(form,root){
+function idCheck(idInputText,root){
 	
-	var id=form.member_id.value;
-
+//	var id=form.member_input_id.value;
+	var id=idInputText.value;
 	var url=root+"/member/memberIdCheck.do?id="+id;
 	// alert(url);
 	
@@ -77,7 +77,6 @@ function idCheck(form,root){
 				var str="<div id='exFieldi' style='color:red; font-size:12px;'>사용가능한 아이디 입니다.</div>";
 				$("#memberId").append(str);
 			}
-			
 		},
 		error:function(xhr, status, errorMsg){
 			alert(xhr+","+status+","+errorMsg);

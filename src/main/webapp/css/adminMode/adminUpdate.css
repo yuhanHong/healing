@@ -1,12 +1,38 @@
 @CHARSET "UTF-8";
 
+#adu_main{
+	width:1100px;
+	overflow:hidden;
+	border: 0px solid red;
+}
+
+#adu_title{
+	 width:50%; height:40px;
+	 margin-left:40px;
+}
+
+#adu_nav{
+	width:100%; overflow:hidden;
+	margin-left:10px;
+	border: 0px solid yellow;
+}
+
+#adu_menu{
+	width:90%; overflow:hidden;
+	margin-left:10px;
+	border: 0px solid yellow;
+}
+
 #adminUpdateMenu{
 	float: left; margin-left:20px; width:150px;
 	list-style-type: none;
 	border: 0px solid yellow;
+	text-align: center;
+	background-color: #c0c0c0;
 }
 
 #adminList{
-	float: left; margin-left:20px; margin-top:30px; width:150px; list-style-type: none;
+	float: left; margin-left:20px; width:150px; list-style-type: none;
 	border: 0px solid yellow;
+	text-align: center;
 }

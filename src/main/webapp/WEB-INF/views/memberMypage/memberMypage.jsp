@@ -10,11 +10,9 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp"/>
-
 	<jsp:include page="mypageSide.jsp"/>
 
 
-<h3>연결</h3>
 
 </body>
 </html>

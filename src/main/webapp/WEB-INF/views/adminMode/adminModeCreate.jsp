@@ -7,49 +7,81 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="${root}/jquery/jquery.js"></script>
+<script type="text/javascript" src="${root}/jquery/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="${root}/css/jquery-ui.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/adminMode/adminModeCreate.css"/>
 </head>
 <body>
 	<jsp:include page="../adminHeader.jsp"/>
 	<jsp:include page="../adminSide.jsp"/>
-	
-	<h3>관리자 계정생성</h3>
-	<br/><br/>
-	<form action="${root}/adminMode/adminModeCreateOk.do" name="adminModeFrom" method="POST" onsubmit="return adminModeFrom(this)">
-		<div>
-			<div>
-				아이디
-				<input type="text" name="admin_id"/>
-			</div>
-			<div>
-				이름
-				<input type="text" name="admin_name"/>
-			</div>
-			<div>
-				비밀번호
-				<input type="password" name="admin_password"/>
-			</div>
-			<div>
-				비밀번호확인
-				<input type="password" name="admin_password_check"/>
-			</div>
-			<div>
-				이메일
-				<input type="text" name="admin_email"/>
-			</div>
-			
-			<div>
-				사원타입
-				<select name="admin_level">
-					<option value="게시판관리자">게시판관리자</option>
-					<option value="상담사">상담사</option>
-				</select>
-			</div>
-			
-			<div>
-				<input type="submit" value="생성"/>
-				<input type="button" value="취소" onclick="location.href='${root}/adminHome.do'"/>
-			</div>
+	<div id="adc_main">
+		<div id="adc_title">
+			<span>관리자 계정생성</span>
 		</div>
-	</form>
+		
+		<br/><br/>
+		<form action="${root}/adminMode/adminModeCreateOk.do" name="adminModeFrom" method="POST" onsubmit="return adminModeFrom(this)">
+			<div id="adc_content">
+				<div>
+					<div id="adc_text">
+						아이디
+					</div>
+					<div id="adc_input">
+						<input type="text" name="admin_id" size="30"/>
+					</div>
+				</div>
+				<div>
+					<div id="adc_text">
+						이름
+					</div>
+					<div id="adc_input">
+						<input type="text" name="admin_name" size="30"/>
+					</div>
+				</div>
+				<div>
+					<div id="adc_text">
+						비밀번호
+					</div>
+					<div id="adc_input">
+						<input type="password" name="admin_password" size="30"/>
+					</div>
+				</div>
+				<div>
+					<div id="adc_text">
+						비밀번호확인
+					</div>
+					<div id="adc_input">
+						<input type="password" name="admin_password_check" size="30"/>
+					</div>
+				</div>
+				<div>
+					<div id="adc_text">
+						이메일
+					</div>
+					<div id="adc_input">
+						<input type="text" name="admin_email" size="30"/>
+					</div>
+				</div>
+				
+				<div>
+					<div id="adc_text">
+						사원타입
+					</div>
+					<div id="adc_input">
+						<select name="admin_level">
+							<option value="게시판관리자">게시판관리자</option>
+							<option value="상담사">상담사</option>
+						</select>
+					</div>
+				</div>
+				
+				<div align="center">
+					<input type="submit" value="생성"/>
+					<input type="button" value="취소" onclick="location.href='${root}/adminHome.do'"/>
+				</div>
+			</div>
+		</form>
+	</div>
 </body>
 </html>

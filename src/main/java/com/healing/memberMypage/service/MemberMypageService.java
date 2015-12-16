@@ -1,5 +1,10 @@
 package com.healing.memberMypage.service;
 
-public interface MemberMypageService {
+import org.springframework.web.servlet.ModelAndView;
 
+public interface MemberMypageService {
+	
+	public void memberMypageReply(ModelAndView mav);
+	
+	public void memberMypageOrder(ModelAndView mav);
 }

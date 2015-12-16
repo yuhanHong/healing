@@ -31,7 +31,7 @@
 				<div id="memberId">
 					<div id="subj">아이디</div>
 					<div id="fieldDiv">
-						<input type="text" size="50" id="field" name="member_id" size="20" maxlength="10" onkeypress="idCheck(memberForm,'${root}')" onkeyup="idCheck(memberForm,'${root}')"/>
+						<input type="text" size="50" id="field" name="member_input_id" size="20" maxlength="10" oninput="idCheck(this,'${root}')"/>
 					</div>
 					<div id="exFieldi">&nbsp;</div>
 				</div>

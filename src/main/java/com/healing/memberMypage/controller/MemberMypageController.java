@@ -25,4 +25,33 @@ public class MemberMypageController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value="/memberMypage/memberMypageRe.do",method=RequestMethod.GET)
+	public ModelAndView memberMypageRe(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.setViewName("memberMypage/memberMypageRe");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/memberMypage/memberMypageReply.do",method=RequestMethod.POST)
+	public ModelAndView memberMypageReply(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		memberMypageService.memberMypageReply(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/member/memberMypageOrder.do",method=RequestMethod.GET)
+	public ModelAndView memberMypageOrder(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		memberMypageService.memberMypageOrder(mav);
+		
+		return mav;
+	}
+	
 }

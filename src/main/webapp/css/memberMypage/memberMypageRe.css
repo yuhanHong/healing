@@ -1,0 +1,128 @@
+@CHARSET "UTF-8";
+
+#myr_main{
+	width:1000px; overflow: hidden;
+	border: 0px solid red;
+}
+
+#myr_title{
+	width:50%; height:50px; margin-left:60px; line-height:50px;
+	border: 0px solid blue; margin-bottom:50px;
+}
+
+#myr_title span{
+	font-size: 30px;
+}
+
+#myr_content{
+	width:90%; overflow:hidden; margin-left:60px; line-height:50px;
+	border: 0px solid blue; 
+}
+
+#myr_content input{
+	float: left;
+}
+
+#myr_inf{
+	width:75%; height:200px; line-height:50px; margin-left:30px;
+	border: 0px solid blue; 
+	float: left;
+}
+
+#myr_name{
+	width:100%; height:45px;
+	border-bottom: 1px solid #c0c0c0;
+}
+#myr_name ul{
+	margin:0px;
+}
+#myr_name li:nth-child(1){
+	width:75%; height:40px; margin:0px;
+	border: 0px solid blue; 
+	list-style-type: none; float: left;
+}
+
+#myr_name li:nth-child(2){
+	width:23%; height:40px; margin:0px;
+	border: 0px solid blue; 
+	list-style-type: none; float: left;
+}
+
+#myr_date{
+	width:100%; height:45px;
+	border-bottom: 1px solid #c0c0c0;
+}
+#myr_date ul{
+	margin:0px;
+}
+#myr_date li:nth-child(1){
+	width:30%; height:40px; margin:0px;
+	border: 0px solid blue; 
+	list-style-type: none; float: left;
+}
+
+#myr_date li:nth-child(2){
+	width:30%; height:40px; margin:0px;
+	border: 0px solid blue; 
+	list-style-type: none; float: left;
+}
+
+#myr_price{
+	width:100%; height:45px;
+	border-bottom: 1px solid #c0c0c0; 
+}
+#myr_price ul{
+	margin:0px;
+}
+#myr_price li:nth-child(1){
+	width:5%; height:40px; margin:0px;
+	border: 0px solid blue; 
+	list-style-type: none; float: left;
+}
+
+#myr_price li:nth-child(2){
+	width:40%; height:40px; margin:0px;
+	border: 0px solid blue; 
+	list-style-type: none; float: left;
+}
+
+#myr_reply{
+	width:100%; height:45px;
+	border: 0px solid yellow; margin-top:10px;
+}
+#reply{
+	width:95%; height:25px; margin-left:40px; margin-top:20px;
+	border: 0px solid black; 
+}
+
+#myr_reply_text{
+	width:100%; overflow: hidden;
+	border: 0px solid red; 
+}
+
+#reply_submit ul{
+	width:100%; margin:0px;
+}
+
+#reply_submit li:nth-child(1){
+	width:110px; height:30px; margin:0px;
+	border: 0px solid blue;  line-height:30px;
+	list-style-type: none; float: left; font-size: 15px; font-weight: bold;
+}
+#reply_submit li:nth-child(2){
+	width:500px; height:30px; margin:0px;
+	border: 0px solid blue;
+	list-style-type: none; float: left;
+}
+#reply_submit li:nth-child(2) input{
+	height:23px; font-size: 15px;
+}
+#reply_submit li:nth-child(3){
+	width:100px; height:30px; margin-left:100px;
+	border: 0px solid blue; 
+	list-style-type: none; float: left;
+}
+#reply_submit li:nth-child(3) input{
+	margin-top:5px; margin-left:5px;
+}
+

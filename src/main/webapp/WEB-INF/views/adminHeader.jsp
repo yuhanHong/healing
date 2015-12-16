@@ -17,7 +17,9 @@
 </script>
 
 <div style="width: 1200px;">
-	admin 헤더1
+	<c:if test="${admin_number!=null}">
+ 		<span>${admin_name}님 ${admin_level}계정으로 로그인하셨습니다.</span>
+ 	</c:if>
 	<hr/>
 	admin 헤더2
 	<hr/>

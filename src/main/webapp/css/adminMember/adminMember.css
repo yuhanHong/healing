@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 #amd_title{
 	width:300px;
-	margin-left:100px;
+	margin-left:50px;
 }
 
 #adm_main{
@@ -21,6 +21,7 @@
 	float:right;
 	border: 0px solid yellow;
 	list-style-type: none;
+	text-align: center;
 }
 #adm_secondMenu{
 	width:90%; overflow:hidden;
@@ -34,7 +35,6 @@
 	border: 0px solid yellow;
 	list-style-type: none;
 	margin-left:5px;
-	
 }
 #adm_arange{
 	width:150px; height:30px;
@@ -51,14 +51,20 @@
 }
 
 #adm_memberMenu{
-	width:90%; overflow:hidden;
+	width:90%; height:30px;
 	margin-left:10px;
 	border: 0px solid blue;
+	line-height: 30px;
 }
+#adm_memberMenu li{
+	background-color: #c0c0c0;
+}
+
 #adm_memberin{
-	width:90%; overflow:hidden;
+	width:90%; height:30px;
 	margin-left:10px;
 	border: 0px solid blue;
+	line-height: 30px;
 }
 
 
@@ -66,49 +72,53 @@
 #adm_member_name{
 	width:100px; height:30px;
 	float:left;
-	border: 1px solid black;
+	border-bottom: 1px solid #c0c0c0;
 	list-style-type: none;
 	text-align: center;
+}
+#adm_member_name a{
+	text-decoration: none;
+	color:#0080c0;
 }
 #adm_member_id{
 	width:120px; height:30px;
 	float:left;
-	border: 1px solid black;
+	border-bottom: 1px solid #c0c0c0;
 	list-style-type: none;
 	text-align: center;
 }
 #adm_member_phone{
 	width:140px; height:30px;
 	float:left;
-	border: 1px solid black;
+	border-bottom: 1px solid #c0c0c0;
 	list-style-type: none;
 	text-align: center;
 }
 #adm_member_email{
 	width:250px; height:30px;
 	float:left;
-	border: 1px solid black;
+	border-bottom: 1px solid #c0c0c0;
 	list-style-type: none;
 	text-align: center;
 }
 #adm_member_date{
 	width:120px; height:30px;
 	float:left;
-	border: 1px solid black;
+	border-bottom: 1px solid #c0c0c0;
 	list-style-type: none;
 	text-align: center;
 }
 #adm_member_purchase{
 	width:160px; height:30px;
 	float:left;
-	border: 1px solid black;
+	border-bottom: 1px solid #c0c0c0;
 	list-style-type: none;
 	text-align: center;
 }
 #adm_member_level{
 	width:100px; height:30px;
 	float:left;
-	border: 1px solid black;
+	border-bottom: 1px solid #c0c0c0;
 	list-style-type: none;
 	text-align: center;
 }

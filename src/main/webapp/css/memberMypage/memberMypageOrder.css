@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+#mmo_main{
+	width:1100px; overflow: hidden;
+	border: 1px solid red;
+}
+
+#mmo_title{
+	width:50%; height:50px; margin-left:70px;
+	border: 1px solid blue;
+}
+
+#mmo_subTitle{
+	width:50%; height:50px; margin-left:70px;
+	border: 1px solid blue;
+}
+
+#mmo_content{
+	width:90%; height:230px; margin-left:70px;
+	border: 1px solid blue;
+}
+
+.mmo_line{
+	width:950px; margin-top:7px;
+	border: 1px solid red;
+	clear:both; 
+}
+
+.mmo_line ul{
+	margin:0px; padding: 0px;
+}
+
+.mmo_line li{
+	width:50px; height:40px;
+	border: 1px solid yellow;
+	list-style-type: none; 
+	float: left; line-height: 40px;
+	font-size: 15px;
+}
