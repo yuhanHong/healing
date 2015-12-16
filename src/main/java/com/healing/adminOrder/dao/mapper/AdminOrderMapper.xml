@@ -79,6 +79,7 @@
 		
 	</update>
 	
+    <!--통계-->
 	<select id="getTodaySales" parameterType="String" resultType="int">
 		select nvl(sum(order_money),0) from orders where order_date>#{today}
 	</select>

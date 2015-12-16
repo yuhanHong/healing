@@ -41,28 +41,30 @@
 				<li style="width:150px;">보낸 날짜</li>
 				<li>확인 여부</li>
 			</ul>
+			<c:if test="${listSize!=0 }">
+				<c:forEach var="i" begin="0" end="${listSize-1}" step="1">
+					<ul id="readcheckUl${i}">
+						<li style="width:50px;">${pushList.get(i).push_number }</li>
+						<li>${pushList.get(i).member_number }</li>
+						<li>${memberList.get(i).member_name }</li>
+						<li><a href="javascript:pushOrderRead('${root}','${pushList.get(i).push_number }','${pushList.get(i).order_number }','${pushList.get(i).push_readcheck }','${i}')">${pushList.get(i).order_number }</a></li>
+						<li style="width:150px;">
+							<c:if test="${pushList.get(i).push_content=='취소' }">
+								취소 신청입니다.
+							</c:if>
+							<c:if test="${pushList.get(i).push_content=='입금' }">
+								입금 확인 신청입니다.
+							</c:if>
+							
+						</li>
+						<li style="width:150px; line-height: 15px;"><fmt:formatDate value="${pushList.get(i).push_date }" type="date"/><br/>
+							<fmt:formatDate value="${pushList.get(i).push_date }" type="time"/>
+						</li>
+						<li id="readcheck${i}" >${pushList.get(i).push_readcheck }</li>
+					</ul>
+				</c:forEach>
+			</c:if>
 			
-			<c:forEach var="i" begin="0" end="${listSize-1}" step="1">
-				<ul id="readcheckUl${i}">
-					<li style="width:50px;">${pushList.get(i).push_number }</li>
-					<li>${pushList.get(i).member_number }</li>
-					<li>${memberList.get(i).member_name }</li>
-					<li><a href="javascript:pushOrderRead('${root}','${pushList.get(i).push_number }','${pushList.get(i).order_number }','${pushList.get(i).push_readcheck }','${i}')">${pushList.get(i).order_number }</a></li>
-					<li style="width:150px;">
-						<c:if test="${pushList.get(i).push_content=='취소' }">
-							취소 신청입니다.
-						</c:if>
-						<c:if test="${pushList.get(i).push_content=='입금' }">
-							입금 확인 신청입니다.
-						</c:if>
-						
-					</li>
-					<li style="width:150px; line-height: 15px;"><fmt:formatDate value="${pushList.get(i).push_date }" type="date"/><br/>
-						<fmt:formatDate value="${pushList.get(i).push_date }" type="time"/>
-					</li>
-					<li id="readcheck${i}" >${pushList.get(i).push_readcheck }</li>
-				</ul>
-			</c:forEach>
 		</div>
 	</div>
 </body>
