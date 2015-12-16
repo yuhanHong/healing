@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="${root}/js/memberMypage/memberMypage.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/jquery-ui.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/memberMypage/memberMypageOrder.css"/>
 <%-- <script type="text/javascript" src="${root}/js/memberMypage/memberMypageOrder.js"></script> --%>
@@ -25,12 +26,18 @@
 		<h2>현재 예약중인 상품 () 개</h2>
 	</div>
 	
+	<!-- 수정하세요...임의 값 넣은겁니당~~ 채윤 -->
+	<input type="hidden" name="member_number" value="${member_number}"/>
+	<c:set var="order_number" value="83"/>
+	<c:set var="flight_number" value="1"/>
+	
 	<div id="mmo_content">
 		<div class="mmo_line" style="height: 43px;">
 			<ul>
 				<li style="width: 100px;">상품명</li>	
 				<li style="width: 700px;"></li>
-				<li style="width: 100px; float:right;">취소신청</li>
+				<li style="width: 100px; float:right;">
+					<a href="javascript:pushRequest('${root}','${member_number}','${order_number }','${flight_number }','취소')">취소신청</a></li>
 			</ul>
 		</div>
 		<div class="mmo_line" style="height: 43px;">
@@ -61,7 +68,8 @@
 				<li style="width: 100px;"></li>
 				<li style="width: 100px;">예약상태</li>
 				<li style="width: 100px;"></li>
-				<li style="width: 100px;">입금확인</li>
+				<li style="width: 100px;">
+				<a href="javascript:pushRequest('${root}','${member_number}','${order_number }','${flight_number }','입금')">입금확인 신청</a></li>
 			</ul>
 		</div>
 	</div>

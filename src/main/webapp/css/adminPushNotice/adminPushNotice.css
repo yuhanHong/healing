@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+.pushResultDiv ul li{
+	padding: 4px;
+	display: block;
+	width:100px;
+	float:left;
+	border: 1px solid gray;
+	height: 30px;
+	line-height: 30px;
+}
+
+
+label{
+	font-size: 13px;
+}
+.pushResultDiv {
+	width:900px;
+	overflow: hidden;
+	font-size: 13px;
+	margin: -1px;
+	text-align: center;
+}
+.pushResultDiv ul{
+	margin:0px;
+}
+
+#pushResultfirst li{
+	font-weight: bold; 
+	background-color: lightgray;
+}
+

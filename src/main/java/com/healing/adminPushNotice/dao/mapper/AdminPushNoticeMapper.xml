@@ -5,5 +5,30 @@
 
 <mapper namespace="dao.adminPushNoticeMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
 	
+	<select id="adminPushNoticeOverCheck" parameterType="com.healing.adminPushNotice.dto.AdminPushNoticeDto" resultType="com.healing.adminPushNotice.dto.AdminPushNoticeDto" >
+		select * from push_notice where order_number=#{order_number} and push_content=#{push_content}
+	</select>
+	<insert id="adminPushNoticeRequestCancel" parameterType="com.healing.adminPushNotice.dto.AdminPushNoticeDto">
+		insert into push_notice values(push_notice_number_seq.nextval,#{order_number},#{member_number},#{flight_number},#{push_content},sysdate,'X')
+	</insert>
+	<select id="getAdminPushList" resultType="com.healing.adminPushNotice.dto.AdminPushNoticeDto">
+		select * from push_notice order by push_number desc
+	</select>
+	
+	<select id="getAdminMember" parameterType="int" resultType="com.healing.member.dto.MemberDto">
+		select * from member where member_number=#{member_number}		
+	</select>
+	
+	<update id="adminPushNoticeReadCheckUpdate" parameterType="int">
+		update push_notice set push_readcheck='O' where push_number=#{push_number}
+	</update>
+	
+	<select id="getAdminPushNoList" resultType="com.healing.adminPushNotice.dto.AdminPushNoticeDto">
+		select * from push_notice where push_readcheck='X' order by push_number desc
+	</select>
+	
+	<select id="getAdminPushYesList" resultType="com.healing.adminPushNotice.dto.AdminPushNoticeDto">
+		select * from push_notice where push_readcheck='O' order by push_number desc
+	</select>
 </mapper>
 	

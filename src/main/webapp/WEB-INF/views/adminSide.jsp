@@ -26,7 +26,7 @@
 	<hr/>
 	<h3>admin side5</h3>
 	<hr/>
-	<h3>admin side6</h3>
+	<a href="${root}/adminPushNotice/adminPushNotice.do?select=all">알림</a>
 </div>
 
 <!-- admin sidebar ends -->

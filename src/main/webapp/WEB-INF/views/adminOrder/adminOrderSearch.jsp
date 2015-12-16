@@ -77,7 +77,7 @@
 		<div id="search_result">
 			<table border="1" style="width: 690px;table-layout: fixed;">
 				<tr id="table_firstTr">
-					<td  width="100">예약 날짜</td>
+					<td id="resultArray" width="100">예약 날짜 ▼</td>
 					<td  width="100">예약 번호</td>
 					<td  width="70">예약자 명</td>
 					<td  width="100">상품 명</td>

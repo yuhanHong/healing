@@ -15,8 +15,8 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp"/>
-	<jsp:include page="../footer.jsp"/>
-	<div style="border:1px solid red; width: 900px;">
+	<jsp:include page="../memberMypage/mypageSide.jsp"/>
+	<div style="border:1px solid red; margin-left: 10px;width: 1000px;">
 		<h3>관심상품</h3>
 		<div class="productLikeTable">
 			<ul class="productLikeTableFirst">

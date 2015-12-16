@@ -99,7 +99,6 @@ $(function(){
 			${member_name}님 환영합니다.
 
 			<br/><br/>
-			<a href = "${root}/productLike/productLikeList.do?member_number=2">관심상품 보러가기</a> 
 			<a href = "${root}/memberMypage/memberMypage.do">마이페이지</a> 
 		</c:if>
 	</div>
