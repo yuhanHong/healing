@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.healing.adminBanner.dto.TestFileDto;
 import com.healing.product.dto.ProductDto;
+import com.healing.product.dto.ProductPhotoDto;
 
 public interface AdminBannerDao {
 	public List<ProductDto> productSelect(String product, String keyword);
@@ -14,10 +15,9 @@ public interface AdminBannerDao {
 	
 	public int bannerRecommandDelete(int productNumber);
 	
-	public List<TestFileDto> bannerPrint(int key);
+	public int bannerGetCount();
 	
-	public String getPath();
-	/*public int getBannerCount();
+	public List<ProductDto> getBannerList();
 	
-	public List<ProductDto> getBannerList(int startRow, int endRow);*/
+	public List<ProductPhotoDto> getProductPhotoList();
 }

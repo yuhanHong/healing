@@ -41,12 +41,8 @@
     	height: 300px !important; 	/* bx Slider 세로 크기 줄이는 방법 */
 	}
 </style>
-<!-- <style>
-	#banner_wrap{border:1px solid red; width:1000px; height:500px;}
-	.bxslider{border:1px solid blue; width:600px; height:400px;}
-</style> -->
 </head>
-<!-- <body onload="javascript:window.location.href='/main/home2.do'"> -->
+<%-- <body onload="javascript:location.href='${root}/healingHome/healingHome.do'"> --%>
 <body>
 	<jsp:include page="header.jsp"/>
 	

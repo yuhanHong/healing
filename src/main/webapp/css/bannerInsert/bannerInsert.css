@@ -36,22 +36,22 @@ select{
 	text-align:center; 
 }
 
+.result4{		/* ajax로 결과값 출력해주는 전체적인 틀 부분 스타일 */
+	width:1030px; height:30px;
+	text-align:center; 
+}
+
 .recommand1{	/* ajax로 DB에 있는 데이터 불러올때 정의한 데이터 부분 - div태그 스타일 적용 */
 	width:120px; height:30px; float:left;
 	line-height:30px; text-align:center;
+	border:1px solid gray;
+	margin: -1px;
+	background-color: lightgray;
 }
 
 .recommand2{	/* ajax로 DB에 있는 데이터 가져올때 내용부분 - div태그 스타일 적용 */
 	width:120px; height:30px;
 	text-align:center; float:left; line-height:30px;
-}
-
-.recommand1_1{	/* 상품명 타이틀 부분만 따로 스타일 적용 */
-	width:170px; height:30px;
-	text-align:center; float:left; line-height:30px;
-}
-
-.recommand2_1{	/* 상품명 DB 부분만 따로 스타일 적용 */
-	width:170px; height:30px;
-	text-align:center; float:left; line-height:30px;
+	border:1px solid gray;
+	margin: -1px;
 }

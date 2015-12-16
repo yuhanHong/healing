@@ -36,7 +36,7 @@
 			<div class="result2">
 				<div class="recommand1">체크</div>
 				<div class="recommand1">상품번호</div>
-				<div class="recommand1_1">상품명</div>
+				<div class="recommand1" style="width:170px">상품명</div>
 				<div class="recommand1">나라명</div>
 				<div class="recommand1">숙박일</div>
 				<div class="recommand1">조회수</div>
@@ -52,13 +52,11 @@
 		
 		<h3>배너리스트</h3>
 		
-		1) 배너리스트 조회하기 : <input type="button" value="조회" onclick="productSelect('${root}')">
-		<input type="button" value="이전으로" onclick="productPrevious('${root}')">
 		<div id="result2">
 			<div class="result2">
 				<div class="recommand1">체크</div>
 				<div class="recommand1">상품번호</div>
-				<div class="recommand1_1">상품명</div>
+				<div class="recommand1" style="width:170px">상품명</div>
 				<div class="recommand1">나라명</div>
 				<div class="recommand1">숙박일</div>
 				<div class="recommand1">조회수</div>
@@ -69,7 +67,7 @@
 				<div class="result3">
 					<div class="recommand2"><input type="checkbox" name="check2" value="${product.product_number}"></div>
 					<div class="recommand2">${product.product_number}</div>
-					<div class="recommand2_1">${product.product_name}</div>
+					<div class="recommand2" style="width:170px">${product.product_name}</div>
 					<div class="recommand2">${product.product_country}</div>
 					<div class="recommand2">${product.product_stay_days}</div>
 					<div class="recommand2">${product.product_readcount}</div>

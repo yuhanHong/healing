@@ -92,8 +92,8 @@ public class AdminBannerServiceImp implements AdminBannerService {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
-		String str = request.getParameter("str");
-		String[] insertList = str.split(",");
+		String product_number = request.getParameter("product_number");
+		String[] insertList = product_number.split(",");
 		
 		for(int i=1; i<insertList.length;i++){
 			adminBannerDao.bannerRecommandInsert(Integer.parseInt(insertList[i]));
@@ -105,7 +105,7 @@ public class AdminBannerServiceImp implements AdminBannerService {
 	 * @함수이름 : bannerRecommandSelect
 	 * @작성일 : 2015. 12. 12.
 	 * @개발자 : 전현준
-	 * @함수설명 : 관리자 - 추천상품 리스트 조회(equi join)
+	 * @함수설명 : 관리자 - 상품 리스트 조회(배너등록상태가 1인것만 조회)
 	 */
 	@Override
 	public void bannerRecommandSelect(ModelAndView mav) {
@@ -113,10 +113,8 @@ public class AdminBannerServiceImp implements AdminBannerService {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		List<ProductDto> productDto = adminBannerDao.recBannerSelect();
-		//HomeAspect.logger.info(HomeAspect.logMsg + "로그BannerSelect" + productDto);
 		
 		mav.addObject("productDto", productDto);
-		mav.setViewName("adminBanner/bannerInsert");
 	}
 	
 	/**
@@ -130,8 +128,8 @@ public class AdminBannerServiceImp implements AdminBannerService {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
-		String str = request.getParameter("str");
-		String[] insertList = str.split(",");
+		String product_number = request.getParameter("product_number");
+		String[] insertList = product_number.split(",");
 		
 		for(int i=1; i<insertList.length;i++){
 			adminBannerDao.bannerRecommandDelete(Integer.parseInt(insertList[i]));
@@ -139,57 +137,4 @@ public class AdminBannerServiceImp implements AdminBannerService {
 		}
 		
 	}
-
-	@Override
-	public void bannerPrint(ModelAndView mav) {
-		Map<String, Object> map = mav.getModelMap();
-		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		
-		int key = Integer.parseInt(request.getParameter("key"));
-		
-		List<TestFileDto> list = adminBannerDao.bannerPrint(key);
-		HomeAspect.logger.info(HomeAspect.logMsg + list);
-	}
-
-	@Override
-	public void bannerHome(ModelAndView mav) {
-		Map<String, Object> map = mav.getModelMap();
-		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		
-		String path = adminBannerDao.getPath();
-		HomeAspect.logger.info(HomeAspect.logMsg + path);
-		
-		mav.addObject("path",path);
-		mav.setViewName("/home");
-	}
-
-	/*@Override
-	public void bannerList(ModelAndView mav) {
-		Map<String, Object> map = mav.getModelMap();
-		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		
-		int productSize = 10;
-		String pageNumber = request.getParameter("pageNumber");
-		if(pageNumber == null) pageNumber = "1";
-		
-		int currentPage = Integer.parseInt(pageNumber);
-		int startRow = (currentPage-1) * productSize +1;
-		int endRow = currentPage * productSize;
-		
-		int count = adminBannerDao.getBannerCount();
-		HomeAspect.logger.info(HomeAspect.logMsg + count);
-		
-		List<ProductDto> productList = null;
-		if(count > 0){
-			productList = adminBannerDao.getBannerList(startRow, endRow);
-		}
-		
-		HomeAspect.logger.info(HomeAspect.logMsg + productList.size());
-		
-		mav.addObject("productList", productList);
-		mav.addObject("currentPage", currentPage);
-		mav.addObject("count", count);
-		mav.addObject("productSize", productSize);
-		mav.setViewName("adminBanner/bannerInsert");
-	}*/
 }

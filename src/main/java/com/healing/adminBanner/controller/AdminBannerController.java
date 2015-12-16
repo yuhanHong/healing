@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.adminBanner.service.AdminBannerService;
+import com.healing.aop.HomeAspect;
 
 /**
  * @이름 : AdminBannerController
@@ -27,7 +28,7 @@ public class AdminBannerController {
 	 * @리턴타입 : ModelAndView
 	 * @작성일 : 2015. 12. 10.
 	 * @개발자 : 전현준
-	 * @함수설명 : 페이지 이동 함수(bannerInsert.jsp)
+	 * @함수설명 : 관리자 모드 - 추천상품등록 페이지로 페이지 이동하는 함수(bannerInsert.jsp)
 	 */
 	@RequestMapping(value="adminBanner/bannerInsert.do", method={RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView bannerInsert(HttpServletRequest request, HttpServletResponse response){
@@ -35,6 +36,7 @@ public class AdminBannerController {
 		mav.addObject("request",request);
 		
 		adminBannerService.bannerInsert(mav);
+		adminBannerService.bannerRecommandSelect(mav);
 		
 		return mav;
 	}
@@ -71,21 +73,13 @@ public class AdminBannerController {
 		mav.addObject("response", response);
 		
 		adminBannerService.bannerRecommandInsert(mav);
+		adminBannerService.bannerRecommandSelect(mav);
 		
 		mav.setViewName("adminBanner/bannerInsert");	// 추천상품 테이블에 데이트 추가 후 검색페이지(bannerInsert.jsp)로 이동
-		return mav;
-	}
-	
-	@RequestMapping(value="/adminBanner/bannerRecommandSelect.do", method=RequestMethod.GET)
-	public ModelAndView bannerRecommandSelect(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("request", request);
-		mav.addObject("response", response);
 		
-		adminBannerService.bannerRecommandSelect(mav);
-
 		return mav;
 	}
+
 	
 	/**
 	 * @함수이름 : bannerRecommandDelete
@@ -101,40 +95,9 @@ public class AdminBannerController {
 		mav.addObject("response", response);
 		
 		adminBannerService.bannerRecommandDelete(mav);
+		adminBannerService.bannerRecommandSelect(mav);
 		
 		mav.setViewName("adminBanner/bannerInsert");	// 추천상품 테이블에 데이트 추가 후 검색페이지(bannerInsert.jsp)로 이동
 		return mav;
 	}
-	
-	@RequestMapping(value="/adminBanner/bannerPrint.do", method=RequestMethod.GET)
-	public ModelAndView bannerPrint(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("request", request);
-		mav.addObject("response", response);
-		
-		adminBannerService.bannerPrint(mav);
-		
-		return null;
-	}
-	
-	@RequestMapping(value="/adminBanner/bannerHome.do", method=RequestMethod.GET)
-	public ModelAndView bannerHome(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("request", request);
-		mav.addObject("response", response);
-		
-		adminBannerService.bannerHome(mav);
-		
-		return mav;
-	}
-	
-	/*@RequestMapping(value="/adminBanner/bannerRecommandSelect.do", method=RequestMethod.GET)
-	public ModelAndView boardList(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("request", request);
-		
-		adminBannerService.bannerList(mav);
-		
-		return mav;
-	}*/
 }

@@ -28,6 +28,8 @@ http://www.templatemo.com/free-website-templates/
 <link rel="stylesheet" href="${root}/css/body/css/camera.css">
 <link rel="stylesheet" href="${root}/css/body/css/owl.carousel.css">
 <link rel="stylesheet" href="${root}/css/body/css/style.css">
+
+<link href="${root}/css/jquery.bxslider.css" rel="stylesheet" />
 <script src="${root}/css/body/js/jquery.js"></script>
 <script src="${root}/css/body/js/jquery-migrate-1.2.1.js"></script>
 <script src="${root}/css/body/js/script.js"></script>
@@ -42,6 +44,7 @@ http://www.templatemo.com/free-website-templates/
 <script src="${root}/css/body/js/jquery.mobile.customized.min.js"></script>
 <!--<![endif]-->
 <script src="${root}/css/body/booking/js/booking.js"></script>
+<script src="${root}/jquery/jquery.bxslider.min.js"></script>
 <script>
 	$(document).ready(function() {
 		jQuery('#camera_wrap').camera({
@@ -52,8 +55,9 @@ http://www.templatemo.com/free-website-templates/
 			height : '48.375%',
 			caption : true,
 			navigation : true,
-			fx : 'mosaic'
+			fx : 'scrollHorz'
 		});
+		
 		/*carousel*/
 		var owl = $("#owl");
 		owl.owlCarousel({
@@ -72,8 +76,6 @@ http://www.templatemo.com/free-website-templates/
 </script>
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse" id="top">
-
-
 
 	<!-- navigation -->
 	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -105,10 +107,25 @@ http://www.templatemo.com/free-website-templates/
 				</ul>
 			</div>
 		</div>
+
 	</div>
+
+	
 	<div class="slider_wrapper">
 		<div id="camera_wrap" class="">
-			<div data-src="${root}/css/body/images/slide.jpg">
+			<c:forEach var="i" begin="0" end="${listSize-1}" step="1">
+				<div data-src="${root}/resources/banner/${productPhotoList.get(i).product_photo_filename}">
+				
+					<div class="caption fadeIn">
+						<h2 style="color:white">${productList.get(i).product_name}</h2>
+						<div class="price">
+							FROM <span>${productList.get(i).product_price_adult}</span>
+						</div>
+						<a href="#" style="background-color:yellow">상품 보러가기</a>
+					</div>
+				</div>
+			</c:forEach>
+			<%-- <div data-src="${root}/css/body/images/slide.jpg">
 				<div class="caption fadeIn">
 					<h2>LONDON</h2>
 					<div class="price">
@@ -134,7 +151,7 @@ http://www.templatemo.com/free-website-templates/
 					</div>
 					<a href="#">LEARN MORE</a>
 				</div>
-			</div>
+			</div> --%>
 		</div>
 	</div>
 	<!--==============================Content=================================-->

@@ -25,33 +25,33 @@
 				product_readcount,
 				product_average_score,
 				product_banner
-		from product order by product_number asc
+		from product where product_banner=1 order by product_number asc
 	</select>
 	
 	<update id="bannerRecommandDelete" parameterType="int">
 		update product set product_banner=0 where product_number=#{product_number}
 	</update>
 	
-	<!-- <select id="bannerFind" parameterType="int" resultType="com.healing.adminBanner.dto.TestFileDto">
-		select * from testfile where key=#{key}
-	</select> -->
+	<select id="bannerGetCount" resultType="int">
+		select count(*) from product where product_banner=1
+	</select>
 	
 	<select id="getPath" resultType="String">
+		<!-- select product_photo_filename from product_photo where product_number=#{product_number} order by product_photo_number asc -->
 		select product_photo_filename from product_photo where product_number=#{product_number} order by product_photo_number asc
 	</select>
 	
-	<!-- <select id="bannerCount" resultType="int">
-		SELECT count(*) FROM banner b, product p
-		WHERE b.product_number = p.product_number
+	<select id="getBannerList" resultType="com.healing.product.dto.ProductDto">
+		select * from product where product_banner=1
 	</select>
 	
-	<select id="getBannerList" resultType="com.healing.product.dto.ProductDto" parameterType="java.util.Map">
+	<select id="getProductPhotoList" resultType="com.healing.product.dto.ProductPhotoDto">
 		<![CDATA[
-			select * from
-				(select rownum rnum, a.* from
-					(select * from product order by product_number asc) a)
-			where rnum >= #{startRow} and rnum <= #{endRow}
+			SELECT * FROM product pro, product_photo pro_pho
+			WHERE pro.product_number = pro_pho.product_number
+			AND pro.product_banner = 1
+			order by pro.product_number asc
 		]]>
-	</select> -->
+	</select>
 </mapper>
 	

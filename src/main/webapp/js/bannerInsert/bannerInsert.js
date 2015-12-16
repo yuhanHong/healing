@@ -25,15 +25,15 @@ function searchForm(root){
 		data: {product: product, keyword: keyword},
 		contentType:"application/x-www-form-urlencoded;charset=utf-8",
 		success:function(data){
-			$(".result3").remove();			// 검색을 한번더 할때 지워주는 remove() 함수 이용
+			$(".result4").remove();			// 검색을 한번더 할때 지워주는 remove() 함수 이용
 			var result = "";				// result값 초기화
 			
 			if(data.data.length > 0){	// ajax로 데이터 넘겼을때 길이가 0 이상일 경우
 				for(var i=0; i<data.data.length; i++){
-					var div = "<div class='result3'>";
+					var div = "<div class='result4'>";
 					div += "<div class='recommand2'><input type='checkbox' name='check' value="+data.data[i].product_number+"></div>";
 					div += "<div class='recommand2'>" + data.data[i].product_number + "</div>";
-					div += "<div class='recommand2_1'>" + data.data[i].product_name + "</div>";
+					div += "<div class='recommand2' style='width:170px'>" + data.data[i].product_name + "</div>";
 					div += "<div class='recommand2'>" + data.data[i].product_country + "</div>";
 					div += "<div class='recommand2'>" + data.data[i].product_stay_days + "</div>";
 					div += "<div class='recommand2'>" + data.data[i].product_readcount + "</div>";
@@ -44,7 +44,7 @@ function searchForm(root){
 				}
 				$("#result1").append(result);
 			}else if(data.data.length == 0){	// ajax로 데이터 넘겼을때 길이가 0일 경우
-				var result2 = "<div class='result3'>조회된 결과가 없습니다.</div>";
+				var result2 = "<div class='result4'>조회된 결과가 없습니다.</div>";
 				$("#result1").append(result2);
 			}
 		},
@@ -78,49 +78,27 @@ $(function(){
 
 function productInsert(root){
 	var check = false;
-	var str = "";
+	var product_number = "";
 	var checkValue = $("input[name='check']");
 	for(var i=0; i<checkValue.length; i++){
 		if(checkValue[i].checked == true){
-			str += "," + checkValue[i].value;
+			product_number += "," + checkValue[i].value;
 		}
 	}
-	var url = root + "/adminBanner/bannerRecommandInsert.do?str="+str;
+	var url = root + "/adminBanner/bannerRecommandInsert.do?product_number="+product_number;
 	
-	if(str == ""){
+	if(product_number == ""){
 		alert("메인배너에 등록할 상품을 선택해주세요.");
 		return false;
-	}else if(str != ""){
+	}else if(product_number != ""){
 		if(confirm("추천상품을 메인배너에 등록하시겠습니까?")){
 			location.href = url;
-			alert("추천상품 등록을 완료하였습니다.")
+			alert("추천상품 등록을 완료하였습니다.");
 		}else{
 			alert("추천상품 등록을 취소합니다.");
 			return false;
 		}
 	}
-}
-
-/**
- * @함수이름 : productSelect
- * @함수설명 : 추천상품 리스트 테이블에 조회(테이블명 : banner + product ===> Equi Join)
- * @개발자 : 전현준
- * @개발날짜 : 2015. 12. 12
- */
-function productSelect(root){
-	var url = root + "/adminBanner/bannerRecommandSelect.do";
-	location.href = url;
-}
-
-/**
- * @함수이름 : productPrevious
- * @함수설명 : 추천상품 리스트 테이블에 조회 후 이전 버튼 눌렀을때 페이지 이동
- * @개발자 : 전현준
- * @개발날짜 : 2015. 12. 12
- */
-function productPrevious(root){
-	var url = root + "/adminBanner/bannerInsert.do";
-	location.href = url;
 }
 
 /**
@@ -133,20 +111,20 @@ function productPrevious(root){
  */
 function productdelete(root){
 	var check = false;
-	var str = "";
+	var product_number = "";
 	var checkValue = $("input[name='check2']");
 	for(var i=0; i<checkValue.length; i++){
 		if(checkValue[i].checked == true){
-			str += "," + checkValue[i].value;
+			product_number += "," + checkValue[i].value;
 		}
 	}
 	
-	var url = root + "/adminBanner/bannerRecommandDelete.do?str="+str;
+	var url = root + "/adminBanner/bannerRecommandDelete.do?product_number="+product_number;
 	
-	if(str == ""){
+	if(product_number == ""){
 		alert("메인배너에서 제거할 상품을 선택해주세요.");
 		return false;
-	}else if(str != ""){
+	}else if(product_number != ""){
 		if(confirm("추천상품을 메인배너에서 제거하시겠습니까?")){
 			location.href = url;
 			alert("메인배너에서 제거를 완료하였습니다.")

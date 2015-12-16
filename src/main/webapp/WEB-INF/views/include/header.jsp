@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="${root}/jquery/jquery-bxslider.min.js"></script>
 <script type="text/javascript">
 	/* $(function(){
 		$("#introduce").accordion({
@@ -18,6 +19,7 @@
 	}); */
 </script>
 <link rel="stylesheet" href="${root}/css/jquery-ui.css" type="text/css">
+<link rel="stylesheet" href="${root}/css/jquery-bxslider.css" type="text/css">
 </head>
 <body>
 	<div style="border:1px solid red; width:1250px">
