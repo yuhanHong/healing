@@ -108,7 +108,7 @@ $(function(){
 	
 	<br/>
 	
-	<a href ="${root}/menu.do"><h3>menu</h3></a>
+	<a href ="${root}/healingHome/healingHome.do"><h3>menu</h3></a>
 </div>
 
 <hr/>
