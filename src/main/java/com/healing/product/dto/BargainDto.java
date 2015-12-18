@@ -5,6 +5,7 @@ public class BargainDto {
 	private int bargain_rate1;
 	private int bargain_day2;
 	private int bargain_rate2;
+	
 	public int getBargain_day1() {
 		return bargain_day1;
 	}
@@ -29,6 +30,4 @@ public class BargainDto {
 	public void setBargain_rate2(int bargain_rate2) {
 		this.bargain_rate2 = bargain_rate2;
 	}
-	
-	
 }

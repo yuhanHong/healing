@@ -4,6 +4,40 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="dao.adminProductMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
+	<insert id="productWrite" parameterType="com.healing.product.dto.ProductDto">
+		insert into product values(product_product_number_seq.nextval,#{product_name},#{product_summary},#{product_category},#{product_country},#{product_stay_days},#{product_price_adult},#{product_price_child},#{product_price_baby},#{product_guide_adult},#{product_guide_child},#{product_guide_baby},#{product_bargain_day1},#{product_bargain_rate1},#{product_bargain_day2},#{product_bargain_rate2},0,0,0)
+	</insert>
 	
+	<select id="getProductNumber" resultType="int">
+		select nvl(max(product_number),0) from product
+	</select>
+	
+	<insert id="productCityWrite" parameterType="com.healing.product.dto.ProductCityDto">
+		insert into product_city values(product_city_number_seq.nextval,#{product_number},#{product_city})
+	</insert>
+	
+	<insert id="flightWrite" parameterType="com.healing.product.dto.FlightDto">
+		insert into flight values(flight_flight_number_seq.nextval,#{product_number},#{flight_occupancy},#{flight_start_date},#{flight_start_departure},#{flight_start_arrival},#{flight_start_airline},#{flight_start_departure_city},#{flight_start_arrival_city},#{flight_end_date},#{flight_end_departure},#{flight_end_arrival},#{flight_end_airline},#{flight_end_departure_city},#{flight_end_arrival_city})
+	</insert>
+	
+	<insert id="productDayWrite" parameterType="com.healing.product.dto.ProductDayDto">
+		insert into product_day values(product_day_number_seq.nextval,#{product_number},#{product_day_nth_day},#{product_day_breakfast},#{product_day_lunch},#{product_day_dinner},#{product_day_hotel})
+	</insert>
+	
+	<select id="getProductDayNumber" resultType="int">
+		select nvl(max(product_day_number),0) from product_day
+	</select>
+	
+	<insert id="productDetailWrite" parameterType="com.healing.product.dto.ProductDetailDto">
+		insert into product_detail values(product_detail_number_seq.nextval,#{product_day_number},#{product_number},#{product_detail_name},#{product_detail_explain})
+	</insert>
+	
+	<select id="getProductDetailNumber" resultType="int">
+		select nvl(max(product_detail_number),0) from product_detail
+	</select>
+	
+	<insert id="productPhotoWrite" parameterType="com.healing.product.dto.ProductPhotoDto">
+		insert into product_photo values(product_photo_number_seq.nextval,#{product_detail_number},#{product_day_number},#{product_number},#{product_photo_size},#{product_photo_path},#{product_photo_filename},'')
+	</insert>
 </mapper>
 	

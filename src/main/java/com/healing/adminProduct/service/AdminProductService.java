@@ -9,9 +9,11 @@ import org.springframework.web.servlet.ModelAndView;
  * @설명 : 상품등록 Service 인터페이스
  */
 public interface AdminProductService {
-
 	void productWrite(ModelAndView mav);
-
 	void productWriteOk(ModelAndView mav);
-
+	void productCityWriteOk(ModelAndView mav);
+	void flightWriteOk(ModelAndView mav);
+	void productDayWriteOk(ModelAndView mav);
+	void productDetailWriteOk(ModelAndView mav);
+	void productPhotoWriteOk(ModelAndView mav);
 }

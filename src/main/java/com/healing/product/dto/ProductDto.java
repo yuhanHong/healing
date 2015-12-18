@@ -13,10 +13,10 @@ public class ProductDto {
 	private int product_guide_adult;
 	private int product_guide_child;
 	private int product_guide_baby;
-	private int product_bargain_rate1;
 	private int product_bargain_day1;
-	private int product_bargain_rate2;
+	private int product_bargain_rate1;
 	private int product_bargain_day2;
+	private int product_bargain_rate2;
 	private int product_readcount;
 	private float product_average_score;
 	private int product_banner;
@@ -93,29 +93,29 @@ public class ProductDto {
 	public void setProduct_guide_baby(int product_guide_baby) {
 		this.product_guide_baby = product_guide_baby;
 	}
-	public int getProduct_bargain_rate1() {
-		return product_bargain_rate1;
-	}
-	public void setProduct_bargain_rate1(int product_bargain_rate1) {
-		this.product_bargain_rate1 = product_bargain_rate1;
-	}
 	public int getProduct_bargain_day1() {
 		return product_bargain_day1;
 	}
 	public void setProduct_bargain_day1(int product_bargain_day1) {
 		this.product_bargain_day1 = product_bargain_day1;
 	}
-	public int getProduct_bargain_rate2() {
-		return product_bargain_rate2;
+	public int getProduct_bargain_rate1() {
+		return product_bargain_rate1;
 	}
-	public void setProduct_bargain_rate2(int product_bargain_rate2) {
-		this.product_bargain_rate2 = product_bargain_rate2;
+	public void setProduct_bargain_rate1(int product_bargain_rate1) {
+		this.product_bargain_rate1 = product_bargain_rate1;
 	}
 	public int getProduct_bargain_day2() {
 		return product_bargain_day2;
 	}
 	public void setProduct_bargain_day2(int product_bargain_day2) {
 		this.product_bargain_day2 = product_bargain_day2;
+	}
+	public int getProduct_bargain_rate2() {
+		return product_bargain_rate2;
+	}
+	public void setProduct_bargain_rate2(int product_bargain_rate2) {
+		this.product_bargain_rate2 = product_bargain_rate2;
 	}
 	public int getProduct_readcount() {
 		return product_readcount;

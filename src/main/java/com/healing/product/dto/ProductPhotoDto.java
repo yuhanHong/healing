@@ -5,7 +5,7 @@ public class ProductPhotoDto {
 	private int product_detail_number;
 	private int product_day_number;
 	private int product_number;
-	private int product_photo_size;
+	private Long product_photo_size;
 	private String product_photo_path;
 	private String product_photo_filename;
 	private String product_photo_explain;
@@ -34,10 +34,10 @@ public class ProductPhotoDto {
 	public void setProduct_number(int product_number) {
 		this.product_number = product_number;
 	}
-	public int getProduct_photo_size() {
+	public Long getProduct_photo_size() {
 		return product_photo_size;
 	}
-	public void setProduct_photo_size(int product_photo_size) {
+	public void setProduct_photo_size(Long product_photo_size) {
 		this.product_photo_size = product_photo_size;
 	}
 	public String getProduct_photo_path() {

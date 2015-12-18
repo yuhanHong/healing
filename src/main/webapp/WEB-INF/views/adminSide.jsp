@@ -20,7 +20,9 @@
 	<a href="${root}/adminOrder/adminOrder.do">관리자모드-예약관리</a> <br/>
 	<a href="${root}/adminOrder/adminOrderStats.do"> - 매출 통계</a>
 	<hr/>
-	<a href="${root}/adminProduct/productWrite.do">상품 등록</a>
+	<a href="${root}/adminProduct/adminProductWrite.do">상품 등록</a><br/>
+	<a href="${root}/adminProduct/adminProductList.do">상품 관리</a><br/>
+	<a href="${root}/adminProduct/adminBargain.do">할인율 설정</a>
 	<hr/>
 	<h3>admin side4</h3>
 	<hr/>

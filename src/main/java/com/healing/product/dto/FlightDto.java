@@ -1,6 +1,5 @@
 package com.healing.product.dto;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 public class FlightDto {
@@ -8,14 +7,14 @@ public class FlightDto {
 	private int product_number;
 	private int flight_occupancy;
 	private Date flight_start_date;
-	private Timestamp flight_start_departure;
-	private Timestamp flight_start_arrival;
+	private Date flight_start_departure;
+	private Date flight_start_arrival;
 	private String flight_start_airline;
 	private String flight_start_departure_city;
 	private String flight_start_arrival_city;
 	private Date flight_end_date;
-	private Timestamp flight_end_departure;
-	private Timestamp flight_end_arrival;
+	private Date flight_end_departure;
+	private Date flight_end_arrival;
 	private String flight_end_airline;
 	private String flight_end_departure_city;
 	private String flight_end_arrival_city;
@@ -44,16 +43,16 @@ public class FlightDto {
 	public void setFlight_start_date(Date flight_start_date) {
 		this.flight_start_date = flight_start_date;
 	}
-	public Timestamp getFlight_start_departure() {
+	public Date getFlight_start_departure() {
 		return flight_start_departure;
 	}
-	public void setFlight_start_departure(Timestamp flight_start_departure) {
+	public void setFlight_start_departure(Date flight_start_departure) {
 		this.flight_start_departure = flight_start_departure;
 	}
-	public Timestamp getFlight_start_arrival() {
+	public Date getFlight_start_arrival() {
 		return flight_start_arrival;
 	}
-	public void setFlight_start_arrival(Timestamp flight_start_arrival) {
+	public void setFlight_start_arrival(Date flight_start_arrival) {
 		this.flight_start_arrival = flight_start_arrival;
 	}
 	public String getFlight_start_airline() {
@@ -80,16 +79,16 @@ public class FlightDto {
 	public void setFlight_end_date(Date flight_end_date) {
 		this.flight_end_date = flight_end_date;
 	}
-	public Timestamp getFlight_end_departure() {
+	public Date getFlight_end_departure() {
 		return flight_end_departure;
 	}
-	public void setFlight_end_departure(Timestamp flight_end_departure) {
+	public void setFlight_end_departure(Date flight_end_departure) {
 		this.flight_end_departure = flight_end_departure;
 	}
-	public Timestamp getFlight_end_arrival() {
+	public Date getFlight_end_arrival() {
 		return flight_end_arrival;
 	}
-	public void setFlight_end_arrival(Timestamp flight_end_arrival) {
+	public void setFlight_end_arrival(Date flight_end_arrival) {
 		this.flight_end_arrival = flight_end_arrival;
 	}
 	public String getFlight_end_airline() {

@@ -11,13 +11,13 @@
 	<c:if test="${check>0}">
 		<script type="text/javascript">
 			alert("상품등록이 완료되었습니다.");
-			location.href="${root}/main/";
+			location.href="${root}/adminProduct/adminProductPreview.do?product_number=${product_number}";
 		</script>
 	</c:if>
 	<c:if test="${check==null}">
 		<script type="text/javascript">
 			alert("상품등록을 완료하지 못하였습니다.");
-			location.href="${root}/main/adminProduct/productWrite.do";
+			location.href="${root}/adminProduct/adminProductWrite.do";
 		</script>
 	</c:if>
 </body>
