@@ -72,5 +72,10 @@
 			</div>
 		</form>
 	</c:if>
+	<c:if test="${admin_name!=null}">
+		<script type="text/javascript">
+			location.href="${root}/adminOrder/adminOrderStats.do"
+		</script>
+	</c:if>
 </body>
 </html>

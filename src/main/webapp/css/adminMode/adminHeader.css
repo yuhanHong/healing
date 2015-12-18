@@ -10,6 +10,15 @@
 	
 }
 
+.adminHeaderDiv a{
+	text-decoration: none;
+	color: black;
+}
+#adminHegerTitle a{
+	text-decoration: none;
+	color: black;
+}
+
 .adminHeaderDiv ul li{
 	padding: 4px;
 	display: block;

@@ -27,7 +27,7 @@
 <body>
 	<jsp:include page="../adminHeader.jsp"/>
 	<jsp:include page="../adminSide.jsp"/>
-
+	<input type="hidden" value="${root}" id="root"/>
 	<div style="width:1200px;">
 		<h2 style="margin-top: 40px;">매출 통계</h2>
 		<div class="adminOrderDiv" id="salesTop">
@@ -65,7 +65,7 @@
 				</ul>
 				<br/>
 				<div class="statsResult">
-					<h3 style="margin-top: 30px;margin-left: 220px;">검색 결과가 없습니다.</h3>
+					<h3 style="margin-top: 30px;margin-left: 270px;">검색 결과가 없습니다.</h3>
 				</div>
 			</div>
 		</div>
