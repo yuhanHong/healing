@@ -8,13 +8,12 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>관리자모드 - 예약관리</title>
-<link rel="stylesheet" type="text/css" href="${root}/css/adminOrder/style.css"/>
+<link rel="stylesheet" type="text/css" href="${root }/css/adminOrder/style.css"/>
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/jquery-ui.css"/>
 <script src="//canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript" src="${root}/js/adminOrder/adminOrder.js"></script>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -52,11 +51,11 @@
 			}
 		});
 	</script>
-	<form>
+	<form style="width :1300px;">
 	<h2>예약관리</h2>
-		<div id="adminOrderSearch" class="container">
+		<div id="adminOrderSearch">
 			
-			<div id="adminSearchTable" class="well">
+			<div id="adminSearchTable">
 				<div class="adminSearchDiv"><label>날짜 선택 : </label> <input type="text" class="datepicker" id="start_date" name="start_date" size="15"/><b>&nbsp;&nbsp;~&nbsp;&nbsp;</b><input type="text" class="datepicker" id="end_date" name="end_date" size="15"/></div>
 				<div class="adminSearchDiv"><label>검색 조건 : </label> 
 						<select id="search_label">
@@ -76,31 +75,30 @@
 			</div>				
 		</div>
 		<div id="search_result">
-			<table border="1" style="width: 690px;table-layout: fixed;">
-				<tr id="table_firstTr">
-					<td id="resultArray" width="100">예약 날짜 ▼</td>
-					<td  width="100">예약 번호</td>
-					<td  width="70">예약자 명</td>
-					<td  width="100">상품 명</td>
-					<td  width="70">예약 인원</td>
-					<td  width="100">결제 금액</td>
-					<td  width="70">결제 방법</td>
-					<td  width="80">예약 상태</td>
-				</tr>
+			<ul id="table_firstTr">
+				<li id="resultArray" style="width:100px;">예약 날짜 ▼</li>
+				<li  style="width:100px;">예약 번호</li>
+				<li  style="width:70px;">예약자 명</li>
+				<li  style="width:150px;">상품 명</li>
+				<li  style="width:70px;">예약 인원</li>
+				<li  style="width:100px;">결제 금액</li>
+				<li  style="width:70px;">결제 방법</li>
+				<li  style="width:100px;">예약 상태</li>
+			</ul>
 
-				<c:forEach var="orderDto" items="${orderList }">
-				<tr>
-					<td><fmt:formatDate value="${orderDto.order_date}" type="date"/> </td>
-					<td><a href="javascript:orderAdminRead('${root}','${orderDto.order_number}')" >${orderDto.order_number}</a></td>
-					<td>${orderDto.order_name}</td>
-					<td>${orderDto.product_name}</td>
-					<td>성인 :${orderDto.order_adult}명<br/>아동 :${orderDto.order_child}명<br/>유아 :${orderDto.order_baby}명</td>
-					<td><fmt:formatNumber pattern="###,###" value="${orderDto.order_money}"/>원 </td>
-					<td>${orderDto.payment_option}</td>
-					<td>${orderDto.payment_state}</td>
-				</tr>
-				</c:forEach>
-			</table>
+			<c:forEach var="orderDto" items="${orderList }">
+			<ul>
+				<li style="width:100px;"><fmt:formatDate value="${orderDto.order_date}" type="date"/> </li>
+				<li style="width:100px;"><a href="javascript:orderAdminRead('${root}','${orderDto.order_number}')" >${orderDto.order_number}</a></li>
+				<li style="width:70px;">${orderDto.order_name}</li>
+				<li style="width:150px;">${orderDto.product_name}</li>
+				<li style="width:70px; line-height: 14px;">성인 :${orderDto.order_adult}명<br/>아동 :${orderDto.order_child}명<br/>유아 :${orderDto.order_baby}명</li>
+				<li style="width:100px;"><fmt:formatNumber pattern="###,###" value="${orderDto.order_money}"/>원 </li>
+				<li style="width:70px;">${orderDto.payment_option}</li>
+				<li style="width:100px;">${orderDto.payment_state}</li>
+			</ul>
+			</c:forEach>
+		
 		</div>
 	</form>
 </body>

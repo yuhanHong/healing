@@ -15,13 +15,10 @@
 <body>
 	<jsp:include page="../adminHeader.jsp"/>
 	<jsp:include page="../adminSide.jsp"/>
-	<div id="adc_main">
-		<div id="adc_title">
-			<span>관리자 계정생성</span>
-		</div>
+	<div style="width:1200px;">
+		<h2 style="margin-top: 40px;">관리자 계정 생성</h2>
 		
-		<br/><br/>
-		<form action="${root}/adminMode/adminModeCreateOk.do" name="adminModeFrom" method="POST" onsubmit="return adminModeFrom(this)">
+		<form id="adc_form" action="${root}/adminMode/adminModeCreateOk.do" name="adminModeFrom" method="POST" onsubmit="return adminModeFrom(this)">
 			<div id="adc_content">
 				<div>
 					<div id="adc_text">

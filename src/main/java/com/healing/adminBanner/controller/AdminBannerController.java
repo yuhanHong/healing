@@ -32,13 +32,8 @@ public class AdminBannerController {
 	 */
 	@RequestMapping(value="adminBanner/bannerInsert.do", method={RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView bannerInsert(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("request",request);
 		
-		adminBannerService.bannerInsert(mav);
-		adminBannerService.bannerRecommandSelect(mav);
-		
-		return mav;
+		return new ModelAndView("adminBanner/bannerInsert");
 	}
 	
 	/**

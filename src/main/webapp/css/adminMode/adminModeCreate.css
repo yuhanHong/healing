@@ -1,22 +1,12 @@
 @CHARSET "UTF-8";
 
-#adc_main{
-	width:700px; overflow:hidden;
-	border: 0px solid red;
-}
 
-#adc_title{
-	width:80%; height:50px;
-	border: 0px solid blue;
-	line-height: 50px;
-	margin-left:50px;
-}
 
-#adc_title span{
-	font-size: 20px;
-	font-weight: bold;
-}
 
+#adc_form{
+	margin-left: 200px;
+	width:700px;
+}
 #adc_content{
 	width:59%; height:400px;
 	border: 0px solid blue;

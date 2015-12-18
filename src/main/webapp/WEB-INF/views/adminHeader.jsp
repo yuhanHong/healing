@@ -25,7 +25,7 @@
 
 <div style="width: 1200px;">
 	<div  style="margin-top:20px; width:300px;">
-		<h1>Healing</h1>
+		<h1><a href="${root}/adminHome.do">Healing</a></h1>
 		<div class="adminHeaderDiv" style="margin-left: 800px;">
 			<c:if  test="${admin_number!=null}">
 		 		<ul>

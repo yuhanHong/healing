@@ -25,26 +25,6 @@ public class AdminBannerServiceImp implements AdminBannerService {
 	private AdminBannerDao adminBannerDao;
 
 	/**
-	 * @함수이름 : bannerInsert
-	 * @작성일 : 2015. 12. 10.
-	 * @개발자 : 전현준
-	 * @함수설명 : bannerInsert.jsp 파일로 데이터(id, password)값 가지고 이동하는 함수 
-	 */
-	@Override
-	public void bannerInsert(ModelAndView mav) {
-		Map<String, Object> map = mav.getModelMap();
-		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		
-		String admin_id = request.getParameter("admin_id");
-		String admin_pw = request.getParameter("admin_pw");
-		HomeAspect.logger.info(HomeAspect.logMsg + "관리자 id:" + admin_id + ", 관리자 pw:" + admin_pw);
-		
-		mav.addObject("admin_id", admin_id);
-		mav.addObject("admin_pw", admin_pw);
-		mav.setViewName("adminBanner/bannerInsert");
-	}
-
-	/**
 	 * @함수이름 : bannerSearch
 	 * @작성일 : 2015. 12. 10.
 	 * @개발자 : 전현준

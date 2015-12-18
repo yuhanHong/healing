@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+#adminSide a{
+	
+	margin: 10px: 10px ;
+	font-weight: bold;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+#adminSide{
+	color: black;
+	margin-top: 30px;
+	line-height: 30px;
+	width:150px;
+	margin-left: 2px;
+}
+
+#adminSide ul li{
+	width:150px;
+	height: 30px;
+	border : 1px solid gray;
+	padding: 4px;
+	display: block;
+	
+}

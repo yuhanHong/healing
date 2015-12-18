@@ -1,30 +1,26 @@
 @CHARSET "UTF-8";
 
-h3, h4{
-	margin:10px;
-}
 
-/* select box - JQuery UI 적용 부분 ===> label, select */
-label{
-	display: block;
-}
-select{
-	width: 110px;
+#bannerInsertDiv{
+	 font-size: 13px;
 }
 
 #auto_info{		/* 추천 상품 검색 페이지 전체적인 틀 부분 스타일 */
-	width:1050px; height:1200px;
+	width:1050px;
 	border:1px solid orange; margin-left:200px;
 }
 
 #result1{		/* ajax로 데이터 전체 출력해주는 틀 부분 스타일 */
-	width:1030px; height:400px;
-	margin:10px; border:1px solid skyblue;
+	margin-top:10px;
+	width:900px;
+	margin-left:205px; 
+	
 }
 
 #result2{		/* 추천상품리스트 전체적인 틀 스타일 */
-	width:1030px; height:400px; 
-	margin:10px; border:1px solid skyblue;
+	margin-top:10px;
+	width:900px;
+	margin-left:205px; 
 }
 
 .result2{		/* ajax로 결과값 출력해주는 위에 타이틀 부분 스타일 */
@@ -42,7 +38,7 @@ select{
 }
 
 .recommand1{	/* ajax로 DB에 있는 데이터 불러올때 정의한 데이터 부분 - div태그 스타일 적용 */
-	width:120px; height:30px; float:left;
+	width:100px; height:30px; float:left;
 	line-height:30px; text-align:center;
 	border:1px solid gray;
 	margin: -1px;
@@ -50,7 +46,7 @@ select{
 }
 
 .recommand2{	/* ajax로 DB에 있는 데이터 가져올때 내용부분 - div태그 스타일 적용 */
-	width:120px; height:30px;
+	width:100px; height:30px;
 	text-align:center; float:left; line-height:30px;
 	border:1px solid gray;
 	margin: -1px;

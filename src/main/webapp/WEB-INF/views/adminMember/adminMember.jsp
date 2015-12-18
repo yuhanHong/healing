@@ -76,119 +76,117 @@ $(function(){
 	<jsp:include page="../adminHeader.jsp"/>
 	<jsp:include page="../adminSide.jsp"/>
 
-<div id="adm_main">
-	<div id="amd_title">
-		<h3>관리자 회원관리</h3>
-	</div>
-	<form action="${root}/adminMember/adminMemberSearch.do" method="POST">
-		<div id="adm_firstMenu">
-			<ul>
-				<li id="adm_firstMenu_option">
-					<input type="submit" value="검색"/>
-				</li>
-				<li id="adm_firstMenu_option">
-					<input type="text" size="14" name="search"/>
-				</li>
-				<li id="adm_firstMenu_option">
-					<select name="choose">
-						<option value="name">
-							이름
-						</option>
-						<option value="id">
-							아이디
-						</option>
-						<option value="phone">
-							전화번호
-						</option>
-					</select>
-				</li>
-				<li id="adm_firstMenu_option">회원검색</li>
-			</ul>
-		</div>
-	</form>
-	<form action="${root}/adminMember/adminMemberChangeLevel.do" method="POST" >
-		<div id="adm_secondMenu">
-			<input type="hidden" name="maxValue" id="maxValue"/>
-			<input type="hidden" name="minValue" id="minValue"/>
-			<ul>
-				<li class="adm_secondMenu_option" id="adm_arange">
-					<select name="sort" onchange="location.href='${root}/adminMember/adminMemberSort.do?value='+(this.options[this.selectedIndex].value)">
-						<option value="title">정렬방식</option>
-						<option value="id" id="id">아이디</option>
-						<option value="name">이름</option>
-						<option value="date">가입날짜</option>
-						<option value="purchase">구매액</option>					
-					</select>
-				</li>
-				
-				<li class="adm_secondMenu_option" id="adm_arange">
-					<select name="level_sort" onchange="location.href='${root}/adminMember/adminMemberSort.do?value='+(this.options[this.selectedIndex].value)">
-						<option value="title">등급별</option>
-						<option value="nomal">일반회원</option>
-						<option value="vip">vip회원</option>
-						<option value="delete">탈퇴된회원</option>
-					</select>
-				</li>
-				<li class="adm_secondMenu_option" style="width:50px;">
-					<input type="submit" value="변경" id="changeButton"/>
-				</li>
-				<li class="adm_secondMenu_option"  style="width:80px;">
-					<select name="memberLevel" id="memberLevel">
-						<option value="nomal">일반회원</option>
-						<option value="vip">vip</option>
-					</select>
-				</li>
-				<li class="adm_secondMenu_option">
-					<input type="text" id="amount" size="15" disabled="disabled" name="amount"/>
-				</li>
-				<li id="slider-range" class="adm_secondMenu_option"></li>
-			</ul>
-		</div>
-	</form>
-	<div id="adm_memberMenu">
-		<ul>
-			<li id="adm_member_name">이름</li>
-			<li id="adm_member_id">아이디</li>
-			<li id="adm_member_phone">전화번호</li>
-			<li id="adm_member_email">이메일</li>
-			<li id="adm_member_date">날짜</li>
-			<li id="adm_member_purchase">구매금액</li>
-			<li id="adm_member_level">등급</li>
-		</ul>
-	</div>
-	<div id="ex"></div>
-	<c:forEach var="adminMember" items="${adminMemberList}">
-		<div id="adm_memberin">
-			<div class="adm_list">
-				<ul id="adm_ul">
-					<li id="adm_member_name">
-						<a href="javascript:adminMemberUpdate('${root}','${adminMember.member_number}')">${adminMember.member_name}</a>
+<div style="width:1400px;">
+	<h2 style="margin-top: 40px;">회원 관리</h2>
+	<div id="adminMemberFormDiv">
+		<form action="${root}/adminMember/adminMemberSearch.do" method="POST">
+			<div id="adm_firstMenu">
+				<ul>
+					<li id="adm_firstMenu_option">
+						<input type="submit" value="검색"/>
 					</li>
-					<li id="adm_member_id">${adminMember.member_id}</li>
-					<li id="adm_member_phone">${adminMember.member_phone}</li>
-					<li id="adm_member_email">${adminMember.member_email}</li>
-					<li id="adm_member_date">
-						<fmt:formatDate value="${adminMember.member_date}" pattern="yyyy/MM/dd"/>
+					<li id="adm_firstMenu_option">
+						<input type="text" size="14" name="search"/>
 					</li>
-					<li id="adm_member_purchase">${adminMember.member_purchase}</li>
-					<c:if test="${adminMember.member_delete==0}">
-						<li id="adm_member_level">${adminMember.member_level}</li>
-					</c:if>
-					
-					<c:if test="${adminMember.member_delete>0}">
-						<c:if test="${adminMember.member_delete==1}">
-							<c:set var="delete" value="탈퇴"/>
-						</c:if>
-						
-						<c:if test="${adminMember.member_delete==2}">
-							<c:set var="delete" value="추방"/>
-						</c:if>
-						<li id="adm_member_level">${delete}</li>
-					</c:if>
+					<li id="adm_firstMenu_option">
+						<select name="choose">
+							<option value="name">
+								이름
+							</option>
+							<option value="id">
+								아이디
+							</option>
+							<option value="phone">
+								전화번호
+							</option>
+						</select>
+					</li>
+					<li id="adm_firstMenu_option">회원검색</li>
 				</ul>
 			</div>
-		</div>
-	</c:forEach>
+		</form>
+		<form action="${root}/adminMember/adminMemberChangeLevel.do" method="POST" >
+			<div id="adm_secondMenu">
+				<input type="hidden" name="maxValue" id="maxValue"/>
+				<input type="hidden" name="minValue" id="minValue"/>
+				<ul>
+					<li class="adm_secondMenu_option" id="adm_arange">
+						<select name="sort" onchange="location.href='${root}/adminMember/adminMemberSort.do?value='+(this.options[this.selectedIndex].value)">
+							<option value="title">정렬방식</option>
+							<option value="id" id="id">아이디</option>
+							<option value="name">이름</option>
+							<option value="date">가입날짜</option>
+							<option value="purchase">구매액</option>					
+						</select>
+					</li>
+					
+					<li class="adm_secondMenu_option" id="adm_arange">
+						<select name="level_sort" onchange="location.href='${root}/adminMember/adminMemberSort.do?value='+(this.options[this.selectedIndex].value)">
+							<option value="title">등급별</option>
+							<option value="nomal">일반회원</option>
+							<option value="vip">vip회원</option>
+							<option value="delete">탈퇴된회원</option>
+						</select>
+					</li>
+					<li class="adm_secondMenu_option" style="width:50px;">
+						<input type="submit" value="변경" id="changeButton"/>
+					</li>
+					<li class="adm_secondMenu_option"  style="width:80px;">
+						<select name="memberLevel" id="memberLevel">
+							<option value="nomal">일반회원</option>
+							<option value="vip">vip</option>
+						</select>
+					</li>
+					<li class="adm_secondMenu_option">
+						<input type="text" id="amount" size="15" disabled="disabled" name="amount"/>
+					</li>
+					<li id="slider-range" class="adm_secondMenu_option"></li>
+				</ul>
+			</div>
+		</form>
+		<div id="adm_memberMenu">
+			<ul id="adm_member_first">
+				<li id="adm_member_name">이름</li>
+				<li id="adm_member_id">아이디</li>
+				<li id="adm_member_phone">전화번호</li>
+				<li id="adm_member_email">이메일</li>
+				<li id="adm_member_date">날짜</li>
+				<li id="adm_member_purchase">구매금액</li>
+				<li id="adm_member_level">등급</li>
+			</ul>
+
+			<c:forEach var="adminMember" items="${adminMemberList}">
+				<div class="adm_list">
+					<ul id="adm_ul">
+						<li id="adm_member_name">
+							<a href="javascript:adminMemberUpdate('${root}','${adminMember.member_number}')">${adminMember.member_name}</a>
+						</li>
+						<li id="adm_member_id">${adminMember.member_id}</li>
+						<li id="adm_member_phone">${adminMember.member_phone}</li>
+						<li id="adm_member_email">${adminMember.member_email}</li>
+						<li id="adm_member_date">
+							<fmt:formatDate value="${adminMember.member_date}" pattern="yyyy/MM/dd"/>
+						</li>
+						<li id="adm_member_purchase">${adminMember.member_purchase}</li>
+						<c:if test="${adminMember.member_delete==0}">
+							<li id="adm_member_level">${adminMember.member_level}</li>
+						</c:if>
+						
+						<c:if test="${adminMember.member_delete>0}">
+							<c:if test="${adminMember.member_delete==1}">
+								<c:set var="delete" value="탈퇴"/>
+							</c:if>
+							
+							<c:if test="${adminMember.member_delete==2}">
+								<c:set var="delete" value="추방"/>
+							</c:if>
+							<li id="adm_member_level">${delete}</li>
+						</c:if>
+					</ul>
+				</div>
+			</c:forEach>
+		</div>	
+	</div>
 </div>
 </body>
 </html>
