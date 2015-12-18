@@ -76,7 +76,6 @@ http://www.templatemo.com/free-website-templates/
 </script>
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse" id="top">
-
 	<!-- navigation -->
 	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="navbar-menu">
@@ -85,6 +84,12 @@ http://www.templatemo.com/free-website-templates/
 				<li><a href="#home" class="smoothScroll">Login</a></li>
 			</ul>
 		</div>
+		
+		<%-- <input type="text" value="${list }"> --%>
+		<%-- <c:forEach var="i" begin="0" end="3" step="1"> --%>
+		<c:forEach var="cookieList" items="${list}">
+			${cookieList}
+		</c:forEach>
 
 		<div class="container">
 			<div class="navbar-header">
@@ -109,51 +114,30 @@ http://www.templatemo.com/free-website-templates/
 		</div>
 
 	</div>
-
 	
-	<div class="slider_wrapper">
-		<div id="camera_wrap" class="">
+	<c:if test="${productPhotoList.size() != 0}">
+	<div class="slider_wrapper" align="center">
+		<div id="camera_wrap" class=""> <!-- style="width:1100px; margin-left:120px;" -->
 			<c:forEach var="i" begin="0" end="${listSize-1}" step="1">
 				<div data-src="${root}/resources/banner/${productPhotoList.get(i).product_photo_filename}">
-				
 					<div class="caption fadeIn">
-						<h2 style="color:white">${productList.get(i).product_name}</h2>
+						<a href="${root}/recentProduct/recentProduct.do?product_number=${productList.get(i).product_number}" style="margin-top:0px;">
+							<h2 style="color:white; font-size:60px; line-height:60px;">${productList.get(i).product_name}</h2>
+						</a>
 						<div class="price">
 							FROM <span>${productList.get(i).product_price_adult}</span>
 						</div>
-						<a href="#" style="background-color:yellow">상품 보러가기</a>
+						<a href="${root}/recentProduct/recentProduct.do?product_number=${productList.get(i).product_number}" style="background-color:yellow">상품 보러가기</a>
 					</div>
 				</div>
 			</c:forEach>
-			<%-- <div data-src="${root}/css/body/images/slide.jpg">
-				<div class="caption fadeIn">
-					<h2>LONDON</h2>
-					<div class="price">
-						FROM <span>$1000</span>
-					</div>
-					<a href="#">LEARN MORE</a>
-				</div>
-			</div>
-			<div data-src="${root}/css/body/images/slide1.jpg">
-				<div class="caption fadeIn">
-					<h2>Maldives</h2>
-					<div class="price">
-						FROM <span>$2000</span>
-					</div>
-					<a href="#">LEARN MORE</a>
-				</div>
-			</div>
-			<div data-src="${root}/css/body/images/slide2.jpg">
-				<div class="caption fadeIn">
-					<h2>Venice</h2>
-					<div class="price">
-						FROM <span>$1600</span>
-					</div>
-					<a href="#">LEARN MORE</a>
-				</div>
-			</div> --%>
 		</div>
 	</div>
+	</c:if>
+	
+	<!-- 최근 본 상품 include 된 부분 -->
+	<c:import url="recentProduct.jsp"/>
+	
 	<!--==============================Content=================================-->
 	<div class="content">
 		<div class="ic">More Website Templates @ TemplateMonster.com -

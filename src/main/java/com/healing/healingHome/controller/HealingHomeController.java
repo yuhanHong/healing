@@ -28,6 +28,7 @@ public class HealingHomeController {
 	public ModelAndView healingHome(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
+		mav.addObject("response", response);
 		
 		healingHomeService.healingHome(mav);
 		

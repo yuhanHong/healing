@@ -1,9 +1,15 @@
 package com.healing.healingHome.service;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
@@ -28,6 +34,7 @@ public class HealingHomeServiceImp implements HealingHomeService {
 	public void healingHome(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		HttpServletResponse response = (HttpServletResponse) map.get("response");
 		
 		int count = adminBannerDao.bannerGetCount();			// 메인 배너에 등록됬는지를 알려주는 필드 개수
 		HomeAspect.logger.info(HomeAspect.logMsg + count);		
@@ -44,12 +51,30 @@ public class HealingHomeServiceImp implements HealingHomeService {
 			}
 		}
 		
-		int listSize = productList.size();		//product 테이블하고 product_photo 테이블 조인한 결과에서 리스트 사이즈
+		Cookie[] cookie = request.getCookies();
+		response.setContentType("text/html;charset=utf-8");
+		
+		PrintWriter out = null;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		List<String> list = null;
+		if(cookie != null){
+			for(int i=0; i<cookie.length;i++){
+				list = new ArrayList<String>();
+				list.add(cookie[i].getValue());
+			}
+		}
+		
+		int listSize = productList.size();		// product 테이블하고 product_photo 테이블 조인한 결과에서 리스트 사이즈
 		
 		mav.addObject("productList", productList);
 		mav.addObject("listSize", listSize);
 		mav.addObject("productPhotoList", productPhotoList);
+		mav.addObject("list", list);
 		mav.setViewName("/menu");
-		
 	}
 }

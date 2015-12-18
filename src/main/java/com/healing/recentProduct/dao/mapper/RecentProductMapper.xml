@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.recentProductMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
+	<select id="productList" parameterType="int" resultType="com.healing.product.dto.ProductDto">
+		<![CDATA[
+			SELECT fli.flight_number,
+				pro.product_number,
+				pro.product_name,
+				pro.product_country,
+				pro.product_stay_days,
+				pro.product_summary,
+				pro.product_price_adult,
+				pro.product_price_child,
+				pro.product_price_baby,
+				pro.product_average_score,
+				fli.flight_start_date,
+				fli.flight_start_departure,
+				fli.flight_start_arrival,
+				fli.flight_start_airline,
+				fli.flight_start_departure_city,
+				fli.flight_start_arrival_city,
+				fli.flight_end_date,
+				fli.flight_end_departure,
+				fli.flight_end_arrival,
+				fli.flight_end_airline,
+				fli.flight_end_departure_city,
+				fli.flight_end_arrival_city
+			FROM product pro, flight fli
+			WHERE pro.product_number = fli.product_number
+			and pro.product_banner = 1
+			and pro.product_number=#{product_number}
+		]]>
+	</select>
+	
+	<select id="flightList" parameterType="int" resultType="com.healing.product.dto.FlightDto">
+		<![CDATA[
+			SELECT fli.flight_number,
+				pro.product_number,
+				pro.product_name,
+				pro.product_country,
+				pro.product_stay_days,
+				pro.product_summary,
+				pro.product_price_adult,
+				pro.product_price_child,
+				pro.product_price_baby,
+				pro.product_average_score,
+				fli.flight_start_date,
+				fli.flight_start_departure,
+				fli.flight_start_arrival,
+				fli.flight_start_airline,
+				fli.flight_start_departure_city,
+				fli.flight_start_arrival_city,
+				fli.flight_end_date,
+				fli.flight_end_departure,
+				fli.flight_end_arrival,
+				fli.flight_end_airline,
+				fli.flight_end_departure_city,
+				fli.flight_end_arrival_city
+			FROM product pro, flight fli
+			WHERE pro.product_number = fli.product_number
+			and pro.product_banner = 1
+			and pro.product_number=#{product_number}
+		]]>
+	</select>
+</mapper>

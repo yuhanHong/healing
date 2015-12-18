@@ -47,7 +47,11 @@
 	<jsp:include page="header.jsp"/>
 	
 	<h3>본문1</h3>
+	
 	<div align="center" id="banner_wrap">
+		
+		<c:import url="recentProductTest.jsp"/>
+	
 		<ul class="bxslider">
 			<li>
 				<a href="#"><img src="${root}/resources/banner/banner1.jpg" width="900px" height="350px" title="caption value pic1"/></a>
@@ -60,6 +64,7 @@
 			</li>
 		</ul>
 	</div>
+	
 	<hr/>
 	<h3>본문2</h3>
 	<hr/>
