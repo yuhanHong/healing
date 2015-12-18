@@ -51,4 +51,15 @@ public class AdminPushNoticeController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/adminPushNotice/adminPushCheck.do",method=RequestMethod.GET)
+	public ModelAndView adminPushCheck(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);	
+		mav.addObject("response",response);	
+		
+		adminPushNoticeService.adminPushCheck(mav);
+				
+		return null;
+	}
+	
 }

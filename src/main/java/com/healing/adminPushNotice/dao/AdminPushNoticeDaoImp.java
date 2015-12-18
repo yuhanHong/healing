@@ -57,6 +57,12 @@ public class AdminPushNoticeDaoImp implements AdminPushNoticeDao {
 		return sqlSessionTemplate.selectList("dao.adminPushNoticeMapper.getAdminPushYesList");
 	}
 
+	@Override
+	public int adminPushCheck() {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("dao.adminPushNoticeMapper.adminPushCheck");
+	}
+
 
 	
 }

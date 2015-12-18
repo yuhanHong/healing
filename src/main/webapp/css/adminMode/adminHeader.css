@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+
+.adminHeaderDiv{
+
+	width: 700px;
+	height: 60px;
+	line-height: 60px;
+	margin-right: 50px;
+	
+	
+}
+
+.adminHeaderDiv ul li{
+	padding: 4px;
+	display: block;
+	margin:0px;
+	float:left;
+}
+
+
+h1{
+	float: left;
+}

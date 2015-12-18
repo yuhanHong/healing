@@ -24,10 +24,6 @@
 	<a href="${root}/adminProduct/adminProductList.do">상품 관리</a><br/>
 	<a href="${root}/adminProduct/adminBargain.do">할인율 설정</a>
 	<hr/>
-	<h3>admin side4</h3>
-	<hr/>
-	<h3>admin side5</h3>
-	<hr/>
 	<a href="${root}/adminPushNotice/adminPushNotice.do?select=all">알림</a>
 </div>
 

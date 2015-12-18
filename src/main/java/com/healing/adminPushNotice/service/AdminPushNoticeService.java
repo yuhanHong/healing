@@ -10,5 +10,5 @@ public interface AdminPushNoticeService {
 	//관리자
 	public void adminPushNoticeGetRequest(ModelAndView mav);
 	public void adminPushNoticeReadCheckUpdate(ModelAndView mav);
-	
+	public void adminPushCheck(ModelAndView mav);
 }

@@ -17,4 +17,5 @@ public interface AdminPushNoticeDao {
 	public int adminPushNoticeReadCheckUpdate(int push_number);
 	public List<AdminPushNoticeDto> getAdminPushNoList();
 	public List<AdminPushNoticeDto> getAdminPushYesList();
+	public int adminPushCheck();
 }
