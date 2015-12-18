@@ -86,7 +86,7 @@ public class AdminProductServiceImp implements AdminProductService {
 		HttpServletResponse response=(HttpServletResponse)map.get("response");
 		FlightDto flightDto=(FlightDto)map.get("flightDto");
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMddhhmmss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
 
 		String yy = request.getParameter("flight_start_departure_year");
 		String mm = request.getParameter("flight_start_departure_month");
@@ -183,7 +183,6 @@ public class AdminProductServiceImp implements AdminProductService {
 		}
 	}
 
-	
 	@Override
 	public void productPhotoWriteOk(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();
@@ -209,19 +208,19 @@ public class AdminProductServiceImp implements AdminProductService {
 		
 		int check=0;
 		for (int i = 0; i <= dayMax; i++) {
-			HomeAspect.logger.info(HomeAspect.logMsg + "detailMax["+i+"]" + detailMax[i]);
 			for (int j = 0; j < detailMax[i]; j++) {
 				productPhotoDto.setProduct_day_number(product_day_number+i);
 				productPhotoDto.setProduct_detail_number(product_detail_number+check);
 				
 				MultipartFile upFile = request.getFile("product_photo" + photoIndex[check]);
-				String fileName = photoIndex[check] + upFile.getOriginalFilename();
+				String fileName = photoIndex[check] + ".jpg";
 				//			String fileName = photoIndex[i] + "." + upFile.getOriginalFilename().split(".")[upFile.getOriginalFilename().split(".").length-1];
 				long fileSize = upFile.getSize();
 				if (fileSize != 0) {
+					
 					File path = new File("C:\\healing\\workspace\\healing\\src\\main\\webapp\\resources\\productphoto\\" + product_number + "\\");
 					if (!path.exists())
-						path.mkdir();
+						path.mkdirs();
 
 					File file = new File(path, fileName);
 					try {

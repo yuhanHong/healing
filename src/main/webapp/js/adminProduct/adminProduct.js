@@ -66,7 +66,7 @@ function numberOnInput(e){
  * 숫자만 입력받도록 하는 숫자 필드의 oninput이벤트 호출 함수 (unformatted)
  */
 function numberOnInputUnformatted(e){
-	e.target.value=parseInt(deleteNan(e.target.value));
+	e.target.value=(deleteNan(e.target.value));
 }
 /*
  * 숫자만 입력받도록 하는 숫자 필드의 oninput이벤트 호출 함수 (unformatted,0허용)
