@@ -24,8 +24,9 @@ public class MemberMypageServiceImp implements MemberMypageService {
 		
 		int member_number=Integer.parseInt(request.getParameter("member_number"));
 		String review_content=request.getParameter("review_content");
+		int star_number=Integer.parseInt(request.getParameter("star_number"));
+		// HomeAspect.logger.info(HomeAspect.logMsg+"후기회원넘버,내용,별점:"+member_number+","+review_content+","+star_number);
 		
-		// HomeAspect.logger.info(HomeAspect.logMsg+"후기회원넘버,내용:"+member_number+","+review_content);
 	}
 
 	@Override

@@ -97,32 +97,46 @@
 
 #myr_reply_text{
 	width:100%; overflow: hidden;
-	border: 0px solid red; 
+	border: 0px solid red; margin:0;
 }
 
-#reply_submit ul{
-	width:100%; margin:0px;
+#myr_score{
+	width:25%; margin:0px; height:40px; padding:0px;
+	border: 0px solid black;
+	float:left;
+}
+#myr_score li{
+	list-style-type: none;
+	float:left;
 }
 
-#reply_submit li:nth-child(1){
-	width:110px; height:30px; margin:0px;
-	border: 0px solid blue;  line-height:30px;
-	list-style-type: none; float: left; font-size: 15px; font-weight: bold;
+.score_button{
+	width:30px; height:30px;
+	border: 0px solid red; margin-top:5px;
+	float:left;
 }
-#reply_submit li:nth-child(2){
-	width:500px; height:30px; margin:0px;
-	border: 0px solid blue;
-	list-style-type: none; float: left;
+
+#myr_reply{
+	width:70%; margin:0px; height:40px;  padding:0px;
+	border: 0px solid black;
+	float:left; line-height: 40px;
 }
-#reply_submit li:nth-child(2) input{
-	height:23px; font-size: 15px;
+
+#myr_reply li{
+	list-style-type: none;
+	float:left;
+	border: 0px solid black;
 }
-#reply_submit li:nth-child(3){
-	width:100px; height:30px; margin-left:100px;
-	border: 0px solid blue; 
-	list-style-type: none; float: left;
+
+#myr_reply li:nth-child(2){
+	margin-top:4px; margin-left:20px;
 }
-#reply_submit li:nth-child(3) input{
-	margin-top:5px; margin-left:5px;
+#myr_reply li:nth-child(3){
+	margin-top:8px;
 }
+
+#myr_reply_insert{
+	height:25px;
+}
+
 

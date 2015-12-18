@@ -28,7 +28,7 @@
 	
 	<!-- 수정하세요...임의 값 넣은겁니당~~ 채윤 -->
 	<input type="hidden" name="member_number" value="${member_number}"/>
-	<c:set var="order_number" value="83"/>
+	<c:set var="order_number" value="41"/>
 	<c:set var="flight_number" value="1"/>
 	
 	<div id="mmo_content">
@@ -37,7 +37,7 @@
 				<li style="width: 100px;">상품명</li>	
 				<li style="width: 700px;"></li>
 				<li style="width: 100px; float:right;">
-					<a href="javascript:pushRequest('${root}','${member_number}','${order_number }','${flight_number }','취소')">취소신청</a></li>
+					<a href="javascript:pushRequest('${root}','${order_number }','${flight_number }','취소')">취소신청</a></li>
 			</ul>
 		</div>
 		<div class="mmo_line" style="height: 43px;">

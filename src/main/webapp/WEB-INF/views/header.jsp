@@ -93,10 +93,15 @@ $(function(){
 	<a href = "${root}/boardNotice/write.do">Notice 게시판 write</a> / 
 	<a href = "${root}/boardNotice/list.do">Notice 게시판 list</a> / 
 	<a href = "${root}/boardQna/list.do">Q&A 게시판 list</a> / 
+	<a href = "${root}/detailSearch/detailSearch.do">간편검색</a> / 
 	<br/>
 	<a href = "${root}/freeplan/freePlanList.do">장소 list marker 출력</a></br>
 	<a href = "${root}/freeplan/freePlanInsert.do">place Insert</a>
-
+	<br/>
+	<a href = "${root}/product/productList.do?pc=1">동남아</a> / 
+	<a href = "${root}/product/productList.do?pc=2">중국</a> / 
+	<a href = "${root}/product/productList.do?pc=3">일본</a> 
+	
 	<div>
 		<c:if test="${member_name != null}">
 			${member_name}님 환영합니다.

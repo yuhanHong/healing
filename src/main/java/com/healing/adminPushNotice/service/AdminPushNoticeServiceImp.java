@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -45,15 +46,22 @@ public class AdminPushNoticeServiceImp implements AdminPushNoticeService {
 		// TODO Auto-generated method stub
 		
 		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		HttpSession session=request.getSession();
+		
+		int member_number=Integer.parseInt((String) session.getAttribute("member_number"));
+		
+		homeAspect.logger.info(homeAspect.logMsg+"member_number"+member_number);
 	    HttpServletResponse response=(HttpServletResponse)map.get("response");
 		
 	    AdminPushNoticeDto adminPushNoticeDto=(AdminPushNoticeDto)map.get("adminPushNoticeDto");
-	    AdminPushNoticeDto dto=adminPushNoticeDao.adminPushNoticeOverCheck(adminPushNoticeDto);
-	    int check=0;
+	   // AdminPushNoticeDto dto=adminPushNoticeDao.adminPushNoticeOverCheck(adminPushNoticeDto);
+	    adminPushNoticeDto.setMember_number(member_number);
+	   int check=0;
 	    
-	    if(dto==null){
+	    //if(dto==null){
 	    	check=adminPushNoticeDao.adminPushNoticeRequestCancel(adminPushNoticeDto);
-	    }
+	   // }
 	    try{
 	      response.setContentType("application/html;charset=UTF-8");
 	      PrintWriter out = response.getWriter();

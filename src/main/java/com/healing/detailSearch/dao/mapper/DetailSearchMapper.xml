@@ -6,4 +6,3 @@
 <mapper namespace="dao.detailSearchMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
 	
 </mapper>
-	

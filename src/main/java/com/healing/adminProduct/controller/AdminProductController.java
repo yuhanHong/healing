@@ -147,6 +147,6 @@ public class AdminProductController {
 		
 		adminProductService.productPhotoWriteOk(mav);
 		
-		return null;
+		return mav;
 	}
 }

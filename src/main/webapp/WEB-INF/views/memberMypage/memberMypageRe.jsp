@@ -14,9 +14,9 @@
 <script type="text/javascript" src="${root}/js/memberMypage/memberMypageRe.js"></script>
 <script>
 $(function(){
-	 $( "#myr_reply_text" ).slideUp(0);	
+	$( "#myr_reply_text" ).slideUp(0);	
 	$( "#reply_button" ).click(function() {
-	  $( "#myr_reply_text" ).slideToggle( "slow" );
+	$( "#myr_reply_text" ).slideToggle( "slow" );
 	});
 });
 	
@@ -52,14 +52,23 @@ $(function(){
 					<div id="reply"><input type="image" id="reply_button" src="${root}/css/images/reply.png" alt="button"/></div>
 				</div>
 			</div>
-			
+			<input type="hidden" value="${root}" name="root"/>
 			<div id="myr_reply_text">
-			<form action="${root}/memberMypage/memberMypageReply.do" method="POST">
+			<form action="${root}/memberMypage/memberMypageReply.do" method="POST" onsubmit="return mypageRepl(this)">
 				<input type="hidden" name="member_number" value="${member_number}"/>
 				<div id="reply_submit">
-					<ul>
+					<input type="hidden" name="star_number" id="star_number"/>
+					<ul id="myr_score">
+						<li>평점</li>
+						<li class="score_button_li score_button_li_1"><input type="image" class="score_button" src="${root}/css/images/emptyStar.png" alt="button"/></li>
+						<li class="score_button_li score_button_li_2"><input type="image" class="score_button" src="${root}/css/images/emptyStar.png" alt="button"/></li>
+						<li class="score_button_li score_button_li_3"><input type="image" class="score_button" src="${root}/css/images/emptyStar.png" alt="button"/></li>
+						<li class="score_button_li score_button_li_4"><input type="image" class="score_button" src="${root}/css/images/emptyStar.png" alt="button"/></li>
+						<li class="score_button_li score_button_li_5"><input type="image" class="score_button" src="${root}/css/images/emptyStar.png" alt="button"/></li>
+					</ul>
+					<ul id="myr_reply">
 						<li>후기작성</li>
-						<li><input type="text" name="review_content" size="66"/></li>
+						<li><input id="myr_reply_insert" type="text" name="review_content" size="66"/></li>
 						<li><input type="submit" value="작성"/></li>
 					</ul>
 				</div>
