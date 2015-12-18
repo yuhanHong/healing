@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>관리자모드 - 통계</title>
 <!-- CSS -->
-<link rel="stylesheet" type="text/css" href="${root }/css/adminOrder/style.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/adminOrder/style.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/jquery-ui.css"/>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <!-- Script -->
@@ -27,7 +27,9 @@
 <body>
 	<jsp:include page="../adminHeader.jsp"/>
 	<jsp:include page="../adminSide.jsp"/>
-
+	
+	<input type="hidden" id="root" value="${root}" />
+	
 	<div style="width:1200px;">
 		<h2 style="margin-top: 40px;">매출 통계</h2>
 		<div class="adminOrderDiv" id="salesTop">

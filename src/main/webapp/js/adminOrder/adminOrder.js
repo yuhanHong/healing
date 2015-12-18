@@ -1,6 +1,6 @@
+var root;
 
 function adminOrderSearch(root){
-	
 	var url=root;
 
 	//select 값을 비회원, 전체 검색으로 선택한 경우
@@ -50,10 +50,12 @@ function adminOrderSearch(root){
 	}
 }
 
-$(function() {	
+$(function() {
+	 root = $('#root').val(); 
+	    
 	 $( ".datepicker" ).datepicker({
 	      showOn: "button",
-	      buttonImage: "http://localhost:8181/main/resources/adminOrder/calendar.JPG",
+	      buttonImage: root + "/resources/adminOrder/calendar.JPG",
 	      buttonImageOnly: true,
 	      dateFormat:"yy/mm/dd",
 	      buttonText: "Select date"
@@ -70,7 +72,7 @@ $(function() {
  });
 
 function orderAdminRead(root,order_number){
-	url=root+"/adminOrder/adminOrderRead.do?order_number="+order_number;
+	var url=root+"/adminOrder/adminOrderRead.do?order_number="+order_number;
 	var myWindow = window.open(url, "", "width=550, height=400, resizable=0");
 	
 }

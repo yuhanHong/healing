@@ -8,7 +8,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>관리자모드 - 예약관리</title>
-<link rel="stylesheet" type="text/css" href="${root }/css/adminOrder/style.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/adminOrder/style.css"/>
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/jquery-ui.css"/>
@@ -21,6 +21,7 @@
 	<jsp:include page="../adminHeader.jsp"/>
 	<jsp:include page="../adminSide.jsp"/>
 	
+	<input type="hidden" id="root" value="${root}" />
 	<input type="button" id="product_like" value="관심상품 추가"/>
 	
 	<script type="text/javascript">
