@@ -1,0 +1,145 @@
+@CHARSET "UTF-8";
+a:link{color:black; text-decoration: none;}
+a:visited{color:black; text-decoration: none;}
+a:hover{color:black; text-decoration: none;}
+li{list-style: none; text-align:center;}
+
+ul,li {margin:0; padding:0;} 
+
+
+.schedule_btn{
+	border:1px solid black;
+	height:60px;
+}
+
+.day_region{
+	border:1px solid #22741C; float:left;
+	width:100px; height:590px; 
+	background-color: #22741C;
+}
+
+.day_region ul li{
+	border:1px solid #22741C; 
+	border-bottom-color:#BDBDBD;
+	font-weight:bold; color:#ffffff;
+	height:40px; line-height: 40px;
+}
+
+.drop_region{
+	border:0px solid black; float:left;
+	width:300px; height:590px;
+}
+/* ----------------------- */
+
+.day{
+	border:1px solid #c0c0c0;
+	height:40px; line-height: 40px;
+	text-align: center; background-color: #598700;
+	font-weight: bold; color:#ffffff;
+	
+}
+
+.pulm{
+	border:1px solid #c0c0c0;
+	height:40px; line-height: 40px;
+	text-align: center; background-color: #c0c0c0;
+	font-weight: bold; color:#ffffff;
+}
+
+#schedule_ul > li{
+	border:1px solid #ffffff; float:left;
+	border-bottom-color:#BDBDBD;
+	background-color:#ffffff;
+	height:85px; line-height: 85px;
+	width:300px;
+}
+
+#schedule{
+	overflow-y:scroll; overflow-x:hidden; 
+	height:550px; 
+}
+
+/* --------------------- */
+.city_dialog{
+	border:0px solid black; float:left;
+	width:300px; height:590px;
+}
+
+.city_dialog .city_change{
+	border:0px solid black;
+	height:40px; line-height: 40px;
+	background-color: #6ABC64;
+}
+
+.city_dialog .city_change div{
+	float:left; color:#ffffff;
+	font-weight: bold; margin-left: 30px;
+}
+
+.city_dialog .city_change select{
+	border:1px solid #ffffff;
+	margin-left: 110px;
+}
+
+.city_dialog .city_search{
+	border:1px solid #ffffff;
+	border-bottom-color:#BDBDBD;
+	border-top-color:#BDBDBD;
+	height: 40px; line-height: 40px;
+}
+
+#city_search_text{
+	margin-left: 10px;
+}
+
+#city_search_btn{
+	margin-left: 
+}
+
+.city_category{
+	border:1px solid #ffffff; 
+	border-bottom-color:#BDBDBD;
+	border-top-color:#ffffff;
+	height:60px; line-height: 60px;
+	text-align: center;
+	background-color: #F6F6F6;
+}
+
+#city_list{
+	border:1px solid #c0c0c0; 
+	border-bottom-color:#ffffff;
+	height:450px; overflow-y:scroll; overflow-x:hidden;
+}
+
+#city_list li{
+	border:1px solid #ffffff; float:left;
+	border-bottom-color:#BDBDBD;
+	background-color:#ffffff;
+	height:85px; line-height: 85px;
+	width:300px;
+}
+
+#city_list_photo{
+	border:1px solid black; float:left;
+	margin-top:6px; margin-left:6px;
+	height:70px; width:70px;
+}
+
+#city_list_name{
+	border:1px solid black;  float:left;
+	margin-top:25px; margin-left:6px;
+	height:30px; width:140px; line-height: 30px;
+}
+
+#plusImg{
+	border:0px solid black;  float:left;
+	margin-top:25px; margin-left:6px;
+	height:30px; width:30px; line-height: 30px;
+}
+
+/*------------리스트부분 수정 end---------- */
+
+#map_schedule_canvas{
+	border:1px solid black;
+	width:613px; height:590px;
+}

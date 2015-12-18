@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.freePlanMapper">
+	<select id="freePlanGetCount" resultType="int">
+		select count(*) from freeplanner
+	</select>
+	
+	<select id="freePlanGetList" resultType="com.healing.freeplan.dto.FreePlanDto">
+		select * from freeplanner
+	</select>
+	
+	<insert id="freePlanInsert" parameterType="com.healing.freeplan.dto.FreePlanDto">
+      insert into freeplanner(place_number,place_name,place_latitude,place_longitude,place_category,place_city,place_country,place_explain,place_file_name,place_file_path,place_file_size)
+      values(freepl_freepl_number_seq.nextval,#{place_name},#{place_latitude},#{place_longitude},#{place_category},#{place_city},#{place_country},#{place_explain},#{place_file_name},#{place_file_path},#{place_file_size})
+   </insert>
+   
+   <select id="freePlanCtrNum" resultType="int">
+   	select count(distinct place_country) from freeplanner
+   </select>
+   
+   <select id="freePlanCtrList" resultType="String">
+   	select distinct place_country from freeplanner
+   </select>
+   
+   <select id="freePlanCityNum" parameterType="String" resultType="int">
+   	select count(distinct place_city) from freeplanner where place_country = #{ctrName}
+   </select>
+   
+   <select id="freePlanCityList" parameterType="String" resultType="com.healing.freeplan.dto.FreePlanDto">
+   	select * from freeplanner where place_country = #{ctrName}
+   </select>
+   
+   <select id="freePlanSelectCityNum" parameterType="String" resultType="int">
+   	select count(*) from freeplanner where place_city = #{cityName}
+   </select>
+   
+   <select id="freePlanSelectCityList" parameterType="String" resultType="com.healing.freeplan.dto.FreePlanDto">
+   	select * from freeplanner where place_city = #{cityName}
+   </select>
+   
+   <select id="freePlanCategoryNum" parameterType="java.util.HashMap" resultType="int">
+   	select count(*) from freeplanner where place_city = #{cityName} and place_category = #{place_category}
+   </select>
+   
+   <select id="freePlanCategoryList" parameterType="java.util.HashMap" resultType="com.healing.freeplan.dto.FreePlanDto">
+   	select * from freeplanner where place_city = #{cityName} and place_category = #{place_category}
+   </select>
+   
+   <select id="freePlanSearchNum" parameterType="java.util.HashMap" resultType="int">
+   	select count(*) from freeplanner where place_city = #{cityName} and place_name like '%' || #{searchWord} || '%'
+   </select>
+   
+   <select id="freePlanSearchList" parameterType="java.util.HashMap" resultType="com.healing.freeplan.dto.FreePlanDto">
+   	select * from freeplanner where place_city = #{cityName} and place_name like '%' || #{searchWord} || '%'
+   </select>
+   
+   <select id="freePlanCityNameList" parameterType="java.util.HashMap" resultType="String">
+   	select distinct place_city from freeplanner where place_country = #{ctrName} and not place_city = #{cityName}
+   </select>
+   
+   <insert id="freePlanSaveFile" parameterType="java.util.Map">
+   		insert into schedule (schedule_number,member_number,schedule_content,schedule_day)
+   		values(schedule_schedule_number_seq.nextval,#{member_number},#{schedule_content},#{schedule_day})
+   </insert>
+</mapper>
