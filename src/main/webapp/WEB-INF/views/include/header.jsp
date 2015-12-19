@@ -85,8 +85,8 @@ $(function(){
 		 <c:if test="${member_id!=null}">
 			 <li><a href="${root}/member/memberUpdate.do?member_id=${member_id}&member_number=${member_number}">MyPage</a></li>
 			 <li><a href="${root}/member/memberLogout.do">LogOut</a></li>
-			 <li><a href="${root}/boardFaq/list.do">고객센터</a></li>
 		</c:if>
+			  <li><a href="${root}/boardFaq/list.do">고객센터</a></li>
 			 <li><a href="${root}/company/tourInfo.do">회사정보</a></li>
 		
 		 <li><a href="${root}/main/adminHome.do">(관리자모드)</a></li>

@@ -21,9 +21,14 @@ $(function(){
 	$("#city_search_text").click(function(){
 		$("#city_search_text").val("");
 	});
+	
+	//
+	
+	
 });
 
-function init(root){
+function init(root){	
+	
 	//alert(root);
 	var url = root+"/freeplan/freePlanPrintMarker.do";
 	$.ajax({

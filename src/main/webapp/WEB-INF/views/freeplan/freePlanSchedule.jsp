@@ -39,9 +39,10 @@
 					</ul>
 				</div>
 			</div>
-			<div style="border:1px solid #c0c0c0; height:60px; line-height: 60px; text-align: center; background-color: #BCE55C;">
+			<div style="border:1px solid #6ABC64; height:60px; line-height: 60px; text-align: center; background-color: #BCE55C;">
 				<input type="submit" value="일정 저장하기"/>
-				<input type="button" value="나가기" onclick="location.href='${root}'"/>
+				<input type="button" value="나라선택" onclick="location.href='${root}/freeplan/freePlanList.do'"/>
+				<input type="button" value="홈으로" onclick="location.href='${root}'"/>
 			</div>
 		</div>
 	</form>

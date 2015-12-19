@@ -69,31 +69,37 @@
 				}
 			});
 		});
+		
+// 		var wWidth = $(window).innerWidth()- 330;
+// 		var wHeight = $(window).innerHeight();
+// 		$('#map_canvas').resize(function() {
+// 		      $('#map_canvas').width(wWidth);
+// 		      $('#map_canvas').height(wHeight);
+// 		 });
 	});
 </script>
 </head>
-<body onload="init('${root}')">
-	<div class="continentDiv">
-		<ul>
-			<c:forEach var="countryName" items="${countryList}">
-				<li>${countryName}</li>
-			</c:forEach>
-		</ul>
-	</div>
-	
-	<div class="countryDiv">
-		<div>국가명</div>
-		<div>
+<body onload="init('${root}')" style="margin: 0px;">
+<!-- 	<div id="window" style="width:1260px; height:707px; border:1px solid black; "> -->
+	<div id="window" style="border:1px solid black; ">
+		<div class="continentDiv">
 			<ul>
-				<li>도시명</li>
+				<c:forEach var="countryName" items="${countryList}">
+					<li>${countryName}</li>
+				</c:forEach>
 			</ul>
 		</div>
-	</div>
-	
-	<div>
 		
+		<div class="countryDiv">
+			<div>국가명</div>
+			<div>
+				<ul>
+					<li>도시명</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="map_canvas"></div>
 	</div>
-	
-	<div id="map_canvas"></div>
 </body>
 </html>
