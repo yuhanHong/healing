@@ -15,7 +15,7 @@
 	<jsp:include page="../include/header.jsp"/>
 	
 	<div class="outline_class">
-		<jsp:include page="../include/sideMenu.jsp"/>
+		<jsp:include page="../include/boardSideMenu.jsp"/>
 		<div class="content_class">
 			<div>
 				<div>
@@ -120,8 +120,8 @@
 				<div style="margin-top: 40px;">
 					<div class="line">
 						<label class="title">제목</label>
-						<span class="content">
-							<span style="font-weight: bold;">[답변]</span>${boardQnaList[1].qna_title}
+						<span class="content" style="width:650px; text-align: left;">
+							[답변]${boardQnaList[1].qna_title}
 						</span>
 					</div>
 					
@@ -150,6 +150,6 @@
 			</c:if>
 		</div>
 	</div>
-	<jsp:include page="../footer.jsp"/>
+	<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

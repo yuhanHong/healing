@@ -9,6 +9,17 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" media="all" href="${root}/css/head/style.css" />
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css' />
+
+<script type="text/javascript">
+//브라우저의 타이틀 변경
+	document.title="힐링투어에 오신 것을 환영합니다!";
+//브라우저의 아이콘 변경
+	var link = document.createElement('link');
+    link.rel = 'Shortcut Icon';
+    link.href = '${root}/resources/icons/H.ico';
+    document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+
 </head>
 <body>
 <div id = "info">
@@ -23,14 +34,14 @@
 </div>
 <div id="header">
   <div class="header_content">
-    <div class="logo"><a href="">Healing</a> <span>| a simple responsive template</span></div>
+    <div class="logo"><a href="${root}">Healing</a> <span>| a simple responsive template</span></div>
     <div class="menu">
       <ul>
-        <li><a href="/">home</a></li>
-        <li ><a href="${root}/boardNotice/write.do">동남아</a></li>
-        <li><a href="#">중국</a></li>
-        <li><a href="#">일본</a></li>
-        <li><a href="#">자유플랜</a></li>
+        <li><a href="${root}">home</a></li>
+        <li ><a href="${root}/product/productList.do?pc=1">동남아</a></li>
+        <li><a href="${root}/product/productList.do?pc=2">중국</a></li>
+        <li><a href="${root}/product/productList.do?pc=3">일본</a></li>
+        <li><a href="${root}/freeplan/freePlanList.do">자유여행</a></li>
         <li><a href="#">간편검색</a></li>
       </ul>
     </div>

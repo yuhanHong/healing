@@ -13,7 +13,7 @@ ul,li {margin:0; padding:0;}
 }
 
 .day_region{
-	border:1px solid #22741C; float:left;
+	border:1px solid #c0c0c0; float:left;
 	width:100px; height:590px; 
 	background-color: #22741C;
 }
@@ -26,8 +26,8 @@ ul,li {margin:0; padding:0;}
 }
 
 .drop_region{
-	border:0px solid black; float:left;
-	width:300px; height:590px;
+	border:1px solid #c0c0c0; float:left;
+	width:300px; height:695px;
 }
 /* ----------------------- */
 
@@ -42,7 +42,7 @@ ul,li {margin:0; padding:0;}
 .pulm{
 	border:1px solid #c0c0c0;
 	height:40px; line-height: 40px;
-	text-align: center; background-color: #c0c0c0;
+	text-align: center; background-color: #6ABC64;
 	font-weight: bold; color:#ffffff;
 }
 
@@ -56,13 +56,14 @@ ul,li {margin:0; padding:0;}
 
 #schedule{
 	overflow-y:scroll; overflow-x:hidden; 
-	height:550px; 
+	height:635px; 
 }
+
 
 /* --------------------- */
 .city_dialog{
-	border:0px solid black; float:left;
-	width:300px; height:590px;
+	border:1px solid #c0c0c0; float:left;
+	width:300px; height:695px;
 }
 
 .city_dialog .city_change{
@@ -108,7 +109,7 @@ ul,li {margin:0; padding:0;}
 #city_list{
 	border:1px solid #c0c0c0; 
 	border-bottom-color:#ffffff;
-	height:450px; overflow-y:scroll; overflow-x:hidden;
+	height:550px; overflow-y:scroll; overflow-x:hidden;
 }
 
 #city_list li{
@@ -140,6 +141,6 @@ ul,li {margin:0; padding:0;}
 /*------------리스트부분 수정 end---------- */
 
 #map_schedule_canvas{
-	border:1px solid black;
-	width:613px; height:590px;
+	border:1px solid #c0c0c0;
+	width:630px; height:695px;
 }

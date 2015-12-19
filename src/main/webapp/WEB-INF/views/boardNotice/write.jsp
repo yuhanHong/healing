@@ -14,7 +14,7 @@
 	<jsp:include page="../include/header.jsp"/>
 
 	<div class="outline_class">
-		<jsp:include page="../include/sideMenu.jsp"/>
+		<jsp:include page="../include/boardSideMenu.jsp"/>
 		<div class="content_class">
 			<div>
 				<div>

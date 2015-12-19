@@ -19,7 +19,7 @@
 </head>
 	<!-- 페이지가 load될 때 선택된 도시의 장소 marker를 찍는다. -->
 <body onload="initSchedule('${root}','${freePlanList[0].place_city}')">
-	<div class="schedule_btn"></div>
+
 	<form action="${root}/freeplan/freePlanSaveFile.do" method="POST" onsubmit="return ScheduleForm(this)">
 		<div class="drop_region">
 			<input type="hidden" name="member_number" value="${member_number}"/>
@@ -39,8 +39,9 @@
 					</ul>
 				</div>
 			</div>
-			<div>
+			<div style="border:1px solid #c0c0c0; height:60px; line-height: 60px; text-align: center; background-color: #BCE55C;">
 				<input type="submit" value="일정 저장하기"/>
+				<input type="button" value="나가기" onclick="location.href='${root}'"/>
 			</div>
 		</div>
 	</form>
