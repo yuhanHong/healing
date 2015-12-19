@@ -22,6 +22,24 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
+	@RequestMapping(value="/product/productList.do",method=RequestMethod.GET)
+	public ModelAndView productList(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		productService.productList(mav);
+		
+		return mav;
+	}
+
+	@RequestMapping(value="/product/flightList.do",method=RequestMethod.GET)
+	public ModelAndView flightList(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		productService.flightList(mav);
+		
+		return mav;
+	}
+
 	@RequestMapping(value="/product/productRead.do",method=RequestMethod.GET)
 	public ModelAndView productRead(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();

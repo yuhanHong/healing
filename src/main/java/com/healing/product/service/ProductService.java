@@ -9,5 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @설명 : 상품조회 Service 인터페이스
  */
 public interface ProductService {
+	void productList(ModelAndView mav);
+	void flightList(ModelAndView mav);
 	void productRead(ModelAndView mav);
 }

@@ -4,7 +4,24 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="dao.productMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
-	<select id="productFlightRead" parameterType="int" resultType="com.healing.product.dto.FlightDto"> 
+	<select id="productGetCount" parameterType="String" resultType="int">
+		select nvl(count(*),0) from product where product_category=#{product_category}
+	</select>
+	<select id="productGetList" parameterType="com.healing.product.dto.ProductSearchDto" resultType="com.healing.product.dto.ProductDto">
+		<![CDATA[
+		SELECT * FROM (SELECT ROWNUM rnum, b.* FROM (SELECT * FROM product where product_category = #{product_category} ORDER BY product_number DESC) b) where rnum>= #{startRow} and rnum<=#{endRow}
+		]]>
+	</select>
+	<select id="productRead" parameterType="int" resultType="com.healing.product.dto.ProductDto"> 
+		select * from product where product_number=#{product_number}	
+	</select>
+	<select id="flightGetCount" parameterType="int" resultType="int">
+		select nvl(count(*),0) from FLIGHT where PRODUCT_NUMBER = #{product_number}
+	</select>
+	<select id="flightGetList" parameterType="int" resultType="com.healing.product.dto.FlightDto">
+		SELECT * FROM FLIGHT WHERE PRODUCT_NUMBER = #{product_number} ORDER BY FLIGHT_NUMBER
+	</select>
+	<select id="flightRead" parameterType="int" resultType="com.healing.product.dto.FlightDto"> 
 		select * from flight where flight_number=#{flight_number}	
 	</select>
 </mapper>
