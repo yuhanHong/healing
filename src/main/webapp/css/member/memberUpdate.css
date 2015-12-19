@@ -6,20 +6,20 @@
 }
 
 #title{
-	width:50%; height:50px;
+	width:90%; height:50px;
 	border: 0px solid red;
 	line-height: 50px;
 	margin-left:60px;
 }
 
 #title span{
-	font-size: 40px;
+	font-size: 30px;
 }
 
 #memberSection{
 	width:90%; overflow: hidden;
 	border: 0px solid blue;
-	margin-left:60px;
+	margin-left:60px; margin-top:30px;
 }
 
 #memberOp{
@@ -47,6 +47,9 @@
 	height:30px; font-size: 16px;
 }
 
-
+#mu_button{
+	margin-left:170px; margin-top:30px;
+	
+}
 
 

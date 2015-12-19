@@ -131,7 +131,7 @@ public class MemberServiceImp implements MemberService {
 		// String id=memberDto.getMember_id();
 		// HomeAspect.logger.info(HomeAspect.logMsg+"로그인체크:"+member_number+","+id);
 		mav.addObject("memberDto",memberDto);
-		mav.setViewName("home");
+		mav.setViewName("include/home");
 	}
 
 	@Override

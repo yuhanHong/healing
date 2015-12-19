@@ -41,11 +41,11 @@
 	<div id="ms_main">
 		<div id="ms_title"><h3>마이페이지</h3></div>
 		<div id="ms_menu">
-			<div id="ms_menu_detail"><a href="${root}/member/memberMypageOrder.do?member_number=${member_number}">예약/결제 내역</a></div>
 			<div id="ms_menu_detail"><a href="${root}/member/memberUpdate.do?member_id=${member_id}&member_number=${member_number}">회원정보수정</a></div>
+			<div id="ms_menu_detail"><a href="${root}/member/memberMypageOrder.do?member_number=${member_number}">예약/결제 내역</a></div>
 			<div id="ms_menu_detail"><a href="${root}/memberMypage/memberMypageRe.do">갔다온상품/후기</a></div>
 			<div id="ms_menu_detail"><a href="${root}/productLike/productLikeList.do?member_number=2">관심상품정보</a> </div>
-			<div id="ms_menu_detail"><a href="">회원탈퇴</a></div>
+			<div id="ms_menu_detail"><a href="${root}/member/memberDelete.do?member_id=${member_id}">회원탈퇴</a></div>
 		</div>
 	</div>
 </body>

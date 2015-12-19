@@ -63,12 +63,12 @@ $(function(){
 		<div id="loginPage" style="display:none" title="로그인">
 			<form action="${root}/member/memberLogin.do" name="memberForm" method="POST">
 				<div>
-					아이디 : <input type="text" name="id"/>
+					아이디 :&nbsp;&nbsp;&nbsp; <input type="text" name="id"/>
 				</div>
 				<div>
 					비밀번호 : <input type="password" name="password"/>
 				</div>
-				<div>
+				<div align="center">
 					<input type="submit" value="로그인">
 					<input type="button" id="loginClose" value="취소">
 				</div>
@@ -107,7 +107,7 @@ $(function(){
 			${member_name}님 환영합니다.
 
 			<br/><br/>
-			<a href = "${root}/memberMypage/memberMypage.do">마이페이지</a> 
+			<a href = "${root}/member/memberUpdate.do?member_id=${member_id}&member_number=${member_number}">마이페이지</a> 
 		</c:if>
 	</div>
 	

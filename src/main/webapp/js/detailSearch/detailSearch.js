@@ -58,6 +58,9 @@ function result(root,str,min,max){
 		,url:url		// url 주소
 		,dataType:"json"
 		,success:function(args){
+			$("#dc_imfo").children().remove();
+			var count="<h3>("+args.data.length+")개의 상품이 선택되었습니다.</h3>";
+			$("#dc_imfo").append(count);
 			$("#dc_product").children().remove();
 			for(var i=0; i<args.data.length; i++){	
 				var form="<div id='dc_product_list'>";

@@ -19,10 +19,10 @@
   </script>
 </head>
 <body>
-	<jsp:include page="../header.jsp"/>
-	<jsp:include page="../memberMypage/mypageSide.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
+	<jsp:include page="../include/memberMypageSideMenu.jsp"/>
 <div id="updateTotal">
-	<div id="title"><span>회원수정</span></div>
+	<div id="title"><span>${member_name}님의 회원정보/수정 페이지 입니다.</span></div>
 	<form action="${root}/member/memberUpdateOk.do" name="memberForm" method="POST" onsubmit="return joinForm(this)">
 		<div id="memberSection">
 			<div id="memberOp">
@@ -114,7 +114,7 @@
 				</script>
 			</c:forEach>
 			</div>
-			<div>
+			<div id="mu_button">
 				<input type="submit" value="수정"/>
 				<input type="button" onclick="location.href='${root}/'" value="취소"/>
 			</div>
@@ -122,6 +122,6 @@
 	</form>
 </div>
 	
-	<jsp:include page="../footer.jsp"/>
+<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

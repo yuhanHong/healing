@@ -1,8 +1,8 @@
 
 function joinForm(form){
-	if(form.member_id.value==""){
+	if(form.member_input_id.value==""){
 		alert("아이디는 반드시 입력하셔야합니다.");
-		form.member_id.focus();
+		form.member_input_id.focus();
 		return false;
 	}
 	
@@ -49,7 +49,12 @@ function joinForm(form){
           form.member_phone.focus();
           return false;
    }
-
+   
+   if(form.join1[0].checked==false){
+	   alert("약관은 반드시 동의하셔야 합니다.");
+	   form.join1.focus();
+	   return false;
+   }
 
 }
 

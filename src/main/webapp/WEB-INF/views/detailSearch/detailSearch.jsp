@@ -15,8 +15,8 @@
 <script type="text/javascript" src="${root}/js/detailSearch/detailSearch.js"></script>
 </head>
 <body>
-	<jsp:include page="../header.jsp"/>
-
+	<jsp:include page="../include/header.jsp"/>
+	<jsp:include page="../include/memberMypageSideMenu.jsp"/>
 <div id="dc_main">
 <form name="dc_picker_form">
 	<input type="hidden" value="${root}" name="root"/>
@@ -79,17 +79,10 @@
 	</div>
 </form>
 	<div id="dc_product">
-		<%-- <div id="dc_product_list">
- 			<div id="dc_pro_img"><img src="${root}/resouces/productPhoto/${productDto.product_number}/0-1-1.jpg" width="280px" height="300px;"/></div>
-			<div id="dc_pro_imfo">
-				<ul>
-					<li>상품명 : 겁나멋진 여행</li>
-					<li>일수 : 11일</li>
-					<li>도시 : 오사카/도쿄/쿄토</li>
-				</ul>
-			</div>
-		</div> --%>
+
 	</div>
 </div>
+
+<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

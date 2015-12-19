@@ -9,8 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="../header.jsp"/>
-	<jsp:include page="mypageSide.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
+	<jsp:include page="../include/memberMypageSideMenu.jsp"/>
 
 
 

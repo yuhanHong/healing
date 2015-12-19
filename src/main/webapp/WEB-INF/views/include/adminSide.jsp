@@ -20,7 +20,7 @@
 </head>
 <!-- admin sidebar starts -->
 <c:if test="${admin_name!=null}">
-	<div id="adminSide" style="width: 200px; float: left;">
+	<div id="adminSide" style="width: 200px; height:800px; float: left;">
 		<ul id="menu" style="border: 0px;">
 			<li onclick="location.href='${root}/adminMode/adminModeCreate.do'">관리자 계정생성</li>
 			<c:if test="${admin_level=='Master'}">

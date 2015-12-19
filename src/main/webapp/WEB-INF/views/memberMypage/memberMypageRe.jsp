@@ -23,8 +23,8 @@ $(function(){
 </script>
 </head>
 <body>
-	<jsp:include page="../header.jsp"/>
-	<jsp:include page="mypageSide.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
+	<jsp:include page="../include/memberMypageSideMenu.jsp"/>
 <div id="myr_main">
 	<div id="myr_title"><span>${member_name}님이 다녀오신상품</span></div>
 		<div id="myr_content">
@@ -76,5 +76,7 @@ $(function(){
 			</div>
 		</div>
 	</div>
+	
+<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

@@ -76,7 +76,7 @@ $(function(){
 	<jsp:include page="../include/adminHeader.jsp"/>
 	<jsp:include page="../include/adminSide.jsp"/>
 
-<div style="width:1400px;">
+<div id="am_main">
 	<h2 style="margin-top: 40px;">회원 관리</h2>
 	<div id="adminMemberFormDiv">
 		<form action="${root}/adminMember/adminMemberSearch.do" method="POST">
@@ -175,7 +175,7 @@ $(function(){
 							<c:if test="${adminMember.member_delete>0}">
 								<c:if test="${adminMember.member_delete==1}">
 									<c:set var="delete" value="탈퇴"/>
-								</c:if>
+								</c:if> 
 								
 								<c:if test="${adminMember.member_delete==2}">
 									<c:set var="delete" value="추방"/>

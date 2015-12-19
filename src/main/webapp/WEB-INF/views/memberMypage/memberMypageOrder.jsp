@@ -15,8 +15,8 @@
 <%-- <script type="text/javascript" src="${root}/js/memberMypage/memberMypageOrder.js"></script> --%>
 </head>
 <body>
-	<jsp:include page="../header.jsp"/>
-	<jsp:include page="mypageSide.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
+	<jsp:include page="../include/memberMypageSideMenu.jsp"/>
 <div id="mmo_main">
 	<div id="mmo_title">
 		<h1>${member_name} 님의 예약/결제 내역 페이지 입니다.</h1>
@@ -74,5 +74,7 @@
 		</div>
 	</div>
 </div>
+
+<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>
