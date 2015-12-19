@@ -23,7 +23,7 @@
 		<div class="content_class">
 			<div>
 				<div style="float:left;">
-					<img src="http://localhost:8181/main/resources/boardImg/img01.PNG" align="center">
+					<img src="${root}/resources/boardImg/img01.PNG" align="center">
 					<h2 style="display:inline;"><span style="font-weight: bold; ">문의사항</span></h2>
 				</div>
 				
@@ -80,7 +80,7 @@
 								<a href="javascript:readFunc('${root}', '${boardQnaDto.qna_password}','${boardQnaDto.qna_number}','${currentPage}','${searchSort}','${searchWord}')">
 									${boardQnaDto.qna_title}
 									<c:if test="${boardQnaDto.qna_password ne null}">
-										<img src="http://localhost:8181/main/resources/boardImg/lock.PNG" align="center">
+										<img src="${root}/resources/boardImg/lock.PNG" align="center">
 									</c:if>
 								</a>
 							</li>
@@ -88,13 +88,13 @@
 							<li><fmt:formatDate value="${boardQnaDto.qna_date}" type="date"/></li>
 							<c:if test="${boardQnaDto.qna_reply == 1}">
 								<li>
-									<img src="http://localhost:8181/main/resources/boardImg/complete.PNG" align="center">
+									<img src="${root}/resources/boardImg/complete.PNG" align="center">
 								</li>
 							</c:if>
 							
 							<c:if test="${boardQnaDto.qna_reply == 0}">
 								<li>
-									<img src="http://localhost:8181/main/resources/boardImg/wait.PNG" align="center">
+									<img src="${root}/resources/boardImg/wait.PNG" align="center">
 								</li>
 							</c:if>
 						</ul>

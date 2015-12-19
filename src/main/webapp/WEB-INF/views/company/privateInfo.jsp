@@ -17,7 +17,7 @@
 	<div class="content_class">
 		<div>
 			<div style="float:left;">
-				<img src="http://localhost:8181/main/resources/boardImg/img01.PNG" align="center">
+				<img src="${root}/resources/boardImg/img01.PNG" align="center">
 				<h2 style="display:inline;"><span style="font-weight: bold; ">개인정보 취급방침</span></h2>
 			</div>
 			

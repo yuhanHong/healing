@@ -34,10 +34,10 @@
 </div>
 <div id="header">
   <div class="header_content">
-    <div class="logo"><a href="${root}">Healing</a> <span>| a simple responsive template</span></div>
+    <div class="logo"><a href="${root}/">Healing</a> <span>| a simple responsive template</span></div>
     <div class="menu">
       <ul>
-        <li><a href="${root}">home</a></li>
+        <li><a href="${root}/">home</a></li>
         <li ><a href="${root}/product/productList.do?pc=1">동남아</a></li>
         <li><a href="${root}/product/productList.do?pc=2">중국</a></li>
         <li><a href="${root}/product/productList.do?pc=3">일본</a></li>

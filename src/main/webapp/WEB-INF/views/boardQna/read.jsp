@@ -19,7 +19,7 @@
 		<div class="content_class">
 			<div>
 				<div>
-					<img src="http://localhost:8181/main/resources/boardImg/img01.PNG" align="center"> 
+					<img src="${root}/resources/boardImg/img01.PNG" align="center"> 
 					<h2 style="display:inline;"><span style="font-weight: bold;">상품문의</span></h2>
 				</div>
 			</div>
@@ -66,13 +66,13 @@
 					<div class="title" style="width:80px;">답변여부</div>
 					<c:if test="${boardQnaList[1] != null}">
 						<div class="content">
-							<img src="http://localhost:8181/main/resources/boardImg/complete.PNG" align="center">
+							<img src="${root}/resources/boardImg/complete.PNG" align="center">
 						</div>
 					</c:if>
 					
 					<c:if test="${boardQnaList[1] == null}">
 						<div class="content">
-							<img src="http://localhost:8181/main/resources/boardImg/wait.PNG" align="center">
+							<img src="${root}/resources/boardImg/wait.PNG" align="center">
 						</div>
 					</c:if>
 				</div>
