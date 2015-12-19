@@ -16,6 +16,13 @@ public class RecentProductController {
 	@Autowired
 	private RecentProductService recentProductService;
 	
+	/**
+	 * @함수이름 : recentProductRead
+	 * @리턴타입 : ModelAndView
+	 * @작성일 : 2015. 12. 18.
+	 * @개발자 : 전현준
+	 * @함수설명 : 메인페이지 - 메인베너에서 .do 요청을 받으면 Service에서 쿠키 생성 후 productList.jsp(read 페이지)로 이동 
+	 */
 	@RequestMapping(value="/recentProduct/recentProduct.do", method=RequestMethod.GET)
 	public ModelAndView recentProductRead(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView();
@@ -23,6 +30,28 @@ public class RecentProductController {
 		mav.addObject("response", response);
 		
 		recentProductService.recentProductRead(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/recentProduct/recentProductReadList.do", method=RequestMethod.GET)
+	public ModelAndView recentProductReadList(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("response", response);
+		
+		recentProductService.recentProductReadList(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/recentProduct/paging.do", method=RequestMethod.GET)
+	public ModelAndView paging(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("response", response);
+		
+		recentProductService.paging(mav);
 		
 		return mav;
 	}

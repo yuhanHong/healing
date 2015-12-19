@@ -53,5 +53,14 @@
 			order by pro.product_number asc
 		]]>
 	</select>
+	
+	<select id="recentlyProductSelect" resultType="com.healing.product.dto.ProductDto" parameterType="int">
+		select * from product where product_number=#{value}
+	</select>
+	
+	<select id="recentlyProductPhotoSelect" resultType="com.healing.product.dto.ProductPhotoDto" parameterType="int">
+		select * from product_photo where product_number=#{value}
+	</select>
+	
 </mapper>
 	

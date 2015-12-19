@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="java.net.URLDecoder" %>
 <!DOCTYPE html>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
@@ -38,8 +39,14 @@
 			출발 도시 : ${flightList.flight_end_departure_city}<br>
 			도착 도시 : ${flightList.flight_end_arrival_city}<br><br>
 			
-			<input type="button" value="목록으로" onclick="location.href='${root}/healingHome/healingHome.do'">
+			<input type="button" value="목록으로" onclick="location.href='${root}'">
+			
+			<%-- <input type="button" value="쿠키 읽기" onclick="location.href='${root}/recentProduct/recentProductReadList.do'"> --%>
+			
 		</c:forEach>
+		<!-- 최근 본 상품 include 된 부분 -->
+		<c:import url="../recentProduct/recentProduct.jsp"/>
 	</div>
+	
 </body>
 </html>

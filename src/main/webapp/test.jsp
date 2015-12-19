@@ -20,7 +20,7 @@
                     mousewheel: true,	// 마우스 휠 사용여부 (true, false)
                     navigator: '#main_bn_btn a',
                     duration: 500,		// 배너 바뀌는 속도
-					autoslide: 30000		// 배너 바뀌는 딜레이 조절
+					autoslide: 30000	// 배너 바뀌는 딜레이 조절
                 });
             });
         </script>

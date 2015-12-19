@@ -106,4 +106,28 @@ public class AdminBannerDaoImp implements AdminBannerDao {
 	public List<ProductPhotoDto> getProductPhotoList() {
 		return sqlSessionTemplate.selectList("dao.adminBannerMapper.getProductPhotoList");
 	}
+
+	/**
+	 * @함수이름 : recentlyProductSelect
+	 * @리턴타입 : List<ProductDto>
+	 * @작성일 : 2015. 12. 18.
+	 * @개발자 : 전현준
+	 * @함수설명 : 상품명, 상품가격, 상품이미지를 상품번호를 이용해서 갖고오는 함수(최근 본 상품 - 상품정보)
+	 */
+	@Override
+	public ProductDto recentlyProductSelect(int value) {
+		return sqlSessionTemplate.selectOne("dao.adminBannerMapper.recentlyProductSelect", value);
+	}
+
+	/**
+	 * @함수이름 : recentlyProductPhotoSelect
+	 * @리턴타입 : ProductPhotoDto
+	 * @작성일 : 2015. 12. 18.
+	 * @개발자 : 전현준
+	 * @함수설명 : 사진 설명, 사진 파일명, 사진 설명 등을 상품번호를 이용해서 갖고오는 함수(최근 본 상품 - 이미지)
+	 */
+	@Override
+	public ProductPhotoDto recentlyProductPhotoSelect(int value) {
+		return sqlSessionTemplate.selectOne("dao.adminBannerMapper.recentlyProductPhotoSelect", value);
+	}
 }

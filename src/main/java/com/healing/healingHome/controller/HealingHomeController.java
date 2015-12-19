@@ -23,8 +23,8 @@ public class HealingHomeController {
 	 * @개발자 : 전현준
 	 * @함수설명 : healingHome.do 요청이 들어오면 menu.jsp로 페이지 이동(추후 메인으로 될 페이지)
 	 */
-	//@RequestMapping(value = "/", method = RequestMethod.GET)		// 나중에 메인페이지에 링크 걸리게되면 main - HomeController : home함수를 주석걸고 mapping을 추가해야함
-	@RequestMapping(value="/healingHome/healingHome.do", method=RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)		// 나중에 메인페이지에 링크 걸리게되면 main - HomeController : home함수를 주석걸고 mapping을 추가해야함
+	//@RequestMapping(value="/healingHome/healingHome.do", method=RequestMethod.GET)
 	public ModelAndView healingHome(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);

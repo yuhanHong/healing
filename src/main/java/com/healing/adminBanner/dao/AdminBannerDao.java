@@ -20,4 +20,8 @@ public interface AdminBannerDao {
 	public List<ProductDto> getBannerList();
 	
 	public List<ProductPhotoDto> getProductPhotoList();
+	
+	public ProductDto recentlyProductSelect(int value);
+	
+	public ProductPhotoDto recentlyProductPhotoSelect(int value);
 }

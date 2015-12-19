@@ -84,12 +84,6 @@ http://www.templatemo.com/free-website-templates/
 				<li><a href="#home" class="smoothScroll">Login</a></li>
 			</ul>
 		</div>
-		
-		<%-- <input type="text" value="${list }"> --%>
-		<%-- <c:forEach var="i" begin="0" end="3" step="1"> --%>
-		<c:forEach var="cookieList" items="${list}">
-			${cookieList}
-		</c:forEach>
 
 		<div class="container">
 			<div class="navbar-header">
@@ -112,9 +106,9 @@ http://www.templatemo.com/free-website-templates/
 				</ul>
 			</div>
 		</div>
-
 	</div>
 	
+	<!-- 메인 배너 부분 -->
 	<c:if test="${productPhotoList.size() != 0}">
 	<div class="slider_wrapper" align="center">
 		<div id="camera_wrap" class=""> <!-- style="width:1100px; margin-left:120px;" -->
@@ -136,7 +130,7 @@ http://www.templatemo.com/free-website-templates/
 	</c:if>
 	
 	<!-- 최근 본 상품 include 된 부분 -->
-	<c:import url="recentProduct.jsp"/>
+	<c:import url="../recentProduct/recentProduct.jsp"/>
 	
 	<!--==============================Content=================================-->
 	<div class="content">
