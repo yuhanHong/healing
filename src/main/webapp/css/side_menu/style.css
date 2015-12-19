@@ -1,0 +1,12 @@
+.side_menu_class{
+	border:0px solid black;  
+	width:150px; height:300px; 
+	float:left; margin-right: 20px; 
+}
+
+
+.side_menu_class ul li{
+	clear:both; border:1px solid #ffffff;
+	height:40px; line-height: 40px; width:150px;
+	text-align: left; border-bottom-color: #EAEAEA;
+}
