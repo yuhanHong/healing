@@ -100,7 +100,7 @@ public class ProductLikeServiceImp implements ProductLikeService {
 			productMap.put(like_number, productDto);
 			
 			flight_number=pld.getFlight_number();
-			flightDto=productDao.productFlightRead(flight_number);
+			flightDto=productDao.flightRead(flight_number);
 			flightMap.put(like_number, flightDto);
 		}
 
