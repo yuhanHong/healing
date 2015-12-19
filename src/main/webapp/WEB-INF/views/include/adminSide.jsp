@@ -22,24 +22,18 @@
 <c:if test="${admin_name!=null}">
 	<div id="adminSide" style="width: 200px; float: left;">
 		<ul id="menu" style="border: 0px;">
-		
-			<li><a href = "${root}/adminMode/adminModeCreate.do">관리자 계정생성</a></li>
-			
+			<li onclick="location.href='${root}/adminMode/adminModeCreate.do'">관리자 계정생성</li>
 			<c:if test="${admin_level=='Master'}">
-				<li>
-					<a href = "${root}/adminMode/adminModeUpdate.do">관리자 계정관리</a>
-				</li>
-			 </c:if>
-			
-			<li><a href = "${root}/adminMember/adminMember.do">회원관리</a></li>
-			
-			<li><a href="${root}/adminBanner/bannerInsert.do">배너 상품 관리</a></li>	
-			<li><a href="${root}/adminOrder/adminOrder.do">예약관리</a> </li>
-			<li><a href="${root}/adminOrder/adminOrderStats.do">매출 통계</a></li>
-			<li><a href="${root}/adminProduct/adminProductWrite.do">상품 등록</a></li>
-			<li><a href="${root}/adminProduct/adminProductList.do">상품 관리</a></li>
-			<li><a href="${root}/adminProduct/adminBargain.do">할인율 설정</a></li>
-			<li><a href="${root}/adminPushNotice/adminPushNotice.do?select=all">알림</a></li>
+				<li onclick="location.href='${root}/adminMode/adminModeUpdate.do'">관리자 계정관리</li>
+			</c:if>
+			<li onclick="${root}/adminMember/adminMember.do">회원관리</li>
+			<li onclick="${root}/adminBanner/bannerInsert.do">배너 상품 관리</li>	
+			<li onclick="${root}/adminOrder/adminOrder.do">예약관리</li>
+			<li onclick="${root}/adminOrder/adminOrderStats.do">매출 통계</li>
+			<li onclick="${root}/adminProduct/adminProductWrite.do">상품 등록</li>
+			<li onclick="${root}/adminProduct/adminProductList.do">상품 관리</li>
+			<li onclick="${root}/adminProduct/adminBargain.do">할인율 설정</li>
+			<li onclick="${root}/adminPushNotice/adminPushNotice.do?select=all">알림</li>
 			
 			<li>
 				<a href = "${root}/adminMode/adminModeLogout.do?admin_number=${admin_number}">로그아웃</a>
