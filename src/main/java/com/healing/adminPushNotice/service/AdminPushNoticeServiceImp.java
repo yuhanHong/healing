@@ -117,7 +117,7 @@ public class AdminPushNoticeServiceImp implements AdminPushNoticeService {
 	    HttpServletResponse response=(HttpServletResponse)map.get("response");
 	    
 	    int check=adminPushNoticeDao.adminPushCheck();
-	   HomeAspect.logger.info(HomeAspect.logMsg+"check:"+check);
+	  // HomeAspect.logger.info(HomeAspect.logMsg+"check:"+check);
 	    try{
 		      response.setContentType("application/html;charset=UTF-8");
 		      PrintWriter out = response.getWriter();

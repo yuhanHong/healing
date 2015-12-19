@@ -13,8 +13,8 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/adminMode/adminModeCreate.css"/>
 </head>
 <body>
-	<jsp:include page="../adminHeader.jsp"/>
-	<jsp:include page="../adminSide.jsp"/>
+	<jsp:include page="../include/adminHeader.jsp"/>
+	<jsp:include page="../include/adminSide.jsp"/>
 	<div style="width:1200px;">
 		<h2 style="margin-top: 40px;">관리자 계정 생성</h2>
 		

@@ -1,48 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="root" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${root}/css/boardFaq/boardFaq.css"/>
+<style type="text/css">
+#companyinfo li{
+
+display: block;
+float: left;
+}
+</style>
 </head>
 <body>
-	<jsp:include page="../header.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
+	<div class="outline_class">
 	<jsp:include page="companySide.jsp"/>
 	
-	<div id="auto_info" style="border:1px solid orange; margin-left:250px;width:1000px; height:800px">
-		<h3 style="margin:20px">회사소개</h3>
-		<div style="border:1px solid skyblue; margin:20px;width:950px; height:500px; overflow:scroll">
-<pre>
-<h3>해외여행을 통해 고객님들께 힐링을 느끼도록 해드리겠습니다.</h3>
+	<div class="content_class">
+		<div>
+			<div style="float:left;">
+				<img src="http://localhost:8181/main/resources/boardImg/img01.PNG" align="center">
+				<h2 style="display:inline;"><span style="font-weight: bold; ">회사정보</span></h2>
+			</div>
+			
+		</div>		
+		<hr style="border:2px solid green; margin-top: 36px;">
+		<ul id="companyinfo">
+					<li><img src="${root}/resources/companyinfo/companyinfo.JPG"></li>
+					<li style="margin-top: 30px;margin-left: 20px; color: #333; text-align: left"><div>
+						&nbsp;전 세계를 향해 끊임없이 도전하여 세계적인 글로벌No.1 문화관광 유통그룹으로 <br/>나아가겠습니다.
+						힐링투어는 국내 및 해외에서 3,200여 명이 넘는 직원이 여행서비스를 <br/>제공하는 국내 최대 여행기업으로, 
+						15년 연속 해외여행 및 항공권 판매 1위를 달성하고 있는 1등<br/> 여행종합기업입니다.
+						힐링투어는 최고의 여행전문 인력과 전 세계 29개 지역을<br/> 커버하는 직영 네트워크를 통해 한 차원 높은 여행서비스를
+						제공함으로써 <br/>여행산업의 질적 양적 성장을 동시에 이끌어왔으며, 고객 만족도와 여행사 <br/>선호도 조사에서 확고한 선두 지위를 확보하고 있습니다.
+						<br/>
+						&nbsp;또한, 힐링투어는 여행산업에 혁신적인 IT 시스템을 접목하여 생산성과 수익성을 높이고 시장 지위를<br/> 지속적으로 확장하며,
+						2006년 세계 3대 증권시장 중 하나인 런던증권거래소(LSE)에 상장하여<br/> 하나투어 기업경영의 투명성과 신뢰도를 국제적으로 
+						공인 받는 동시에 <br/>세계적인 기업으로 성장하는 발판을 마련하였습니다.<br/>
+						&nbsp;힐링투어는 여행업 중심의 사업영역을 관광개발과 문화상품 제작∙유통업 등의<br/> 분야로 확장하여 2020년 글로벌 No.1
+						문화관광 유통그룹으로 성장하고자 합니다.<br/> 인적자원의 글로벌 역량을 강화하고,<br/> 문화관광 유통 관련 사업의 역량을 강화하여
+						 고객에게 세계 최고의<br/> 문화관광 유통 서비스를 제공하는 기업으로 성장하겠습니다. 
+					</div></li>
+				</ul>	
 
-IMF를 겪으면서 시작한 (주)힐링투어가 벌써 15년을 넘어 20년을 향해가고 있습니다.
-지나보면 많은 일들이 있었습니다.
-
-‘알짜배기 유럽’ 책과 ‘유럽 5대박물관 미술관 음성해설서’를 내면서 부산에서 서울에 진출하여 지방에서 올라온 여행사로서는 
-처음 10년을 넘기는 회사가 되었으며 ‘유럽가면 빼먹지 말아야 할 52가지’는 YES 24에서 
-여행부분 2달 연속 베스트 1위를 차지하는 영광도 얻었습니다.
-
-또한 ‘자유 원하면 24시간 가이드, SBK 단체배낭’이 200기수 5천명을 송출하면서 2011년~2012년 문화관광부 우수여행상품으로 
-인증을 받게 되었습니다.
-
-이 모든 것이 함께한 여러분들의 성원과 사랑 덕분입니다.
-
-이제 우리들은 2015년 대한민국의 최고의 유럽정보문화기업으로 나아갑니다.
-단순히 여행사 직원이 아니라 여행을 통해 자신의 삶을 아름답게 성장시키려는 사람을 돕는 라이프 디자이너 (Life Designer)가 
-되기 위해 최선을 다하고 있습니다. 
-
-
-이 일은 혼자서 할 수 없습니다.
-비록 돌아가고 더딜지라도 우리가 모여서 함께 할 때 가능합니다.
-
-여러분의 진심어린 참여와 격려 바랍니다.
-감사합니다.
-</pre>
 		</div>
 	</div>
-	
-	<jsp:include page="../footer.jsp"/>		
+	<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

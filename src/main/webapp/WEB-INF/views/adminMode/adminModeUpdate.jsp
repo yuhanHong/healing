@@ -14,8 +14,8 @@
 <script type="text/javascript" src="${root}/js/adminMode/adminModeUpdate.js"></script>
 </head>
 <body>
-	<jsp:include page="../adminHeader.jsp"/>
-	<jsp:include page="../adminSide.jsp"/>
+	<jsp:include page="../include/adminHeader.jsp"/>
+	<jsp:include page="../include/adminSide.jsp"/>
 	<div style="width:1200px;">
 		<h2 style="margin-top: 40px;">관리자 계정 관리</h2>
 		

@@ -25,8 +25,8 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<jsp:include page="../adminHeader.jsp"/>
-	<jsp:include page="../adminSide.jsp"/>
+	<jsp:include page="../include/adminHeader.jsp"/>
+	<jsp:include page="../include/adminSide.jsp"/>
 	<input type="hidden" value="${root}" id="root"/>
 	<div style="width:1200px;">
 		<h2 style="margin-top: 40px;">매출 통계</h2>

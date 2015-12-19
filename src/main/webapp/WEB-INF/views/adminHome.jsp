@@ -40,8 +40,8 @@
  		<c:set var="admin_level" value="${admin.admin_level}" scope="session"/>
  	</c:if>
  	
-	<jsp:include page="adminHeader.jsp"/>
-	<jsp:include page="adminSide.jsp"/>
+	<jsp:include page="../views/include/adminHeader.jsp"/>
+	<jsp:include page="../views/include/adminSide.jsp"/>
 	
 	<form name="adminHome">
 		<input type="hidden" name="admin_id">

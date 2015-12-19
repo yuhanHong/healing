@@ -7,27 +7,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="${root}/jquery/jquery.js"></script>
-<script type="text/javascript" src="${root}/jquery/jquery-ui.js"></script>
-<script type="text/javascript">
-	/* $(function(){
-		$("#introduce").accordion({
-			active: 0,
-			animate: 1000
-		});	
-	}); */
-</script>
-<link rel="stylesheet" href="${root}/css/jquery-ui.css" type="text/css">
+<link href="${root}/css/side_menu/style.css" rel="stylesheet">
 </head>
 <body>
-	<div style="border:1px solid blue; width:250px; height:800px; float:left">
-		<ul id="introduce" style="list-style-type:none;">
-			<li><h3>TOUR INFO</h3></li>
-			<li><a href="${root}/company/tourInfo.do">회사소개</a></li>
+	<div class="side_menu_class">
+		<div style="border:0px solid black; width:90px; height:23px; line-height: 23px; margin-top:5px;">
+			<h2 style="display:inline;"><span style="font-weight: bold; ">회사 정보</span></h2>
+		</div>
+		<hr style="border:2px solid #464E60;">
+		<div>
+			<ul>
+				<li><a href="${root}/company/tourInfo.do">회사소개</a></li>
 			<li><a href="${root}/company/road.do">찾아오시는길</a></li>
 			<li><a href="${root}/company/abroadTour.do">해외여행이용약관</a></li>
 			<li><a href="${root}/company/privateInfo.do">개인정보취급방침</a></li>
-		</ul>
+			</ul>
+		</div>
 	</div>
 </body>
 </html>

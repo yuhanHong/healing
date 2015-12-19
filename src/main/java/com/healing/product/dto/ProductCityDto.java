@@ -1,6 +1,13 @@
 package com.healing.product.dto;
 
 public class ProductCityDto {
+	private int product_city_number;
+	public int getProduct_city_number() {
+		return product_city_number;
+	}
+	public void setProduct_city_number(int product_city_number) {
+		this.product_city_number = product_city_number;
+	}
 	private int product_number;
 	private String product_city;
 	public int getProduct_number() {

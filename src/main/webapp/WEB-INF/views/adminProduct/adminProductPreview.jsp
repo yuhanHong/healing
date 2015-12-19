@@ -27,8 +27,8 @@
 <script type="text/javascript" src="//js.modetour.com/Json/json2.js"></script>
 </head>
 <body onload="setDefaultText()">
-	<jsp:include page="../adminHeader.jsp"/>
-	<jsp:include page="../adminSide.jsp"/>
+	<jsp:include page="../include/adminHeader.jsp"/>
+	<jsp:include page="../include/adminSide.jsp"/>
 
 	<div id="Containerwrap" style="margin-left: 130px;">
 		<!--Content Start-->        

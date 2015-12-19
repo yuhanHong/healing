@@ -13,11 +13,11 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/bannerInsert/bannerInsert.css">
 </head>
 <body>
-	<jsp:include page="../adminHeader.jsp"/>
-	<jsp:include page="../adminSide.jsp"/>
-	
+	<jsp:include page="../include/adminHeader.jsp"/>
+	<jsp:include page="../include/adminSide.jsp"/>
+	<h2 style="margin-top: 40px;">배너상품 관리</h2>
 	<div style="width: 1400px;">
-		<h3>상품검색</h3>
+		
 
 		<div id="bannerInsertDiv">	
 			<h3>상품을 검색해주세요.</h3>

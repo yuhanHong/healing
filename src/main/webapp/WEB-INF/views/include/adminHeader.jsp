@@ -31,6 +31,7 @@
 		 		<ul>
 		 			<li style="width:80px; height: 60px;"><output id="result"></output></li>
 		 			<li><span style="font-size: 13px;">${admin_name}님 ${admin_level}계정으로 로그인하셨습니다.</span></li>
+					<li style="font-size: 13px;"><b><a href="${root}/boardFaq/list.do">게시판 관리</a></b></li>
 				</ul>
 		 	</c:if>
 		</div>

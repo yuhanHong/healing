@@ -73,8 +73,8 @@ $(function(){
 </script>
 </head>
 <body>
-	<jsp:include page="../adminHeader.jsp"/>
-	<jsp:include page="../adminSide.jsp"/>
+	<jsp:include page="../include/adminHeader.jsp"/>
+	<jsp:include page="../include/adminSide.jsp"/>
 
 <div style="width:1400px;">
 	<h2 style="margin-top: 40px;">회원 관리</h2>

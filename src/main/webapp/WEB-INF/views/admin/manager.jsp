@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="../adminHeader.jsp"/>
-	<jsp:include page="../adminSide.jsp"/>
+	<jsp:include page="../include/adminHeader.jsp"/>
+	<jsp:include page="../include/adminSide.jsp"/>
 	
 	<c:set var="root" value="${pageContext.request.contextPath}"/>
 	<a href="${root}/admin/infoInsert.do">회사정보 등록</a>

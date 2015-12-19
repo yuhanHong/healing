@@ -27,8 +27,8 @@
 
 </head>
 <body onload="writeSetDefault()">
-	<jsp:include page="../adminHeader.jsp"/>
-	<jsp:include page="../adminSide.jsp"/>
+	<jsp:include page="../include/adminHeader.jsp"/>
+	<jsp:include page="../include/adminSide.jsp"/>
 
 	<form class="form_style" id="productForm" action="${root}/adminProduct/adminProductWrite.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="product_number" value="0"/>
@@ -52,10 +52,10 @@
 			
 		<div id="Containerwrap" style="margin-left: 130px;">
 			<!--Content Start-->        
-		
-			<div style="margin: 0px auto;" align="center" class="content_wrapper" >
+			<h2 style="margin-top:40px">상품등록</h2>
+			<div align="center" class="content_wrapper" >
 				<div>
-					<h3>상품등록</h3>
+				
 				</div>
 				<div id="product_tabs">
 					<ul>
