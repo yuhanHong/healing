@@ -8,7 +8,6 @@
 <title></title>
 <link href="${root}/css/side_menu/style.css" rel="stylesheet">
 </head>
-
 <body>
 	<div class="side_menu_class">
 		<div style="border:0px solid black; width:90px; height:23px; line-height: 23px; margin-top:5px;">

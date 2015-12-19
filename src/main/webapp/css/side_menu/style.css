@@ -10,3 +10,20 @@
 	height:40px; line-height: 40px; width:150px;
 	text-align: left; border-bottom-color: #EAEAEA;
 }
+
+
+.side_menu_class ul li a{
+	display:block; /* a태그의 display속성을 block으로 설정 */	
+	padding:10px 10px 10px 15px; /* 내부여백 padding값 순서대로 top right bottom left */
+	margin-bottom:1px; /* 하단에 외부여백 1px */	
+	background-color:#ffffff; /* 바탕색 */	
+	color:#808080; /* 글자색 */	
+	font:12px Verdana; /* 폰트 속성 순서대로 크기 글꼴 */	
+	text-transform:uppercase; /* 폰트를 대문자로 바꿔준다. */
+}
+
+.side_menu_class ul li a:hover{
+	padding-left:10px; /* 왼쪽 여백을 기존 15px에서 10px으로 줄여준다. */
+	border-left:5px solid #b6e24c; /* 줄어든 여백만큼 border로 5px을 지정해 준다. */
+	color:#008000; /* 폰트 색상 */
+}

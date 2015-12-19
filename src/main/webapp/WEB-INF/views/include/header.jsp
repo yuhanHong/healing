@@ -21,7 +21,7 @@
 </div>
 <div id="header">
   <div class="header_content">
-    <div class="logo"><a href="index.html">Healing</a> <span>| a simple responsive template</span></div>
+    <div class="logo"><a href="">Healing</a> <span>| a simple responsive template</span></div>
     <div class="menu">
       <ul>
         <li><a href="/">home</a></li>

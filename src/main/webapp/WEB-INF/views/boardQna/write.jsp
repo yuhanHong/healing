@@ -23,17 +23,17 @@
 </script>
 </head>
 <body>
-	<jsp:include page="../header.jsp"/>
-	
-	<div class="Outline" >
+	<jsp:include page="../include/header.jsp"/>
+	<div class="outline_class">
+		<jsp:include page="../include/sideMenu.jsp"/>
+		<div class="content_class">
 			<div>
 				<div>
 					<img src="http://localhost:8181/main/resources/boardImg/img01.PNG" align="center">
-					<span >상품 문의 등록</span>
+					<h2 style="display:inline;"><span style="font-weight: bold;">상품문의 등록</span></h2>
 				</div>
-
 			</div>
-			<hr>
+			<hr style="border:2px solid green; margin-top: 3px;">
 			<form class="" action="${root}/boardQna/write.do" method="post" onsubmit="return boardQnaForm(this)">
 				<input type = "hidden" name = "qna_number" value = "${qna_number}"/>
 				<input type = "hidden" name = "qna_group_number" value = "${qna_group_number}"/>
@@ -124,8 +124,8 @@
 					<input type="button" value="목록보기" onclick="location.href='${root}/boardQna/list.do?pageNumber=${currentPage}'"/>
 				</div>		
 			</form>
+		</div>
 	</div>
-	
-	<jsp:include page="../footer.jsp"/>
+	<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

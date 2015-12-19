@@ -11,16 +11,18 @@
 <script type="text/javascript" src=""></script>
 </head>
 <body>
-	<jsp:include page="../header.jsp"/>
-	
-	<div class="Outline">
+	<jsp:include page="../include/header.jsp"/>
+
+	<div class="outline_class">
+		<jsp:include page="../include/sideMenu.jsp"/>
+		<div class="content_class">
 			<div>
 				<div>
 					<img src="http://localhost:8181/main/resources/boardImg/img01.PNG" align="center">
-					<span>자주 묵는 질문 작성</span>
+					<h2 style="display:inline;"><span style="font-weight: bold;">자주 묻는 질문 작성</span></h2>
 				</div>
 			</div>
-			<hr>
+			<hr style="border:2px solid green; margin-top: 3px;">
 			<form class="" action="${root}/boardFaq/write.do" method="post" onsubmit="return boardFaqForm(this)">
 				<input type = "hidden" name = "faq_number" value = "${faq_number}"/>
 				
@@ -60,7 +62,8 @@
 				</div>		
 			</form>
 	</div>
-	
-	<jsp:include page="../footer.jsp"/>
+	</div>
+
+	<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

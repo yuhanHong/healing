@@ -1,9 +1,14 @@
 @CHARSET "UTF-8";
 
 /**/
-.Outline{
-	border:0px solid black; width:740px;
-	margin:0px auto;
+.outline_class{
+	border:0px solid black; 
+	width:930px; margin:0px auto;
+}
+.content_class{
+	border:0px solid black; 
+	overflow:hidden;
+	width: 750px;
 }
 
 a:link{color:black; text-decoration: none;}
@@ -18,7 +23,7 @@ ul,li {margin:0; padding:0;}
 .board_title{
 	border:1px solid #cccccc; background-color: #EAEAEA;
 	border-left-color: #ffffff; border-right-color: #ffffff;
-	border-top-color: #000000; border-top-width: 0.2em;
+	border-top-color: #cccccc; 
 	margin-top:7px; height:50px;
 }
 
