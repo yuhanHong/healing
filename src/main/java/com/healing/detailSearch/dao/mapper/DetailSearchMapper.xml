@@ -4,5 +4,32 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="dao.detailSearchMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
+	<select id="detailSearchSortCity" parameterType="java.util.List" resultType="Integer">
+	 SELECT distinct product_number 
+	  FROM PRODUCT_CITY
+	  WHERE 1=1
+	  <foreach item="city" index="java.util.List" collection="list">
+	     and product_number IN (SELECT product_number FROM product_city WHERE product_city =#{city})
+	  </foreach>
+	</select>
 	
+	<select id="detailSearchSortDay" parameterType="java.util.Map" resultType="com.healing.product.dto.ProductDto">
+		<![CDATA[
+			select product_number,product_name,product_stay_days,product_price_adult from product
+			where product_stay_days>=#{minDay} and product_stay_days<=#{maxDay}
+		]]>
+	</select>
+	
+	<select id="detailSearchSortCityNumber" parameterType="int" resultType="com.healing.product.dto.ProductDto">
+		select product_number,product_name,product_stay_days,product_price_adult from product
+		where product_number=#{product_number}
+	</select>
+	
+	<select id="detailSearchSortMulti" parameterType="java.util.Map" resultType="com.healing.product.dto.ProductDto">
+		<![CDATA[
+			select product_number,product_name,product_stay_days,product_price_adult from product
+			where product_stay_days>=#{minDay} and product_stay_days<=#{maxDay} and product_number=#{product_number}
+		]]>
+	</select>
+
 </mapper>

@@ -173,6 +173,7 @@ public class MemberServiceImp implements MemberService {
 		MemberDto memberDto=memberDao.memberSelect2(member_id);
 		interestList=memberDao.interestSelect(member_number);
 		
+		
 		// String member_eamil=memberDto.getMember_email();
 		// HomeAspect.logger.info(HomeAspect.logMsg+"수정이메일:"+member_eamil);
 		// HomeAspect.logger.info(HomeAspect.logMsg+"수정회원번호:"+member_number);

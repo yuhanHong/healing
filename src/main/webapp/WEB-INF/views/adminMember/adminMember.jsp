@@ -154,37 +154,38 @@ $(function(){
 				<li id="adm_member_purchase">구매금액</li>
 				<li id="adm_member_level">등급</li>
 			</ul>
-
-			<c:forEach var="adminMember" items="${adminMemberList}">
-				<div class="adm_list">
-					<ul id="adm_ul">
-						<li id="adm_member_name">
-							<a href="javascript:adminMemberUpdate('${root}','${adminMember.member_number}')">${adminMember.member_name}</a>
-						</li>
-						<li id="adm_member_id">${adminMember.member_id}</li>
-						<li id="adm_member_phone">${adminMember.member_phone}</li>
-						<li id="adm_member_email">${adminMember.member_email}</li>
-						<li id="adm_member_date">
-							<fmt:formatDate value="${adminMember.member_date}" pattern="yyyy/MM/dd"/>
-						</li>
-						<li id="adm_member_purchase">${adminMember.member_purchase}</li>
-						<c:if test="${adminMember.member_delete==0}">
-							<li id="adm_member_level">${adminMember.member_level}</li>
-						</c:if>
-						
-						<c:if test="${adminMember.member_delete>0}">
-							<c:if test="${adminMember.member_delete==1}">
-								<c:set var="delete" value="탈퇴"/>
+			<div id="adm_memberin">
+				<c:forEach var="adminMember" items="${adminMemberList}">
+					<div class="adm_list">
+						<ul id="adm_ul">
+							<li id="adm_member_name">
+								<a href="javascript:adminMemberUpdate('${root}','${adminMember.member_number}')">${adminMember.member_name}</a>
+							</li>
+							<li id="adm_member_id">${adminMember.member_id}</li>
+							<li id="adm_member_phone">${adminMember.member_phone}</li>
+							<li id="adm_member_email">${adminMember.member_email}</li>
+							<li id="adm_member_date">
+								<fmt:formatDate value="${adminMember.member_date}" pattern="yyyy/MM/dd"/>
+							</li>
+							<li id="adm_member_purchase">${adminMember.member_purchase}</li>
+							<c:if test="${adminMember.member_delete==0}">
+								<li id="adm_member_level">${adminMember.member_level}</li>
 							</c:if>
 							
-							<c:if test="${adminMember.member_delete==2}">
-								<c:set var="delete" value="추방"/>
+							<c:if test="${adminMember.member_delete>0}">
+								<c:if test="${adminMember.member_delete==1}">
+									<c:set var="delete" value="탈퇴"/>
+								</c:if>
+								
+								<c:if test="${adminMember.member_delete==2}">
+									<c:set var="delete" value="추방"/>
+								</c:if>
+								<li id="adm_member_level">${delete}</li>
 							</c:if>
-							<li id="adm_member_level">${delete}</li>
-						</c:if>
-					</ul>
-				</div>
-			</c:forEach>
+						</ul>
+					</div>
+				</c:forEach>
+			</div>
 		</div>	
 	</div>
 </div>
