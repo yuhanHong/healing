@@ -22,7 +22,7 @@
 		<div id="bannerInsertDiv">	
 			<h3>상품을 검색해주세요.</h3>
 			
-			<select name="product">
+			<select name="product" id="bannerProduct">
 				<option value="product_name">상품명</option>
 				<option value="product_country">나라명</option>
 			</select>
@@ -49,7 +49,7 @@
 			</div>
 			
 			<h3>배너리스트</h3>
-			
+
 			<div id="result2">
 				<div class="result2">
 					<div class="recommand1">체크</div>

@@ -19,7 +19,7 @@ $(window).load(function () {
 <body>
 
 <!-- 메인 슬라이드 부분 -->
-<c:if test="${productPhotoList.size() != 0}">
+<%-- <c:if test="${productPhotoList.size() != 0}"> --%>
 <div id="wrap">
 	<!-- 메인 사진 위 이탤릭체 글자부분 -->
 	<div class="top_slogan"> Design is not just what it looks like and feels like. Design is how it works. </div>
@@ -42,6 +42,6 @@ $(window).load(function () {
 	</div>
 	</div>
 </div>
-</c:if>
+<%-- </c:if> --%>
 </body>
 </html>

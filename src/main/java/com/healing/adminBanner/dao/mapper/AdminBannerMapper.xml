@@ -21,7 +21,6 @@
 				product_name, 
 				product_country, 
 				product_stay_days,
-				product_size,
 				product_readcount,
 				product_average_score,
 				product_banner

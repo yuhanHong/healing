@@ -32,8 +32,14 @@ public class AdminBannerController {
 	 */
 	@RequestMapping(value="adminBanner/bannerInsert.do", method={RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView bannerInsert(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("response", response);
 		
-		return new ModelAndView("adminBanner/bannerInsert");
+		adminBannerService.bannerRecommandSelect(mav);
+		
+		mav.setViewName("adminBanner/bannerInsert");	// 추천상품 테이블에 데이트 추가 후 검색페이지(bannerInsert.jsp)로 이동
+		return mav;
 	}
 	
 	/**

@@ -8,7 +8,7 @@
  */
 function searchForm(root){
 	var url = root + "/adminBanner/bannerSearch.do";
-	var product = $("#product option:selected").val();		// select box 선택된 값
+	var product = $("#bannerProduct option:selected").val();		// select box 선택된 값
 	var keyword = $("#keyword").val();
 	
 	if(keyword == ""){
