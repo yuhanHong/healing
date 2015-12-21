@@ -23,7 +23,7 @@
 <script type="text/javascript" src="//js.modetour.com/Json/json2.js"></script>
 </head>
 <body>
-	<jsp:include page="../header.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
 	
     <div id="Containerwrap">
         <!--Content Start-->        
@@ -1971,6 +1971,7 @@
 							</div>
 						</div>
 					</div>
+					
                     <!-- 우측 메뉴 -->
 					<div id="aside" class="aside">
 						<div id="totalPrice">
@@ -2097,7 +2098,7 @@
 								</div>
 								<div class="func">
 									<a href="#" class="wish" onclick="PopupBriefing(); return false;"><span class="blind">인쇄</span></a>
-									<a class="btn_booking" onclick="BookingNext(); return false;"><span class="blind">예약하기</span></a>
+									<a class="btn_booking" href="${root}/order/write.do?pNum=${productDto.product_number}" onclick=""><span class="blind">예약하기</span></a>
 								</div>
 								<div class="helpdesk">
 									<p>모두투어 예약센터</p>
@@ -2294,6 +2295,6 @@
         <!--Content End-->
     </div>
 	
-	<jsp:include page="../footer.jsp"/>
+	<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

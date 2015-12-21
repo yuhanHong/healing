@@ -35,20 +35,19 @@ public class OrderServiceImp implements OrderService {
 		public void orderProductRead(ModelAndView mav) {
 			// TODO Auto-generated method stub
 			Map<String, Object> map=mav.getModelMap();
-		    HttpServletRequest request = (HttpServletRequest) map.get("request");
-		    HttpSession session=request.getSession();
-		    
-		    int member_number=0;
-		    if(session.getAttribute("member_number")==null) {
-		    	//member_number=1;
-		    	memberDto=null;
-		    }else{
-			     member_number=(Integer) session.getAttribute("member_number");
-			     memberDto=orderDao.getMemberInfo(member_number);
-		  }
-		    
-		    int product_number=1;
-		    		//Integer.parseInt(request.getParameter("product_number"));
+			HttpServletRequest request = (HttpServletRequest) map.get("request");
+			HttpSession session=request.getSession();
+			
+			int member_number=0;
+			if(session.getAttribute("member_number")==null) {
+				//member_number=1;
+				memberDto=null;
+			}else{
+				member_number=(Integer) session.getAttribute("member_number");
+				memberDto=orderDao.getMemberInfo(member_number);
+			}
+			
+			int product_number=Integer.parseInt(request.getParameter("pNum"));
 		    productDto=orderDao.orderProductRead(product_number);
 		   //HomeAspect.logger.info(HomeAspect.logMsg+"///"+productDto.getProduct_name());
 		   //HomeAspect.logger.info(HomeAspect.logMsg+"///"+memberDto.getMember_name());

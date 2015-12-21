@@ -1,6 +1,5 @@
 package com.healing.product.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.aop.HomeAspect;
 import com.healing.product.dao.ProductDao;
+import com.healing.product.dto.FlightDto;
 import com.healing.product.dto.ProductDto;
 import com.healing.product.dto.ProductSearchDto;
 
@@ -49,7 +49,6 @@ public class ProductServiceImp implements ProductService {
 		int startRow=(currentPage-1)*boardSize+1;
 		int endRow=currentPage*boardSize;
 		int count=productDao.productGetCount(product_category);
-//		HomeAspect.logger.info(HomeAspect.logMsg + "count" + count);
 		if(endRow > count) endRow=count;
 		List<ProductDto> productList=null;
 
@@ -59,9 +58,7 @@ public class ProductServiceImp implements ProductService {
 		productSearchDto.setProduct_category(product_category);
 		
 		int startPage=0,endPage=0,pageCount=0;
-		if(count == 0){
-//			HomeAspect.logger.info(HomeAspect.logMsg + "count" + count);
-		}else if(count > 0){
+		if (count > 0){
 			productList=productDao.productGetList(productSearchDto);
 			int pageBlock=10;
 			startPage=currentPage-(currentPage-1)%pageBlock;
@@ -69,15 +66,14 @@ public class ProductServiceImp implements ProductService {
 			pageCount=(int)Math.ceil((float)count/boardSize);
 			if (endPage>pageCount) endPage=pageCount;
 		}
-//		HomeAspect.logger.info(HomeAspect.logMsg + "productList.size" + productList.size());
-
 		
 		mav.addObject("count",count);
 		mav.addObject("productList",productList);
-		mav.addObject("pageNumber",currentPage);
 		mav.addObject("startPage",startPage);
 		mav.addObject("endPage",endPage);
 		mav.addObject("pageCount",pageCount);
+		mav.addObject("pc",pc);
+		mav.addObject("pageNumber",currentPage);
 		mav.setViewName("product/productList");
 	}
 	
@@ -86,8 +82,12 @@ public class ProductServiceImp implements ProductService {
 		Map<String,Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
+		String pc=request.getParameter("pc");
+		if(pc==null) pc="1";
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) pageNumber="1";
+		
 		String pNum=request.getParameter("pNum");
-		HomeAspect.logger.info(HomeAspect.logMsg + "p_num" + pNum);
 		
 		if(pNum==null) {
 			mav.setViewName("product/productList");
@@ -97,7 +97,6 @@ public class ProductServiceImp implements ProductService {
 		ProductDto productDto = productDao.productRead(product_number);
 		int flightCount = productDao.flightGetCount(product_number);
 		
-		HomeAspect.logger.info(HomeAspect.logMsg + "flightCount" + flightCount);
 		if(flightCount == 0) {
 			mav.setViewName("product/flightList");
 			return;
@@ -105,18 +104,49 @@ public class ProductServiceImp implements ProductService {
 		
 		List<ProductDto> flightList=null;
 		flightList=productDao.flightGetList(product_number);
-
-		HomeAspect.logger.info(HomeAspect.logMsg + "flightList.size" + flightList.size());
-
+		
 		mav.addObject("flightCount",flightCount);
 		mav.addObject("productDto",productDto);
 		mav.addObject("flightList",flightList);
+		mav.addObject("pNum",pNum);
+		mav.addObject("pc",pc);
+		mav.addObject("pageNumber",pageNumber);
 		mav.setViewName("product/flightList");
 	}
 	
 	@Override
 	public void productRead(ModelAndView mav) {
-		// TODO Auto-generated method stub
-	}
+		Map<String,Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		
+		String pc=request.getParameter("pc");
+		if(pc==null) pc="1";
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber==null) pageNumber="1";
 
+		String pNum=request.getParameter("pNum");
+		if(pNum==null) {
+			mav.setViewName("product/productList");
+			return;
+		}
+
+		String fNum=request.getParameter("fNum");
+		if(fNum==null) {
+			mav.setViewName("product/flightList?pNum=" + pNum + "&pc=" + pc + "&pageNumber=" + pageNumber);
+			return;
+		}
+		
+		int product_number=Integer.parseInt(pNum);
+		int flight_number=Integer.parseInt(fNum);
+		ProductDto productDto = productDao.productRead(product_number);
+		FlightDto flightDto = productDao.flightRead(flight_number);
+		
+		mav.addObject("productDto",productDto);
+		mav.addObject("flightDto",flightDto);
+		mav.addObject("pNum",pNum);
+		mav.addObject("fNum",fNum);
+		mav.addObject("pc",pc);
+		mav.addObject("pageNumber",pageNumber);
+		mav.setViewName("product/productRead");
+	}
 }
