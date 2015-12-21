@@ -54,7 +54,7 @@ public class HealingHomeServiceImp implements HealingHomeService {
 		}
 		
 		int listSize = productList.size();		// product 테이블하고 product_photo 테이블 조인한 결과에서 리스트 사이즈
-		
+		HomeAspect.logger.info(HomeAspect.logMsg +"배너배너배너~"+ listSize);
 		mav.addObject("listSize", listSize);
 		mav.addObject("productList", productList);				// 배너 상품 정보
 		mav.addObject("productPhotoList", productPhotoList);	// 배너 상품이미지 정보

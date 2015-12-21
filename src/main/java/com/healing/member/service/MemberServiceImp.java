@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.aop.HomeAspect;
+import com.healing.healingHome.service.HealingHomeService;
 import com.healing.member.dao.MemberDao;
 import com.healing.member.dto.InterestDto;
 import com.healing.member.dto.MemberDto;
@@ -30,6 +31,9 @@ public class MemberServiceImp implements MemberService {
 	
 	@Autowired
 	private MemberDao memberDao;
+	
+	@Autowired
+	private HealingHomeService healingHomeService;
 
 	@Override
 	public void memberJoin(ModelAndView mav) {
@@ -131,7 +135,8 @@ public class MemberServiceImp implements MemberService {
 		// String id=memberDto.getMember_id();
 		// HomeAspect.logger.info(HomeAspect.logMsg+"로그인체크:"+member_number+","+id);
 		mav.addObject("memberDto",memberDto);
-		mav.setViewName("include/home");
+		healingHomeService.healingHome(mav);
+		
 	}
 
 	@Override

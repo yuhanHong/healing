@@ -61,7 +61,7 @@ function fromServer(){
  	if(xhr.readyState==4&&xhr.status==200){
  		var check=xhr.responseText;
  		if(check!=0&&i==1){
- 			postMessage("<a href='/main/adminPushNotice/adminPushNotice.do?select=no'><img src='/main/img/message.JPG'/></a>");
+ 			postMessage("<a href='/main/adminPushNotice/adminPushNotice.do?select=no'><img style='width:30px; height:30px;' src='/main/img/messageicon.jpg'/></a>");
  			i=0;
  		}else if(check==0 || i==0){
  			postMessage("");

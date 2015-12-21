@@ -31,7 +31,7 @@ public class HealingHomeController {
 		mav.addObject("response", response);
 		
 		healingHomeService.healingHome(mav);
-		mav.setViewName("/home");
+		mav.setViewName("include/home");
 		
 		return mav;
 	}

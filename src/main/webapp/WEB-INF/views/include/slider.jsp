@@ -21,10 +21,11 @@ $(window).load(function () {
 <!-- 메인 슬라이드 부분 -->
 <%-- <c:if test="${productPhotoList.size() != 0}"> --%>
 <div id="wrap">
-	<!-- 메인 사진 위 이탤릭체 글자부분 -->
-	<div class="top_slogan"> Design is not just what it looks like and feels like. Design is how it works. </div>
-	<div class="slider">
-	<div class="flexslider">
+	<!-- 메인 사진 위 이탤릭체 글자부분
+		<div class="top_slogan"> Design is not just what it looks like and feels like. Design is how it works. </div> -->
+
+	<div class="slider" style="margin-top: 30px;">
+	<div class="flexslider" >
 		<ul class="slides">
 			<c:forEach var="i" begin="0" end="${listSize-1}" step="1">
 				<li>
@@ -33,7 +34,7 @@ $(window).load(function () {
 						<a href="${root}/recentProduct/recentProduct.do?product_number=${productList.get(i).product_number}">
 							<h2>${productList.get(i).product_name}</h2>
 						</a>
-						<p>Ut enim ad minima veniam, quis nostru <strong>exercitationem</strong> ullam corporis laboriosam, nisi ut aliquid ex ea commodi <strong><a href="#">consequatur</a></strong></p>
+						<p>${productList.get(i).product_summary} </p>
 						<a href="${root}/recentProduct/recentProduct.do?product_number=${productList.get(i).product_number}" class="slider_button">상품 보러가기</a>
 					</div>
 				</li>

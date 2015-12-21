@@ -9,18 +9,16 @@
 <script type="text/javascript" src="${root}/js/adminHome/adminHome.js"></script>
 <style type="text/css">
 	#adh_login_main{
-		width:300px; overflow:hidden;
+		width:500px; overflow:hidden;
 		border: 0px solid red;
-		margin-left:500px; margin-top:100px;
+		margin-left:430px; margin-top:100px;
 	}
 	#adh_login{
-		width:100%; height:35px;
-		border: 0px solid blue;
-		line-height:35px;
-		background-color: #CFCFCF;
-		font-weight: bold;
+
+	
 	}
 	#adh_id{
+		margin-top:30px;
 		width:100%; height:40px;
 		border: 0px solid blue;
 		line-height:40px;
@@ -52,9 +50,10 @@
 	<br/><br/>
 	<c:if test="${admin_name==null}">
 		<form action="${root}/adminMode/adminModeLogin.do" name="adminModeFrom" method="POST" onsubmit="return adminModeFrom(this)">
+			
 			<div id="adh_login_main" align="center">
 				<div id="adh_login">
-					<span>로그인</span>
+					<img src="${root}/img/adminLoginImg.JPG">
 				</div>
 				
 				<div id="adh_id">

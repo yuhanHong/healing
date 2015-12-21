@@ -22,20 +22,21 @@
 	}
 
 </script>
-
+<div style="background-color:orange; height: 90px; margin: 0px;">
 <div style="width: 1200px;">
 	<div style="margin-top:20px; width:300px;">
 		<h1 style="margin-left: 30px;" id="adminHegerTitle"><a href="${root}/adminHome.do">Healing</a></h1>
 		<div class="adminHeaderDiv" style="margin-left: 800px;">
 			<c:if  test="${admin_number!=null}">
 		 		<ul>
-		 			<li style="width:80px; height: 60px;"><output id="result"></output></li>
-		 			<li><span style="font-size: 13px;">${admin_name}님 ${admin_level}계정으로 로그인하셨습니다.</span></li>
-					<li style="font-size: 13px;"><b><a href="${root}/boardFaq/list.do">게시판 관리</a></b></li>
+		 			<li style="width:80px; height: 60px;margin-top: 25px;"><output id="result"></output></li>
+		 			<li style="margin-top: 10px;margin-left: -50px;"><span style="font-size: 13px;" >${admin_name}님 ${admin_level}계정으로 로그인하셨습니다.</span></li>
+					<li style="font-size: 13px;margin-top: 10px;"><b><a href="${root}/boardFaq/list.do">게시판 관리</a></b></li>
 				</ul>
 		 	</c:if>
 		</div>
 	</div>
+</div>
 </div>
 <div style="clear: both;"></div>
 <hr/>

@@ -20,13 +20,17 @@
 <div class="footer">
   <div class="footer_content">
     <div class="footer_left">
-      <p>Website Template by <a target="_blank" href="http://csstemplatesmarket.com">CSS Templates Market</a></p>
-      <ul class="footer_menu">
-        <li><a href="index.html">home</a></li>
-        <li><a href="page.html">page</a></li>
-        <li><a href="#">blog</a></li>
-        <li><a href="#">porfolio</a></li>
-        <li><a href="#">contact</a></li>
+      
+      <ul class="footer_menu" style="font-size: 11px;">
+        <li>대왕판교로 유스페이스몰 2 8층 (주)힐링투어</li>
+        <li>사업자 등록번호: 000-00-00000</li>
+        <li>통신판매업신고번호: 00-0000호</li><br/>
+        <li>관광사업자 등록번호: 제 0000-000000호</li>
+        <li>대표자: 홍유한</li>
+        <li>힐링투어 고객센터: 1588-0000</li>
+        <li>FAX: 031-000-0000</li>
+ 
+        
       </ul>
     </div>
     <div class="footer_right">
