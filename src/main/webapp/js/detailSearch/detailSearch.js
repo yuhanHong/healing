@@ -64,7 +64,7 @@ function result(root,str,min,max){
 			$("#dc_product").children().remove();
 			for(var i=0; i<args.data.length; i++){	
 				var form="<div class='dc_product_list' id='product"+args.data[i].product_number+"' onmouseover=\"productOnMouseOver('"+args.data[i].product_number+"')\" onmouseout=\"productOnMouseOut('"+args.data[i].product_number+"')\">";
-					form+="<div id='dc_pro_img'><img src='"+root+"/resources/productPhoto/"+args.data[i].product_number+"/0-1-1.jpg' width='280px' height='300px;'/></div>";
+					form+="<div id='dc_pro_img'><img src='"+root+"/resources/productPhoto/"+args.data[i].product_number+"/0-1-1.jpg' width='280px' height='280px;'/></div>";
 					form+="<div id='dc_pro_imfo'>";
 					form+="<ul>";
 					form+="<li>상품명 : "+args.data[i].product_name+"</li>";
@@ -73,6 +73,7 @@ function result(root,str,min,max){
 					form+="</ul>";
 					form+="</div>";
 					form+="</div>";
+					if(i%3==2) form+="<div style='clear: both;'></div>";
 					$("#dc_product").append(form);
 			}
 		}
@@ -82,23 +83,12 @@ function result(root,str,min,max){
 	});
 }
 
-
-
 function productOnMouseOver(product_number){
 	var li=document.getElementById("product"+product_number);
-	li.style.border="1px red solid";
+	li.style.border="1px #ff0000 solid";
 }
 
 function productOnMouseOut(product_number){
 	var li=document.getElementById("product"+product_number);
-	li.style.border="0px red solid";
+	li.style.border="1px #ffffff solid";
 }
-
-
-
-
-
-
-
-
-

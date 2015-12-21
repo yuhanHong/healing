@@ -52,10 +52,11 @@
 .dc_product_list{
 	width:290px; height:390px;
 	float:left; margin-left:50px; margin-top:30px;
+	border:1px solid #ffffff;
 }
 
 #dc_pro_img img{
-	margin-left:10px; margin-top:10px;
+	margin-left:0px; margin-top:0px;
 }
 
 #dc_pro_imfo{
