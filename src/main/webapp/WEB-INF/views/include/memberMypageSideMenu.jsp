@@ -9,7 +9,7 @@
 <link href="${root}/css/side_menu/style.css" rel="stylesheet">
 </head>
 <body>
-	<div class="side_menu_class" style="margin-left:210px;">
+	<div class="side_menu_class">
 		<div style="border:0px solid black; width:90px; height:23px; line-height: 23px; margin-top:5px;">
 			<h2 style="display:inline ;"><span style="font-weight: bold; ">Mypage</span></h2>
 		</div>

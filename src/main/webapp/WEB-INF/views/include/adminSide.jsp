@@ -34,7 +34,8 @@
 			<li onclick="location.href='${root}/adminProduct/adminProductList.do'">상품 관리</li>
 			<li onclick="location.href='${root}/adminProduct/adminBargain.do'">할인율 설정</li>
 			<li onclick="location.href='${root}/adminPushNotice/adminPushNotice.do?select=all'">알림</li>
-			<li onclick="location.href='${root}/adminMode/adminModeLogout.do?admin_number=${admin_number}'">로그아웃</a>
+			<li onclick="location.href='${root}/freeplan/freePlanInsert.do'">자유여행 관리</li>
+			<li onclick="location.href='${root}/adminMode/adminModeLogout.do?admin_number=${admin_number}'">로그아웃</li>
 		</ul>
 	</div>
 </c:if>

@@ -10,30 +10,42 @@
 </head>
 <body>
 	<jsp:include page="../include/header.jsp"/>
+	<div class="outline_class">
 	<jsp:include page="../include/memberMypageSideMenu.jsp"/>
 	
-	<form action="${root}/member/memberDeleteOk.do" method="POST">
-		<div style="width:500px; overflow: hidden;">
-			<div style="margin-left:100px;">
-				<h3>회원탈퇴</h3>
-			</div>
+	<div class="content_class">
 		
-			<div>
-				아이디
-				<input type="text" name="member_id" value="${member_id}" disabled="disabled">
-				<input type="hidden" name="member_id" value="${member_id}"/>
-			</div>
-			<div>
-				비밀번호
-				<input type="password" name="member_password"/>
-			</div>
-			<div>
-				<input type="submit" value="탈퇴"/>
-				<input type="reset" value="취소"/>			
-			</div>
+		<div style="float:left;">
+			<img src="${root}/resources/boardImg/img01.PNG" align="center">
+			<h2 style="display:inline;"><span style="font-weight: bold; ">회원 탈퇴</span></h2>
 		</div>
-	</form>
+			
+				
+		<hr style="border:2px solid green; margin-top: 36px;">
+		<div style="margin-left: 10px;width: 200px;">
+
+			<form action="${root}/member/memberDeleteOk.do" method="POST">
+				<div style="width:500px; overflow: hidden; margin-top: 50px; margin-left: 230px;">
 	
-<jsp:include page="../include/footer.jsp"/>
+					<div>
+						아이디 &nbsp;&nbsp;&nbsp;
+						<input type="text" name="member_id" value="${member_id}" disabled="disabled">
+						<input type="hidden" name="member_id" value="${member_id}"/>
+					</div>
+					<div>
+						비밀번호
+						<input type="password" name="member_password"/>
+					</div>
+					<div style="margin-top: 20px; margin-left: 80px;">
+						<input type="submit" value="탈퇴"/>
+						<input type="reset" value="취소"/>			
+					</div>
+				</div>
+			</form>
+		</div>	
+
+		</div>
+	</div>
+	<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

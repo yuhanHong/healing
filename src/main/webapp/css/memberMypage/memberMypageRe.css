@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 #myr_main{
-	width:900px; overflow: hidden;
+	width:790px; overflow: hidden;
 	border: 0px solid red;
 }
 
@@ -15,8 +15,7 @@
 }
 
 #myr_content{
-	width:100%; overflow:hidden; margin-left:0px; line-height:50px;
-	border: 0px solid blue; 
+	width:750px; overflow:hidden; margin-left:0px; line-height:50px;
 }
 
 #myr_content input{
@@ -24,8 +23,7 @@
 }
 
 #myr_inf{
-	width:75%; height:200px; line-height:50px; margin-left:30px;
-	border: 0px solid blue; 
+	width:550px; height:200px; line-height:50px; margin-left:30px;
 	float: left;
 }
 
@@ -91,7 +89,7 @@
 	border: 0px solid yellow; margin-top:10px;
 }
 #reply{
-	width:95%; height:25px; margin-left:40px; margin-top:20px;
+	width:300px; height:25px; margin-left:40px; margin-top:20px;
 	border: 0px solid black; 
 }
 

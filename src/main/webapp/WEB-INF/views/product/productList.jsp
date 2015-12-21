@@ -93,7 +93,8 @@ function productOnMouseOut(product_number){
 			</c:if>
 		</div>
 	</c:if>
-		
+	
 <jsp:include page="../include/footer.jsp"/>
+	
 </body>
 </html>

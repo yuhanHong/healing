@@ -18,11 +18,23 @@
   });
   </script>
 </head>
+
 <body>
 	<jsp:include page="../include/header.jsp"/>
+	<div class="outline_class">
 	<jsp:include page="../include/memberMypageSideMenu.jsp"/>
+	
+	<div class="content_class">
+		
+		<div style="float:left;">
+			<img src="${root}/resources/boardImg/img01.PNG" align="center">
+			<h2 style="display:inline;"><span style="font-weight: bold; ">${member_name}님의 회원정보/수정 페이지 입니다.</span></h2>
+		</div>
+			
+				
+		<hr style="border:2px solid green; margin-top: 36px;">
+				<div style="margin-left: 10px;width: 900px;">
 <div id="updateTotal">
-	<div id="title"><span>${member_name}님의 회원정보/수정 페이지 입니다.</span></div>
 	<form action="${root}/member/memberUpdateOk.do" name="memberForm" method="POST" onsubmit="return joinForm(this)">
 		<div id="memberSection">
 			<div id="memberOp">
@@ -118,10 +130,13 @@
 				<input type="submit" value="수정"/>
 				<input type="button" onclick="location.href='${root}/'" value="취소"/>
 			</div>
-		</div>
-	</form>
+			</div>
+			
+		</form>
+	</div>
 </div>
-	
-<jsp:include page="../include/footer.jsp"/>
+
+		</div>
+	</div>
+	<jsp:include page="../include/footer.jsp"/>
 </body>
-</html>
