@@ -78,7 +78,7 @@
 	</div>
 </form>
 	<div id="dc_product">
-
+		<h3 id="notice" style="margin-left:400px;">원하시는 도시와 소요일을 입력해주세요.</h3>
 	</div>
 </div>
 

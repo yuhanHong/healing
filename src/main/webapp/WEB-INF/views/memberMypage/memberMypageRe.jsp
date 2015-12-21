@@ -80,7 +80,7 @@ $(function(){
 							</ul>
 							<ul id="myr_reply">
 								<li>후기작성</li>
-								<li><input id="myr_reply_insert" type="text" name="review_content" size="66"/></li>
+								<li><input id="myr_reply_insert" type="text" name="review_content" size="54"/></li>
 								<li><input type="submit" value="작성"/></li>
 							</ul>
 						</div>

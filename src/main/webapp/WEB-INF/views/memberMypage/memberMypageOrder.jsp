@@ -32,55 +32,54 @@
 			<div id="mmo_main">
 				<!-- 수정하세요...임의 값 넣은겁니당~~ 채윤 -->
 				<input type="hidden" name="member_number" value="${member_number}"/>
-				<c:set var="order_number" value="41"/>
-				<c:set var="flight_number" value="1"/>
 				
-				<div id="mmo_content">
-					<div class="mmo_line" style="height: 43px;">
-						<ul>
-							<li  id="mmo_name_tag" style="width: 100px;">상품명</li>	
-							<li style="width: 400px;"></li>							
-						</ul>
+				<c:forEach var="mypageList" items="${mypageDto}">
+					<div id="mmo_content">
+						<div class="mmo_line" style="height: 43px;">
+							<ul>
+								<li  id="mmo_name_tag" style="width: 100px;">상품명</li>	
+								<li style="width: 400px;">${mypageList.product_name}</li>							
+							</ul>
+						</div>
+						<div class="mmo_line" style="height: 43px;">
+							<ul>
+								<li  id="mmo_name_tag" style="width: 100px;">예약날짜</li>
+								<li style="width: 150px;">${mypageList.order_date}</li>
+								<li  id="mmo_name_tag" style="width: 70px; margin-left:20px;">성인</li>
+								<li style="width: 70px;">${mypageList.order_adult}명</li>
+								<li  id="mmo_name_tag" style="width: 70px;">아동</li>
+								<li style="width: 70px;">${mypageList.order_child}명</li>
+								<li  id="mmo_name_tag" style="width: 70px;">유아</li>
+								<li style="width: 70px;">${mypageList.order_baby}명</li>
+							</ul>
+						</div>
+						<div class="mmo_line" style="height: 43px;">
+							<ul>
+								<li  id="mmo_name_tag" style="width: 100px;">출발일</li>
+								<li style="width: 200px;">${mypageList.flight_start_date}</li>
+								<li  id="mmo_name_tag" style="width: 100px; margin-left:122px;">도착일</li>
+								<li style="width: 200px;">${mypageList.flight_end_date}</li>
+							</ul>
+						</div>
+						<div class="mmo_line" style="height: 43px;">
+							<ul>
+								<li  id="mmo_name_tag" style="width: 100px;">예약금액</li>
+								<li style="width: 200px;">${mypageList.order_money}</li>
+								<li  id="mmo_name_tag" style="width: 90px;">결제수단</li>
+								<li style="width: 100px;">${mypageList.payment_option}</li>
+								<li  id="mmo_name_tag" style="width: 90px;">결제현황</li>
+								<li style="width: 100px;">${mypageList.payment_state}</li>
+							</ul>
+						</div>
+						<div class="mmo_line" style="height: 43px; margin-left: 250px;">
+							<ul>
+								<li style="width: 100px;"><a href="javascript:pushRequest('${root}','${mypageList.order_number }','${mypageList.flight_number }','취소')">취소신청</a></li>
+								<li style="width: 100px;">
+								<a href="javascript:pushRequest('${root}','${member_number}','${mypageList.order_number }','${mypageList.flight_number }','입금')">입금확인 신청</a></li>
+							</ul>
+						</div>
 					</div>
-					<div class="mmo_line" style="height: 43px;">
-						<ul>
-							<li  id="mmo_name_tag" style="width: 100px;">예약날짜</li>
-							<li style="width: 150px;"></li>
-							<li  id="mmo_name_tag" style="width: 70px; margin-left:20px;">성인</li>
-							<li style="width: 70px;"></li>
-							<li  id="mmo_name_tag" style="width: 70px;">아동</li>
-							<li style="width: 70px;"></li>
-							<li  id="mmo_name_tag" style="width: 70px;">유아</li>
-							<li style="width: 70px;"></li>
-						</ul>
-					</div>
-					<div class="mmo_line" style="height: 43px;">
-						<ul>
-							<li  id="mmo_name_tag" style="width: 100px;">출발일</li>
-							<li style="width: 200px;"></li>
-							<li  id="mmo_name_tag" style="width: 100px; margin-left:122px;">도착일</li>
-							<li style="width: 200px;"></li>
-						</ul>
-					</div>
-					<div class="mmo_line" style="height: 43px;">
-						<ul>
-							<li  id="mmo_name_tag" style="width: 100px;">예약금액</li>
-							<li style="width: 200px;"></li>
-							<li  id="mmo_name_tag" style="width: 90px;">결제방법</li>
-							<li style="width: 100px;"></li>
-							<li  id="mmo_name_tag" style="width: 90px;">예약상태</li>
-							<li style="width: 100px;"></li>
-						</ul>
-					</div>
-					<div class="mmo_line" style="height: 43px; margin-left: 250px;">
-						<ul>
-							<li style="width: 100px;"><a href="javascript:pushRequest('${root}','${order_number }','${flight_number }','취소')">취소신청</a></li>
-							<li style="width: 100px;">
-							<a href="javascript:pushRequest('${root}','${member_number}','${order_number }','${flight_number }','입금')">입금확인 신청</a></li>
-						</ul>
-	
-					</div>
-				</div>
+				</c:forEach>
 			</div>
 		</div>	
 

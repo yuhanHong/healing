@@ -1,5 +1,9 @@
 package com.healing.memberMypage.dao;
 
-public interface MemberMypageDao {
+import java.util.List;
 
+import com.healing.memberMypage.dto.MemberMypageDto;
+
+public interface MemberMypageDao {
+	public List<MemberMypageDto> memberMypageOrderList(int member_number);
 }

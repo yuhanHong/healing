@@ -1,5 +1,6 @@
 package com.healing.memberMypage.service;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.aop.HomeAspect;
 import com.healing.memberMypage.dao.MemberMypageDao;
+import com.healing.memberMypage.dto.MemberMypageDto;
 
 @Component
 public class MemberMypageServiceImp implements MemberMypageService {
@@ -36,8 +38,11 @@ public class MemberMypageServiceImp implements MemberMypageService {
 		
 		
 		int member_number=Integer.parseInt(request.getParameter("member_number"));
-		HomeAspect.logger.info(HomeAspect.logMsg+"예약결제 회원넘버:"+member_number);
+		// HomeAspect.logger.info(HomeAspect.logMsg+"예약결제 회원넘버:"+member_number);
 		
+		List<MemberMypageDto> mypageDto=memberMypageDao.memberMypageOrderList(member_number);
+		
+		mav.addObject("mypageDto",mypageDto);
 		mav.setViewName("memberMypage/memberMypageOrder");
 	}
 }

@@ -4,6 +4,9 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="dao.memberMyPageMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
-	
+	<select id="memberMypageOrderList" parameterType="int" resultType="com.healing.memberMypage.dto.MemberMypageDto">
+		SELECT * FROM mypage
+		WHERE member_number=#{member_number}
+	</select>
 </mapper>
 	

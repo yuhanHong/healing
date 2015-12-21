@@ -2,7 +2,7 @@ package com.healing.memberMypage.dto;
 
 import java.util.Date;
 
-public class memberMypageDto {
+public class MemberMypageDto {
 	
 	private int product_number;
 	private String product_name;
@@ -18,8 +18,15 @@ public class memberMypageDto {
 	private int order_adult;
 	private int order_child;
 	private int order_baby;
+	private Date order_date;
 	
 	
+	public Date getOrder_date() {
+		return this.order_date;
+	}
+	public void setOrder_date(Date order_date) {
+		this.order_date = order_date;
+	}
 	public int getProduct_number() {
 		return this.product_number;
 	}

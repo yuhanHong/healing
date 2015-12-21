@@ -60,8 +60,19 @@ function result(root,str,min,max){
 		,success:function(args){
 			$("#dc_imfo").children().remove();
 			var count="<h3>("+args.data.length+")개의 상품이 선택되었습니다.</h3>";
+			var notice="<h3 id='notice' style='margin-left:460px;'>선택된 상품이 없습니다.</h3>";
+				
+			$("#dc_product").children().remove();	
 			$("#dc_imfo").append(count);
-			$("#dc_product").children().remove();
+			if(args.data.length==0){
+				$("#dc_product").append(notice);
+			}
+			if(args.data.length>0){
+				$("#notice").remove();
+			}
+			
+			
+			
 			for(var i=0; i<args.data.length; i++){	
 				var form="<div class='dc_product_list' id='product"+args.data[i].product_number+"' onmouseover=\"productOnMouseOver('"+args.data[i].product_number+"')\" onmouseout=\"productOnMouseOut('"+args.data[i].product_number+"')\">";
 					form+="<div id='dc_pro_img'><img src='"+root+"/resources/productPhoto/"+args.data[i].product_number+"/0-1-1.jpg' width='280px' height='280px;'/></div>";
@@ -90,5 +101,5 @@ function productOnMouseOver(product_number){
 
 function productOnMouseOut(product_number){
 	var li=document.getElementById("product"+product_number);
-	li.style.border="1px #ffffff solid";
+	li.style.border="1px #c0c0c0 solid";
 }
