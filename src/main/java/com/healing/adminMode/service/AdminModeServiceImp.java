@@ -12,12 +12,24 @@ import com.healing.adminMode.dao.AdminModeDao;
 import com.healing.adminMode.dto.AdminModeDto;
 import com.healing.aop.HomeAspect;
 
+/**
+ * @이름 : AdminModeServiceImp
+ * @날짜 : 2015. 12. 21.
+ * @개발자 : 김진수
+ * @설명 : 관리자 계정관리 
+ */
 @Component
 public class AdminModeServiceImp implements AdminModeService {
 	
 	@Autowired
 	private AdminModeDao adminModeDao;
 
+	/**
+	 * @함수이름 : adminModeCreateOk
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 계정생성
+	 */
 	@Override
 	public void adminModeCreateOk(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();
@@ -30,6 +42,12 @@ public class AdminModeServiceImp implements AdminModeService {
 		
 	}
 
+	/**
+	 * @함수이름 : adminModeLogin
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 관리자 로그인
+	 */
 	@Override
 	public void adminModeLogin(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();		
@@ -45,6 +63,12 @@ public class AdminModeServiceImp implements AdminModeService {
 		mav.setViewName("adminHome");
 	}
 
+	/**
+	 * @함수이름 : adminModeUpdate
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 관리자 계정 업데이트
+	 */
 	@Override
 	public void adminModeUpdate(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();		
@@ -59,6 +83,12 @@ public class AdminModeServiceImp implements AdminModeService {
 		mav.setViewName("adminMode/adminModeUpdate");
 	}
 
+	/**
+	 * @함수이름 : adminModeUpdateOk
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 관리자 계정 수정
+	 */
 	@Override
 	public void adminModeUpdateOk(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();
@@ -71,6 +101,12 @@ public class AdminModeServiceImp implements AdminModeService {
 		mav.setViewName("adminMode/adminModeUpdateOk");
 	}
 
+	/**
+	 * @함수이름 : adminModeDelete
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 관리자 계정 삭제
+	 */
 	@Override
 	public void adminModeDelete(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();		

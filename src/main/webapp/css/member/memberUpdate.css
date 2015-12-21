@@ -2,7 +2,7 @@
 
 #updateTotal{
 	width:800px; overflow: hidden;
-	border: 0px solid red;
+	border: 0px solid red; margin-left:400px;
 }
 
 #title{

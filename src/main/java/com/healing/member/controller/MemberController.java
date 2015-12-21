@@ -25,6 +25,14 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+
+	/**
+	 * @함수이름 : memberJoin
+	 * @리턴타입 : ModelAndView
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 회원가입
+	 */
 	@RequestMapping(value="/member/memberJoin.do",method=RequestMethod.GET)
 	public ModelAndView memberJoin(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
@@ -34,6 +42,13 @@ public class MemberController {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : memberJoinOk
+	 * @리턴타입 : ModelAndView
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 회원가입
+	 */
 	@RequestMapping(value="/member/memberJoinOk.do",method=RequestMethod.POST)
 	public ModelAndView memberJoinOk(HttpServletRequest request, HttpServletResponse response, MemberDto memberDto, InterestDto interestDto){
 		ModelAndView mav=new ModelAndView();
@@ -45,6 +60,14 @@ public class MemberController {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : memberIdCheck
+	 * @리턴타입 : ModelAndView
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 아이디체크
+	 */
+
 	@RequestMapping(value="/member/memberIdCheck.do",method=RequestMethod.GET)
 	public ModelAndView memberIdCheck(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
@@ -56,6 +79,13 @@ public class MemberController {
 		return null;
 	}
 	
+	/**
+	 * @함수이름 : memberLogin
+	 * @리턴타입 : ModelAndView
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 로그인
+	 */
 	@RequestMapping(value="/member/memberLogin.do",method=RequestMethod.POST)
 	public ModelAndView memberLogin(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
@@ -67,6 +97,13 @@ public class MemberController {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : memberLogOut
+	 * @리턴타입 : ModelAndView
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 로그아웃
+	 */
 	@RequestMapping(value="/member/memberLogout.do",method=RequestMethod.GET)
 	public ModelAndView memberLogOut(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
@@ -75,6 +112,13 @@ public class MemberController {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : memberDelete
+	 * @리턴타입 : ModelAndView
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 회원탈퇴
+	 */
 	@RequestMapping(value="/member/memberDelete.do",method=RequestMethod.GET)
 	public ModelAndView memberDelete(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
@@ -84,6 +128,13 @@ public class MemberController {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : memberDeleteOk
+	 * @리턴타입 : ModelAndView
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 회원탈퇴
+	 */
 	@RequestMapping(value="/member/memberDeleteOk.do",method=RequestMethod.POST)
 	public ModelAndView memberDeleteOk(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
@@ -93,6 +144,13 @@ public class MemberController {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : memberUpdate
+	 * @리턴타입 : ModelAndView
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 회원정보수정
+	 */
 	@RequestMapping(value="/member/memberUpdate.do",method=RequestMethod.GET)
 	public ModelAndView memberUpdate(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
@@ -102,6 +160,13 @@ public class MemberController {
 		return mav;
 	}
 	
+	/**
+	 * @함수이름 : memberUpdateOk
+	 * @리턴타입 : ModelAndView
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 회원정보수정
+	 */
 	@RequestMapping(value="/member/memberUpdateOk.do",method=RequestMethod.POST)
 	public ModelAndView memberUpdateOk(HttpServletRequest request, HttpServletResponse response,MemberDto memberDto, InterestDto interestDto){
 		ModelAndView mav=new ModelAndView();

@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.aop.HomeAspect;
-import com.healing.healingHome.service.HealingHomeService;
 import com.healing.member.dao.MemberDao;
 import com.healing.member.dto.InterestDto;
 import com.healing.member.dto.MemberDto;
@@ -31,10 +30,13 @@ public class MemberServiceImp implements MemberService {
 	
 	@Autowired
 	private MemberDao memberDao;
-	
-	@Autowired
-	private HealingHomeService healingHomeService;
 
+	/**
+	 * @함수이름 : memberJoin
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 처음 회원가입창으로 이동
+	 */
 	@Override
 	public void memberJoin(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();
@@ -45,6 +47,12 @@ public class MemberServiceImp implements MemberService {
 		mav.setViewName("member/memberJoin");
 	}
 
+	/**
+	 * @함수이름 : memberJoinOk
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 로그인정보 입력받은것을 DB에 저장한다.
+	 */
 	@Override
 	public void memberJoinOk(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();
@@ -52,9 +60,9 @@ public class MemberServiceImp implements MemberService {
 		InterestDto interestDto=(InterestDto)map.get("interestDto");
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
 		
-		String nomal="nomal";				// 회원 기본등급 노말 설정
+		String normal="normal";				// 회원 기본등급 노말 설정
 		memberDto.setMember_date(new Date()); // 가입날짜
-		memberDto.setMember_level(nomal);	// 회원 기본등급 노말 설정
+		memberDto.setMember_level(normal);	// 회원 기본등급 노말 설정
 		
 		// String member_id=memberDto.getMember_id();  // 입력받는 아이디
 		int check=memberDao.memberInsert(memberDto);         // 회원정보 인설트
@@ -80,6 +88,12 @@ public class MemberServiceImp implements MemberService {
 		mav.setViewName("member/memberJoinOk");
 	}
 
+	/**
+	 * @함수이름 : memberIdCheck
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 아이디체크, AJAX 형식으로 한번 누를때마다 체크한다.
+	 */
 	@Override
 	public void memberIdCheck(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();
@@ -121,6 +135,12 @@ public class MemberServiceImp implements MemberService {
 		}
 	}
 
+	/**
+	 * @함수이름 : memberLogin
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 로그인
+	 */
 	@Override
 	public void memberLogin(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();
@@ -135,10 +155,15 @@ public class MemberServiceImp implements MemberService {
 		// String id=memberDto.getMember_id();
 		// HomeAspect.logger.info(HomeAspect.logMsg+"로그인체크:"+member_number+","+id);
 		mav.addObject("memberDto",memberDto);
-		healingHomeService.healingHome(mav);
-		
+		mav.setViewName("member/memberLogin");
 	}
 
+	/**
+	 * @함수이름 : memberDelete
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 회원탈퇴
+	 */
 	@Override
 	public void memberDelete(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();
@@ -149,6 +174,12 @@ public class MemberServiceImp implements MemberService {
 		mav.setViewName("member/memberDelete");
 	}
 
+	/**
+	 * @함수이름 : memberDeleteOk
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 회원탈퇴, 회원정보가 삭제되는것이 아니라 탈퇴 기록을 한다.
+	 */
 	@Override
 	public void memberDeleteOk(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();
@@ -166,6 +197,12 @@ public class MemberServiceImp implements MemberService {
 		mav.setViewName("member/memberDeleteOk");
 	}
 
+	/**
+	 * @함수이름 : memberUpdate
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 회원정보수정
+	 */
 	@Override
 	public void memberUpdate(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();
@@ -178,18 +215,18 @@ public class MemberServiceImp implements MemberService {
 		MemberDto memberDto=memberDao.memberSelect2(member_id);
 		interestList=memberDao.interestSelect(member_number);
 		
-		
-		// String member_eamil=memberDto.getMember_email();
-		// HomeAspect.logger.info(HomeAspect.logMsg+"수정이메일:"+member_eamil);
-		// HomeAspect.logger.info(HomeAspect.logMsg+"수정회원번호:"+member_number);
-		// HomeAspect.logger.info(HomeAspect.logMsg+"수정회원번호:"+interestList);
-		
 		mav.addObject("memberDto",memberDto);
 		mav.addObject("interestList",interestList);
 		
 		mav.setViewName("member/memberUpdate");
 	}
 
+	/**
+	 * @함수이름 : memberUpdateOk
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 김진수
+	 * @함수설명 : 회원정보수정 
+	 */
 	@Override
 	public void memberUpdateOk(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();

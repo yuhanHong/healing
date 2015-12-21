@@ -63,7 +63,7 @@ function result(root,str,min,max){
 			$("#dc_imfo").append(count);
 			$("#dc_product").children().remove();
 			for(var i=0; i<args.data.length; i++){	
-				var form="<div id='dc_product_list'>";
+				var form="<div class='dc_product_list' id='product"+args.data[i].product_number+"' onmouseover=\"productOnMouseOver('"+args.data[i].product_number+"')\" onmouseout=\"productOnMouseOut('"+args.data[i].product_number+"')\">";
 					form+="<div id='dc_pro_img'><img src='"+root+"/resources/productPhoto/"+args.data[i].product_number+"/0-1-1.jpg' width='280px' height='300px;'/></div>";
 					form+="<div id='dc_pro_imfo'>";
 					form+="<ul>";
@@ -80,6 +80,18 @@ function result(root,str,min,max){
     	// alert(e.responseText);
 		}
 	});
+}
+
+
+
+function productOnMouseOver(product_number){
+	var li=document.getElementById("product"+product_number);
+	li.style.border="1px red solid";
+}
+
+function productOnMouseOut(product_number){
+	var li=document.getElementById("product"+product_number);
+	li.style.border="0px red solid";
 }
 
 

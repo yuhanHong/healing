@@ -16,7 +16,6 @@
 </head>
 <body>
 	<jsp:include page="../include/header.jsp"/>
-	<jsp:include page="../include/memberMypageSideMenu.jsp"/>
 <div id="dc_main">
 <form name="dc_picker_form">
 	<input type="hidden" value="${root}" name="root"/>

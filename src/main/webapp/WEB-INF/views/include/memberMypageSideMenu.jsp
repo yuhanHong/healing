@@ -9,13 +9,13 @@
 <link href="${root}/css/side_menu/style.css" rel="stylesheet">
 </head>
 <body>
-	<div class="side_menu_class">
+	<div class="side_menu_class" style="margin-left:210px;">
 		<div style="border:0px solid black; width:90px; height:23px; line-height: 23px; margin-top:5px;">
-			<h2 style="display:inline;"><span style="font-weight: bold; ">고객센터</span></h2>
+			<h2 style="display:inline ;"><span style="font-weight: bold; ">Mypage</span></h2>
 		</div>
 		<hr style="border:2px solid #464E60;">
-		<div>
-			<ul>
+		<div style="margin-reight:50px;">
+			<ul style="margin:0px; padding:0px;">
 				<li><a href="${root}/member/memberUpdate.do?member_id=${member_id}&member_number=${member_number}"">회원정보수정</a></li>
 				<li><a href="${root}/member/memberMypageOrder.do?member_number=${member_number}">예약/결제 내역</a></li>
 				<li><a href="${root}/memberMypage/memberMypageRe.do">갔다온상품/후기</a></li>

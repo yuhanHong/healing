@@ -34,39 +34,39 @@
 	<div id="mmo_content">
 		<div class="mmo_line" style="height: 43px;">
 			<ul>
-				<li style="width: 100px;">상품명</li>	
-				<li style="width: 700px;"></li>
+				<li  id="mmo_name_tag" style="width: 100px;">상품명</li>	
+				<li style="width: 400px;"></li>
 				<li style="width: 100px; float:right;">
 					<a href="javascript:pushRequest('${root}','${order_number }','${flight_number }','취소')">취소신청</a></li>
 			</ul>
 		</div>
 		<div class="mmo_line" style="height: 43px;">
 			<ul>
-				<li style="width: 100px;">예약날짜</li>
+				<li  id="mmo_name_tag" style="width: 100px;">예약날짜</li>
 				<li style="width: 150px;"></li>
-				<li style="width: 100px; margin-left:173px;">성인</li>
+				<li  id="mmo_name_tag" style="width: 70px; margin-left:20px;">성인</li>
 				<li style="width: 70px;"></li>
-				<li style="width: 100px;">아동</li>
+				<li  id="mmo_name_tag" style="width: 70px;">아동</li>
 				<li style="width: 70px;"></li>
-				<li style="width: 100px;">유아</li>
+				<li  id="mmo_name_tag" style="width: 70px;">유아</li>
 				<li style="width: 70px;"></li>
 			</ul>
 		</div>
 		<div class="mmo_line" style="height: 43px;">
 			<ul>
-				<li style="width: 100px;">출발일</li>
+				<li  id="mmo_name_tag" style="width: 100px;">출발일</li>
 				<li style="width: 200px;"></li>
-				<li style="width: 100px; margin-left:122px;">도착일</li>
+				<li  id="mmo_name_tag" style="width: 100px; margin-left:122px;">도착일</li>
 				<li style="width: 200px;"></li>
 			</ul>
 		</div>
 		<div class="mmo_line" style="height: 43px;">
 			<ul>
-				<li style="width: 100px;">예약금액</li>
-				<li style="width: 300px;"></li>
-				<li style="width: 100px;">결제방법</li>
+				<li  id="mmo_name_tag" style="width: 100px;">예약금액</li>
+				<li style="width: 200px;"></li>
+				<li  id="mmo_name_tag" style="width: 90px;">결제방법</li>
 				<li style="width: 100px;"></li>
-				<li style="width: 100px;">예약상태</li>
+				<li  id="mmo_name_tag" style="width: 90px;">예약상태</li>
 				<li style="width: 100px;"></li>
 				<li style="width: 100px;">
 				<a href="javascript:pushRequest('${root}','${member_number}','${order_number }','${flight_number }','입금')">입금확인 신청</a></li>

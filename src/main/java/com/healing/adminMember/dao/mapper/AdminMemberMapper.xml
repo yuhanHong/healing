@@ -25,7 +25,7 @@
 	</select>
 	
 	<select id="adminMemberSortNomal" resultType="com.healing.member.dto.MemberDto">
-		SELECT * FROM MEMBER where member_level='nomal'
+		SELECT * FROM MEMBER where member_level='normal'
 	</select>
 	
 	<select id="adminMemberSortVip" resultType="com.healing.member.dto.MemberDto">

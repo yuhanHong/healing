@@ -43,18 +43,7 @@ $(function(){
 </head>
 <body>
 <div>
-	<c:if test="${memberDto.member_delete==0}">
-		<c:set var="member_id" value="${memberDto.member_id}" scope="session"/>
-		<c:set var="member_level" value="${memberDto.member_level}" scope="session"/>
-		<c:set var="member_name" value="${memberDto.member_name}" scope="session"/>
-		<c:set var="member_number" value="${memberDto.member_number}" scope="session"/>
-	</c:if>
-	<c:if test="${memberDto.member_delete==1}">
-		<script type="text/javascript">
-			alert("탈퇴된 아이디 입니다.");
-		</script>
-	</c:if>
-	
+
 	<c:if test="${member_id==null}">
 		<div id="loginPage" style="display:none" title="로그인">
 			<form action="${root}/member/memberLogin.do" name="memberForm" method="POST">

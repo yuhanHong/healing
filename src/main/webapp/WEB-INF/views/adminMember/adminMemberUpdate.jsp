@@ -71,7 +71,7 @@
 					<li id="adm_content">등급</li>
 					<li id="adm_content1">
 						<select name="member_level">
-							<option value="nomal">일반</option>
+							<option value="normal">일반</option>
 							<option value="vip">vip</option>
 						</select>
 						<script type="text/javascript">
