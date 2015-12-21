@@ -16,7 +16,7 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
-	<jsp:include page="../header.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
 	
 <hr/>
 	<form id="orderForm" action="${root}/order/write.do"  method ="post" onsubmit="return orderCheck(this,'${root}')">
@@ -34,11 +34,12 @@
 			<!-- INPUT -->
 			<!-- hidden-->
 			<div id="hiddenInfo">
+				<input type="hidden" name="flight_number" value="${flightDto.flight_number}"/>
 				<input type="hidden" name="product_number" value="${productDto.product_number}"/>
 				<input type="hidden" name="order_price_adult" value="${productDto.product_price_adult}"/>
 				<input type="hidden" name="order_price_child" value="${productDto.product_price_child}"/>
 				<input type="hidden" name="order_price_baby" value="${productDto.product_price_baby}"/>	
-				<input id="order_adult" type="hidden" name="order_adult" value="0"/>
+				<input id="order_adult" type="hidden" name="order_adult" value="1"/>
 				<input id="order_child" type="hidden" name="order_child"value="0"/>
 				<input id="order_baby" type="hidden" name="order_baby"value="0"/>
 				<input type="hidden" name="product_name" value="${productDto.product_name}"/>	
@@ -93,7 +94,7 @@
 				</select>
 			</div>
 			<div class="orderDiv">
-				<label>성인 인원 : </label> <input id="adult" type="number"  value="0" max="20" min="1" size="2">									
+				<label>성인 인원 : </label> <input id="adult" type="number"  value="1" max="20" min="1" size="2">									
 				<label>아동 인원 : </label><input id="child" type="number"  value="0" max="20" min="0" size="2">
 				<label>유아 인원 : </label> <input id="baby" type="number"  value="0" max="20" min="0" size="2">
 			</div>
@@ -105,8 +106,8 @@
 			</div>
 			<div class="orderDiv">
 				<b>예매 금액 :   
-					<font id="result_money"><fmt:formatNumber value="${orderDto.order_money}" pattern="###,###"/></font>원</b>
-					<input type="hidden" id="order_money" name="order_money" value="0">
+					<font id="result_money"><fmt:formatNumber value="${productDto.product_price_adult}" pattern="###,###"/></font>원</b>
+					<input type="hidden" id="order_money" name="order_money" value="${productDto.product_price_adult}">
 			</div>
 			<br/><br/><br/>
 			<div id="tabs" class="orderDiv">
@@ -398,6 +399,6 @@
 	</div>
 	</form>
 	
-	<jsp:include page="../footer.jsp"/>
+	<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

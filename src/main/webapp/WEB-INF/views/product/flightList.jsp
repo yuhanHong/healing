@@ -20,21 +20,21 @@ function flightOnClick(flight_number,product_number,pc,pageNumber){
 
 function flightOnMouseOver(flight_number){
 	var li=document.getElementById("flight"+flight_number);
-	li.style.border="1px red solid";
+	li.style.border="1px #ff0000 solid";
 }
 
 function flightOnMouseOut(flight_number){
 	var li=document.getElementById("flight"+flight_number);
-	li.style.border="0px red solid";
+	li.style.border="1px #ffffff solid";
 }
 </script>
 <body onload="bodyOnLoad('${root}')">
 	<jsp:include page="../include/header.jsp"/>
 
-	<div class="content" style="width: 900px; margin: 0px auto;">
+	<div class="content" style="align: center; width: 900px; margin: 0px auto;">
 		<ul class="productList" style="list-style-type: none;">
 			<li style="padding-bottom: 20px; margin: 15px 15px 15px 15px; border-bottom: 1px solid #D1D1D1;">
-				<div style="width:100%; height:150px;overflow:hidden;" id="product${productDto.product_number}" class="clearfix on">
+				<div style="border:1px #ffffff solid; width:100%; height:150px;overflow:hidden;" id="product${productDto.product_number}" class="clearfix on">
 					<div style="float:left;"><img width="204" height="150" alt="상품이미지" src="${root}/resources/productPhoto/${productDto.product_number}/0-1-1.jpg"></div>
 					<div class="details" style="width: 620px; float:left;">
 						<dl style="margin-left: 15px;">
@@ -119,8 +119,7 @@ function flightOnMouseOut(flight_number){
 				<p class="close"><a href="#close" title="닫기" onclick="ProductClose('ATE101');return false;">▲ 닫기</a></p>
 			</div>
 		</c:if>
+		<jsp:include page="../include/footer.jsp"/>
 	</div>
-		
-	<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

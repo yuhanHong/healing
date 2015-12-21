@@ -35,17 +35,16 @@ function productOnClick(product_number,pc,pageNumber){
 
 function productOnMouseOver(product_number){
 	var li=document.getElementById("product"+product_number);
-	li.style.border="1px red solid";
+	li.style.border="1px #ff0000 solid";
 }
 
 function productOnMouseOut(product_number){
 	var li=document.getElementById("product"+product_number);
-	li.style.border="0px red solid";
+	li.style.border="1px #ffffff solid";
 }
 </script>
 <body onload="bodyOnLoad('${root}')">
 <jsp:include page="../include/header.jsp"/>
-
 	<div class="content" style="width: 900px; margin: 0px auto;">
 		<c:if test="${count==0}">
 			<div align="center">등록된 상품이 없습니다.</div>
@@ -55,7 +54,7 @@ function productOnMouseOut(product_number){
 			<ul class="productList" style="list-style-type: none;">
 				<c:forEach var="productDto" items="${productList}" varStatus="status">
 					<li style="padding-bottom: 20px; margin: 15px 15px 15px 15px; border-bottom: 1px solid #D1D1D1;">
-						<div style="width:100%; height:150px;overflow:hidden;" id="product${productDto.product_number}" class="clearfix on" onmouseover="productOnMouseOver('${productDto.product_number}')" onmouseout="productOnMouseOut('${productDto.product_number}')" onclick="productOnClick('${productDto.product_number}','${pc}','${pageNumber}')">
+						<div style="border:1px #ffffff solid; width:100%; height:150px;overflow:hidden;" id="product${productDto.product_number}" class="clearfix on" onmouseover="productOnMouseOver('${productDto.product_number}')" onmouseout="productOnMouseOut('${productDto.product_number}')" onclick="productOnClick('${productDto.product_number}','${pc}','${pageNumber}')">
 							<div style="float:left;"><img width="204" height="150" onerror="setNoImg(this,'204x150');" alt="상품이미지" src="${root}/resources/productPhoto/${productDto.product_number}/0-1-1.jpg"></div>
 							<div class="details" style="width: 620px; float:left;">
 								<dl style="margin-left: 15px;">
@@ -93,8 +92,7 @@ function productOnMouseOut(product_number){
 			</c:if>
 		</div>
 	</c:if>
-	
+		
 <jsp:include page="../include/footer.jsp"/>
-	
 </body>
 </html>

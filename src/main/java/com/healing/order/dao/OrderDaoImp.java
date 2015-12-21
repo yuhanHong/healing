@@ -23,13 +23,6 @@ public class OrderDaoImp implements OrderDao {
 		private SqlSessionTemplate sqlSessionTemplate;
 
 		@Override
-		public ProductDto orderProductRead(int product_number) {
-			// TODO Auto-generated method stub
-			HomeAspect.logger.info(HomeAspect.logMsg+"///"+product_number);
-			return sqlSessionTemplate.selectOne("dao.orderMapper.orderProductRead",product_number);
-		}
-
-		@Override
 		public int orderInsert(OrderDto orderDto) {
 			// TODO Auto-generated method stub
 			return sqlSessionTemplate.insert("dao.orderMapper.orderInsert", orderDto);
@@ -46,5 +39,4 @@ public class OrderDaoImp implements OrderDao {
 			// TODO Auto-generated method stub
 			return sqlSessionTemplate.selectOne("dao.orderMapper.getMemberInfo",member_number);
 		}
-		
 }

@@ -2098,7 +2098,7 @@
 								</div>
 								<div class="func">
 									<a href="#" class="wish" onclick="PopupBriefing(); return false;"><span class="blind">인쇄</span></a>
-									<a class="btn_booking" href="${root}/order/write.do?pNum=${productDto.product_number}" onclick=""><span class="blind">예약하기</span></a>
+									<a class="btn_booking" href="${root}/order/write.do?pNum=${productDto.product_number}&fNum=${flightDto.flight_number}" onclick=""><span class="blind">예약하기</span></a>
 								</div>
 								<div class="helpdesk">
 									<p>모두투어 예약센터</p>
