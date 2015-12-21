@@ -29,14 +29,16 @@ $(window).load(function () {
 		<ul class="slides">
 			<c:forEach var="i" begin="0" end="${listSize-1}" step="1">
 				<li>
-					<img src="${root}/resources/banner/${productPhotoList.get(i).product_photo_filename}" border="0" width="1000px" height="500px"/>
+					<a href="${root}/product/flightList.do?pNum=${productList.get(i).product_number}">
+					<img src="${root}/resources/productPhoto/${productList.get(i).product_number}/0-1-1.jpg" border="0" width="1000px" height="500px"/>
 					<div class="flex-caption">
-						<a href="${root}/recentProduct/recentProduct.do?product_number=${productList.get(i).product_number}">
+						
 							<h2>${productList.get(i).product_name}</h2>
-						</a>
+						
 						<p>${productList.get(i).product_summary} </p>
-						<a href="${root}/recentProduct/recentProduct.do?product_number=${productList.get(i).product_number}" class="slider_button">상품 보러가기</a>
+						상품 보러가기
 					</div>
+					</a>
 				</li>
 			</c:forEach>
 		</ul>
