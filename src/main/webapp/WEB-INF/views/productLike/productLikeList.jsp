@@ -58,7 +58,7 @@
 				</c:forEach>
 				<c:if test="${check==0 }">
 					<div style="margin:30px auto; margin-left: 280px;margin-bottom: 200px;">
-						<h3>등록된 관심 상품이 없습니다.</h3>
+						<h3 style="font-size: 13px;">등록된 관심 상품이 없습니다.</h3>
 					</div>
 				</c:if>
 				<div style="margin-left: 500px; margin-top: 30px;margin-bottom: 200px; ">

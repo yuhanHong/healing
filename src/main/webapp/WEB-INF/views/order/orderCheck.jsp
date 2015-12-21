@@ -13,7 +13,7 @@
 <script type="text/javascript" src="${root}/js/order/order.js"></script>
 </head>
 <body>
-	<jsp:include page="../header.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
 	
 <hr/>
 	<form id="orderForm" action="${root}/order/write.do"  method ="post" onsubmit="return orderCheck(this,'${root}')">
@@ -32,7 +32,8 @@
 				<label>주문 번호 : ${orderDto.order_number}</label>  
 			</div>
 			<div class="orderDiv">
-				<label>출발 날짜 : 	${orderDto.start_time} </label>  
+				<label>출발 날짜 : 	<fmt:formatDate value="${orderDto.start_time}" type="date"/>
+								<fmt:formatDate value="${orderDto.start_time}" type="time"/>  </label>  
 			</div>
 			<div class="orderDiv">
 				<label>성인 인원 : ${orderDto.order_adult}  명 /  아동 인원 : ${orderDto.order_child} 명 /  유아 인원 : ${orderDto.order_baby}  명</label>  
@@ -45,7 +46,7 @@
 				</c:if>
 			</div>
 			<div class="orderDiv">
-				<b>최종 결제 금액 : ${orderDto.order_money }&nbsp;&nbsp;원</b>
+				<b>최종 결제 금액 : ${orderDto.order_money}&nbsp;&nbsp;원</b>
 			</div>
 			
 			<div class="orderDiv">

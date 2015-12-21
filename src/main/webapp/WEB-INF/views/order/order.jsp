@@ -87,11 +87,11 @@
 				</c:if>
 				  
 			</div>
+			
+			
 			<div class="orderDiv">
-				<label>출발 날짜  :</label>
-				<select name="start_time" id="time_select">
-					<!--<option>2015년 12월 24일  22:00</option>  -->
-				</select>
+				<label>출발 날짜  : ${start_date }</label>
+				
 			</div>
 			<div class="orderDiv">
 				<label>성인 인원 : </label> <input id="adult" type="number"  value="1" max="20" min="1" size="2">									
