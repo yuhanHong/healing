@@ -5,7 +5,7 @@
 
 <mapper namespace="dao.adminProductMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
 	<insert id="productWrite" parameterType="com.healing.product.dto.ProductDto">
-		insert into product values(product_product_number_seq.nextval,#{product_name},#{product_summary},#{product_category},#{product_country},#{product_stay_days},#{product_price_adult},#{product_price_child},#{product_price_baby},#{product_guide_adult},#{product_guide_child},#{product_guide_baby},#{product_bargain_day1},#{product_bargain_rate1},#{product_bargain_day2},#{product_bargain_rate2},0,0,0)
+		insert into product values(product_product_number_seq.nextval,#{product_name},#{product_summary},#{product_category},#{product_country},#{product_stay_days},#{product_price_adult},#{product_price_child},#{product_price_baby},#{product_guide_adult},#{product_guide_child},#{product_guide_baby},#{product_bargain_day1},#{product_bargain_rate1},#{product_bargain_day2},#{product_bargain_rate2},0,0,0,#{product_days})
 	</insert>
 	
 	<select id="getProductNumber" resultType="int">
