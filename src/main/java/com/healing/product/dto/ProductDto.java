@@ -20,7 +20,14 @@ public class ProductDto {
 	private int product_readcount;
 	private float product_average_score;
 	private int product_banner;
+	private int product_days;
 	
+	public int getProduct_days() {
+		return product_days;
+	}
+	public void setProduct_days(int product_days) {
+		this.product_days = product_days;
+	}
 	public int getProduct_number() {
 		return product_number;
 	}

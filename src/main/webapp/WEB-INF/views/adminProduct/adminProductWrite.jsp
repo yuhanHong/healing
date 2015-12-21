@@ -84,7 +84,10 @@
 							<div class="title"><label>도시</label></div>
 							<div class="content"><input type="hidden" name="product_city"/><input type="text" name="product_cities"/></div>
 							<div class="title"><label>숙박일</label></div>
-							<div class="content"><input type="text" name="product_stay_days" maxlength="2" oninput="numberOnInput(event)"/>박</div>
+							<div class="content">
+							<input type="text" name="product_stay_days" maxlength="2" size="1" oninput="numberOnInput(event)"/>박
+							<input type="text" name="product_days" maxlength="2" size="1" oninput="numberOnInput(event)"/>일
+							</div>
 							<div class="title"><label>성인 요금</label></div>
 							<div class="content"><input type="hidden" name="product_price_adult"/><input type="text" name="product_price_adult_string" maxlength="13" oninput="numberOnInput(event)"/>원</div>
 							<div class="title"><label>아동 요금</label></div>
