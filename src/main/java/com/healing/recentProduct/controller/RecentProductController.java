@@ -34,7 +34,7 @@ public class RecentProductController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/recentProduct/recentProductReadList.do", method=RequestMethod.GET)
+	/*@RequestMapping(value="/recentProduct/recentProductReadList.do", method=RequestMethod.GET)
 	public ModelAndView recentProductReadList(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
@@ -43,7 +43,7 @@ public class RecentProductController {
 		recentProductService.recentProductReadList(mav);
 		
 		return mav;
-	}
+	}*/
 	
 	@RequestMapping(value="/recentProduct/paging.do", method=RequestMethod.GET)
 	public ModelAndView paging(HttpServletRequest request, HttpServletResponse response){
@@ -55,5 +55,24 @@ public class RecentProductController {
 		
 		return mav;
 	}
+	
+	/**
+	 * @함수이름 : recentProductList
+	 * @리턴타입 : ModelAndView
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 전현준
+	 * @함수설명 : recentProduct.jsp 페이지에서 onload됬을때 실행되는 함수
+	 */
+	@RequestMapping(value="/recentProduct/recentProductList.do", method=RequestMethod.GET)
+	public ModelAndView recentProductList(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("response", response);
+		
+		recentProductService.recentProductList(mav);
+		
+		return null;
+	}
+	
 	
 }

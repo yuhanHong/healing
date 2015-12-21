@@ -1,9 +1,13 @@
 package com.healing.product.service;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,6 +18,7 @@ import com.healing.product.dao.ProductDao;
 import com.healing.product.dto.FlightDto;
 import com.healing.product.dto.ProductDto;
 import com.healing.product.dto.ProductSearchDto;
+import com.healing.recentProduct.dao.RecentProductDao;
 
 /**
  * @이름 : ProductDao
@@ -25,6 +30,8 @@ import com.healing.product.dto.ProductSearchDto;
 public class ProductServiceImp implements ProductService {
 	@Autowired
 	private ProductDao productDao;
+	@Autowired				
+	private RecentProductDao recentProductDao;			// 쿠키 생성하기 위해서 받아오는 dao
 
 	@Override
 	public void productList(ModelAndView mav) {
@@ -81,6 +88,7 @@ public class ProductServiceImp implements ProductService {
 	public void flightList(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
+		HttpServletResponse response = (HttpServletResponse) map.get("response");
 		
 		String pc=request.getParameter("pc");
 		if(pc==null) pc="1";
@@ -105,6 +113,47 @@ public class ProductServiceImp implements ProductService {
 		List<ProductDto> flightList=null;
 		flightList=productDao.flightGetList(product_number);
 		
+		/*////////////////////////////////////////////////////////////////
+		 * @개발자 : 전현준
+		 * @수정내용 : flightList 함수 안에 쿠키 생성 추가
+		 * @수정날짜 : 2015. 12. 21.
+		 */
+		List<ProductDto> recentProductList = recentProductDao.productList(product_number);
+		HomeAspect.logger.info(HomeAspect.logMsg + "상품 사이즈:" + recentProductList.size());
+		
+		List<FlightDto> flightList2 = recentProductDao.flightList(product_number);
+		HomeAspect.logger.info(HomeAspect.logMsg + "항공정보 사이즈:" + flightList2.size());
+		
+		// 쿠키 생성
+		String pro_num = String.valueOf(product_number);
+		HomeAspect.logger.info(HomeAspect.logMsg + "PSI 상품번호:" + pro_num);
+		
+		if(recentProductList.size() != 0){
+			Cookie cookie = new Cookie("key" + pro_num, pro_num);
+			cookie.setMaxAge(60 * 10);		// 초 * 분 * 시 * 일
+			cookie.setPath("/");			// 어디에서 쿠키를 나중에 불러오더라도 찾을수 있게 만드는 경로설정
+			response.addCookie(cookie);
+		}
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = null;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		int recentProductSize = recentProductList.size();
+		int flightListSize = flightList.size();
+		
+		mav.addObject("recentProductSize", recentProductSize);		// 상품정보 list Size
+		mav.addObject("recentProductList", recentProductList);		// 상품정보 data
+		
+		mav.addObject("flightListSize", flightListSize);			// 항공정보 list Size
+		mav.addObject("flightList2", flightList2);					// 항공정보 data
+		mav.addObject("pro_num", pro_num);							// 상품번호
+		////////////////////////////////////////////////////////////////////////////////////
+		
 		mav.addObject("flightCount",flightCount);
 		mav.addObject("productDto",productDto);
 		mav.addObject("flightList",flightList);
@@ -112,6 +161,7 @@ public class ProductServiceImp implements ProductService {
 		mav.addObject("pc",pc);
 		mav.addObject("pageNumber",pageNumber);
 		mav.setViewName("product/flightList");
+
 	}
 	
 	@Override

@@ -73,7 +73,8 @@ public class RecentProductServiceImp implements RecentProductService {
 		mav.addObject("flightList", flightList);					// 항공정보 data
 		mav.addObject("product_number", product_number);			// 상품번호
 		
-		mav.setViewName("recentProduct/productList");
+		//mav.setViewName("recentProduct/productList");
+		mav.setViewName("product/flightList");
 	}
 
 	@Override
@@ -87,6 +88,56 @@ public class RecentProductServiceImp implements RecentProductService {
 	}
 
 	@Override
+	public void recentProductList(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		HttpServletResponse response = (HttpServletResponse) map.get("response");
+		
+		String value = request.getParameter("value");
+		HomeAspect.logger.info(HomeAspect.logMsg + "상품번호:" + value);
+		
+		String cookies = request.getParameter("cookies");
+		HomeAspect.logger.info(HomeAspect.logMsg + "쿠키:" + cookies);
+		
+		int cookiesLength = Integer.parseInt(request.getParameter("cookiesLength"));
+		HomeAspect.logger.info(HomeAspect.logMsg + "쿠키길이:" + cookiesLength);
+		
+		List<ProductDto> product = new ArrayList<ProductDto>();
+		List<ProductPhotoDto> productPhoto = new ArrayList<ProductPhotoDto>();
+		
+		if(cookies != null){
+			for(int i=1; i<cookiesLength; i++){
+				// 상품명, 상품가격, 상품이미지를 상품번호를 이용해서 갖고온다.
+				ProductDto productDto = adminBannerDao.recentlyProductSelect(Integer.parseInt(value));
+				HomeAspect.logger.info(HomeAspect.logMsg + "Dto1:" + productDto);
+				
+				// 사진 설명, 사진 파일명, 사진 설명 등을 가져온다.
+				ProductPhotoDto productPhotoDto = adminBannerDao.recentlyProductPhotoSelect(Integer.parseInt(value));
+				HomeAspect.logger.info(HomeAspect.logMsg + "Dto2:" + productPhotoDto);
+				
+				product.add(productDto);
+				productPhoto.add(productPhotoDto);
+			}
+			HomeAspect.logger.info(HomeAspect.logMsg + "상품 사이즈:" + product.size());
+			HomeAspect.logger.info(HomeAspect.logMsg + "상품 이미지 사이즈:" + productPhoto.size());
+		}
+		
+		JSONObject json = new JSONObject();		// JSONObject 객체 생성
+		json.put("productInfo", product);			// JSONObject에 값 넣기
+		json.put("productPhotoInfo", productPhoto);
+		HomeAspect.logger.info(HomeAspect.logMsg + "json정보:" + json);
+		
+		PrintWriter out = null;
+		try {
+			response.setContentType("text/html;charset=UTF-8");
+			out = response.getWriter();
+			out.print(json.toString());		// out 객체의 내용을 ajax의 데이터타입이 json에게 갖고있는 데이터를 전달함
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/*@Override
 	public void recentProductReadList(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
@@ -135,6 +186,6 @@ public class RecentProductServiceImp implements RecentProductService {
 		mav.addObject("productPhoto", productPhoto);			// 최근 본 상품 이미지 정보 
 		
 		mav.setViewName("/recentProduct/recentProduct");
-	}
+	}*/
 
 }

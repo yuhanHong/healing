@@ -34,7 +34,8 @@ public class ProductController {
 	@RequestMapping(value="/product/flightList.do",method=RequestMethod.GET)
 	public ModelAndView flightList(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
-		mav.addObject("request",request);
+		mav.addObject("request", request);
+		mav.addObject("response", response);	// cookie 생성 추가하기 위해 response 추가
 		productService.flightList(mav);
 		
 		return mav;

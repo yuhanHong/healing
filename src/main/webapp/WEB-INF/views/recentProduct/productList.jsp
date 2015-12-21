@@ -41,8 +41,6 @@
 			
 			<input type="button" value="목록으로" onclick="location.href='${root}'">
 			
-			<%-- <input type="button" value="쿠키 읽기" onclick="location.href='${root}/recentProduct/recentProductReadList.do'"> --%>
-			
 		</c:forEach>
 		<!-- 최근 본 상품 include 된 부분 -->
 		<c:import url="../recentProduct/recentProduct.jsp"/>
