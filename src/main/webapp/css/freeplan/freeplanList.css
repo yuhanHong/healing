@@ -7,27 +7,27 @@ li{list-style: none; text-align:center;}
 
 ul,li {margin:0; padding:0;} 
 
-.continentDiv{
+#continentDiv{
 	border:0px solid black;
 	float:left; 
-	width:80px; height:707px;
+	width:80px;
 	background-color: #2F9D27;
 }
 
-.continentDiv ul li{
-	border:1px solid #EAEAEA; 
+#continentDiv ul li{
+	border:0px solid #EAEAEA; 
 	border-left-color:black; border-right-color:#ffffff;
 	width:80px; height:80px; line-height: 80px;
 	color:#ffffff;
 }
 
-.countryDiv{
+#countryDiv{
 	border:0px solid black;
 	float:left;
-	width:250px; height:707px;
+	width:250px;
 }
 
-.countryDiv div:nth-child(1){
+#countryDiv div:nth-child(1){
 	border:0px solid black;
 	width:250px; height:80px;
 	line-height: 80px; text-align: center;
@@ -35,19 +35,18 @@ ul,li {margin:0; padding:0;}
 	font-size: 1.2em; color:#ffffff; font-weight: bold;
 }
 
-.countryDiv div:nth-child(2){
+#countryDiv div:nth-child(2){
 	border:0px solid black;
-	width:250px; height:575px;
+	width:250px; 
 	margin-top: 50px; overflow-y:scroll; overflow-x:hidden;
 }
 
-.countryDiv div:nth-child(2) ul li{
-	border:1px solid #EAEAEA;
+#countryDiv div:nth-child(2) ul li{
+	border:0px solid #EAEAEA;
 	height:80px; line-height: 80px;
 	width:250px;
 }
 
-#map_canvas{
- 	width:920px; height:703px;
-margin-left:330px;
+body {
+	overflow : hidden;
 }

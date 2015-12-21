@@ -27,7 +27,28 @@ $(function(){
 	
 });
 
+function resize(){
+	//구글맵 사이즈 조정
+	var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth,
+    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
+	var wid = x - 330;
+	var hei = y;
+	
+	map_canvas.style.width = wid+"px";
+	map_canvas.style.height = hei+"px";
+	map_canvas.style.margin = "0px 0px 0px 330px";
+	continentDiv.style.height = hei+"px";
+	countryDiv.style.height = (hei)+"px";
+	countryDiv.children[1].style.height = (hei-130)+"px";
+}
+
 function init(root){	
+	resize();
 	
 	//alert(root);
 	var url = root+"/freeplan/freePlanPrintMarker.do";
@@ -36,7 +57,7 @@ function init(root){
 		type:"get",
 		dataType:"json",
 		success:function(args){
-			// 동남아, 중국, 일본의 중앙 지점인 필리핀 루손섬 죄표 설정
+			// 동남아, 중국, 일본의 중앙 지점인 필리핀 루손섬 좌표 설정
 			var latlng = new google.maps.LatLng(16.5662318,121.2626366);
 			myOptions = {
 					zoom:4,
