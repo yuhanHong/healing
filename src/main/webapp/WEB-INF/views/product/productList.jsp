@@ -45,53 +45,66 @@ function productOnMouseOut(product_number){
 </script>
 <body onload="bodyOnLoad('${root}')">
 <jsp:include page="../include/header.jsp"/>
-	<div class="content" style="width: 900px; margin: 0px auto;">
-		<c:if test="${count==0}">
-			<div align="center">등록된 상품이 없습니다.</div>
-		</c:if>
-	
-		<c:if test="${count>0}">
-			<ul class="productList" style="list-style-type: none;">
-				<c:forEach var="productDto" items="${productList}" varStatus="status">
-					<li style="padding-bottom: 20px; margin: 15px 15px 15px 15px; border-bottom: 1px solid #D1D1D1;">
-						<div style="border:1px #ffffff solid; width:100%; height:150px;overflow:hidden;" id="product${productDto.product_number}" class="clearfix on" onmouseover="productOnMouseOver('${productDto.product_number}')" onmouseout="productOnMouseOut('${productDto.product_number}')" onclick="productOnClick('${productDto.product_number}','${pc}','${pageNumber}')">
-							<div style="float:left;"><img width="204" height="150" onerror="setNoImg(this,'204x150');" alt="상품이미지" src="${root}/resources/productPhoto/${productDto.product_number}/0-1-1.jpg"></div>
-							<div class="details" style="width: 620px; float:left;">
-								<dl style="margin-left: 15px;">
-									<dt><b>[ATP${productDto.product_number}]</b>${productDto.product_name}</dt>
-									<dd style="height:50px;">${productDto.product_summary}</dd>
-								</dl>
-								<div class="first" style="margin-left: 15px;"><img src="http://img.modetour.co.kr/mode2010/modetour/product/txt_detail1.gif" alt="상품가격"><strong id="Price_ATP${productDto.product_number}"><fmt:formatNumber value="${productDto.product_price_adult}"/>원</strong></div>
-								<div style="margin-left: 15px;"><img src="http://img.modetour.co.kr/mode2010/modetour/product/txt_detail2.gif" alt="여행기간"><span id="DaysText_ATP${productDto.product_number}">${productDto.product_stay_days}박 ${productDto.product_days}일</span></div>
-								<div class="date" style="margin-left: 15px;"><img src="http://img.modetour.co.kr/mode2010/modetour/product/txt_detail4.gif" alt="출발요일"><span id="WeekText_ATP${productDto.product_number}">　</span></div>
-							</div>
-						</div>
-					</li>
-				</c:forEach>
-			</ul>
-		</c:if>
-	</div>
+	<div class="outline_class" style="margin-left: 290px;">
+		<div class="content_class">
 		
-	<c:if test="${count>0}">
-		<div class="productListPages" style="width: 900px; margin: 0px auto;" align="center">
-			<c:if test="${startPage!=1}">
-				<a href="list.do?pageNumber=${startPage-1}">[이전]</a>
-			</c:if>
-			
-			<c:forEach var="i" begin="${startPage}" end="${endPage}">
-				<c:if test="${i==pageNumber}">
-					<u><b><font size="6" color="#00f">[${i}]</font></b></u>
+			<div style="float:left;margin-top:5px;">
+				<img src="${root}/resources/boardImg/img01.PNG" align="center">
+				<h2 style="display:inline;"><span style="font-weight: bold; ">${productList.get(0).product_category }</span></h2>
+			</div>
+				
+					
+			<hr style="border:2px solid green; margin-top: 41px;">
+			<div class="content" style="width: 900px; margin: 0px auto;">
+				<c:if test="${count==0}">
+					<div align="center">등록된 상품이 없습니다.</div>
 				</c:if>
-				<c:if test="${i!=pageNumber}">
-					<a href="list.do?pageNumber=${i}">[${i}]</a>
-				</c:if>
-			</c:forEach>
 			
-			<c:if test="${endPage < pageCount}">
-				<a href="list.do?pageNumber=${endPage+1}">[다음]</a>
+				<c:if test="${count>0}">
+					<ul class="productList" style="list-style-type: none;">
+						<c:forEach var="productDto" items="${productList}" varStatus="status">
+							<li style="padding-bottom: 20px; margin: 15px 15px 15px 15px; border-bottom: 1px solid #D1D1D1;">
+								<div style="border:1px #ffffff solid; width:100%; height:150px;overflow:hidden;" id="product${productDto.product_number}" class="clearfix on" onmouseover="productOnMouseOver('${productDto.product_number}')" onmouseout="productOnMouseOut('${productDto.product_number}')" onclick="productOnClick('${productDto.product_number}','${pc}','${pageNumber}')">
+									<div style="float:left;"><img width="204" height="150" onerror="setNoImg(this,'204x150');" alt="상품이미지" src="${root}/resources/productPhoto/${productDto.product_number}/0-1-1.jpg"></div>
+									<div class="details" style="width: 620px; float:left;">
+										<dl style="margin-left: 15px;">
+											<dt><b>[ATP${productDto.product_number}]</b>${productDto.product_name}</dt>
+											<dd style="height:50px;">${productDto.product_summary}</dd>
+										</dl>
+										<div class="first" style="margin-left: 15px;"><img src="http://img.modetour.co.kr/mode2010/modetour/product/txt_detail1.gif" alt="상품가격"><strong id="Price_ATP${productDto.product_number}"><fmt:formatNumber value="${productDto.product_price_adult}"/>원</strong></div>
+										<div style="margin-left: 15px;"><img src="http://img.modetour.co.kr/mode2010/modetour/product/txt_detail2.gif" alt="여행기간"><span id="DaysText_ATP${productDto.product_number}">${productDto.product_stay_days}박 ${productDto.product_days}일</span></div>
+										<div class="date" style="margin-left: 15px;"><img src="http://img.modetour.co.kr/mode2010/modetour/product/txt_detail4.gif" alt="출발요일"><span id="WeekText_ATP${productDto.product_number}">　</span></div>
+									</div>
+								</div>
+							</li>
+						</c:forEach>
+					</ul>
+				</c:if>
+			</div>
+			
+			<c:if test="${count>0}">
+				<div class="productListPages" style="width:800px;" align="center">
+					<c:if test="${startPage!=1}">
+						<a href="list.do?pageNumber=${startPage-1}">[이전]</a>
+					</c:if>
+					
+					<c:forEach var="i" begin="${startPage}" end="${endPage}">
+						<c:if test="${i==pageNumber}">
+							<u><b><font size="3" >[${i}]</font></b></u>
+						</c:if>
+						<c:if test="${i!=pageNumber}">
+							<a href="list.do?pageNumber=${i}">[${i}]</a>
+						</c:if>
+					</c:forEach>
+					
+					<c:if test="${endPage < pageCount}">
+						<a href="list.do?pageNumber=${endPage+1}">[다음]</a>
+					</c:if>
+				</div>
 			</c:if>
 		</div>
-	</c:if>
+	</div>
+
 		
 <jsp:include page="../include/footer.jsp"/>
 </body>

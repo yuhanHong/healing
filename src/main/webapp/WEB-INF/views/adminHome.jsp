@@ -57,11 +57,11 @@
 				</div>
 				
 				<div id="adh_id">
-					<span>아이디</span>
+					<span>아이디 　:</span>
 					<input type="text" name="admin_id"/>
 				</div>
 				<div id="adh_password">
-					<span>비밀번호</span>
+					<span>비밀번호 :</span>
 					<input type="password" name="admin_password"/>
 				</div>
 				<div>
