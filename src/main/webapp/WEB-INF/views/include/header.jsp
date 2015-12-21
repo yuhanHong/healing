@@ -46,14 +46,14 @@ $(function(){
 
 	<c:if test="${member_id==null}">
 		<div id="loginPage" style="display:none" title="로그인">
-			<form action="${root}/member/memberLogin.do" name="memberForm" method="POST">
+			<form action="${root}/member/memberLogin.do" name="memberForm" method="POST" style="margin-top:8px; font-size:  13px;">
 				<div>
-					아이디 :&nbsp;&nbsp;&nbsp; <input type="text" name="id"/>
+					아이디 　:&nbsp;<input type="text" name="id"/>
 				</div>
-				<div>
+				<div style="margin-top: 10px;">
 					비밀번호 : <input type="password" name="password"/>
 				</div>
-				<div align="center">
+				<div align="center" style="margin-top: 10px;">
 					<input type="submit" value="로그인">
 					<input type="button" id="loginClose" value="취소">
 				</div>

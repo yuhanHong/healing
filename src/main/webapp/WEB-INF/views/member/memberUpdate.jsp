@@ -28,13 +28,13 @@
 		
 		<div style="float:left;">
 			<img src="${root}/resources/boardImg/img01.PNG" align="center">
-			<h2 style="display:inline;"><span style="font-weight: bold; ">${member_name}님의 회원정보/수정 페이지 입니다.</span></h2>
+			<h2 style="display:inline;"><span style="font-weight: bold; ">회원정보</span></h2>
 		</div>
 			
 				
 		<hr style="border:2px solid green; margin-top: 36px;">
 				<div style="margin-left: 10px;width: 900px;">
-<div id="updateTotal">
+<div id="updateTotal" style="font-size: 13px;">
 	<form action="${root}/member/memberUpdateOk.do" name="memberForm" method="POST" onsubmit="return joinForm(this)">
 		<div id="memberSection">
 			<div id="memberOp">
@@ -76,21 +76,26 @@
 				<div id="fieldDiv">
 					<input type="text" name="member_email" value="${memberDto.member_email}" size="40"/>
 				</div>
-				수신동의&nbsp;
-				yes
-				<input type="radio" name="member_email_check" value="yes"/>
-				no
-				<input type="radio" name="member_email_check" value="no" checked="checked"/>
-				<script type="text/javascript">
-					for(var i=0;i<memberForm.member_email_check.length;i++){
-						if(memberForm.member_email_check[i].value=="${memberDto.member_email_check}"){
-							memberForm.member_email_check[i].checked=true;
+				<div id="fieldDiv" style="margin-left: 147px;">
+					이메일 수신동의&nbsp;
+					<input type="radio" name="member_email_check" value="yes"/>
+					yes
+					<input type="radio" name="member_email_check" value="no" checked="checked"/>
+					no
+					
+					<script type="text/javascript">
+						for(var i=0;i<memberForm.member_email_check.length;i++){
+							if(memberForm.member_email_check[i].value=="${memberDto.member_email_check}"){
+								memberForm.member_email_check[i].checked=true;
+							}
 						}
-					}
-				</script>
+					</script>
+				</div>
 			</div>
-			<br/>
-			<div id="tabs" style="width:500px;">
+			<br/><br/>
+			<div id="subj"><span>관심 지역</span></div><br/>
+			<div id="tabs" style="width:300px;margin-left: 147px;">
+
 			  <ul>
 			    <li><a href="#tabs-1">동남아</a></li>
 			    <li><a href="#tabs-2">중국</a></li>
@@ -98,13 +103,19 @@
 			  </ul>
 			  <div id="tabs-1">
 			    <p>
-			    <input type="checkbox" name="interest_content" value="캄보디아"/>캄보디아 &nbsp;&nbsp;
-			    <input type="checkbox" name="interest_content" value="태국"/>태국 &nbsp;&nbsp;
-			    
+				    <input type="checkbox" name="interest_content" value="캄보디아"/>캄보디아 &nbsp;&nbsp;
+				    <input type="checkbox" name="interest_content" value="태국"/>태국 &nbsp;&nbsp;
+				    <input type="checkbox" name="interest_content" value="필리핀 "/>필리핀 &nbsp;&nbsp;
+					<input type="checkbox" name="interest_content" value="말레이시아 "/>말레이시아 &nbsp;&nbsp;
 			    </p>
 			  </div>
 			  <div id="tabs-2">
-			    <p></p>
+			    <p>
+			    	<input type="checkbox" name="interest_content" value="북경 "/>북경	 &nbsp;&nbsp;
+			    	<input type="checkbox" name="interest_content" value="상해 "/>상해 &nbsp;&nbsp;
+			    	<input type="checkbox" name="interest_content" value="장가계 "/>장가계 &nbsp;&nbsp;
+			    	<input type="checkbox" name="interest_content" value="백두산 "/>백두산 &nbsp;&nbsp;
+			    </p>
 			  </div>
 			  <div id="tabs-3">
 			    <p>

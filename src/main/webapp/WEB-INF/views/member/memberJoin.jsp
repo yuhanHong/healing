@@ -17,99 +17,115 @@
     $( "#tabs" ).tabs();
   });
   </script>
+
 </head>
 <body>
 	<jsp:include page="../include/header.jsp"/>
 	
 <div id="joinTotal">
-	
-	<div id="minititle">member Join</div>
-	<div id="title">Healing 회원가입</div>
-	<form action="${root}/member/memberJoinOk.do" name="memberForm" method="POST" onsubmit="return joinForm(this)">
-		<div>
-			<div id="memberSection">
-				<div id="memberId">
-					<div id="subj">아이디</div>
-					<div id="fieldDiv">
-						<input type="text" size="50" id="field" name="member_id" size="20" maxlength="10" oninput="idCheck(this,'${root}')"/>
-					</div>
-					<div id="exFieldi">&nbsp;</div>
-				</div>
+	<div class="outline_class" style="margin-left: 290px;">
+		<div class="content_class">
+		
+			<div style="float:left;margin-top:5px;font-size: 13px;">
+				<img src="${root}/resources/boardImg/img01.PNG" align="center">
+				<h2 style="display:inline;"><span style="font-weight: bold; ">회원가입</span></h2>
+			</div>
 				
-				<div>
-					<div id="subj">비밀번호</div>
-					<div id="fieldDiv">
-						<input type="password" size="50" id="field" name="member_password"/>
+					
+			<hr style="border:2px solid green; margin-top: 41px;">
+			<div class="content" style="width: 950px;">
+			<form action="${root}/member/memberJoinOk.do" name="memberForm" method="POST"  onsubmit="return joinForm(this)">
+
+					<div id="memberSection">
+						<div id="memberId">
+							<div id="subj">아이디</div>
+							<div id="fieldDiv">
+								<input type="text" size="30" id="field" name="member_id" size="20" maxlength="10" oninput="idCheck(this,'${root}')"/>
+							</div>
+							<div id="exFieldi">&nbsp;</div>
+						</div>
+						
+						<div>
+							<div id="subj">비밀번호</div>
+							<div id="fieldDiv">
+								<input type="password" size="30" id="field" name="member_password"/>
+							</div>
+							<div id="exField">&nbsp;</div>
+						</div>
+						<div>
+							<div id="subj">비밀번호확인</div>
+							<div id="fieldDiv">
+								<input type="password" size="30" id="field" name="passwordCheck"/>
+							</div>
+							<div id="exField">&nbsp;</div>
+						</div>
+						<div>
+							<div id="subj">이름</div>
+							<div id="fieldDiv">
+								<input type="text" size="30" id="field" name="member_name"/>
+							</div>
+							<div id="exField">&nbsp;</div>
+						</div>
+						<div>
+							<div id="subj">전화번호</div>
+							<div id="fieldDiv">
+								<input type="text" size="30" id="field" name="member_phone"/>
+							</div>
+							<div id="exField">&nbsp;</div>
+						</div>
+						<div>
+							<div id="subj">이메일</div>
+							<div id="fieldDiv">
+								<input type="text" size="30" id="field" name="member_email"/>
+							</div>
+
+						</div>
+						<div>
+							<div id="exField" style="width:700px">
+								<div id="subj">이메일 수신동의&nbsp;</div>
+									<input type="radio" name="member_email_check" value="yes"/>
+									yes
+									<input type="radio" name="member_email_check" value="no" checked="checked"/>
+									no
+							</div>
+						</div>
 					</div>
-					<div id="exField">&nbsp;</div>
-				</div>
-				<div>
-					<div id="subj">비밀번호확인</div>
-					<div id="fieldDiv">
-						<input type="password" size="50" id="field" name="passwordCheck"/>
+					<br/><div id="subj" style="margin-left: 50px;">관심 여행지</div>
+					<div>
+						
+						<div id="tabs" style="width:500px;margin-left: 150px; font-size: 12px;">
+						  <ul>
+						    <li><a href="#tabs-1">동남아</a></li>
+						    <li><a href="#tabs-2">중국</a></li>
+						    <li><a href="#tabs-3">일본</a></li>
+						  </ul>
+						  <div id="tabs-1" style="width:600px;">
+						    <p>
+							    <input type="checkbox" name="interest_content" value="캄보디아"/>캄보디아 &nbsp;&nbsp;
+							    <input type="checkbox" name="interest_content" value="태국"/>태국 &nbsp;&nbsp;
+							    <input type="checkbox" name="interest_content" value="필리핀 "/>필리핀 &nbsp;&nbsp;
+							   	<input type="checkbox" name="interest_content" value="말레이시아 "/>말레이시아 &nbsp;&nbsp;
+							</p>
+						  </div>
+						  <div id="tabs-2" style="width:600px;">
+						    <p></p>
+						  </div>
+						  <div id="tabs-3" style="width:600px;">
+						    <p>
+						    	<input type="checkbox" name="interest_content" value="도쿄"/>도쿄 &nbsp;&nbsp;
+						    	<input type="checkbox" name="interest_content" value="오사카"/>오사카 &nbsp;&nbsp;
+						    	<input type="checkbox" name="interest_content" value="오키나와"/>오키나와 &nbsp;&nbsp;
+							    <input type="checkbox" name="interest_content" value="훗카이도"/>훗카이도 &nbsp;&nbsp;
+						   		<input type="checkbox" name="interest_content" value="쿄토"/>쿄토 &nbsp;&nbsp;
+						    </p>
+						  </div>
+					  </div>
 					</div>
-					<div id="exField">&nbsp;</div>
-				</div>
-				<div>
-					<div id="subj">이름</div>
-					<div id="fieldDiv">
-						<input type="text" size="50" id="field" name="member_name"/>
+					<div style="margin-top: 30px; margin-left: 50px;" >
+						<b>이용 약관</b>
 					</div>
-					<div id="exField">&nbsp;</div>
-				</div>
-				<div>
-					<div id="subj">전화번호</div>
-					<div id="fieldDiv">
-						<input type="text" size="50" id="field" name="member_phone"/>
-					</div>
-					<div id="exField">&nbsp;</div>
-				</div>
-				<div>
-					<div id="subj">이메일</div>
-					<div id="fieldDiv">
-						<input type="text" size="50" id="field" name="member_email"/>
-					</div>
-					<div id="exField">
-						수신동의&nbsp;
-						yes
-						<input type="radio" name="member_email_check" value="yes"/>
-						no
-						<input type="radio" name="member_email_check" value="no" checked="checked"/>
-					</div>
-				</div>
-			</div>
-			<br/>
-			<div id="tabs" style="width:800px;">
-			  <ul>
-			    <li><a href="#tabs-1">동남아</a></li>
-			    <li><a href="#tabs-2">중국</a></li>
-			    <li><a href="#tabs-3">일본</a></li>
-			  </ul>
-			  <div id="tabs-1">
-			    <p>
-			    <input type="checkbox" name="interest_content" value="캄보디아"/>캄보디아 &nbsp;&nbsp;
-			    <input type="checkbox" name="interest_content" value="태국"/>태국 &nbsp;&nbsp;
-			    
-			    </p>
-			  </div>
-			  <div id="tabs-2">
-			    <p></p>
-			  </div>
-			  <div id="tabs-3">
-			    <p>
-			    	<input type="checkbox" name="interest_content" value="도쿄"/>도쿄 &nbsp;&nbsp;
-			    	<input type="checkbox" name="interest_content" value="오사카"/>오사카 &nbsp;&nbsp;
-			    	<input type="checkbox" name="interest_content" value="오키나와"/>오키나와 &nbsp;&nbsp;
-				    <input type="checkbox" name="interest_content" value="훗카이도"/>훗카이도 &nbsp;&nbsp;
-			   		<input type="checkbox" name="interest_content" value="쿄토"/>쿄토 &nbsp;&nbsp;
-			    </p>
-			  </div>
-			</div>
-			<div>
-				<img src="${root}/resources/memberJoin/join2.png" width="650px;" height="35px;"/>
-			</div>
-			<div>
-				<textarea rows="6" cols="112" style="resize:none;">
+					<div style="margin-top: 30px; margin-left:50px; " >
+						<textarea rows="6" cols="100" style="resize:none; font-size: 12px;">
 				▶제 1장 총칙
 제1조(목적)
 1. 이 약관은 전기통신사업법 및 동법 시행령에 의하여 (주)힐링여행사 (이하 당사라 한다)가 제공하는 인터넷 여행 서비스(이하 서비스)인 healing.com의 이용조건, 절차, 그리고 회원규칙에 관한 사항과 기타 필요한 사항을 규정함을 목적으로 합시다.
@@ -214,15 +230,15 @@
 제20조(관할법원)
 1. 서비스의 이용으로 발생한 분쟁에 대해 소송이 제기될 경우 회사의 본사 소재지를 관할하는 법원을 관할법원으로 합니다.
 				</textarea>
-			</div>
-			<div>
-				<input type="checkbox" value="join1" name="join1"/> 위 약관에 동의합니다.
-			</div>
-			<div>
-				<img src="${root}/resources/memberJoin/join1.png" width="650px;" height="35px;"/>
-			</div>
-			<div>
-				<textarea rows="6" cols="112" style="resize:none;">
+					</div>
+					<div>
+						<input style="margin-top: 30px; margin-left: 520px;" type="checkbox" value="join1" name="join1"/> 위 약관에 동의합니다.
+					</div>
+					<div style="margin-top: 30px; margin-left: 50px;" >
+							<b>	개인정보 취급 방침</b>
+					</div>
+					<div style="margin-top: 30px; margin-left:50px; ">
+						<textarea rows="6" cols="100" style="resize:none; font-size: 12px;">
 				■ 수집하는 개인정보 항목
   회사는 회원가입, 상담, 서비스 신청 등등을 위해 아래와 같은 개인정보를 수집하고 있습니다.
   ο 수집항목 : 이름 , 성별, 주민번호, 로그인 아이디 , 자택 전화번호 , 자택 주소 , 휴대전화번호 , 이메일 , 여권정보
@@ -236,19 +252,21 @@
 ■ 개인정보의 보유 및 이용기간
   회사는 개인정보 수집 및 이용목적이 달성된 후에는 예외 없이 해당 정보를 지체 없이 파기합니다.
 				
-				</textarea>
-			</div>
-			<div>
-				<input type="checkbox" name="join2"/> 위 약관에 동의합니다.
-			</div>
-			<div id="mj_su_button">
-				<input type="submit" value="가입"/>
-				<input type="button" value="취소" onclick="location.href='${root}/'"/>
-			</div>
+						</textarea>
+					</div>
+					<div>
+						<input  style="margin-top: 30px; margin-left: 520px;" type="checkbox" name="join2"/> 위 약관에 동의합니다.
+					</div>
+					<div id="mj_su_button">
+						<input type="submit" value="가입"/>
+						<input type="button" value="취소" onclick="location.href='${root}/'"/>
+					</div>
+			
+			</form>
 		</div>
-	</form>
+		</div>
+	</div>
 </div>
-	
-	<jsp:include page="../include/footer.jsp"/>
+<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

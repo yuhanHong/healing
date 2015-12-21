@@ -25,14 +25,14 @@
 		<div style="margin-left: 10px;width: 200px;">
 
 			<form action="${root}/member/memberDeleteOk.do" method="POST">
-				<div style="width:500px; overflow: hidden; margin-top: 50px; margin-left: 230px;">
+				<div style="width:500px; overflow: hidden; margin-top: 120px; margin-left: 230px;">
 	
 					<div>
 						아이디 &nbsp;&nbsp;&nbsp;
 						<input type="text" name="member_id" value="${member_id}" disabled="disabled">
 						<input type="hidden" name="member_id" value="${member_id}"/>
 					</div>
-					<div>
+					<div style="margin-top: 20px;">
 						비밀번호
 						<input type="password" name="member_password"/>
 					</div>
@@ -46,6 +46,7 @@
 
 		</div>
 	</div>
+	<div style="width:1000px;height: 140px;"></div>
 	<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

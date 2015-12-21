@@ -13,7 +13,7 @@
 }
 
 #title span{
-	font-size: 30px;
+	font-size: 13px;
 }
 
 #memberSection{
@@ -34,7 +34,7 @@
 }
 
 #subj span{
-	font-size: 16px; font-weight: bold;
+	font-size: 13px; font-weight: bold;
 }
 
 #fieldDiv{
@@ -44,7 +44,7 @@
 }
 
 #fieldDiv input{
-	height:30px; font-size: 16px;
+	height:20px; font-size: 13px;
 }
 
 #mu_button{

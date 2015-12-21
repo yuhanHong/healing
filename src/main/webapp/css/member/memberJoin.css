@@ -1,31 +1,32 @@
 @CHARSET "UTF-8";
 #joinTotal{
 	width:1000px; overflow:hidden;
-	margin-left:300px; margin-top:50px;
+	margin-top:10px;
 	border: 0px solid red;
 }
 
 #title{
-	font-size:50px; font-weight:bold;
+	font-size:13px; font-weight:bold;
 	font-family: 새굴림;
 	color:green;
 }
 
 #minititle{
-	font-size:20px; font-weight:bold; color:red;
+	font-size:13px; font-weight:bold; color:red;
 	font-family: 새굴림;
 }
 
 #memberSection{
-	width:80%; overflow:hidden;
+	width:750px; overflow:hidden;
 	margin-top:15px;
-	border: 0px solid blue;
+	margin-left: 50px;
 }
 
 #subj{
-	width:200px; height:30px;
+	width:100px; height:30px;
 	border: 0px solid black;
 	margin-top:10px; float:left;
+	margin-left: 0px;font-weight: bold;
 }
 #fieldDiv{
 	width:400px; height:30px;
@@ -54,6 +55,10 @@
 }
 #field:disabled{
 	
+}
+
+#memberSection input{
+	height:20px; font-size: 13px;
 }
 
 #tabs{
