@@ -30,7 +30,8 @@ public class MemberMypageController {
 	public ModelAndView memberMypageRe(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request",request);
-		mav.setViewName("memberMypage/memberMypageRe");
+		
+		memberMypageService.memberMypageRe(mav);
 		
 		return mav;
 	}

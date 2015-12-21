@@ -29,6 +29,8 @@ public class MemberMypageServiceImp implements MemberMypageService {
 		int star_number=Integer.parseInt(request.getParameter("star_number"));
 		// HomeAspect.logger.info(HomeAspect.logMsg+"후기회원넘버,내용,별점:"+member_number+","+review_content+","+star_number);
 		
+		
+		
 	}
 
 	@Override
@@ -44,5 +46,17 @@ public class MemberMypageServiceImp implements MemberMypageService {
 		
 		mav.addObject("mypageDto",mypageDto);
 		mav.setViewName("memberMypage/memberMypageOrder");
+	}
+
+	@Override
+	public void memberMypageRe(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		int member_number=Integer.parseInt(request.getParameter("member_number"));
+		
+		List<MemberMypageDto> mypageDto=memberMypageDao.memberMypageOrderList(member_number);
+		
+		mav.addObject("mypageDto",mypageDto);
+		mav.setViewName("memberMypage/memberMypageRe");
 	}
 }

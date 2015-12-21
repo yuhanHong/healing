@@ -71,8 +71,6 @@ function result(root,str,min,max){
 				$("#notice").remove();
 			}
 			
-			
-			
 			for(var i=0; i<args.data.length; i++){	
 				var form="<div class='dc_product_list' id='product"+args.data[i].product_number+"' onmouseover=\"productOnMouseOver('"+args.data[i].product_number+"')\" onmouseout=\"productOnMouseOut('"+args.data[i].product_number+"')\">";
 					form+="<div id='dc_pro_img'><img src='"+root+"/resources/productPhoto/"+args.data[i].product_number+"/0-1-1.jpg' width='280px' height='280px;'/></div>";

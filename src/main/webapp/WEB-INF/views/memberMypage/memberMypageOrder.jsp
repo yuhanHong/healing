@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
@@ -30,7 +31,6 @@
 				<div style="margin-left: 10px;width: 900px;">
 
 			<div id="mmo_main">
-				<!-- 수정하세요...임의 값 넣은겁니당~~ 채윤 -->
 				<input type="hidden" name="member_number" value="${member_number}"/>
 				
 				<c:forEach var="mypageList" items="${mypageDto}">
@@ -44,7 +44,9 @@
 						<div class="mmo_line" style="height: 43px;">
 							<ul>
 								<li  id="mmo_name_tag" style="width: 100px;">예약날짜</li>
-								<li style="width: 150px;">${mypageList.order_date}</li>
+								<li style="width: 150px;">
+									<fmt:formatDate value="${mypageList.order_date}" pattern="yyyy/MM/dd"/>
+								</li>
 								<li  id="mmo_name_tag" style="width: 70px; margin-left:20px;">성인</li>
 								<li style="width: 70px;">${mypageList.order_adult}명</li>
 								<li  id="mmo_name_tag" style="width: 70px;">아동</li>
@@ -56,9 +58,13 @@
 						<div class="mmo_line" style="height: 43px;">
 							<ul>
 								<li  id="mmo_name_tag" style="width: 100px;">출발일</li>
-								<li style="width: 200px;">${mypageList.flight_start_date}</li>
+								<li style="width: 200px;">
+									<fmt:formatDate value="${mypageList.flight_start_date}" pattern="yyyy/MM/dd"/>
+								</li>
 								<li  id="mmo_name_tag" style="width: 100px; margin-left:122px;">도착일</li>
-								<li style="width: 200px;">${mypageList.flight_end_date}</li>
+								<li style="width: 200px;">
+									<fmt:formatDate value="${mypageList.flight_end_date}" pattern="yyyy/MM/dd"/>
+								</li>
 							</ul>
 						</div>
 						<div class="mmo_line" style="height: 43px;">
