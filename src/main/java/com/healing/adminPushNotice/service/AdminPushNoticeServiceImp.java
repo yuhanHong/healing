@@ -2,11 +2,13 @@ package com.healing.adminPushNotice.service;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -46,11 +48,17 @@ public class AdminPushNoticeServiceImp implements AdminPushNoticeService {
 		
 		Map<String, Object> map=mav.getModelMap();
 	    HttpServletResponse response=(HttpServletResponse)map.get("response");
+	    HttpServletRequest request=(HttpServletRequest) map.get("request");
+	    
+	    int member_number=Integer.parseInt(request.getParameter("member_number"));
 		
 	    AdminPushNoticeDto adminPushNoticeDto=(AdminPushNoticeDto)map.get("adminPushNoticeDto");
 	    AdminPushNoticeDto dto=adminPushNoticeDao.adminPushNoticeOverCheck(adminPushNoticeDto);
 	    int check=0;
+	    adminPushNoticeDto.setMember_number(member_number);
 	    
+		HomeAspect.logger.info(HomeAspect.logMsg+"order_number"+ adminPushNoticeDto.getOrder_number()+"/member_number"+adminPushNoticeDto.getMember_number()+"/flight_number"+
+				adminPushNoticeDto.getFlight_number()+"/pushContent"+adminPushNoticeDto.getPush_content());
 	    if(dto==null){
 	    	check=adminPushNoticeDao.adminPushNoticeRequestCancel(adminPushNoticeDto);
 	    }

@@ -1,7 +1,6 @@
 
-function pushOrderRead(root,push_number,order_number,push_readcheck,i){
+function pushOrderRead(root,push_number,order_number,push_readcheck,i,member_number){
 	var url=root;
-	
 	if(push_readcheck=="X"){
 		$("#readcheck"+i).remove();
 		url+="/adminOrder/adminPushNoticeReadCheckUpdate.do?order_number="+order_number+"&push_number="+push_number;

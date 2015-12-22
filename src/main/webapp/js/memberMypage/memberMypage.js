@@ -1,6 +1,7 @@
 
-function pushRequest(root,order_number,flight_number,notice_content){
-	var url=root+"/adminPushNotice/adminPushNoticeRequest.do?&order_number="+order_number+"&flight_number="+flight_number+"&push_content="+notice_content;
+function pushRequest(root,member_number,order_number,flight_number,notice_content){
+	var url=root+"/adminPushNotice/adminPushNoticeRequest.do?&order_number="+order_number+"&flight_number="+flight_number+"&push_content="+notice_content+"&member_number="+member_number;
+
 	$.ajax({
 		url: url,
 		type:"get",
@@ -13,7 +14,7 @@ function pushRequest(root,order_number,flight_number,notice_content){
 				  }
 		},
 		error:function(xhr,status,error){
-			alert("에러임.");
+			alert("서버 오류입니다. 관리자에게 직접 문의하세요.");
 		}
 	});
 	
