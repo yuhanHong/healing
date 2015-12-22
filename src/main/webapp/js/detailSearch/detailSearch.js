@@ -60,7 +60,7 @@ function result(root,str,min,max){
 		,success:function(args){
 			$("#dc_imfo").children().remove();
 			var count="<b>("+args.data.length+")개의 상품이 선택되었습니다.</b>";
-			var notice="<b id='notice' style='margin-left:260px;'>선택된 상품이 없습니다.</b>";
+			var notice="<b id='notice' style='margin-left:360px;'>선택된 상품이 없습니다.</b>";
 				
 			$("#dc_product").children().remove();	
 			$("#dc_imfo").append(count);
@@ -75,12 +75,11 @@ function result(root,str,min,max){
 				var money=args.data[i].product_price_adult;
 				
 				var form="<div class='dc_product_list' id='product"+args.data[i].product_number+"' onmouseover=\"productOnMouseOver('"+args.data[i].product_number+"')\" onmouseout=\"productOnMouseOut('"+args.data[i].product_number+"')\">";
-					form+="<div id='dc_pro_img'><img src='"+root+"/resources/productPhoto/"+args.data[i].product_number+"/0-1-1.jpg' width='180px' height='180px;'/></div>";
-					form+="<div id='dc_pro_imfo'>";
+					form+="<div id='dc_pro_img'><img src='"+root+"/resources/productPhoto/"+args.data[i].product_number+"/0-1-1.jpg' width='240px' height='270px;'/></div>";
+					form+="<div id='dc_pro_imfo' style='margin-top:10px'>";
 					form+="<ul>";
-					form+="<li>상품명 : "+args.data[i].product_name+"</li>";
-					form+="<li>일수 : "+args.data[i].product_stay_days+"일</li>";
-					form+="<li>가격 : "+numberFormatter(money)+"원</li>";
+					form+="<li><b> "+args.data[i].product_name+"</b>  <"+args.data[i].product_stay_days+"일></li>";
+					form+="<li>성인기준 : "+numberFormatter(money)+"원</li>";
 					form+="</ul>";
 					form+="</div>";
 					form+="</div>";

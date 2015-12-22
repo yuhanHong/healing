@@ -17,7 +17,7 @@
 }
 
 #dc_sl{
-	width:50%; margin-left:150px; margin-top:30px;
+	width:50%; margin-left:220px; margin-top:30px;
 	border:0px solid blue;
 }
 
@@ -40,25 +40,24 @@
 }
 
 #dc_imfo{
-	width:300px; margin-left:290px;
+	width:300px; margin-left:340px;
 	margin-top: 10px;
 }
 
 #notice{
-	margin-left: 220px;
+	margin-left: 320px;
 }
 
 #dc_product{
-	width:60%; 
+	width:100%; 
 	overflow: hidden;
-	margin-top:30px;
-	margin-left:50px;
-	
+	margin-top:30px;	
 }
 
 .dc_product_list{
-	width:190px; height:250px;
-	float:left; margin-left:20px; margin-top:30px;
+	width:250px; height:350px;
+	float:left; margin-left:40px; margin-top:30px;
+	color: black;
 }
 
 #dc_pro_img img{

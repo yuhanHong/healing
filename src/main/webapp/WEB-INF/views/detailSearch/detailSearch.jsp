@@ -18,8 +18,8 @@
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
-	<div class="outline_class" style="margin-left: 290px;">
-	<div class="content_class">
+	<div class="outline_class" style="margin-left: 230px; width:900px;">
+	<div class="content_class" style="width:900px;  border: 1px solid red;">
 	
 		<div style="float:left;margin-top:5px;">
 			<img src="${root}/resources/boardImg/img01.PNG" align="center">
@@ -27,13 +27,13 @@
 		</div>
 			
 				
-		<hr style="border:2px solid green; margin-top: 41px;">
+		<hr style="border:2px solid green; margin-top: 41px; width:100%">
 		<div id="dc_main">
 		<form name="dc_picker_form">
 			<input type="hidden" value="${root}" name="root"/>
 			
 			<div id="dc_plickers">
-				<div id="tabs" class="cityPicker" style="width:580px; margin-left:85px; margin-top:30px; font-size: 13px;">
+				<div id="tabs" class="cityPicker" style="width:580px; margin-left:150px; margin-top:30px; font-size: 13px;">
 				  <ul>
 				    <li><a href="#tabs-1">동남아</a></li>
 				    <li><a href="#tabs-2">중국</a></li>
