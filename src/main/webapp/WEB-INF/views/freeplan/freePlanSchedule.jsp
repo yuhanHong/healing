@@ -41,7 +41,7 @@
 			</div>
 			<div style="border:1px solid #6ABC64; height:60px; line-height: 60px; text-align: center; background-color: #BCE55C;">
 				<input type="submit" value="일정 저장하기"/>
-				<input type="button" value="나라선택" onclick="location.href='${root}/freeplan/freePlanList.do'"/>
+				<input type="button" value="나라선택" onclick="location.href='${root}/freeplan/freePlanList.do?member_number=${member_number}'"/>
 				<input type="button" value="홈으로" onclick="location.href='${root}'"/>
 			</div>
 		</div>
@@ -75,7 +75,7 @@
 				<c:forEach var="freePlanDto" items="${freePlanList}">
 					<li id="${freePlanDto.place_number}" class="list_li" tabindex="-1">
 						<input type="hidden" name="place_number" value="${freePlanDto.place_number}"/>
-						<img id="city_list_photo" src="http://localhost:8181/main/resources/mapImage/${freePlanDto.place_file_name}" style="width:70px; height:70px;"/>
+						<img id="city_list_photo" src="${root}/resources/mapImage/${freePlanDto.place_file_name}" style="width:70px; height:70px;"/>
 						<p id="city_list_name">${freePlanDto.place_name}</p>
 						<img id="plusImg" class="plusImg" src="http://localhost:8181/main/resources/freePlanImg/add.png" style="cursor:hand;"/>
 					</li>
