@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.detailSearch.service.DetailSearchService;
-import com.healing.member.dto.MemberDto;
 import com.healing.product.dto.ProductDto;
 
 @Controller

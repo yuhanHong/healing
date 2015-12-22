@@ -80,6 +80,7 @@ public class ProductServiceImp implements ProductService {
 		mav.addObject("endPage",endPage);
 		mav.addObject("pageCount",pageCount);
 		mav.addObject("pc",pc);
+		mav.addObject("product_category",product_category);
 		mav.addObject("pageNumber",currentPage);
 		mav.setViewName("product/productList");
 	}
@@ -90,8 +91,13 @@ public class ProductServiceImp implements ProductService {
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		HttpServletResponse response = (HttpServletResponse) map.get("response");
 		
+		String product_category="";
 		String pc=request.getParameter("pc");
 		if(pc==null) pc="1";
+		if(pc.equals("1")) product_category="동남아";
+		else if(pc.equals("2")) product_category="중국";
+		else if(pc.equals("3")) product_category="일본";
+		else product_category="동남아";
 		String pageNumber=request.getParameter("pageNumber");
 		if(pageNumber==null) pageNumber="1";
 		
@@ -162,9 +168,9 @@ public class ProductServiceImp implements ProductService {
 		mav.addObject("flightList",flightList);
 		mav.addObject("pNum",pNum);
 		mav.addObject("pc",pc);
+		mav.addObject("product_category",product_category);
 		mav.addObject("pageNumber",pageNumber);
 		mav.setViewName("product/flightList");
-
 	}
 	
 	@Override
@@ -172,8 +178,13 @@ public class ProductServiceImp implements ProductService {
 		Map<String,Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
+		String product_category="";
 		String pc=request.getParameter("pc");
 		if(pc==null) pc="1";
+		if(pc.equals("1")) product_category="동남아";
+		else if(pc.equals("2")) product_category="중국";
+		else if(pc.equals("3")) product_category="일본";
+		else product_category="동남아";
 		String pageNumber=request.getParameter("pageNumber");
 		if(pageNumber==null) pageNumber="1";
 

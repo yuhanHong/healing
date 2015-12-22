@@ -1,6 +1,5 @@
 package com.healing.boardNotice.dao;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import com.healing.boardNotice.dto.BoardNoticeDto;

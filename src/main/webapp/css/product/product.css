@@ -2,23 +2,19 @@
 body{
     margin: 0;
     padding: 0;
-	font-family: 'Nanum Gothic','나눔고딕';
-    font-size: 16px;
-    color: #464646;
-    line-height: 19px;
 }
 
 a:visited {
-    color: #464646;
-    text-decoration: none;
+/*     color: #464646; */
+/*     text-decoration: none; */
 }
 a:link {
-    color: #464646;
-    text-decoration: none;
+/*     color: #464646; */
+/*     text-decoration: none; */
 }
 a {
-    text-decoration: none;
-    cursor: pointer;
+/*     text-decoration: none; */
+/*     cursor: pointer; */
 }
 
 ul {
@@ -75,4 +71,96 @@ body, html {
 
 .detail_info{
 	margin-left: 400px;
+}
+
+#content{
+	width:936px; margin:0px auto; display: block;
+    border-bottom: 4px solid #029C14;
+}
+
+.productListPages{
+	text-align: center;
+	font-size: 14px;
+	padding: 5px 0px 0px;
+}
+
+.flightListHeadWrap{
+	border-top: 1px solid #029c14;
+	border-bottom: 1px solid #ccdcbd;
+	vertical-align: middle;
+	background: #F1FBEA;
+}
+
+.flightListHead{
+	text-align: center;
+	overflow: hidden;
+	display: inline-block;
+/* 	height: 40px; */
+	background: #F1FBEA url("http://img.modetour.co.kr/mode2010/modetour/product/moproduct/bg_package_list_horizon.gif") no-repeat 100% center;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 5px 10px;
+}
+
+.flightListElement{
+	text-align: center;
+/* 	height: 59px; */
+	display: inline-block;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 15px 10px;
+}
+
+.flightListWrap .departure{
+	width: 180px;
+} 
+.flightListWrap .arrival{
+	width: 180px;
+} 
+.flightListWrap .airline{
+	width: 118px;
+} 
+.flightListWrap .price{
+	width: 118px;
+} 
+.flightListWrap .occupancy{
+	width: 118px;
+}
+
+.flightListHeadWrap{
+	padding: 0px 34px;
+}
+.flightList{
+	padding: 0px 25px;
+	border: 1px solid #ffffff;
+	border-bottom: 1px solid #dddddd;
+}
+
+.code_title{
+	font-weight: bold;
+}
+
+.code_num{
+	color: red;
+	font-weight: bold;
+}
+
+.product_name{
+	font-size: 28px;
+    line-height: 1.2em;
+    color: #111;
+    overflow: hidden;
+	font-weight: bold;
+}
+
+.product_summary{
+	font-size: 22px;
+    line-height: 1.0em;
+    color: #111;
+    overflow: hidden;
+	font-weight: bold;
+}
+
+.period_list li{
+	float:none;
 }

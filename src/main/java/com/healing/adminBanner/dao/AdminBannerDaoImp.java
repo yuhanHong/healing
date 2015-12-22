@@ -2,13 +2,11 @@ package com.healing.adminBanner.dao;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.healing.adminBanner.dto.TestFileDto;
 import com.healing.aop.HomeAspect;
 import com.healing.product.dto.ProductDto;
 import com.healing.product.dto.ProductPhotoDto;

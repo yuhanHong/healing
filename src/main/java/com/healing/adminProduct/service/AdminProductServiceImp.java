@@ -1,6 +1,10 @@
 package com.healing.adminProduct.service;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -15,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.adminProduct.dao.AdminProductDao;
@@ -217,19 +220,45 @@ public class AdminProductServiceImp implements AdminProductService {
 				//			String fileName = photoIndex[i] + "." + upFile.getOriginalFilename().split(".")[upFile.getOriginalFilename().split(".").length-1];
 				long fileSize = upFile.getSize();
 				if (fileSize != 0) {
-					
-					File path = new File("C:\\healing\\workspace\\healing\\src\\main\\webapp\\resources\\productphoto\\" + product_number + "\\");
-					if (!path.exists())
-						path.mkdirs();
+					File path1 = new File("C:\\healing\\workspace\\healing\\src\\main\\webapp\\resources\\productphoto\\" + product_number + "\\");
+					File path2 = new File("C:\\healing\\apache-tomcat-7.0.64\\wtpwebapps\\healing\\resources\\productPhoto\\" + product_number + "\\");
+					if (!path1.exists()) path1.mkdirs();
+					if (!path2.exists()) path2.mkdirs();
 
-					File file = new File(path, fileName);
+					File file1 = new File(path1, fileName);
+					File file2 = new File(path2, fileName);
+					
+					FileInputStream inputStream=null;
+					FileOutputStream outputStream=null;
+					BufferedInputStream bin=null;
+					BufferedOutputStream bout=null;
 					try {
-						upFile.transferTo(file);
+						upFile.transferTo(file1);
 						productPhotoDto.setProduct_photo_filename(fileName);
-						productPhotoDto.setProduct_photo_path(file.getAbsolutePath());
+						productPhotoDto.setProduct_photo_path(file1.getAbsolutePath());
 						productPhotoDto.setProduct_photo_size(fileSize);
+					
+						inputStream = new FileInputStream(file1);
+						outputStream = new FileOutputStream(file2.getAbsolutePath());
+						 
+						bin = new BufferedInputStream(inputStream);
+						bout = new BufferedOutputStream(outputStream);
+						 
+						int bytesRead = 0;
+						byte[] buffer = new byte[1024];
+						
+						while ((bytesRead = bin.read(buffer, 0, 1024)) != -1) {
+						    bout.write(buffer, 0, bytesRead);
+						}
 					} catch (Exception e) {
 						e.printStackTrace();
+					} finally {
+						try {
+							bout.close();
+							bin.close();
+							outputStream.close();
+							inputStream.close();
+						} catch (IOException e) {}
 					}
 				}
 				check += adminProductDao.productPhotoWrite(productPhotoDto);

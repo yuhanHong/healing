@@ -1,10 +1,6 @@
 package com.healing.boardFaq.service;
 
-import java.util.List;
-
 import org.springframework.web.servlet.ModelAndView;
-
-import com.healing.boardFaq.dto.BoardFaqDto;
 
 public interface BoardFaqService {
 	public void boardFaqWrite(ModelAndView mav);

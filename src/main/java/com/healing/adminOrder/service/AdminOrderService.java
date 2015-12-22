@@ -1,7 +1,5 @@
 package com.healing.adminOrder.service;
 
-import java.util.HashMap;
-
 import org.springframework.web.servlet.ModelAndView;
 
 public interface AdminOrderService {

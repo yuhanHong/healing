@@ -61,9 +61,9 @@ $(function() {
 	});
 	 
 	 function resultFun(){
-		 adult_money=$("#hiddenInfo").children().eq(1).val()*$("#adult").val();
-		 child_money=$("#hiddenInfo").children().eq(2).val()*$("#child").val();
-		 baby_money=$("#hiddenInfo").children().eq(3).val()*$("#baby").val();
+		 adult_money=$("#hiddenInfo").children().eq(2).val()*$("#adult").val();
+		 child_money=$("#hiddenInfo").children().eq(3).val()*$("#child").val();
+		 baby_money=$("#hiddenInfo").children().eq(4).val()*$("#baby").val();
 		 result=child_money+adult_money+baby_money;
 		 $("#result_money").text(numberFormatter(result));
 		 $("#order_money").val(result);

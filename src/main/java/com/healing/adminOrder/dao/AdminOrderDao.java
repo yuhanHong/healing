@@ -1,9 +1,6 @@
 package com.healing.adminOrder.dao;
 
 import java.util.List;
-import java.util.Map;
-
-import org.springframework.core.annotation.Order;
 
 import com.healing.member.dto.MemberDto;
 import com.healing.order.dto.OrderDto;

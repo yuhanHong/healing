@@ -14,9 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.adminBanner.dao.AdminBannerDao;
-import com.healing.adminBanner.dto.TestFileDto;
 import com.healing.aop.HomeAspect;
-import com.healing.product.dao.ProductDao;
 import com.healing.product.dto.ProductDto;
 
 @Component

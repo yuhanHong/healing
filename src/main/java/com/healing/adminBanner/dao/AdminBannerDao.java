@@ -2,7 +2,6 @@ package com.healing.adminBanner.dao;
 
 import java.util.List;
 
-import com.healing.adminBanner.dto.TestFileDto;
 import com.healing.product.dto.ProductDto;
 import com.healing.product.dto.ProductPhotoDto;
 
