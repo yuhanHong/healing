@@ -89,7 +89,7 @@
 				onclick="location.href='${root}/boardQna/list.do?pageNumber=${pageNumber}&searchSort=${searchSort}&searchWord=${searchWord}'"/>
 				<!-- 답변 작성은 관리자 전용 버튼, 답변이 이미 작성되있으면 '답변작성' 버튼 출력 않고
 					 답변이 없거나 답변을 삭제 시에 '답변작성' 버튼을 출력한다. -->
-				<c:if test="${boardQnaList[1] == null}">
+				<c:if test="${boardQnaList[1] == null && admin_name != null}">
 					<input type="button" value="답변작성" onclick="replyFunc('${boardQnaList[0].qna_number}',
 																		  '${boardQnaList[0].qna_group_number}',
 																		  '${boardQnaList[0].qna_sequence_number}',		
@@ -131,21 +131,23 @@
 						</span>
 					</div>
 					
+					<c:if test="${admin_name != null}">
 					<!-- '수정','삭제' 버튼은 관리자 전용 -->
-					<div class="searchDiv" style="height:40px; line-height: 40px; text-align: center;">
-						<input type="button" value="수정" onclick="updateFunc('${boardQnaList[1].qna_number}',
-																	 '${pageNumber}',
-																	 '${searchSort}',
-																	 '${searchWord}',
-																	 '${root}')"/>
-						<!-- 답변글 삭제의 경우 삭제하기 전에 부모글 필드 qna_reply를 0으로 변경해야 한다.  -->
-						<input type="button" value="삭제" onclick="deleteFunc('${boardQnaList[1].qna_number}',
-																		 '${boardQnaList[1].qna_sequence_number}',	
+						<div class="searchDiv" style="height:40px; line-height: 40px; text-align: center;">
+							<input type="button" value="수정" onclick="updateFunc('${boardQnaList[1].qna_number}',
 																		 '${pageNumber}',
 																		 '${searchSort}',
-																	 	 '${searchWord}',
+																		 '${searchWord}',
 																		 '${root}')"/>
-					</div>
+							<!-- 답변글 삭제의 경우 삭제하기 전에 부모글 필드 qna_reply를 0으로 변경해야 한다.  -->
+							<input type="button" value="삭제" onclick="deleteFunc('${boardQnaList[1].qna_number}',
+																			 '${boardQnaList[1].qna_sequence_number}',	
+																			 '${pageNumber}',
+																			 '${searchSort}',
+																		 	 '${searchWord}',
+																			 '${root}')"/>
+						</div>
+					</c:if>
 				</div>
 			</c:if>
 		</div>

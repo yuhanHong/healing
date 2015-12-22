@@ -4,6 +4,8 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -62,20 +64,47 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		HomeAspect.logger.info(HomeAspect.logMsg+fileName+","+fileSize);
 		
 		if(fileSize != 0){
-			File path= new File("C:\\healing\\workspace\\healing\\src\\main\\webapp\\resources\\noticePhoto");
-			path.mkdir();
+			File path1= new File("C:\\healing\\workspace\\healing\\src\\main\\webapp\\resources\\noticePhoto");
+			File path2= new File("C:\\healing\\apache-tomcat-7.0.64-windows-x64\\apache-tomcat-7.0.64\\wtpwebapps\\healing\\resources\\noticePhoto");
+			path1.mkdir();
+			path2.mkdir();
 			
-			if(path.exists() && path.isDirectory()){
-				File file = new File(path, fileName);
-				try{
-					upFile.transferTo(file);
-					boardNoticeDto.setNotice_file_name(fileName);
-					boardNoticeDto.setNotice_file_path(file.getAbsolutePath());
-					boardNoticeDto.setNotice_file_size(fileSize);
-				}catch(Exception e){
-					e.printStackTrace();
-				}
-			}
+			File file1 = new File(path1, fileName);
+	        File file2 = new File(path2, fileName);
+	             
+            FileInputStream inputStream=null;
+            FileOutputStream outputStream=null;
+            BufferedInputStream bin=null;
+            BufferedOutputStream bout=null;
+			
+            try {
+                upFile.transferTo(file1);
+                boardNoticeDto.setNotice_file_name(fileName);
+                boardNoticeDto.setNotice_file_path(file1.getAbsolutePath());
+                boardNoticeDto.setNotice_file_size(fileSize);
+             
+                inputStream = new FileInputStream(file1);
+                outputStream = new FileOutputStream(file2.getAbsolutePath());
+                 
+                bin = new BufferedInputStream(inputStream);
+                bout = new BufferedOutputStream(outputStream);
+                 
+                int bytesRead = 0;
+                byte[] buffer = new byte[1024];
+                
+                while ((bytesRead = bin.read(buffer, 0, 1024)) != -1) {
+                    bout.write(buffer, 0, bytesRead);
+                }
+             } catch (Exception e) {
+                e.printStackTrace();
+             } finally {
+                try {
+                   bout.close();
+                   bin.close();
+                   outputStream.close();
+                   inputStream.close();
+                } catch (IOException e) {}
+             }
 		}
 		
 		int check = boardNoticeDao.boardNoticeWriteInsert(boardNoticeDto);

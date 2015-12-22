@@ -58,12 +58,14 @@
 					<input type="button" value="글 목록" onclick="location.href='${root}/boardNotice/list.do?pageNumber=${pageNumber}&searchSort=${searchSort}&searchWord=${searchWord}'" />
 					<!-- 관리자 기능 -->
 					
-					<input type="button" value="수정" onclick="updateFunc('${boardNoticeDto.notice_number}',
-																		'${pageNumber}',
-																		'${root}')" /> 
-					<input type="button" value="삭제"	onclick="deleteFunc('${boardNoticeDto.notice_number}',
-																		'${pageNumber}',
-																		'${root}')" />
+					<c:if test="${admin_name != null}">
+						<input type="button" value="수정" onclick="updateFunc('${boardNoticeDto.notice_number}',
+																			'${pageNumber}',
+																			'${root}')" /> 
+						<input type="button" value="삭제"	onclick="deleteFunc('${boardNoticeDto.notice_number}',
+																			'${pageNumber}',
+																			'${root}')" />
+					</c:if>																		
 				</div>
 			</div>
 	

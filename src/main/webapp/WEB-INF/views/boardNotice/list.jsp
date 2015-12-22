@@ -25,21 +25,28 @@
 					<h2 style="display:inline;"><span style="font-weight: bold; ">공지사항</span></h2>
 				</div>
 				
-				<%-- <c:if test="${memberLevel=='AA'}"> --%>
-				<div style="margin-left: 640px;">
-					<input type="button" onclick="location.href='${root}/boardNotice/write.do'" value="공지사항 등록"/>
-				</div>
-				<%-- </c:if> --%>
+				<c:if test="${admin_name != null}">
+					<div style="margin-left: 640px;">
+						<input type="button" onclick="location.href='${root}/boardNotice/write.do'" value="공지사항 등록"/>
+					</div>
+				</c:if>
 			</div>
-			<hr style="border:2px solid green; margin-top: 13px;">
+			
+			<c:if test="${admin_name != null}">
+				<hr style="border:2px solid green; margin-top: 13px;">
+			</c:if>
+			
+			<c:if test="${admin_name == null}">
+				<hr style="border:2px solid green; margin-top: 33px;">
+			</c:if>
 			
 			<c:if test="${count==0}">
 				<div class = "board_title">
 					<ul>
-						<li>번호</li>
-						<li>제목</li>
-						<li>등록일</li>
-						<li>조회수</li>
+						<li style="width:60px;">번호</li>
+						<li style="width:430px;">제목</li>
+						<li style="width:150px;">등록일</li>
+						<li style="width:97px;">조회수</li>
 					</ul>
 				</div>
 				<div align = "center">게시판에 저장된 글이 없습니다.</div>
@@ -48,22 +55,22 @@
 			<c:if test="${count>0}">
 				<div class="board_title">
 					<ul>
-						<li>번호</li>
-						<li>제목</li>
-						<li>작성일</li>
-						<li>조회수</li>
+						<li style="width:60px;">번호</li>
+						<li style="width:430px;">제목</li>
+						<li style="width:150px;">작성일</li>
+						<li style="width:97px;">조회수</li>
 					</ul>
 				</div>
 				
 				<c:forEach var="boardNotice" items="${boardNoticeList}">
 					<div class = "board" >
 						<ul>
-							<li>${boardNotice.notice_number}</li>
-							<li>
+							<li style="width:60px;">${boardNotice.notice_number}</li>
+							<li style="width:430px;">
 								<a href="javascript:readFunc('${boardNotice.notice_number}','${currentPage}','${root}','${searchSort}','${searchWord}')">${boardNotice.notice_title}</a>
 							</li>
-							<li><fmt:formatDate value="${boardNotice.notice_date}" type="date"/></li>
-							<li>${boardNotice.notice_readCount}</li>
+							<li style="width:150px; text-align: center;"><fmt:formatDate value="${boardNotice.notice_date}" type="date"/></li>
+							<li style="width:97px;">${boardNotice.notice_readCount}</li>
 						</ul>
 					</div>
 				</c:forEach>

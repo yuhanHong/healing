@@ -42,8 +42,7 @@
 							<ul>
 								<li class="sch_num">${n}</li>
 								<li>
-									<%-- <img src="${root}/resources/mapImage/${freeplanList[k].place_file_name}"/> --%>
-									<img src="${root}/resources/freePlanImg/Goreme.jpg" style="width:80px; height:80px;"/>
+									<img src="${root}/resources/mapImage/${freeplanList[k].place_file_name}" style="width:80px; height:80px; margin-left: 25px;"/>
 								</li>
 								<li>${freeplanList[k].place_name}</li>
 								<li>

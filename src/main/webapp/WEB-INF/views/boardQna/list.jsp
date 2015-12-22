@@ -27,10 +27,13 @@
 					<h2 style="display:inline;"><span style="font-weight: bold; ">문의사항</span></h2>
 				</div>
 				
+			
 				<div style="margin-left: 640px;">
 					<input type="button" onclick="location.href='${root}/boardQna/write.do'" value="문의사항 등록"/>
 				</div>
+			
 			</div>
+			
 			<hr style="border:2px solid green; margin-top: 15px;">
 			<c:if test="${count==0}">
 				<div class = "board_title">
@@ -158,6 +161,6 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="../footer.jsp"/>
+	<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

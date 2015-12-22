@@ -1,6 +1,11 @@
 package com.healing.freeplan.service;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -74,20 +79,47 @@ public class FreePlanServiceImp implements FreePlanService {
 	      // HomeAspect.logger.info(HomeAspect.logMsg+fileName+","+fileSize);
 	      
 	      if(fileSize != 0){
-	         File path= new File("C:\\healing\\workspace\\healing\\src\\main\\webapp\\resources\\mapImage");
-	         path.mkdir();
+	         File path1= new File("C:\\healing\\workspace\\healing\\src\\main\\webapp\\resources\\mapImage\\");
+	         File path2 = new File("C:\\healing\\apache-tomcat-7.0.64-windows-x64\\apache-tomcat-7.0.64\\wtpwebapps\\healing\\resources\\mapImage\\");
+	         path1.mkdirs();
+	         path2.mkdirs();
 	         
-	         if(path.exists() && path.isDirectory()){
-	            File file = new File(path, fileName);
-	            try{
-	               upFile.transferTo(file);
-	               freeplan.setPlace_file_name(fileName);
-	               freeplan.setPlace_file_size(fileSize);
-	               freeplan.setPlace_file_path(file.getAbsolutePath());
-	            }catch(Exception e){
-	               e.printStackTrace();
-	            }
-	         }
+	         File file1 = new File(path1, fileName);
+             File file2 = new File(path2, fileName);
+             
+             FileInputStream inputStream=null;
+             FileOutputStream outputStream=null;
+             BufferedInputStream bin=null;
+             BufferedOutputStream bout=null;
+	         
+             try {
+                 upFile.transferTo(file1);
+                 freeplan.setPlace_file_name(fileName);
+                 freeplan.setPlace_file_path(file1.getAbsolutePath());
+                 freeplan.setPlace_file_size(fileSize);
+              
+                 inputStream = new FileInputStream(file1);
+                 outputStream = new FileOutputStream(file2.getAbsolutePath());
+                  
+                 bin = new BufferedInputStream(inputStream);
+                 bout = new BufferedOutputStream(outputStream);
+                  
+                 int bytesRead = 0;
+                 byte[] buffer = new byte[1024];
+                 
+                 while ((bytesRead = bin.read(buffer, 0, 1024)) != -1) {
+                     bout.write(buffer, 0, bytesRead);
+                 }
+              } catch (Exception e) {
+                 e.printStackTrace();
+              } finally {
+                 try {
+                    bout.close();
+                    bin.close();
+                    outputStream.close();
+                    inputStream.close();
+                 } catch (IOException e) {}
+              }
 	      }
 	      
 	      int check=freePlanDao.freePlanInsert(freeplan);

@@ -35,11 +35,21 @@
 					<h2 style="display:inline;"><span style="font-weight: bold; ">자주 묻는 질문</span></h2>
 				</div>
 				
-				<div style="margin-left: 640px;">
-					<input type="button" onclick="location.href='${root}/boardFaq/write.do'" value="FAQ 등록"/>
-				</div>
+				<c:if test="${admin_name != null}">
+					<div style="margin-left: 640px;">
+						<input type="button" onclick="location.href='${root}/boardFaq/write.do'" value="FAQ 등록"/>
+					</div>
+				</c:if>
 			</div>		
-			<hr style="border:2px solid green; margin-top: 15px;">
+			
+			<c:if test="${admin_name != null}">
+				<hr style="border:2px solid green; margin-top: 15px;">
+			</c:if>
+			
+			<c:if test="${admin_name == null}">
+				<hr style="border:2px solid green; margin-top: 35px;">
+			</c:if>
+			
 			
 			<div class="searchDiv">
 				<label>자주 묻는 질문 검색</label>
@@ -87,17 +97,19 @@
 								<li class ="is-open" id="${boardFaqDto.faq_number}">
 									<div>
 										<div>
-											<div class="title">Q.</div>
-											<div class="content">${boardFaqDto.faq_title}</div>
+											<div class="title" style="border:0px solid black; background-color: #ffffff;">Q.</div>
+											<div class="content" style="border:0px solid black; width:680px; background-color: #ffffff;">${boardFaqDto.faq_title}</div>
 										</div>
 										
 										<div class="answer">
-											<div class="title">A.</div>						
-											<div class="content">${boardFaqDto.faq_content}</div>
-											<div>
-												<input type="button" value="수정" onclick = "javascript:updateFunc('${boardFaqDto.faq_number}','${root}','${faq_sort}','${searchWord}')"/>
-												<input type="button" value="삭제" onclick = "javascript:deleteFunc('${boardFaqDto.faq_number}','${root}','${faq_sort}','${searchWord}')"/>
-											</div>
+											<div class="title" style="border:0px solid black; background-color: #F6F6F6; ">A.</div>						
+											<div class="content" style="border:0px solid black; background-color: #F6F6F6; width:680px;">${boardFaqDto.faq_content}</div>
+											<c:if test="${admin_name != null}">
+												<div>
+													<input type="button" value="수정" onclick = "javascript:updateFunc('${boardFaqDto.faq_number}','${root}','${faq_sort}','${searchWord}')"/>
+													<input type="button" value="삭제" onclick = "javascript:deleteFunc('${boardFaqDto.faq_number}','${root}','${faq_sort}','${searchWord}')"/>
+												</div>
+											</c:if>
 										</div>
 									</div>
 								</li>
