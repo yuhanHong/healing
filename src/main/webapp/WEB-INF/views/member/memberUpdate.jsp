@@ -104,8 +104,8 @@
 			  <div id="tabs-1">
 			    <p>
 				    <input type="checkbox" name="interest_content" value="캄보디아"/>캄보디아 &nbsp;&nbsp;
-				    <input type="checkbox" name="interest_content" value="태국"/>태국 &nbsp;&nbsp;
-				    <input type="checkbox" name="interest_content" value="필리핀 "/>필리핀 &nbsp;&nbsp;
+				    <input type="checkbox" name="interest_content" value="태국"/>태국 &nbsp;&nbsp;	
+				    <input type="checkbox" name="interest_content" value="필리핀 "/>필리핀 &nbsp;&nbsp;<br/>
 					<input type="checkbox" name="interest_content" value="말레이시아 "/>말레이시아 &nbsp;&nbsp;
 			    </p>
 			  </div>
@@ -113,7 +113,7 @@
 			    <p>
 			    	<input type="checkbox" name="interest_content" value="북경 "/>북경	 &nbsp;&nbsp;
 			    	<input type="checkbox" name="interest_content" value="상해 "/>상해 &nbsp;&nbsp;
-			    	<input type="checkbox" name="interest_content" value="장가계 "/>장가계 &nbsp;&nbsp;
+			    	<input type="checkbox" name="interest_content" value="장가계 "/>장가계 &nbsp;&nbsp;<br/>
 			    	<input type="checkbox" name="interest_content" value="백두산 "/>백두산 &nbsp;&nbsp;
 			    </p>
 			  </div>
@@ -121,7 +121,7 @@
 			    <p>
 			    	<input type="checkbox" name="interest_content" value="도쿄"/>도쿄 &nbsp;&nbsp;
 			    	<input type="checkbox" name="interest_content" value="오사카"/>오사카 &nbsp;&nbsp;
-			    	<input type="checkbox" name="interest_content" value="오키나와"/>오키나와 &nbsp;&nbsp;
+			    	<input type="checkbox" name="interest_content" value="오키나와"/>오키나와 &nbsp;&nbsp;<br/>
 				    <input type="checkbox" name="interest_content" value="훗카이도"/>훗카이도 &nbsp;&nbsp;
 			   		<input type="checkbox" name="interest_content" value="쿄토"/>쿄토 &nbsp;&nbsp;
 			   		

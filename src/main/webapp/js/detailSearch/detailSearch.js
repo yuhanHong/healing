@@ -59,8 +59,8 @@ function result(root,str,min,max){
 		,dataType:"json"
 		,success:function(args){
 			$("#dc_imfo").children().remove();
-			var count="<h3>("+args.data.length+")개의 상품이 선택되었습니다.</h3>";
-			var notice="<h3 id='notice' style='margin-left:460px;'>선택된 상품이 없습니다.</h3>";
+			var count="<b>("+args.data.length+")개의 상품이 선택되었습니다.</b>";
+			var notice="<b id='notice' style='margin-left:260px;'>선택된 상품이 없습니다.</b>";
 				
 			$("#dc_product").children().remove();	
 			$("#dc_imfo").append(count);
@@ -72,13 +72,15 @@ function result(root,str,min,max){
 			}
 			
 			for(var i=0; i<args.data.length; i++){	
+				var money=args.data[i].product_price_adult;
+				
 				var form="<div class='dc_product_list' id='product"+args.data[i].product_number+"' onmouseover=\"productOnMouseOver('"+args.data[i].product_number+"')\" onmouseout=\"productOnMouseOut('"+args.data[i].product_number+"')\">";
-					form+="<div id='dc_pro_img'><img src='"+root+"/resources/productPhoto/"+args.data[i].product_number+"/0-1-1.jpg' width='280px' height='280px;'/></div>";
+					form+="<div id='dc_pro_img'><img src='"+root+"/resources/productPhoto/"+args.data[i].product_number+"/0-1-1.jpg' width='180px' height='180px;'/></div>";
 					form+="<div id='dc_pro_imfo'>";
 					form+="<ul>";
 					form+="<li>상품명 : "+args.data[i].product_name+"</li>";
-					form+="<li>일수 : "+args.data[i].product_stay_days+"</li>";
-					form+="<li>가격 : "+args.data[i].product_price_adult+"</li>";
+					form+="<li>일수 : "+args.data[i].product_stay_days+"일</li>";
+					form+="<li>가격 : "+numberFormatter(money)+"원</li>";
 					form+="</ul>";
 					form+="</div>";
 					form+="</div>";
@@ -94,10 +96,10 @@ function result(root,str,min,max){
 
 function productOnMouseOver(product_number){
 	var li=document.getElementById("product"+product_number);
-	li.style.border="1px #ff0000 solid";
+	li.style.backgroundColor="#F6F6F6";
 }
 
 function productOnMouseOut(product_number){
 	var li=document.getElementById("product"+product_number);
-	li.style.border="1px #c0c0c0 solid";
+	li.style.backgroundColor="#ffffff";
 }
