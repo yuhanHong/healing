@@ -94,7 +94,7 @@
 			</div>
 			<br/><br/>
 			<div id="subj"><span>관심 지역</span></div><br/>
-			<div id="tabs" style="width:300px;margin-left: 147px;">
+			<div id="tabs" style="width:300px;margin-left: 147px; font-size: 13px;">
 
 			  <ul>
 			    <li><a href="#tabs-1">동남아</a></li>

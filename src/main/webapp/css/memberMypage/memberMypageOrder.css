@@ -15,13 +15,19 @@
 }
 
 #mmo_content{
-	width:90%; height:230px; margin-top:50px;
+	width:90%; height:250px; margin-top:50px;
 	border: 0px solid blue;
+	overflow:hidden;
+	background-color: #F6F6F6; margin-top: 15px;
+	text-align: center;
 }
 
 .mmo_line{
+	height:43px;
+	border:1px solid #757575; background-color: #EAEAEA;
+	border-left-color: #ffffff; border-right-color: #ffffff;
 	width:800px; margin-top:7px;
-	border-bottom: 1px solid #c0c0c0;
+	background-color: #F6F6F6;
 	clear:both; 
 }
 
@@ -30,13 +36,14 @@
 }
 
 .mmo_line li{
-	width:50px; height:40px;
+	width:50px; height:43px;
 	list-style-type: none; 
 	float: left; line-height: 40px;
 	font-size: 13px;
-	font-weight: bold;
+	
 }
 
 #mmo_name_tag{
 	text-align: center; background-color: #c0c0c0;
+	font-weight: bold;
 }
