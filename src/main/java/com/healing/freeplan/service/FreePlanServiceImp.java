@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -100,16 +101,30 @@ public class FreePlanServiceImp implements FreePlanService {
 		Map<String,Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
-		// 국가명 list를 받아오기 전에 개수를 확인한다.
-		int count = freePlanDao.freePlanCtrNum();
-		HomeAspect.logger.info(HomeAspect.logMsg+count);
+		String member_number = request.getParameter("member_number");
+		HomeAspect.logger.info(HomeAspect.logMsg+member_number);
 		
 		List<String> countryList = null;
-		if(count > 0){
-			countryList = freePlanDao.freePlanCtrList();
-			HomeAspect.logger.info(HomeAspect.logMsg+countryList.size());
+		int check = 0;
+		// 로그인을 했을 경우 회원의 자유일정이 이전에 등록했었는지 확인한다.
+		if(!member_number.equals("")){
+			//schedule 테이블에 자유여행 일정이 이미 등록되어있다면 자유여행 일정을 생성하지 못 한다. 삭제 후 일정 생성 가능.
+			check = freePlanDao.freePlanGetSchedule(Integer.parseInt(member_number));
+			HomeAspect.logger.info(HomeAspect.logMsg+check);
+			
+			if(check==0){
+				// 국가명 list를 받아오기 전에 개수를 확인한다.
+				int count = freePlanDao.freePlanCtrNum();
+				HomeAspect.logger.info(HomeAspect.logMsg+count);
+				
+				if(count > 0){
+					countryList = freePlanDao.freePlanCtrList();
+					HomeAspect.logger.info(HomeAspect.logMsg+countryList.size());
+				}
+			}
 		}
 		
+		mav.addObject("check",check);
 		mav.addObject("countryList", countryList);
 		mav.setViewName("freeplan/freePlanList");
 	}

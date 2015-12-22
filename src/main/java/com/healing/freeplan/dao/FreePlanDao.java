@@ -20,4 +20,5 @@ public interface FreePlanDao {
 	public List<FreePlanDto> freePlanSearchList(String cityName, String place_category);
 	public List<String> freePlanCityNameList(String ctrName, String cityName);
 	public int freePlanSaveFile(int member_number,String schedule_day,String schedule_content);
+	public int freePlanGetSchedule(int member_number);
 }

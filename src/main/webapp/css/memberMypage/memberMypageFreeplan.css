@@ -1,0 +1,98 @@
+@CHARSET "UTF-8";
+
+a:link{color:black; text-decoration: none;}
+a:visited{color:black; text-decoration: none;}
+a:hover{color:black; text-decoration: none;}
+li{list-style: none; float:left; text-align:center;}
+
+ul,li {margin:0; padding:0;} 
+
+.MyPlanOutline{
+	border:0px solid black;
+	width:915px; margin:0px auto;
+	overflow:hidden; margin-top: 10px;
+}
+
+.photoDiv{
+	border:1px solid #e3e3e3;
+	height:270px;
+}
+
+.photoDiv img{
+	width:915px; height:270px;
+}
+
+.placeDiv{
+	border:1px solid #ffffff; float:left;
+	width:560px; 
+	margin-top:10px;
+}
+
+.dayDiv{
+	border:1px solid #e3e3e3; height:50px;
+	margin-left: 0px; margin-top: 0px;
+}
+
+.dayDiv div:nth-child(1){
+	border:1px solid #ffffff; float:left; 
+	width:100px; height:50px; line-height:50px;
+	text-align:center;
+	border-right-color: #e3e3e3;
+	background-color: #008000;
+	margin-right: 10px;
+}
+
+.dayDiv div:nth-child(2){
+	border:1px solid #ffffff; 
+	width:557px; height:50px; line-height:50px;
+	border-right-color: #e3e3e3;
+}
+	
+
+.placeListDiv{
+	border:1px solid #e3e3e3; height:110px;
+}	
+
+.placeListDiv ul{
+	border:1px solid #ffffff;
+}
+
+.placeListDiv ul li{
+	border:1px solid #ffffff; width:80px; height:80px;
+}	
+
+.placeListDiv ul li:nth-child(1){
+	width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+    background: #008000;
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 32px;
+    text-align: center;
+    margin-top: 35px;
+    margin-left: 32px;
+}
+
+.placeListDiv ul li:nth-child(2){
+	margin-top: 13px; margin-left: 13px;
+	line-height: 80px;
+}
+
+.placeListDiv ul li:nth-child(3){
+	margin-top: 13px; margin-left: 10px;
+	width:300px; line-height: 80px;
+}
+
+.placeListDiv ul li:nth-child(4){
+	margin-top: 13px; margin-left: 10px;
+	line-height: 80px; width:40px;
+}
+
+#mapDiv{
+	border:1px solid black; float:left;
+	width: 341px; height:340px;
+	margin-top: 10px; margin-left: 10px;
+}

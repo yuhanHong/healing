@@ -65,4 +65,8 @@
    		insert into schedule (schedule_number,member_number,schedule_content,schedule_day)
    		values(schedule_schedule_number_seq.nextval,#{member_number},#{schedule_content},#{schedule_day})
    </insert>
+   
+   <select id="freePlanGetSchedule" parameterType="int" resultType="int">
+   	select count(*) from schedule where member_number=#{member_number}
+   </select>
 </mapper>

@@ -45,7 +45,7 @@
 					
 					cityListDiv +="</ul>"+"</div>";
 					
-					$(".#countryDiv div").remove();
+					$("#countryDiv div").remove();
 					
 					// 클릭된 국가의 도시를 countryDiv class의 자식으로 붙여준다.
 					$("#countryDiv").append(ctrNameDiv).append(cityListDiv);
@@ -72,27 +72,47 @@
 	});
 </script>
 </head>
-<body onload="init('${root}')" style="margin: 0px;"  onresize="resize()">
-<!-- 	<div id="window" style="width:1260px; height:707px; border:1px solid black; "> -->
-	<div id="windows" style="border:0px solid black; ">
-		<div id="continentDiv">
-			<ul>
-				<c:forEach var="countryName" items="${countryList}">
-					<li>${countryName}</li>
-				</c:forEach>
-			</ul>
-		</div>
-		
-		<div id="countryDiv">
-			<div>국가명</div>
-			<div>
+<body 
+
+	<c:if test="${check==0 && member_number != null}">
+		onload="init('${root}')" style="margin: 0px;"  onresize="resize()"
+	</c:if>
+>
+	<c:if test="${check==0 && member_number != null}">
+		<div id="windows" style="border:0px solid black; ">
+			<div id="continentDiv">
 				<ul>
-					<li>도시명</li>
+					<c:forEach var="countryName" items="${countryList}">
+						<li>${countryName}</li>
+					</c:forEach>
 				</ul>
 			</div>
+			
+			<div id="countryDiv">
+				<div>국가명</div>
+				<div>
+					<ul>
+						<li>도시명</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div id="map_canvas"></div>
 		</div>
-		
-		<div id="map_canvas"></div>
-	</div>
+	</c:if>
+	
+	<c:if test="${check!=0 && member_number != null}">
+		<script type="text/javascript">
+			alert("이미 자유여행 일정을 등록하셨습니다.");
+			location.href="${root}";
+		</script>
+	</c:if>
+	
+	<c:if test="${member_number == null}">
+		<script type="text/javascript">
+			alert("로그인 후 사용가능합니다.");
+			location.href="${root}";
+		</script>
+	</c:if>
 </body>
 </html>

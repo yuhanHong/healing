@@ -12,6 +12,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.aop.HomeAspect;
+import com.healing.freeplan.dto.FreePlanDto;
+import com.healing.freeplan.dto.ScheduleDto;
 import com.healing.memberMypage.dao.MemberMypageDao;
 import com.healing.memberMypage.dto.MemberMypageDto;
 
@@ -73,5 +75,88 @@ public class MemberMypageServiceImp implements MemberMypageService {
 		
 		mav.addObject("mypageDto",mypageDto);
 		mav.setViewName("memberMypage/memberMypageRe");
+	}
+	
+	// Mypage에 자신이 저장한 자유여행 저장기록 출력
+	@Override
+	public void memberMypageFreeplan(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		// 회원의 고유번호를 전달받는다.
+		int member_number=Integer.parseInt(request.getParameter("member_number"));
+		//HomeAspect.logger.info(HomeAspect.logMsg+"자유여행 회원넘버:"+member_number);
+		
+		int check = memberMypageDao.memberMypageGetScheduleCnt(member_number);
+		HomeAspect.logger.info(HomeAspect.logMsg+check);
+		
+		List<ScheduleDto> scheduleList = null;
+		
+		List<Integer> countList = new ArrayList<Integer>();
+		List<FreePlanDto> freeplanList = new ArrayList<FreePlanDto>();
+		// 사용자가 저장한 자유일정이 db에 존재하는 경우
+		if(check > 0){
+			// 회원고유번호를 갖는 일정을 schedule db로부터 읽어온다.
+			scheduleList = memberMypageDao.memberMypageGetSchedule(member_number);
+			
+			for(int i = 0; i < scheduleList.size(); i++){
+				// day에 추가한 장소 교유 번호를 뽑아낸다(place_number)
+				String schedule_content = scheduleList.get(i).getSchedule_content();
+				
+				String[] place_number = schedule_content.split(",");
+				// 각 day에 저장되어 있는 장소 개수 저장
+				countList.add(place_number.length);
+				
+				// 모든 일정 장소를 list에 저장
+				for(int j = 0; j < place_number.length; j++){
+					FreePlanDto placeDto = memberMypageDao.memberMypageGetPlaceList(Integer.parseInt(place_number[j]));
+					freeplanList.add(placeDto);
+				}
+			}
+		}
+		
+		mav.addObject("check",check);
+		// 자유플랜 일정에 저장된 장소 list
+		mav.addObject("freeplanList",freeplanList);
+		// 자유플랜 일정이 몇일인지, 각 day당 몇 개의 장소가 저장되어있는지 저장 - countList
+		mav.addObject("countList",countList);
+		mav.setViewName("memberMypage/memberMypageFreeplan");
+	}
+
+	@Override
+	public List<FreePlanDto> memberMypagePrintMarker(ModelAndView mav) {
+		Map<String,Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest)map.get("request");
+		
+		// 회원 고유번호와 day를 전달받는다.
+		int member_number = Integer.parseInt(request.getParameter("member_number"));
+		String day = request.getParameter("day");
+		
+		String schedule_content = memberMypageDao.memberMypageGetContent(member_number, day);
+		
+		List<FreePlanDto> freeplanList = new ArrayList<FreePlanDto>();
+		String[] content = schedule_content.split(",");
+		// place_number를 뽑아내 FreePlanDto를 갖고온다.
+		for(int i = 0; i < content.length; i++){
+			FreePlanDto freePlanDto = memberMypageDao.memberMypageGetPlaceList(Integer.parseInt(content[i]));
+			freeplanList.add(freePlanDto);
+		}
+		
+		return freeplanList;
+	}
+
+	@Override
+	public void memberMypageDeletePlan(ModelAndView mav) {
+		Map<String,Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest)map.get("request");
+		
+		// 회원 넘버를 받는다.
+		int member_number = Integer.parseInt(request.getParameter("member_number"));
+		
+		int check = memberMypageDao.memberMypageDeletePlan(member_number);
+		
+		mav.addObject("check",check);
+		mav.setViewName("memberMypage/memberMypageDelete");
+		
 	}
 }

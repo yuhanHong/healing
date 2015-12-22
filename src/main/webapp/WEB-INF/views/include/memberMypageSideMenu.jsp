@@ -21,7 +21,7 @@
 				<li><a href="${root}/memberMypage/memberMypageRe.do?member_number=${member_number}">갔다온상품/후기</a></li>
 				<li><a href="${root}/productLike/productLikeList.do?member_number=2">관심상품정보</a></li>
 				<li><a href="${root}/member/memberDelete.do?member_id=${member_id}">회원탈퇴</a></li>
-				<li><a href="${root}/boardQna/list.do">자유여행저장소</a></li>
+				<li><a href="${root}/memberMypage/memberFreeplan.do?member_number=${member_number}">자유여행저장소</a></li>
 			</ul>
 		</div>
 	</div>

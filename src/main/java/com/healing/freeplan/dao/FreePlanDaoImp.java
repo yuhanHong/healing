@@ -118,4 +118,10 @@ public class FreePlanDaoImp implements FreePlanDao {
 		
 		return sqlSessionTemplate.insert("dao.freePlanMapper.freePlanSaveFile",hMap);
 	}
+
+	// 회원이 자유여행 클릭 시 자유여행 플랜 존재유무 확인
+	@Override
+	public int freePlanGetSchedule(int member_number) {
+		return sqlSessionTemplate.selectOne("dao.freePlanMapper.freePlanGetSchedule",member_number);
+	}
 }

@@ -14,5 +14,25 @@
 		insert into review(review_number,order_number,member_number,product_number,review_content,review_score,flight_number)
 		values(review_review_number_seq.nextval,#{order_number},#{member_number},#{product_number},#{review_content},#{star_number},#{flight_number})
 	</insert>
+	
+	<select id="memberMyPageGetSchedule" parameterType="int" resultType="com.healing.freeplan.dto.ScheduleDto">
+		select * from schedule where member_number = #{member_number}
+	</select>
+	
+	<select id="memberMyPageGetPlaceList" parameterType="int" resultType="com.healing.freeplan.dto.FreePlanDto">
+		select * from freeplanner where place_number = #{place_number}
+	</select>
+	
+	<select id="memberMyPageGetContent" parameterType="java.util.HashMap" resultType="String">
+		select schedule_content from schedule where member_number=#{member_number} and schedule_day=#{day}
+	</select>
+	
+	<delete id="memberMypageDeletePlan" parameterType="int">
+		delete from schedule where member_number=#{member_number}
+	</delete>
+	
+	<select id="memberMypageGetScheduleCnt" parameterType="int" resultType="int">
+		select count(*) from schedule where member_number=#{member_number}
+	</select>
 </mapper>
 	
