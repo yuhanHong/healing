@@ -9,5 +9,10 @@
 		WHERE member_number=#{member_number}
 		order by order_date desc
 	</select>
+	
+	<insert id="memberMypageReviewInsert" parameterType="java.util.List">
+		insert into review(REVIEW_NUMBER,ORDER_NUMBER,MEMBER_NUMBER,PRODUCT_NUMBER,REVIEW_CONTENT,REVIEW_SCORE)
+		values()
+	</insert>
 </mapper>
 	

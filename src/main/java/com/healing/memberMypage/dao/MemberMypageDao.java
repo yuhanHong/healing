@@ -6,4 +6,6 @@ import com.healing.memberMypage.dto.MemberMypageDto;
 
 public interface MemberMypageDao {
 	public List<MemberMypageDto> memberMypageOrderList(int member_number);
+	
+	public int memberMypageReviewInsert(List<Object> reviewList);
 }

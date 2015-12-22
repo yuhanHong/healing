@@ -19,4 +19,10 @@ public class MemberMypageDaoImp implements MemberMypageDao {
 		
 		return sqlSessionTemplate.selectList("dao.memberMyPageMapper.memberMypageOrderList",member_number);
 	}
+
+	@Override
+	public int memberMypageReviewInsert(List<Object> reviewList) {
+		
+		return sqlSessionTemplate.insert("dao.memberMyPageMapper.memberMypageReviewInsert",reviewList);
+	}
 }

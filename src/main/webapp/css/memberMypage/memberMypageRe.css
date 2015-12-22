@@ -15,7 +15,8 @@
 }
 
 #myr_content{
-	width:750px; overflow:hidden; margin-left:0px; line-height:50px;
+	width:730px; overflow:hidden; margin-left:0px; line-height:50px; margin-top:30px;
+	border:1px solid #c0c0c0;
 }
 
 #myr_content input{
@@ -35,13 +36,23 @@
 	margin:0px;
 }
 #myr_name li:nth-child(1){
-	width:75%; height:40px; margin:0px;
+	width:10%; height:40px; margin-left:55px;
 	border: 0px solid blue; 
 	list-style-type: none; float: left;
 }
 
 #myr_name li:nth-child(2){
-	width:23%; height:40px; margin:0px;
+	width:40%; height:40px; margin:0px;
+	border: 0px solid blue; 
+	list-style-type: none; float: left;
+}
+#myr_name li:nth-child(3){
+	width:13%; height:40px; margin:0px;
+	border: 0px solid blue; 
+	list-style-type: none; float: left;
+}
+#myr_name li:nth-child(4){
+	width:20%; height:40px; margin:0px;
 	border: 0px solid blue; 
 	list-style-type: none; float: left;
 }
@@ -54,13 +65,23 @@
 	margin:0px;
 }
 #myr_date li:nth-child(1){
-	width:30%; height:40px; margin:0px;
+	width:20%; height:40px; margin-left:28px;
 	border: 0px solid blue; 
 	list-style-type: none; float: left;
 }
 
 #myr_date li:nth-child(2){
-	width:30%; height:40px; margin:0px;
+	width:20%; height:40px; margin:0px;
+	border: 0px solid blue; 
+	list-style-type: none; float: left;
+}
+#myr_date li:nth-child(3){
+	width:20%; height:40px; margin:0px;
+	border: 0px solid blue; 
+	list-style-type: none; float: left;
+}
+#myr_date li:nth-child(4){
+	width:20%; height:40px; margin:0px;
 	border: 0px solid blue; 
 	list-style-type: none; float: left;
 }
@@ -73,7 +94,7 @@
 	margin:0px;
 }
 #myr_price li:nth-child(1){
-	width:5%; height:40px; margin:0px;
+	width:5%; height:40px; margin-left:65px;
 	border: 0px solid blue; 
 	list-style-type: none; float: left;
 }
@@ -127,10 +148,10 @@
 }
 
 #myr_reply li:nth-child(2){
-	margin-top:4px; margin-left:20px;
+	margin-top:4px; margin-left:10px;
 }
 #myr_reply li:nth-child(3){
-	margin-top:8px;
+	margin-top:8px; margin-left:0px;
 }
 
 #myr_reply_insert{
