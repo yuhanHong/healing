@@ -34,6 +34,8 @@
 				<input type="hidden" name="member_number" value="${member_number}"/>
 				
 				<c:forEach var="mypageList" items="${mypageDto}">
+				
+					<img src="${root}/resources/productPhoto/${mypageList.product_number}/0-1-1.jpg"width="150px" height="200px;"/>
 					<div class="mmo_line" style="height: 43px; margin-top: 40px; background-color: write;">
 							<ul>
 								<li  id="mmo_name_tag" style="width: 100px;">주문 번호</li>

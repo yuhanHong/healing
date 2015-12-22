@@ -1,5 +1,6 @@
 package com.healing.memberMypage.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -21,8 +22,8 @@ public class MemberMypageDaoImp implements MemberMypageDao {
 	}
 
 	@Override
-	public int memberMypageReviewInsert(List<Object> reviewList) {
+	public int memberMypageReviewInsert(HashMap<String,Object> hMap) {
 		
-		return sqlSessionTemplate.insert("dao.memberMyPageMapper.memberMypageReviewInsert",reviewList);
+		return sqlSessionTemplate.insert("dao.memberMyPageMapper.memberMypageReviewInsert",hMap);
 	}
 }

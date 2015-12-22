@@ -81,6 +81,7 @@ function replyToggle(order_number){
 								<input type="hidden" name="member_number" value="${member_number}"/>
 								<input type="hidden" name="order_number" value="${mypageList.order_number}"/>
 								<input type="hidden" name="product_number" value="${mypageList.product_number}"/>
+								<input type="hidden" name="flight_number" value="${mypageList.flight_number}"/>
 								<div id="reply_submit">
 									<input type="hidden" name="star_number" id="star_number"/>
 									<ul id="myr_score">

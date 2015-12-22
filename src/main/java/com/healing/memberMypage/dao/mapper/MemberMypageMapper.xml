@@ -10,9 +10,9 @@
 		order by order_date desc
 	</select>
 	
-	<insert id="memberMypageReviewInsert" parameterType="java.util.List">
-		insert into review(REVIEW_NUMBER,ORDER_NUMBER,MEMBER_NUMBER,PRODUCT_NUMBER,REVIEW_CONTENT,REVIEW_SCORE)
-		values()
+	<insert id="memberMypageReviewInsert" parameterType="java.util.Map">
+		insert into review(review_number,order_number,member_number,product_number,review_content,review_score,flight_number)
+		values(review_review_number_seq.nextval,#{order_number},#{member_number},#{product_number},#{review_content},#{star_number},#{flight_number})
 	</insert>
 </mapper>
 	
