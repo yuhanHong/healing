@@ -18,6 +18,12 @@
 			location.href="${root}/main";
 		</script>
 	</c:if>
+	<c:if test="${memberDto==null}">
+		<script type="text/javascript">
+			alert("회원정보를 제대로 입력해주세요.");
+			location.href="${root}/main";
+		</script>
+	</c:if>
 	<c:if test="${memberDto.member_delete>0}">
 		<script type="text/javascript">
 			alert("탈퇴된 아이디 입니다.");
