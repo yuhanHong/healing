@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import com.healing.freeplan.dto.FreePlanDto;
 import com.healing.freeplan.dto.ScheduleDto;
 import com.healing.memberMypage.dto.MemberMypageDto;
+import com.healing.memberMypage.dto.ReviewDto;
 
 @Component
 public class MemberMypageDaoImp implements MemberMypageDao {
@@ -55,5 +56,11 @@ public class MemberMypageDaoImp implements MemberMypageDao {
 	@Override
 	public int memberMypageGetScheduleCnt(int member_number) {
 		return sqlSessionTemplate.selectOne("dao.memberMyPageMapper.memberMypageGetScheduleCnt",member_number);
+	}
+
+	@Override
+	public List<ReviewDto> reviewList(int member_number) {
+		
+		return sqlSessionTemplate.selectList("dao.memberMyPageMapper.reviewList",member_number);
 	}
 }

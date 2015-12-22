@@ -15,6 +15,11 @@
 		values(review_review_number_seq.nextval,#{order_number},#{member_number},#{product_number},#{review_content},#{star_number},#{flight_number})
 	</insert>
 	
+	<select id="reviewList" parameterType="int" resultType="com.healing.memberMypage.dto.ReviewDto">
+		select * from review
+		where member_number=#{member_number}
+	</select>
+	
 	<select id="memberMyPageGetSchedule" parameterType="int" resultType="com.healing.freeplan.dto.ScheduleDto">
 		select * from schedule where member_number = #{member_number}
 	</select>

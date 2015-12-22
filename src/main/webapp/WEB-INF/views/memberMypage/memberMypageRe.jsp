@@ -69,8 +69,8 @@ function replyToggle(order_number){
 									<li>${mypageList.order_money}</li>
 								</ul>
 							</div>
-							<div id="myr_reply">
-								<div id="reply"><input type="image"  style="width: 500px;"id="reply_button${mypageList.order_number}" onclick="replyToggle('${mypageList.order_number}')" src="${root}/css/images/reply.png" alt="button"/></div>
+							<div id="myr_reply_button">
+								<div class="reply" id="reply${mypageList.product_number}"><input type="image" style="width: 500px;"id="reply_button${mypageList.order_number}" onclick="replyToggle('${mypageList.order_number}')" src="${root}/css/images/reply.png" alt="button"/></div>
 							</div>
 						</div>
 						<input type="hidden" value="${root}" name="root"/>
@@ -83,20 +83,42 @@ function replyToggle(order_number){
 								<input type="hidden" name="product_number" value="${mypageList.product_number}"/>
 								<input type="hidden" name="flight_number" value="${mypageList.flight_number}"/>
 								<div id="reply_submit">
-									<input type="hidden" name="star_number" id="star_number"/>
-									<ul id="myr_score">
+									<input type="hidden" name="star_number" id="star_number${mypageList.product_number}"/>
+									<ul id="myr_score${mypageList.product_number}">
 										<li>평점</li>
-										<li class="score_button_li score_button_li_1"><input type="image" class="score_button" src="${root}/css/images/emptyStar.png" alt="button"/></li>
-										<li class="score_button_li score_button_li_2"><input type="image" class="score_button" src="${root}/css/images/emptyStar.png" alt="button"/></li>
-										<li class="score_button_li score_button_li_3"><input type="image" class="score_button" src="${root}/css/images/emptyStar.png" alt="button"/></li>
-										<li class="score_button_li score_button_li_4"><input type="image" class="score_button" src="${root}/css/images/emptyStar.png" alt="button"/></li>
-										<li class="score_button_li score_button_li_5"><input type="image" class="score_button" src="${root}/css/images/emptyStar.png" alt="button"/></li>
+										<li class="score_button_li score_button_li_1"><img class="score_button" src="${root}/css/images/emptyStar.png" onmouseover="starOnMouse('${mypageList.product_number}',1)"/></li>
+										<li class="score_button_li score_button_li_2"><img class="score_button" src="${root}/css/images/emptyStar.png" onmouseover="starOnMouse('${mypageList.product_number}',2)"/></li>
+										<li class="score_button_li score_button_li_3"><img class="score_button" src="${root}/css/images/emptyStar.png" onmouseover="starOnMouse('${mypageList.product_number}',3)"/></li>
+										<li class="score_button_li score_button_li_4"><img class="score_button" src="${root}/css/images/emptyStar.png" onmouseover="starOnMouse('${mypageList.product_number}',4)"/></li>
+										<li class="score_button_li score_button_li_5"><img class="score_button" src="${root}/css/images/emptyStar.png" onmouseover="starOnMouse('${mypageList.product_number}',5)"/></li>
 									</ul>
-									<ul id="myr_reply">
+									
+									<ul id="myr_reply${mypageList.product_number}">
 										<li>후기작성</li>
 										<li><input id="myr_reply_insert" type="text" name="review_content" size="54"/></li>
 										<li><input type="submit" value="작성"/></li>
 									</ul>
+									<c:forEach var="review" items="${reviewDto}">
+										<c:if test="${review.order_number==mypageList.order_number}">
+											<ul id="replyAfter" style="clear:both;">
+												<li>평점:</li>
+												<li>${review.review_score}</li>
+												<li>후기:</li>
+												<li>${review.review_content}</li>
+											</ul>
+											<script>
+												var myr_score=document.getElementById("myr_score${mypageList.product_number}")
+												var myr_reply=document.getElementById("myr_reply${mypageList.product_number}")
+												var reply_button=document.getElementById("reply_button${mypageList.order_number}")
+												myr_score.remove();
+												myr_reply.remove();
+												var reply=document.getElementById("reply${mypageList.product_number}")
+												var myr_replyAfter="<input type='image' style='width: 500px;'id='reply_button${mypageList.order_number}' onclick='replyToggle(\"${mypageList.order_number}\")' src='${root}/css/images/replyAfter.png' alt='button'/>";
+												
+												reply.innerHTML="<input type='image' style='width: 500px;'id='reply_button${mypageList.order_number}' onclick='replyToggle(\"${mypageList.order_number}\")' src='${root}/css/images/replyAfter.png' alt='button'/>";
+											</script>
+										</c:if>
+									</c:forEach>
 								</div>
 							</form>
 						</div>

@@ -16,6 +16,7 @@ import com.healing.freeplan.dto.FreePlanDto;
 import com.healing.freeplan.dto.ScheduleDto;
 import com.healing.memberMypage.dao.MemberMypageDao;
 import com.healing.memberMypage.dto.MemberMypageDto;
+import com.healing.memberMypage.dto.ReviewDto;
 
 @Component
 public class MemberMypageServiceImp implements MemberMypageService {
@@ -35,8 +36,8 @@ public class MemberMypageServiceImp implements MemberMypageService {
 		
 		String review_content=request.getParameter("review_content");
 		int star_number=Integer.parseInt(request.getParameter("star_number"));
-		 HomeAspect.logger.info(HomeAspect.logMsg+"평점:"+star_number+"후기:"+review_content);
-		 HomeAspect.logger.info(HomeAspect.logMsg+"멤버넘버:"+member_number+"오더넘버:"+order_number+"상품넘버:"+product_number);
+		// HomeAspect.logger.info(HomeAspect.logMsg+"평점:"+star_number+"후기:"+review_content);
+		// HomeAspect.logger.info(HomeAspect.logMsg+"멤버넘버:"+member_number+"오더넘버:"+order_number+"상품넘버:"+product_number);
 		HashMap<String,Object> hMap=new HashMap<String,Object>();
 		hMap.put("member_number", member_number);
 		hMap.put("order_number", order_number);
@@ -46,7 +47,10 @@ public class MemberMypageServiceImp implements MemberMypageService {
 		hMap.put("flight_number", flight_number);
 		
 		int check=memberMypageDao.memberMypageReviewInsert(hMap);
-		HomeAspect.logger.info(HomeAspect.logMsg+"후기체크:"+check);
+		// HomeAspect.logger.info(HomeAspect.logMsg+"후기체크:"+check);
+		
+		mav.addObject("check",check);
+		mav.setViewName("memberMypage/memberMypageReviewInsertOk");
 	}
 
 	@Override
@@ -72,8 +76,10 @@ public class MemberMypageServiceImp implements MemberMypageService {
 		HomeAspect.logger.info(HomeAspect.logMsg+"후기 회원넘버:"+member_number);
 		
 		List<MemberMypageDto> mypageDto=memberMypageDao.memberMypageOrderList(member_number);
+		List<ReviewDto> reviewDto=memberMypageDao.reviewList(member_number);
 		
 		mav.addObject("mypageDto",mypageDto);
+		mav.addObject("reviewDto",reviewDto);
 		mav.setViewName("memberMypage/memberMypageRe");
 	}
 	
