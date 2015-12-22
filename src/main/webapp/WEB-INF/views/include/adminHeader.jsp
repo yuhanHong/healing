@@ -2,9 +2,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
+<head>
 <link rel="stylesheet" type="text/css" href="${root}/css/adminMode/adminHeader.css"/>
 <!-- admin header starts -->
 <link rel="Shortcut Icon" href="${root}/resources/icons/H.ico" />
+<link rel="stylesheet" type="text/css" media="all" href="${root}/css/head/style.css"/>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'/>
+<link rel="stylesheet" type="text/css" href="${root}/css/jquery-ui.css"/>
+<script type="text/javascript" src="${root}/jquery/jquery.js"></script>
+<script type="text/javascript" src="${root}/jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="${root}/js/memberScript/memberScript.js"></script>
 <script type="text/javascript">
 	//브라우저의 타이틀 변경
 	document.title="힐링투어에 오신 것을 환영합니다!";
@@ -22,22 +29,25 @@
 	}
 
 </script>
-<div style="background-color:orange; height: 90px; margin: 0px;">
-<div style="width: 1200px;">
-	<div style="margin-top:20px; width:300px;">
-		<h1 style="margin-left: 30px;" id="adminHegerTitle"><a href="${root}/adminHome.do">Healing</a></h1>
-		<div class="adminHeaderDiv" style="margin-left: 800px;">
-			<c:if  test="${admin_number!=null}">
-		 		<ul>
-		 			<li style="width:80px; height: 60px;margin-top: 25px;"><output id="result"></output></li>
-		 			<li style="margin-top: 10px;margin-left: -50px;"><span style="font-size: 13px;" >${admin_name}님 ${admin_level}계정으로 로그인하셨습니다.</span></li>
-					<li style="font-size: 13px;margin-top: 10px;"><b><a href="${root}/boardFaq/list.do">게시판 관리</a></b></li>
-				</ul>
-		 	</c:if>
-		</div>
+</head>
+<body>
+	<div id = "info" style="border: 0px;">
+ 		<ul>
+ 			<c:if  test="${admin_number!=null}">
+	 			<li style="width:80px;height: 60px; line-height: -10px;"><output id="result"></output></li>
+	 			<li style="margin-left: -50px; line-height: 13px;"><span style="font-size: 13px;" >${admin_name}님 ${admin_level}계정으로 로그인하셨습니다.</span></li>
+				<li style="font-size: 13px; line-height: 13px;"><b><a href="${root}/boardFaq/list.do">게시판 관리</a></b></li>
+			</c:if>
+		</ul>
+	</div>	
+
+	<div id="header" style="background-color: #aaaaaa">
+	  <div class="header_content">
+	    <div class="logo"><a href="${root}"><label  style="color: write;">Healing </label></a> <span> |　develop tour packages </span></div>
+	  
+	    </div>
+	  </div>
 	</div>
-</div>
-</div>
-<div style="clear: both;"></div>
-<hr/>
+</body>
+<div class="clearBoth"></div>
 <!-- admin header ends -->

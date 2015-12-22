@@ -64,8 +64,8 @@
 					<li>미결제 금액</li>
 				</ul>
 				<br/>
-				<div class="statsResult">
-					<h3 style="margin-top: 30px;margin-left: 270px;">검색 결과가 없습니다.</h3>
+				<div class="statsResult" style="margin-top: 60px;margin-left: 310px;">
+					<b>검색 결과가 없습니다.</b>
 				</div>
 			</div>
 		</div>
