@@ -22,11 +22,13 @@ public class ProductLikeDaoImp implements ProductLikeDao {
 	public SqlSessionTemplate sqlSessionTemplate;
 
 	@Override
-	public int productLikeinsert(int member_number, int product_number) {
+	public int productLikeinsert(int member_number,int flight_number,int product_number) {
 		// TODO Auto-generated method stub
 		HashMap<String, Integer> map=new HashMap<String, Integer>();
 		map.put("member_number", member_number);
 		map.put("product_number", product_number);
+		map.put("flight_number", flight_number);
+		
 		return sqlSessionTemplate.insert("dao.productLikeMapper.productLikeinsert", map);
 	}
 

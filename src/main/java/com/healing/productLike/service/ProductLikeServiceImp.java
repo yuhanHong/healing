@@ -50,11 +50,11 @@ public class ProductLikeServiceImp implements ProductLikeService {
 		
 		int member_number=Integer.parseInt(request.getParameter("member_number"));
 		int flight_number=Integer.parseInt(request.getParameter("flight_number"));
-		
+		int product_number=Integer.parseInt(request.getParameter("product_number"));
 	//	HomeAspect.logger.info(HomeAspect.logMsg+"productLikeinsert"+member_number+"/"+product_number);
 		
-		int check=productLikeDao.productLikeinsert(member_number,flight_number);
-		HomeAspect.logger.info(HomeAspect.logMsg+"Insert check"+check);
+		int check=productLikeDao.productLikeinsert(member_number,flight_number,product_number);
+	//	HomeAspect.logger.info(HomeAspect.logMsg+"Insert check"+check);
 						
 		try {
 			response.setContentType("application/html;charset=utf-8");
@@ -74,9 +74,9 @@ public class ProductLikeServiceImp implements ProductLikeService {
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
 		int member_number=Integer.parseInt(request.getParameter("member_number"));
-		List<ProductLikeDto> productLikeList=productLikeDao.getProductLikeList(member_number);
-		for(int i=0; i<productLikeList.size();i++){
-			HomeAspect.logger.info(HomeAspect.logMsg+"productLikeList"+productLikeList.get(i).getProduct_number());
+		List<ProductLikeDto> flightLikeList=productLikeDao.getProductLikeList(member_number);
+		for(int i=0; i<flightLikeList.size();i++){
+			//HomeAspect.logger.info(HomeAspect.logMsg+"productLikeList"+flightLikeList.get(i).getProduct_number());
 		}
 		//관심상품 번호마다 상품Dto 붙이기
 		HashMap<Integer, ProductDto> productMap=new HashMap<Integer, ProductDto>();
@@ -89,21 +89,23 @@ public class ProductLikeServiceImp implements ProductLikeService {
 		ProductDto productDto=null;
 		FlightDto flightDto=null;
 		
-		Iterator<ProductLikeDto> iter=productLikeList.iterator();
+		Iterator<ProductLikeDto> iter=flightLikeList.iterator();
+		
 		while(iter.hasNext()){
 			pld=iter.next();
 			//맵으로 넣어주기위해..
 			like_number=pld.getLike_number();
 			
-			product_number=pld.getProduct_number();
-			productDto=productDao.productRead(product_number);
-			productMap.put(like_number, productDto);
-			
 			flight_number=pld.getFlight_number();
 			flightDto=productDao.flightRead(flight_number);
 			flightMap.put(like_number, flightDto);
+			
+			product_number=pld.getProduct_number();
+			productDto=productDao.productRead(product_number);
+			productMap.put(like_number, productDto);			
+			
 		}
-
+		
 		int check=productMap.size();
 		int productMapSize=productMap.size();
 		
@@ -111,8 +113,6 @@ public class ProductLikeServiceImp implements ProductLikeService {
 		mav.addObject("productMapSize",productMapSize);
 		mav.addObject("productMap",productMap);
 		mav.addObject("flightMap",flightMap);
-		mav.addObject("member_number",member_number);
-
 		mav.setViewName("productLike/productLikeList");
 	}
 
@@ -142,9 +142,7 @@ public class ProductLikeServiceImp implements ProductLikeService {
 		for(int i=1; i<deleteList.length;i++){
 			productLikeDao.productLikeSelectDel(Integer.parseInt(deleteList[i]));
 		}
-		
-		int member_number=Integer.parseInt(request.getParameter("member_number"));
-		
+	
 		productLikeList(mav);
 	}
 }

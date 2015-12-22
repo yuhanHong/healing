@@ -30,11 +30,11 @@
 				<div style="margin-left: 10px;width: 900px;">
 
 			<div class="productLikeTable">
-				<ul class="productLikeTableFirst">
+				<ul id="productLikeTableFirst">
 					<li>선택</li>
 					<li>상품명</li>
 					<li>숙박일</li>
-					<li style="line-height: 40px; background-color: lightgray;">상품가</li>
+					<li style="line-height: 40px;">상품가</li>
 					<li>출발 날짜</li>
 					<li>바로가기</li>
 				</ul>
@@ -50,9 +50,11 @@
 							아동:<fmt:formatNumber value="${productDto.value.product_price_child}" pattern="###,###"/>원<br/>
 							유아:<fmt:formatNumber value="${productDto.value.product_price_baby}" pattern="###,###"/>원
 						</li>
-						<li>${flightMap.get(productDto.key).flight_start_departure}</li>
+						<li style="font-size: 10px;">
+							<fmt:formatDate value="${flightMap.get(productDto.key).flight_start_date}" pattern="yyyy년 MM월 dd일"/><br/>
+							<fmt:formatDate value="${flightMap.get(productDto.key).flight_start_date}" type="time"/> </li>
 	 			<!--		flightMap.get(productDto.key) = flightDto -->
-						<li><a href="#">${flightMap.get(productDto.key).flight_number}</a></li>
+						<li><a href="#"><!--  ${flightMap.get(productDto.key).flight_number}--> 이동</a></li>
 					</ul>
 					</div>
 				</c:forEach>

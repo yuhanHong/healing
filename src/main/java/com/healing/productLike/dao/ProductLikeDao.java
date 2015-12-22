@@ -12,7 +12,7 @@ import com.healing.productLike.dto.ProductLikeDto;
  */
 public interface ProductLikeDao {
 
-	public int productLikeinsert(int member_number,int product_number);
+	public int productLikeinsert(int member_number,int flight_number,int product_number);
 	public List<ProductLikeDto> getProductLikeList(int member_number);
 	public int productLikeAllDelete(int member_number);
 	public int productLikeSelectDel(int like_number);

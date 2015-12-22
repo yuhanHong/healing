@@ -1,17 +1,22 @@
 @CHARSET "UTF-8";
 
 .productLikeTable ul li{
-
+	
+	background-color: #EAEAEA;
+	border-top: 1px solid #757575; border-bottom:1px solid #757575;
+	width:800px; margin-top:7px;
+	background-color: #F6F6F6;
 	padding: 4px;
 	display: block;
 	width:100px;
 	float:left;
-	border: 1px solid gray;
+
 	text-align: center;
 	height: 38px;
 	line-height:38px;
 	
 }
+
 
 .productLikeTable ul li:nth-child(1){
 	width:30px;
@@ -20,7 +25,10 @@
 	width:240px;
 }
 .productLikeTable ul li:nth-child(4){
-	line-height: 11px;
+	line-height: 13px;
+}
+.productLikeTable ul li:nth-child(5){
+	line-height: 20px;
 }
 
 .productLikeTable {
@@ -34,7 +42,8 @@
 	margin: 0px;
 	
 }
-.productLikeTableFirst li{
-	background-color: lightgray;
+#productLikeTableFirst li{
+	background-color: #c0c0c0;
 	font-weight: bold;
+	color:white;
 }

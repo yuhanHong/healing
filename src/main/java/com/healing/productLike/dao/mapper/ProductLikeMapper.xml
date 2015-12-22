@@ -6,7 +6,7 @@
 <mapper namespace="dao.productLikeMapper">   <!-- namespace : mapper를 식별해주는 식별자 -->
 	
 	<insert id="productLikeinsert" parameterType="java.util.HashMap">
-		insert into product_like values(product_like_number_seq.nextval,#{member_number},#{product_number},sysdate)		
+		insert into product_like values(product_like_number_seq.nextval,#{member_number},#{flight_number},sysdate,#{product_number})		
 	</insert>
 	
 	<select id="getProductLikeList" parameterType="int" resultType="com.healing.productLike.dto.ProductLikeDto">
