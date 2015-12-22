@@ -39,10 +39,11 @@ public class HealingHomeServiceImp implements HealingHomeService {
 		HttpServletResponse response = (HttpServletResponse) map.get("response");
 		
 		int count = adminBannerDao.bannerGetCount();			// 메인 배너에 등록됬는지를 알려주는 필드 개수
-		HomeAspect.logger.info(HomeAspect.logMsg + count);		
+//		HomeAspect.logger.info(HomeAspect.logMsg + count);		
 		
 		List<ProductDto> productList = null;
 		List<ProductPhotoDto> productPhotoList = null;
+		
 		if(count > 0){
 			productList = adminBannerDao.getBannerList();		// 메인배너등록여부 상태가 1인것만 select해서 List로 받음
 			//HomeAspect.logger.info(HomeAspect.logMsg + productList);
@@ -54,7 +55,8 @@ public class HealingHomeServiceImp implements HealingHomeService {
 		}
 		
 		int listSize = productList.size();		// product 테이블하고 product_photo 테이블 조인한 결과에서 리스트 사이즈
-		HomeAspect.logger.info(HomeAspect.logMsg +"배너배너배너~"+ listSize);
+		//HomeAspect.logger.info(HomeAspect.logMsg +"배너배너배너~"+ listSize);
+		mav.addObject("count", count);							// 메인 배너에 등록됬는지를 알려주는 필드 개수
 		mav.addObject("listSize", listSize);
 		mav.addObject("productList", productList);				// 배너 상품 정보
 		mav.addObject("productPhotoList", productPhotoList);	// 배너 상품이미지 정보

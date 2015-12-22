@@ -95,7 +95,7 @@ public class ProductServiceImp implements ProductService {
 		String pageNumber=request.getParameter("pageNumber");
 		if(pageNumber==null) pageNumber="1";
 		
-		String pNum=request.getParameter("pNum");
+		String pNum=request.getParameter("pNum");		// pNum 값
 		
 		if(pNum==null) {
 			mav.setViewName("product/productList");
@@ -103,7 +103,7 @@ public class ProductServiceImp implements ProductService {
 		}
 		int product_number=Integer.parseInt(pNum);
 		ProductDto productDto = productDao.productRead(product_number);
-		int flightCount = productDao.flightGetCount(product_number);
+		int flightCount = productDao.flightGetCount(product_number);		// 조건에 맞는 항공정보 개수
 		
 		if(flightCount == 0) {
 			mav.setViewName("product/flightList");
@@ -111,7 +111,8 @@ public class ProductServiceImp implements ProductService {
 		}
 		
 		List<ProductDto> flightList=null;
-		flightList=productDao.flightGetList(product_number);
+		flightList=productDao.flightGetList(product_number);		// 항공정보 pNum값이 일치하는것만 오름차순 정렬
+//		HomeAspect.logger.info(HomeAspect.logMsg + "flightList:" + flightList);
 		
 		/*////////////////////////////////////////////////////////////////
 		 * @개발자 : 전현준
@@ -119,14 +120,16 @@ public class ProductServiceImp implements ProductService {
 		 * @수정날짜 : 2015. 12. 21.
 		 */
 		List<ProductDto> recentProductList = recentProductDao.productList(product_number);
-		HomeAspect.logger.info(HomeAspect.logMsg + "상품 사이즈:" + recentProductList.size());
+//		HomeAspect.logger.info(HomeAspect.logMsg + "상품 사이즈:" + recentProductList.size());
+//		HomeAspect.logger.info(HomeAspect.logMsg + "리스트 toString:" + recentProductList.toString());
 		
 		List<FlightDto> flightList2 = recentProductDao.flightList(product_number);
-		HomeAspect.logger.info(HomeAspect.logMsg + "항공정보 사이즈:" + flightList2.size());
+//		HomeAspect.logger.info(HomeAspect.logMsg + "항공정보 사이즈:" + flightList2.size());
+//		HomeAspect.logger.info(HomeAspect.logMsg + "리스트 toString:" + flightList2.toString());
 		
 		// 쿠키 생성
 		String pro_num = String.valueOf(product_number);
-		HomeAspect.logger.info(HomeAspect.logMsg + "PSI 상품번호:" + pro_num);
+//		HomeAspect.logger.info(HomeAspect.logMsg + "PSI 상품번호:" + pro_num);
 		
 		if(recentProductList.size() != 0){
 			Cookie cookie = new Cookie("key" + pro_num, pro_num);

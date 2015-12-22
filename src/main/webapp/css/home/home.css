@@ -12,7 +12,7 @@ a:link {
 
 a:visited {
 	text-decoration:none;
-	color:red
+	/* color:red */
 }
 
 a:hover {
@@ -46,9 +46,9 @@ a:hover {
 }
 
 .recentCookie{
-	position:relative; border:1px solid blue;
-	width:130px; height:90px; right:25px;
-	margin-left:30px; margin-top:5px;
+	position:relative; border:0px solid blue;
+	width:130px; height:105px; right:25px;
+	margin-left:25px; margin-top:10px;
 }
 
 .cookieImgSize{

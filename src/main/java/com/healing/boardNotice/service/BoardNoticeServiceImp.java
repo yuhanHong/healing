@@ -41,7 +41,7 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		if(pageNumber==null) pageNumber = "1";
 		int currentPage = Integer.parseInt(pageNumber);
 		
-		HomeAspect.logger.info(HomeAspect.logMsg+notice_number);
+//		HomeAspect.logger.info(HomeAspect.logMsg+notice_number);
 		
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("notice_number", notice_number);
@@ -61,7 +61,7 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		MultipartFile upFile = request.getFile("file");
 		String fileName=Long.toString(System.currentTimeMillis())+"_"+upFile.getOriginalFilename();
 		long fileSize = upFile.getSize();
-		HomeAspect.logger.info(HomeAspect.logMsg+fileName+","+fileSize);
+//		HomeAspect.logger.info(HomeAspect.logMsg+fileName+","+fileSize);
 		
 		if(fileSize != 0){
 			File path1= new File("C:\\healing\\workspace\\healing\\src\\main\\webapp\\resources\\noticePhoto");
@@ -108,7 +108,7 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		}
 		
 		int check = boardNoticeDao.boardNoticeWriteInsert(boardNoticeDto);
-		HomeAspect.logger.info(HomeAspect.logMsg+check);
+//		HomeAspect.logger.info(HomeAspect.logMsg+check);
 		
 		mav.addObject("check",check);
 		mav.setViewName("/boardNotice/writeOk");
@@ -125,7 +125,7 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		
 		String searchSort = request.getParameter("searchSort");
 		String searchWord = request.getParameter("searchWord");
-		HomeAspect.logger.info(HomeAspect.logMsg+searchSort+","+searchWord);
+//		HomeAspect.logger.info(HomeAspect.logMsg+searchSort+","+searchWord);
 		
 		int boardSize=8;
 		int startRow=(currentPage-1)*boardSize+1;
@@ -137,28 +137,28 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		
 		if(searchSort == null || searchSort.equals("")){
 			count = boardNoticeDao.boardNoticeGetCount();		
-			HomeAspect.logger.info(HomeAspect.logMsg+count);
+//			HomeAspect.logger.info(HomeAspect.logMsg+count);
 			
 			if(count > 0){
 				boardNoticeList = boardNoticeDao.boardNoticeGetList(startRow, endRow);
-				HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeList.size());
+//				HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeList.size());
 			}
 		}else{
 			if(searchSort.equals("titleSort")){					// 제목 검색
 				count = boardNoticeDao.boardNoticeGetCountTitle(searchWord);
-				HomeAspect.logger.info(HomeAspect.logMsg+count);
+//				HomeAspect.logger.info(HomeAspect.logMsg+count);
 				
 				if(count > 0){
 					boardNoticeList = boardNoticeDao.boardNoticeGetListTitle(startRow, endRow, searchWord);
-					HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeList.size());
+//					HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeList.size());
 				}
 			}else if(searchSort.equals("contentSort")){
 				count = boardNoticeDao.boardNoticeGetCountContent(searchWord);
-				HomeAspect.logger.info(HomeAspect.logMsg+count);
+//				HomeAspect.logger.info(HomeAspect.logMsg+count);
 				
 				if(count > 0){
 					boardNoticeList = boardNoticeDao.boardNoticeGetListContent(startRow, endRow, searchWord);
-					HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeList.size());
+//					HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeList.size());
 				}
 			}
 		}
@@ -180,16 +180,16 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		
 		int notice_number=Integer.parseInt(request.getParameter("notice_number"));
 		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
-		HomeAspect.logger.info(HomeAspect.logMsg+notice_number+","+pageNumber);
+//		HomeAspect.logger.info(HomeAspect.logMsg+notice_number+","+pageNumber);
 		
 		String searchSort = request.getParameter("searchSort");
 		String searchWord = request.getParameter("searchWord");
-		HomeAspect.logger.info(HomeAspect.logMsg+searchSort+","+searchWord);
+//		HomeAspect.logger.info(HomeAspect.logMsg+searchSort+","+searchWord);
 		
 		List<BoardNoticeDto> boardNoticeList = null;
 		
 		boardNoticeList = boardNoticeDao.boardNoticeReadSelect(notice_number, searchWord, searchSort);
-		HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeList.size());
+//		HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeList.size());
 		
 		BoardNoticeDto boardNoticeDto = boardNoticeList.get(0);
 		if(boardNoticeDto.getNotice_file_name() != null){
@@ -228,10 +228,10 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		
 		int notice_number=Integer.parseInt(request.getParameter("notice_number"));
 		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
-		HomeAspect.logger.info(HomeAspect.logMsg+notice_number+","+pageNumber);
+//		HomeAspect.logger.info(HomeAspect.logMsg+notice_number+","+pageNumber);
 		
 		int check = boardNoticeDao.boardNoticeDelete(notice_number);
-		HomeAspect.logger.info(HomeAspect.logMsg+check);
+//		HomeAspect.logger.info(HomeAspect.logMsg+check);
 		
 		mav.addObject("check",check);
 		mav.addObject("pageNumber",pageNumber);
@@ -246,10 +246,10 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		
 		int notice_number=Integer.parseInt(request.getParameter("notice_number"));
 		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
-		HomeAspect.logger.info(HomeAspect.logMsg+notice_number+","+pageNumber);
+//		HomeAspect.logger.info(HomeAspect.logMsg+notice_number+","+pageNumber);
 		
 		BoardNoticeDto boardNoticeDto = boardNoticeDao.boardNoticeSelect(notice_number);
-		HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeDto);
+//		HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeDto);
 		
 		if(boardNoticeDto.getNotice_file_name() != null){
 			int index=boardNoticeDto.getNotice_file_name().indexOf("_")+1;
@@ -273,7 +273,7 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		MultipartFile upFile = request.getFile("file");
 		String fileName = Long.toString(System.currentTimeMillis())+"_"+upFile.getOriginalFilename();
 		long fileSize = upFile.getSize();
-		HomeAspect.logger.info(HomeAspect.logMsg+fileName+","+fileSize);
+//		HomeAspect.logger.info(HomeAspect.logMsg+fileName+","+fileSize);
 		
 		if(fileSize != 0){
 			File path= new File("C:\\healing\\workspace\\healing\\src\\main\\webapp\\resources\\noticePhoto");
@@ -299,21 +299,21 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 			File checkFile = new File(boardNoticeDtoPre.getNotice_file_path());
 			if(checkFile.exists() && checkFile.isFile()){
 				boolean b=checkFile.delete();
-				HomeAspect.logger.info(HomeAspect.logMsg+b);
+//				HomeAspect.logger.info(HomeAspect.logMsg+b);
 			}
 		}
 		
-		HomeAspect.logger.info(HomeAspect.logMsg+"notice_number:"+boardNoticeDto.getNotice_number());
-		HomeAspect.logger.info(HomeAspect.logMsg+"notice_content:"+boardNoticeDto.getNotice_content());
-		HomeAspect.logger.info(HomeAspect.logMsg+"notice_writer:"+boardNoticeDto.getNotice_writer());
-		HomeAspect.logger.info(HomeAspect.logMsg+"notice_file_name:"+boardNoticeDto.getNotice_file_name());
-		HomeAspect.logger.info(HomeAspect.logMsg+"notice_file_path:"+boardNoticeDto.getNotice_file_path());
-		HomeAspect.logger.info(HomeAspect.logMsg+"notice_file_size:"+boardNoticeDto.getNotice_file_size());
+//		HomeAspect.logger.info(HomeAspect.logMsg+"notice_number:"+boardNoticeDto.getNotice_number());
+//		HomeAspect.logger.info(HomeAspect.logMsg+"notice_content:"+boardNoticeDto.getNotice_content());
+//		HomeAspect.logger.info(HomeAspect.logMsg+"notice_writer:"+boardNoticeDto.getNotice_writer());
+//		HomeAspect.logger.info(HomeAspect.logMsg+"notice_file_name:"+boardNoticeDto.getNotice_file_name());
+//		HomeAspect.logger.info(HomeAspect.logMsg+"notice_file_path:"+boardNoticeDto.getNotice_file_path());
+//		HomeAspect.logger.info(HomeAspect.logMsg+"notice_file_size:"+boardNoticeDto.getNotice_file_size());
 		
 		boardNoticeDto.setNotice_content(boardNoticeDto.getNotice_content().replace("\r\n", "<br/>"));
 		
 		int check = boardNoticeDao.boardNoticeUpdate(boardNoticeDto);
-		HomeAspect.logger.info(HomeAspect.logMsg+check);
+//		HomeAspect.logger.info(HomeAspect.logMsg+check);
 		
 		mav.addObject("check",check);
 		mav.addObject("pageNumber",Integer.parseInt(request.getParameter("pageNumber")));
@@ -327,10 +327,10 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		HttpServletResponse response = (HttpServletResponse)map.get("response");
 		
 		int notice_number=Integer.parseInt(request.getParameter("notice_number"));
-		HomeAspect.logger.info(HomeAspect.logMsg+notice_number);
+//		HomeAspect.logger.info(HomeAspect.logMsg+notice_number);
 		
 		BoardNoticeDto boardNoticeDto = boardNoticeDao.boardNoticeSelect(notice_number);
-		HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeDto);
+//		HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeDto);
 		
 		BufferedInputStream bis = null;
 		BufferedOutputStream bos = null;

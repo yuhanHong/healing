@@ -48,7 +48,7 @@ public class DetailSearchServiceImp implements DetailSearchService {
 			detailList=detailSearchDao.detailSearchSortDay(minDay,maxDay);
 		}else if(maxDay==1){
 			list=detailSearchDao.detailSearchSortCity(cityList);
-			HomeAspect.logger.info(HomeAspect.logMsg+"도시선택상품:"+list);
+//			HomeAspect.logger.info(HomeAspect.logMsg+"도시선택상품:"+list);
 			for(int i=0;i<list.size();i++){
 				int product_number=list.get(i);
 				detailListDemo=detailSearchDao.detailSearchSortCityNumber(product_number);
@@ -56,7 +56,7 @@ public class DetailSearchServiceImp implements DetailSearchService {
 			}
 		}else if(city!="" && maxDay!=1){
 			list=detailSearchDao.detailSearchSortCity(cityList);
-			HomeAspect.logger.info(HomeAspect.logMsg+"선택된 선택자들:"+list);
+//			HomeAspect.logger.info(HomeAspect.logMsg+"선택된 선택자들:"+list);
 			for(int i=0;i<list.size();i++){
 				int product_number=list.get(i);
 				detailListDemo=detailSearchDao.detailSearchSortMulti(product_number,minDay,maxDay);

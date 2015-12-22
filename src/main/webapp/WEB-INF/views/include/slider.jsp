@@ -45,6 +45,5 @@ $(window).load(function () {
 	</div>
 	</div>
 </div>
-<%-- </c:if> --%>
 </body>
 </html>

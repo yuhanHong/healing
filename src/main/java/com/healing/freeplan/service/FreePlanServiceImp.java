@@ -34,12 +34,12 @@ public class FreePlanServiceImp implements FreePlanService {
 		HttpServletResponse response = (HttpServletResponse)map.get("response");
 		
 		int count = freePlanDao.freePlanGetCount();
-		HomeAspect.logger.info(HomeAspect.logMsg+count);
+//		HomeAspect.logger.info(HomeAspect.logMsg+count);
 		
 		List<FreePlanDto> freeplanList = null;
 		if(count > 0){
 			freeplanList = freePlanDao.freePlanGetList();
-			HomeAspect.logger.info(HomeAspect.logMsg+freeplanList.size());
+//			HomeAspect.logger.info(HomeAspect.logMsg+freeplanList.size());
 		}
 		
 		return freeplanList;
@@ -57,7 +57,7 @@ public class FreePlanServiceImp implements FreePlanService {
 	      String place_explane=request.getParameter("content");
 	      
 	      String wedo=request.getParameter("ex");
-	      HomeAspect.logger.info(HomeAspect.logMsg+wedo);
+//	      HomeAspect.logger.info(HomeAspect.logMsg+wedo);
 	      String p=wedo.substring(1,wedo.length()-1);
 	      String[] z=p.split(",");
 	      
@@ -134,7 +134,7 @@ public class FreePlanServiceImp implements FreePlanService {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
 		String member_number = request.getParameter("member_number");
-		HomeAspect.logger.info(HomeAspect.logMsg+member_number);
+//		HomeAspect.logger.info(HomeAspect.logMsg+member_number);
 		
 		List<String> countryList = null;
 		int check = 0;
@@ -142,16 +142,16 @@ public class FreePlanServiceImp implements FreePlanService {
 		if(!member_number.equals("")){
 			//schedule 테이블에 자유여행 일정이 이미 등록되어있다면 자유여행 일정을 생성하지 못 한다. 삭제 후 일정 생성 가능.
 			check = freePlanDao.freePlanGetSchedule(Integer.parseInt(member_number));
-			HomeAspect.logger.info(HomeAspect.logMsg+check);
+//			HomeAspect.logger.info(HomeAspect.logMsg+check);
 			
 			if(check==0){
 				// 국가명 list를 받아오기 전에 개수를 확인한다.
 				int count = freePlanDao.freePlanCtrNum();
-				HomeAspect.logger.info(HomeAspect.logMsg+count);
+//				HomeAspect.logger.info(HomeAspect.logMsg+count);
 				
 				if(count > 0){
 					countryList = freePlanDao.freePlanCtrList();
-					HomeAspect.logger.info(HomeAspect.logMsg+countryList.size());
+//					HomeAspect.logger.info(HomeAspect.logMsg+countryList.size());
 				}
 			}
 		}
@@ -167,16 +167,16 @@ public class FreePlanServiceImp implements FreePlanService {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
 		String ctrName = request.getParameter("country");
-		HomeAspect.logger.info(HomeAspect.logMsg+ctrName);
+//		HomeAspect.logger.info(HomeAspect.logMsg+ctrName);
 		
 		// 해당 국가의 등록된 도시의 개수를 확인한다.
 		int count = freePlanDao.freePlanCityNum(ctrName);
-		HomeAspect.logger.info(HomeAspect.logMsg+count);
+//		HomeAspect.logger.info(HomeAspect.logMsg+count);
 		
 		List<FreePlanDto> cityList = null;
 		if(count > 0){
 			cityList = freePlanDao.freePlanCityList(ctrName);
-			HomeAspect.logger.info(HomeAspect.logMsg+count);
+//			HomeAspect.logger.info(HomeAspect.logMsg+count);
 		}
 		
 		return cityList;
@@ -190,34 +190,34 @@ public class FreePlanServiceImp implements FreePlanService {
 		String cityName = request.getParameter("cityName");
 		String place_category = request.getParameter("place_category");
 		String searchWord = request.getParameter("searchWord");
-		HomeAspect.logger.info(HomeAspect.logMsg+cityName+","+place_category+","+searchWord);
+//		HomeAspect.logger.info(HomeAspect.logMsg+cityName+","+place_category+","+searchWord);
 		
 		int count = 0;
 		List<FreePlanDto> freePlanList = null;
 		// category가 null이고 searchWord가 null일 때는 해당 도시의 모든 장소 정보를 출력한다.
 		if(place_category == null && searchWord == null){			
 			count = freePlanDao.freePlanSelectCityNum(cityName);
-			HomeAspect.logger.info(HomeAspect.logMsg+count);
+//			HomeAspect.logger.info(HomeAspect.logMsg+count);
 		
 			if(count > 0){
 				freePlanList = freePlanDao.freePlanSelectCityList(cityName);
-				HomeAspect.logger.info(HomeAspect.logMsg+freePlanList.size());
+//				HomeAspect.logger.info(HomeAspect.logMsg+freePlanList.size());
 			}
 		}else if(searchWord==null && place_category !=null){	// category가 null이 아닐 때는 category에 해당되는 장소 정보만 출력한다.
 			count = freePlanDao.freePlanCategoryNum(cityName, place_category);
-			HomeAspect.logger.info(HomeAspect.logMsg+count);
+//			HomeAspect.logger.info(HomeAspect.logMsg+count);
 			
 			if(count > 0){
 				freePlanList = freePlanDao.freePlanCategoryList(cityName, place_category);
-				HomeAspect.logger.info(HomeAspect.logMsg+freePlanList.size());
+//				HomeAspect.logger.info(HomeAspect.logMsg+freePlanList.size());
 			}
 		}else{													// searchWord가 null이 아닐 때는 검색에 의한 장소 정보가 출력된다.
 			count = freePlanDao.freePlanSearchNum(cityName, searchWord);
-			HomeAspect.logger.info(HomeAspect.logMsg+count);
+//			HomeAspect.logger.info(HomeAspect.logMsg+count);
 			
 			if(count > 0){
 				freePlanList = freePlanDao.freePlanSearchList(cityName, searchWord);
-				HomeAspect.logger.info(HomeAspect.logMsg+freePlanList.size());
+//				HomeAspect.logger.info(HomeAspect.logMsg+freePlanList.size());
 			}
 		}
 		
@@ -232,10 +232,10 @@ public class FreePlanServiceImp implements FreePlanService {
 		// 클릭된 도시명과 국가명을 전달 받는다.
 		String cityName = request.getParameter("cityName");
 		String ctrName = request.getParameter("ctrName");
-		HomeAspect.logger.info(HomeAspect.logMsg+cityName+","+ctrName);
+//		HomeAspect.logger.info(HomeAspect.logMsg+cityName+","+ctrName);
 		
 		int count = freePlanDao.freePlanSelectCityNum(cityName);
-		HomeAspect.logger.info(HomeAspect.logMsg+count);
+//		HomeAspect.logger.info(HomeAspect.logMsg+count);
 		
 		List<FreePlanDto> freePlanList = null;
 		List<String> freePlanCityNameList = null;
@@ -244,7 +244,7 @@ public class FreePlanServiceImp implements FreePlanService {
 			freePlanList = freePlanDao.freePlanSelectCityList(cityName);
 			// ctrName(국가)에 cityName를 제외한 도시명을 받는다.
 			freePlanCityNameList = freePlanDao.freePlanCityNameList(ctrName, cityName);
-			HomeAspect.logger.info(HomeAspect.logMsg+freePlanList.size()+","+freePlanCityNameList.size());
+//			HomeAspect.logger.info(HomeAspect.logMsg+freePlanList.size()+","+freePlanCityNameList.size());
 		}
 		
 		mav.addObject("ctrName", ctrName);
@@ -262,7 +262,7 @@ public class FreePlanServiceImp implements FreePlanService {
 		String plan=request.getParameter("plan");
 		
 		// HomeAspect.logger.info(HomeAspect.logMsg+"멤버넘버:"+member_number);
-		 HomeAspect.logger.info(HomeAspect.logMsg+"멤버넘버:"+plan);
+//		 HomeAspect.logger.info(HomeAspect.logMsg+"멤버넘버:"+plan);
 		int check=0;
 		
 		String[] skj=plan.split("/");

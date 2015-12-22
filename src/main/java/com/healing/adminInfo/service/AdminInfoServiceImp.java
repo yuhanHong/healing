@@ -30,7 +30,7 @@ public class AdminInfoServiceImp implements AdminInfoService {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 
 		int check = adminInfoDao.infoInsert(adminInfoDto);
-		HomeAspect.logger.info(HomeAspect.logMsg + "insert 체크값:" + check);
+		//HomeAspect.logger.info(HomeAspect.logMsg + "insert 체크값:" + check);
 		
 		mav.addObject("check", check);
 		mav.setViewName("admin/infoInsertOk");

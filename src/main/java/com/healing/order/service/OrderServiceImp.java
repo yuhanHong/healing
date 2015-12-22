@@ -88,10 +88,10 @@ public class OrderServiceImp implements OrderService {
 		orderDto.setStart_time(flightDto.getFlight_start_date());
 		
 		int check= orderDao.orderInsert(orderDto);
-		HomeAspect.logger.info(HomeAspect.logMsg+"///"+check+":  orderInsert Check");
+//		HomeAspect.logger.info(HomeAspect.logMsg+"///"+check+":  orderInsert Check");
 		
 		orderDto=orderDao.getNewOrderDto();
-		HomeAspect.logger.info(HomeAspect.logMsg+"///"+orderDto.getOrder_number()+":  orderInsert resultnumber");
+//		HomeAspect.logger.info(HomeAspect.logMsg+"///"+orderDto.getOrder_number()+":  orderInsert resultnumber");
 				
 		
 		mav.addObject("orderDto", orderDto);

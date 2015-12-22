@@ -29,7 +29,7 @@ public class BoardFaqServiceImp implements BoardFaqService {
 		if(pageNumber==null) pageNumber = "1";
 		int currentPage = Integer.parseInt(pageNumber);
 		
-		HomeAspect.logger.info(HomeAspect.logMsg+faq_number);
+//		HomeAspect.logger.info(HomeAspect.logMsg+faq_number);
 		
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("faq_number", faq_number);
@@ -45,7 +45,7 @@ public class BoardFaqServiceImp implements BoardFaqService {
 		boardFaqDto.setFaq_content(boardFaqDto.getFaq_content().replace("\r\n", "<br/>"));
 		
 		int check = boardFaqDao.boardFaqWriteInsert(boardFaqDto);
-		HomeAspect.logger.info(HomeAspect.logMsg+check);
+//		HomeAspect.logger.info(HomeAspect.logMsg+check);
 		
 		mav.addObject("check",check);
 		mav.setViewName("/boardFaq/writeOk");
@@ -63,7 +63,7 @@ public class BoardFaqServiceImp implements BoardFaqService {
 		//					  	2. 검색할 때(searchWord != null)
 		// faq_sort != null 경우 	3. 분류 별로 list 출력(searchWord == null)
 
-		HomeAspect.logger.info(HomeAspect.logMsg+","+searchWord+","+faq_sort);
+//		HomeAspect.logger.info(HomeAspect.logMsg+","+searchWord+","+faq_sort);
 		
 		int count = 0;
 		List<BoardFaqDto> boardFaqList = null;
@@ -76,20 +76,20 @@ public class BoardFaqServiceImp implements BoardFaqService {
 			}
 			
 			count = boardFaqDao.boardFaqGetCount(faq_sort);
-			HomeAspect.logger.info(HomeAspect.logMsg+count);
+//			HomeAspect.logger.info(HomeAspect.logMsg+count);
 			
 			if(count > 0){
 				boardFaqList = boardFaqDao.boardFaqGetList(faq_sort);
-				HomeAspect.logger.info(HomeAspect.logMsg+boardFaqList.size());
+//				HomeAspect.logger.info(HomeAspect.logMsg+boardFaqList.size());
 			}
 			
 		}else{												// 검색 시 list 갖고 오기
 			count = boardFaqDao.boardFaqGetCountSearch(searchWord);
-			HomeAspect.logger.info(HomeAspect.logMsg+count);
+//			HomeAspect.logger.info(HomeAspect.logMsg+count);
 			
 			if(count > 0){
 				boardFaqList = boardFaqDao.boardFaqGetListSearch(searchWord);
-				HomeAspect.logger.info(HomeAspect.logMsg+boardFaqList.size());
+//				HomeAspect.logger.info(HomeAspect.logMsg+boardFaqList.size());
 			}
 		}
 	
@@ -109,10 +109,10 @@ public class BoardFaqServiceImp implements BoardFaqService {
 		int faq_number=Integer.parseInt(request.getParameter("faq_number"));
 		String faq_sort = request.getParameter("faq_sort");
 		String searchWord = request.getParameter("searchWord");		
-		HomeAspect.logger.info(HomeAspect.logMsg+faq_number+","+ faq_sort+","+searchWord);
+//		HomeAspect.logger.info(HomeAspect.logMsg+faq_number+","+ faq_sort+","+searchWord);
 		
 		int check = boardFaqDao.boardFaqDelete(faq_number);
-		HomeAspect.logger.info(HomeAspect.logMsg+check);
+//		HomeAspect.logger.info(HomeAspect.logMsg+check);
 
 		mav.addObject("searchWord", searchWord);
 		mav.addObject("faq_sort", faq_sort);
@@ -128,10 +128,10 @@ public class BoardFaqServiceImp implements BoardFaqService {
 		int faq_number=Integer.parseInt(request.getParameter("faq_number"));
 		String faq_sort = request.getParameter("faq_sort");
 		String searchWord = request.getParameter("searchWord");		
-		HomeAspect.logger.info(HomeAspect.logMsg+faq_number+","+ faq_sort+","+searchWord);
+//		HomeAspect.logger.info(HomeAspect.logMsg+faq_number+","+ faq_sort+","+searchWord);
 		
 		BoardFaqDto boardFaqDto = boardFaqDao.boardFaqSelect(faq_number);
-		HomeAspect.logger.info(HomeAspect.logMsg+boardFaqDto);
+//		HomeAspect.logger.info(HomeAspect.logMsg+boardFaqDto);
 		
 		boardFaqDto.setFaq_content(boardFaqDto.getFaq_content().replace("<br/>", "\r\n"));
 		
@@ -153,7 +153,7 @@ public class BoardFaqServiceImp implements BoardFaqService {
 		String searchWord = request.getParameter("searchWord");
 		
 		int check = boardFaqDao.boardFaqUpdate(boardFaqDto);
-		HomeAspect.logger.info(HomeAspect.logMsg+check);
+//		HomeAspect.logger.info(HomeAspect.logMsg+check);
 		
 		mav.addObject("check",check);
 		mav.addObject("faq_sort",faq_sort);

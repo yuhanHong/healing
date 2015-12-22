@@ -39,11 +39,11 @@ public class AdminBannerServiceImp implements AdminBannerService {
 		String product = request.getParameter("product");
 		String keyword = request.getParameter("keyword");
 		
-		HomeAspect.logger.info(HomeAspect.logMsg + "상품명:" + product + ", 검색어:" + keyword);
+		//HomeAspect.logger.info(HomeAspect.logMsg + "상품명:" + product + ", 검색어:" + keyword);
 		
 		//ProductDto productDto = adminBannerDao.productSelect(product, keyword);
 		List<ProductDto> productDto = adminBannerDao.productSelect(product, keyword);
-		HomeAspect.logger.info(HomeAspect.logMsg + "productDto 주소 :" + productDto);
+		//HomeAspect.logger.info(HomeAspect.logMsg + "productDto 주소 :" + productDto);
 		
 		JSONObject json = new JSONObject();		// JSONObject 객체 생성
 		json.put("data", productDto);			// JSONObject에 값 넣기

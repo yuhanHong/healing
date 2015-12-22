@@ -37,21 +37,21 @@ public class RecentProductServiceImp implements RecentProductService {
 		HttpServletResponse response = (HttpServletResponse) map.get("response");
 		
 		int product_number = Integer.parseInt(request.getParameter("product_number"));
-		HomeAspect.logger.info(HomeAspect.logMsg + product_number);
+		//HomeAspect.logger.info(HomeAspect.logMsg + product_number);
 		
 		List<ProductDto> recentProductList = recentProductDao.productList(product_number);
-		HomeAspect.logger.info(HomeAspect.logMsg + recentProductList.size());
+		//HomeAspect.logger.info(HomeAspect.logMsg + recentProductList.size());
 		
 		List<FlightDto> flightList = recentProductDao.flightList(product_number);
-		HomeAspect.logger.info(HomeAspect.logMsg + flightList.size());
+		//HomeAspect.logger.info(HomeAspect.logMsg + flightList.size());
 		
-		// 쿠키 생성
+		// *** 쿠키 생성 ***
 		String pro_num = String.valueOf(product_number);
 		
 		if(recentProductList.size() != 0){
 			Cookie cookie = new Cookie("key" + pro_num, pro_num);
 			cookie.setMaxAge(60 * 10);		// 초 * 분 * 시 * 일
-			cookie.setPath("/");			// 어디에서 쿠키를 나중에 불러오더라도 찾을수 있게 만드는 경로설정
+			cookie.setPath("/");			// 어디에서 쿠키를 나중에 불러오더라도 쿠키를 찾을 수 있게 만드는 경로설정
 			response.addCookie(cookie);
 		}
 		
@@ -84,7 +84,7 @@ public class RecentProductServiceImp implements RecentProductService {
 		HttpServletResponse response = (HttpServletResponse) map.get("response");
 		
 		String count = request.getParameter("listCount");
-		HomeAspect.logger.info(HomeAspect.logMsg + count);
+//		HomeAspect.logger.info(HomeAspect.logMsg + count);
 	}
 
 	@Override
@@ -93,43 +93,41 @@ public class RecentProductServiceImp implements RecentProductService {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		HttpServletResponse response = (HttpServletResponse) map.get("response");
 		
+		// 1. recentProduct.jsp 에서 쿠키 value값 얻어오기(상품번호)
 		String value = request.getParameter("value");
-		HomeAspect.logger.info(HomeAspect.logMsg + "상품번호:" + value);
+		String comma[] = value.split(",");
 		
+		// 2. recentProduct.jsp페이지에서 쿠키를 받은 거를 getParameter()로 cookies 얻어오기
 		String cookies = request.getParameter("cookies");
-		HomeAspect.logger.info(HomeAspect.logMsg + "쿠키:" + cookies);
 		
+		// 3. 쿠키길이 얻어오기
 		int cookiesLength = Integer.parseInt(request.getParameter("cookiesLength"));
-		HomeAspect.logger.info(HomeAspect.logMsg + "쿠키길이:" + cookiesLength);
 		
 		List<ProductDto> product = new ArrayList<ProductDto>();
 		List<ProductPhotoDto> productPhoto = new ArrayList<ProductPhotoDto>();
 		
 		if(cookies != null){
-			for(int i=1; i<cookiesLength; i++){
+			for(int i=0; i<cookiesLength-1; i++){
 				// 상품명, 상품가격, 상품이미지를 상품번호를 이용해서 갖고온다.
-				ProductDto productDto = adminBannerDao.recentlyProductSelect(Integer.parseInt(value));
-				HomeAspect.logger.info(HomeAspect.logMsg + "Dto1:" + productDto);
+				// ProductDto productDto = adminBannerDao.recentlyProductSelect(Integer.parseInt(value));
+				List<ProductDto> productDto = adminBannerDao.recentlyProductSelect(Integer.parseInt(comma[i]));
 				
 				// 사진 설명, 사진 파일명, 사진 설명 등을 가져온다.
-				ProductPhotoDto productPhotoDto = adminBannerDao.recentlyProductPhotoSelect(Integer.parseInt(value));
-				HomeAspect.logger.info(HomeAspect.logMsg + "Dto2:" + productPhotoDto);
+				// ProductPhotoDto productPhotoDto = adminBannerDao.recentlyProductPhotoSelect(Integer.parseInt(value));
+				List<ProductPhotoDto> productPhotoDto = adminBannerDao.recentlyProductPhotoSelect(Integer.parseInt(comma[i]));
 				
-				product.add(productDto);
-				productPhoto.add(productPhotoDto);
+				product.addAll(productDto);
+				productPhoto.addAll(productPhotoDto);
 			}
-			HomeAspect.logger.info(HomeAspect.logMsg + "상품 사이즈:" + product.size());
-			HomeAspect.logger.info(HomeAspect.logMsg + "상품 이미지 사이즈:" + productPhoto.size());
 		}
 		
-		JSONObject json = new JSONObject();		// JSONObject 객체 생성
+		JSONObject json = new JSONObject();			// JSONObject 객체 생성
 		json.put("productInfo", product);			// JSONObject에 값 넣기
 		json.put("productPhotoInfo", productPhoto);
-		HomeAspect.logger.info(HomeAspect.logMsg + "json정보:" + json);
 		
 		PrintWriter out = null;
 		try {
-			response.setContentType("text/html;charset=UTF-8");
+			response.setContentType("application/html;charset=UTF-8");
 			out = response.getWriter();
 			out.print(json.toString());		// out 객체의 내용을 ajax의 데이터타입이 json에게 갖고있는 데이터를 전달함
 		} catch (IOException e) {

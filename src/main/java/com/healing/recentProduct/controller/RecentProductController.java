@@ -61,18 +61,17 @@ public class RecentProductController {
 	 * @리턴타입 : ModelAndView
 	 * @작성일 : 2015. 12. 21.
 	 * @개발자 : 전현준
-	 * @함수설명 : recentProduct.jsp 페이지에서 onload됬을때 실행되는 함수
+	 * @함수설명 : recentProduct.jsp 페이지에서 onLoad 됬을 때 실행되는 함수
 	 */
 	@RequestMapping(value="/recentProduct/recentProductList.do", method=RequestMethod.GET)
 	public ModelAndView recentProductList(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request", request);
-		mav.addObject("response", response);
+		mav.addObject("response", response);			// ajax 요청할 시 데이터 response 넣는것 중요 ★★★
 		
 		recentProductService.recentProductList(mav);
 		
-		return null;
+		return null;									// ajax 요청할 시 return null 중요 ★★★
 	}
-	
-	
+
 }

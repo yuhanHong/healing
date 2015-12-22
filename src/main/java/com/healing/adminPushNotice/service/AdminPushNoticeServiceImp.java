@@ -57,8 +57,8 @@ public class AdminPushNoticeServiceImp implements AdminPushNoticeService {
 	    int check=0;
 	    adminPushNoticeDto.setMember_number(member_number);
 	    
-		HomeAspect.logger.info(HomeAspect.logMsg+"order_number"+ adminPushNoticeDto.getOrder_number()+"/member_number"+adminPushNoticeDto.getMember_number()+"/flight_number"+
-				adminPushNoticeDto.getFlight_number()+"/pushContent"+adminPushNoticeDto.getPush_content());
+//		HomeAspect.logger.info(HomeAspect.logMsg+"order_number"+ adminPushNoticeDto.getOrder_number()+"/member_number"+adminPushNoticeDto.getMember_number()+"/flight_number"+
+//				adminPushNoticeDto.getFlight_number()+"/pushContent"+adminPushNoticeDto.getPush_content());
 	    if(dto==null){
 	    	check=adminPushNoticeDao.adminPushNoticeRequestCancel(adminPushNoticeDto);
 	    }

@@ -109,4 +109,17 @@ public class FlightDto {
 	public void setFlight_end_arrival_city(String flight_end_arrival_city) {
 		this.flight_end_arrival_city = flight_end_arrival_city;
 	}
+	
+	@Override
+	public String toString() {
+		return "FlightDto [flight_number=" + flight_number + ", product_number=" + product_number
+				+ ", flight_occupancy=" + flight_occupancy + ", flight_start_date=" + flight_start_date
+				+ ", flight_start_departure=" + flight_start_departure + ", flight_start_arrival="
+				+ flight_start_arrival + ", flight_start_airline=" + flight_start_airline
+				+ ", flight_start_departure_city=" + flight_start_departure_city + ", flight_start_arrival_city="
+				+ flight_start_arrival_city + ", flight_end_date=" + flight_end_date + ", flight_end_departure="
+				+ flight_end_departure + ", flight_end_arrival=" + flight_end_arrival + ", flight_end_airline="
+				+ flight_end_airline + ", flight_end_departure_city=" + flight_end_departure_city
+				+ ", flight_end_arrival_city=" + flight_end_arrival_city + "]";
+	}
 }

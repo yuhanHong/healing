@@ -21,7 +21,7 @@ public interface AdminBannerDao {
 	
 	public List<ProductPhotoDto> getProductPhotoList();
 	
-	public ProductDto recentlyProductSelect(int value);
+	public List<ProductDto> recentlyProductSelect(int value);
 	
-	public ProductPhotoDto recentlyProductPhotoSelect(int value);
+	public List<ProductPhotoDto> recentlyProductPhotoSelect(int value);
 }

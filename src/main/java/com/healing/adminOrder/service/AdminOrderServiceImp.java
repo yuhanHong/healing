@@ -51,7 +51,7 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	   
 	    if(search_label==8) search_input="비회원";
 	    List<OrderDto> orderList=adminOrderDao.adminOrderSearchOne(search_label,search_input);
-	    HomeAspect.logger.info(HomeAspect.logMsg+"///"+orderList.size());
+//	    HomeAspect.logger.info(HomeAspect.logMsg+"///"+orderList.size());
 	   
 	    mav.addObject("orderList", orderList);	    
 		mav.setViewName("adminOrder/adminOrderSearch");
@@ -97,7 +97,7 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	    HttpServletRequest request = (HttpServletRequest) map.get("request");
 	    OrderDto orderDto=(OrderDto)map.get("orderDto");
 	    
-	    HomeAspect.logger.info(HomeAspect.logMsg+"///orderMoney"+orderDto.getOrder_money()+"//modimoney"+orderDto.getOrder_modify_money());
+//	    HomeAspect.logger.info(HomeAspect.logMsg+"///orderMoney"+orderDto.getOrder_money()+"//modimoney"+orderDto.getOrder_modify_money());
 	   
 	    if(orderDto.getOrder_pay()<orderDto.getOrder_money()){
 	    	orderDto.setPayment_state("추가 결제필요");
@@ -165,7 +165,7 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	    List<String> dateList=null;
 	    List<String> salesList=null;
 	    List<String> payList=null;
-	    HomeAspect.logger.info(HomeAspect.logMsg+"///adminOrderStatsSearch//"+select);
+//	    HomeAspect.logger.info(HomeAspect.logMsg+"///adminOrderStatsSearch//"+select);
 	    
 	    //일별로 선택한 경우
 	    if(select.equals("day")){
@@ -202,7 +202,7 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	    }
 	    
 	    for(int i=0; i<dateList.size();i++){
-	    	HomeAspect.logger.info(HomeAspect.logMsg+dateList.get(i)+"//"+salesList.get(i)+"//"+payList.get(i));
+//	    	HomeAspect.logger.info(HomeAspect.logMsg+dateList.get(i)+"//"+salesList.get(i)+"//"+payList.get(i));
 	    }
 	    int dateListLength=dateList.size();
 	    

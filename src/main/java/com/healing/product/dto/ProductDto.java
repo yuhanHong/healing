@@ -1,6 +1,7 @@
 package com.healing.product.dto;
 
 public class ProductDto {
+
 	private int product_number;
 	private String product_name;
 	private String product_summary;
@@ -141,5 +142,19 @@ public class ProductDto {
 	}
 	public void setProduct_banner(int product_banner) {
 		this.product_banner = product_banner;
+	}
+	
+	@Override
+	public String toString() {
+		return "ProductDto [product_number=" + product_number + ", product_name=" + product_name + ", product_summary="
+				+ product_summary + ", product_category=" + product_category + ", product_country=" + product_country
+				+ ", product_stay_days=" + product_stay_days + ", product_price_adult=" + product_price_adult
+				+ ", product_price_child=" + product_price_child + ", product_price_baby=" + product_price_baby
+				+ ", product_guide_adult=" + product_guide_adult + ", product_guide_child=" + product_guide_child
+				+ ", product_guide_baby=" + product_guide_baby + ", product_bargain_day1=" + product_bargain_day1
+				+ ", product_bargain_rate1=" + product_bargain_rate1 + ", product_bargain_day2=" + product_bargain_day2
+				+ ", product_bargain_rate2=" + product_bargain_rate2 + ", product_readcount=" + product_readcount
+				+ ", product_average_score=" + product_average_score + ", product_banner=" + product_banner
+				+ ", product_days=" + product_days + "]";
 	}
 }

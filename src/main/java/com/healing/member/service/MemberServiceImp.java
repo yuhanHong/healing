@@ -255,7 +255,7 @@ public class MemberServiceImp implements MemberService {
 			for(int i=0;i<result.length;i++){              // 선택한 모든 관심정보를 for문으로 하나씩 넣는다
 				String interest_content=result[i];
 				int value2=memberDao.InterestInsert(interest_content,member_number); // 관심정보를 DB에 넣는다.
-				HomeAspect.logger.info(HomeAspect.logMsg+"관심여행지 체크:"+value2);
+//				HomeAspect.logger.info(HomeAspect.logMsg+"관심여행지 체크:"+value2);
 			}
 		}
 		mav.addObject("check",check);

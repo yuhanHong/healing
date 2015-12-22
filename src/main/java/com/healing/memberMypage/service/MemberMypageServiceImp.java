@@ -73,7 +73,7 @@ public class MemberMypageServiceImp implements MemberMypageService {
 		Map<String,Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
 		int member_number=Integer.parseInt(request.getParameter("member_number"));
-		HomeAspect.logger.info(HomeAspect.logMsg+"후기 회원넘버:"+member_number);
+//		HomeAspect.logger.info(HomeAspect.logMsg+"후기 회원넘버:"+member_number);
 		
 		List<MemberMypageDto> mypageDto=memberMypageDao.memberMypageOrderList(member_number);
 		List<ReviewDto> reviewDto=memberMypageDao.reviewList(member_number);
@@ -94,7 +94,7 @@ public class MemberMypageServiceImp implements MemberMypageService {
 		//HomeAspect.logger.info(HomeAspect.logMsg+"자유여행 회원넘버:"+member_number);
 		
 		int check = memberMypageDao.memberMypageGetScheduleCnt(member_number);
-		HomeAspect.logger.info(HomeAspect.logMsg+check);
+//		HomeAspect.logger.info(HomeAspect.logMsg+check);
 		
 		List<ScheduleDto> scheduleList = null;
 		
