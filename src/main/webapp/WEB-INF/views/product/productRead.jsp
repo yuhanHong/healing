@@ -78,8 +78,8 @@
 		<!--Content Start-->
 
 		<div id="content">
-
 			<div class="nav">
+				
 				<img src="${root}/resources/icons/product/nav_productRead.gif"
 					alt='' class="floatl" onerror="this.style.display='none';" />
 				<ul>
@@ -116,7 +116,12 @@
 				<div class="itinerary_info">
 					<div class="iti_contents">
 						<div class="itinerary">
+							
+							<!-- 최근 본 상품 include 된 부분 -->
+							<c:import url="../recentProduct/recentProduct.jsp"/>
+							
 							<div class="summary_table" style="z-index: 2;">
+								
 								<table summary="상품 요약 정보">
 									<tbody>
 										<tr>
@@ -3218,7 +3223,7 @@
 
 		<!--Content End-->
 	</div>
-
+	
 	<jsp:include page="../include/footer.jsp" />
 </body>
 </html>

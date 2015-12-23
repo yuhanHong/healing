@@ -120,49 +120,6 @@ public class ProductServiceImp implements ProductService {
 		flightList=productDao.flightGetList(product_number);		// 항공정보 pNum값이 일치하는것만 오름차순 정렬
 //		HomeAspect.logger.info(HomeAspect.logMsg + "flightList:" + flightList);
 		
-		/*////////////////////////////////////////////////////////////////
-		 * @개발자 : 전현준
-		 * @수정내용 : flightList 함수 안에 쿠키 생성 추가
-		 * @수정날짜 : 2015. 12. 21.
-		 */
-		List<ProductDto> recentProductList = recentProductDao.productList(product_number);
-//		HomeAspect.logger.info(HomeAspect.logMsg + "상품 사이즈:" + recentProductList.size());
-//		HomeAspect.logger.info(HomeAspect.logMsg + "리스트 toString:" + recentProductList.toString());
-		
-		List<FlightDto> flightList2 = recentProductDao.flightList(product_number);
-//		HomeAspect.logger.info(HomeAspect.logMsg + "항공정보 사이즈:" + flightList2.size());
-//		HomeAspect.logger.info(HomeAspect.logMsg + "리스트 toString:" + flightList2.toString());
-		
-		// 쿠키 생성
-		String pro_num = String.valueOf(product_number);
-//		HomeAspect.logger.info(HomeAspect.logMsg + "PSI 상품번호:" + pro_num);
-		
-		if(recentProductList.size() != 0){
-			Cookie cookie = new Cookie("key" + pro_num, pro_num);
-			cookie.setMaxAge(60 * 10);		// 초 * 분 * 시 * 일
-			cookie.setPath("/");			// 어디에서 쿠키를 나중에 불러오더라도 찾을수 있게 만드는 경로설정
-			response.addCookie(cookie);
-		}
-		
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = null;
-		try {
-			out = response.getWriter();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		int recentProductSize = recentProductList.size();
-		int flightListSize = flightList.size();
-		
-		mav.addObject("recentProductSize", recentProductSize);		// 상품정보 list Size
-		mav.addObject("recentProductList", recentProductList);		// 상품정보 data
-		
-		mav.addObject("flightListSize", flightListSize);			// 항공정보 list Size
-		mav.addObject("flightList2", flightList2);					// 항공정보 data
-		mav.addObject("pro_num", pro_num);							// 상품번호
-		////////////////////////////////////////////////////////////////////////////////////
-		
 		mav.addObject("flightCount",flightCount);
 		mav.addObject("productDto",productDto);
 		mav.addObject("flightList",flightList);
@@ -177,7 +134,8 @@ public class ProductServiceImp implements ProductService {
 	public void productRead(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
-		
+		HttpServletResponse response=(HttpServletResponse)map.get("response");
+				
 		String product_category="";
 		String pc=request.getParameter("pc");
 		if(pc==null) pc="1";
@@ -204,6 +162,59 @@ public class ProductServiceImp implements ProductService {
 		int flight_number=Integer.parseInt(fNum);
 		ProductDto productDto = productDao.productRead(product_number);
 		FlightDto flightDto = productDao.flightRead(flight_number);
+		
+		
+		/** //////////////////////////////////////////////////////////
+		 * @개발자 : 전현준
+		 * @수정내용 : flightList 함수 안에 쿠키 생성 추가
+		 * @수정날짜 : 2015. 12. 21.
+		 * @최종수정날짜 : 2015. 12. 23.
+		 */
+		
+		List<ProductDto> flightList=null;
+		flightList=productDao.flightGetList(product_number);		// 항공정보 pNum값이 일치하는것만 오름차순 정렬
+//		HomeAspect.logger.info(HomeAspect.logMsg + "flightList:" + flightList);
+		
+		
+		List<ProductDto> recentProductList = recentProductDao.productList(product_number);
+		//HomeAspect.logger.info(HomeAspect.logMsg + "상품 사이즈:" + recentProductList.size());
+		//HomeAspect.logger.info(HomeAspect.logMsg + "리스트 toString:" + recentProductList.toString());
+		
+		List<FlightDto> flightList2 = recentProductDao.flightList(product_number);
+//		HomeAspect.logger.info(HomeAspect.logMsg + "항공정보 사이즈:" + flightList2.size());
+//		HomeAspect.logger.info(HomeAspect.logMsg + "리스트 toString:" + flightList2.toString());
+		
+		// 쿠키 생성
+		String pro_num = String.valueOf(product_number);
+		//HomeAspect.logger.info(HomeAspect.logMsg + "PSI 상품번호:" + pro_num);
+		
+		if(recentProductList.size() != 0){
+			Cookie cookie = new Cookie("key" + pro_num, pro_num);
+			cookie.setMaxAge(60 * 10);		// 초 * 분 * 시 * 일
+			cookie.setPath("/");			// 어디에서 쿠키를 나중에 불러오더라도 찾을수 있게 만드는 경로설정
+			response.addCookie(cookie);
+		}
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = null;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		int recentProductSize = recentProductList.size();
+		int flightListSize = flightList.size();
+		
+		mav.addObject("recentProductSize", recentProductSize);		// 상품정보 list Size
+		mav.addObject("recentProductList", recentProductList);		// 상품정보 data
+		
+		mav.addObject("flightListSize", flightListSize);			// 항공정보 list Size
+		mav.addObject("flightList2", flightList2);					// 항공정보 data
+		mav.addObject("pro_num", pro_num);							// 상품번호
+		mav.addObject("flightList",flightList);
+		////////////////////////////////////////////////////////////////////////////////////
+		
 		
 		mav.addObject("productDto",productDto);
 		mav.addObject("flightDto",flightDto);

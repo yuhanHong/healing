@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>최근 본 상품 include 페이지</title>
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/boardFaq/boardFaq.css"/>
 <%
@@ -31,11 +31,15 @@
 	for(int i=0; i<list.size(); i++){
 		pro_num += list.get(i) + ",";		// DB에 넘겨주는 product_number(,로 연결함)
 	}
+	
+	String servletPath = request.getServletPath();		// 현재 뜨고 있는 페이지 경로(/WEB-INF/ 부터 시작하는 풀루트)
+	String pagePath = servletPath.substring(servletPath.lastIndexOf("/"));		// jsp 페이지 경로
 %>
 
 <c:set var="value" value="<%=pro_num %>"/>
 <c:set var="cookies" value="<%=cookies %>"/>
 <c:set var="cookiesLength" value="<%=cookiesLength %>"/>
+<c:set var="pagePath" value="<%=pagePath %>"/>
 
 <script type="text/javascript">
 	$(function(){
@@ -43,13 +47,14 @@
 		var value = "${value}";											// value : 쿠키값
 		var cookies = "${cookies}";										// cookies : 쿠키list정보
 		var cookiesLength = "${cookiesLength}";							// cookiesLength : 쿠키길이
-
+		
 		$.ajax({
 			type:"get",		// url 요청 방식 : get/post
 			url:url,		// url 주소
 			data:{value: value, cookies: cookies, cookiesLength: cookiesLength},
 			dataType:"json",
 			success:function(data){		// 응답이 성공 상태 코드를 반환하면 호출되는 함수
+				if(data.productInfo.length==0) recentProductWrap.innerHTML="";		// 상품정보가 없을 경우 최근 본 상품 안뜨게 하는 코드
 				for(var i=0; i<data.productInfo.length; i++){
 					var div = "<div class='recentCookie'>";
 					if(data.productPhotoInfo.length != 0){
@@ -71,13 +76,16 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/recentProduct/recentProduct.css"/>
 </head>
 <body>
-	<div class="recentProduct" align="center">
-		<b style="line-height: 15px;"> > 최근 본 상품 < </b><br/>
+
+<div id="recentProductWrap">
+	<div class="recentProduct" style="" align="center">
+		<b style="line-height: 15px;"> &gt; 최근 본 상품 &lt; </b><br/>
 		<a href="#" style="font-size: 16px;">▲</a>
 			<div id="recProData" style="width:130px; height:330px;border:0px solid red">
 				
 			</div>
 		<a href="#" style="font-size: 16px;">▼</a>
 	</div>
+</div>
 </body>
 </html>

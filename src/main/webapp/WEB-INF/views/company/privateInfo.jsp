@@ -14,13 +14,16 @@
 	<jsp:include page="companySide.jsp"/>
 	
 	<div class="content_class">
+		
+		<!-- 최근 본 상품 include 된 부분 -->
+		<c:import url="../recentProduct/recentProduct.jsp"/>
 		<div>
 			<div style="float:left;">
 				<img src="${root}/resources/boardImg/img01.PNG" align="center">
 				<h2 style="display:inline;"><span style="font-weight: bold; ">개인정보 취급방침</span></h2>
 			</div>
 			
-		</div>		
+		</div>	
 		<hr style="border:2px solid green; margin-top: 36px;">
 			<div  style="width: 750px;margin-top: 30px;margin-left: 20px; color: #333; text-align: left" >
 				'(주)힐링투어'은 (이하 '회사'는) 고객님의 개인정보를 중요시하며,<br/> "정보통신망 이용촉진 및 정보보호"에 관한 법률을 준수하고 있습니다.<br/>

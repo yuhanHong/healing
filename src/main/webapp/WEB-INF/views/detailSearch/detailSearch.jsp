@@ -97,6 +97,9 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- 최근 본 상품 include 된 부분 -->
+	<c:import url="../recentProduct/recentProduct.jsp"/>
 <jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

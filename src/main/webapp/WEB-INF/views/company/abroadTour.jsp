@@ -9,17 +9,17 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/boardFaq/boardFaq.css"/>
 </head>
 <body>
-	 	<jsp:include page="../include/header.jsp"/>
+	<jsp:include page="../include/header.jsp"/>
 	<div class="outline_class">
 	<jsp:include page="companySide.jsp"/>
-	
+	<!-- 최근 본 상품 include 된 부분 -->
+	<c:import url="../recentProduct/recentProduct.jsp"/>
 	<div class="content_class">
 		<div>
 			<div style="float:left;">
 				<img src="${root}/resources/boardImg/img01.PNG" align="center">
 				<h2 style="display:inline;"><span style="font-weight: bold; ">해외여행 이용약관</span></h2>
 			</div>
-			
 		</div>		
 		<hr style="border:2px solid green; margin-top: 36px;">
 			<div  style="width: 750px;margin-top: 30px;margin-left: 20px; color: #333; text-align: left" >

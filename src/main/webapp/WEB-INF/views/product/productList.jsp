@@ -36,7 +36,7 @@ function productOnMouseOut(product_number){
         <!--Content Start-->        
 	    <div id="content">
 			<div class="nav"><img src="${root}/resources/icons/product/nav_productList.gif" alt='' class="floatl" onerror="this.style.display='none';"/><ul><li><a href="${root}/">HOME</a></li><li> &nbsp;&gt;&nbsp; <a href="${root}/product/productList.do?pc=${pc}">${product_category}</a></li></ul></div>
-			 
+			
 			<c:if test="${count==0}">
 				<div align="center"><h3>등록된 상품이 없습니다.</h3></div>
 			</c:if>
@@ -86,6 +86,9 @@ function productOnMouseOut(product_number){
          <!-- 자리뗴움용 -->
       </div>
    </c:if>
+   
+   <!-- 최근 본 상품 include 된 부분 -->
+   <c:import url="../recentProduct/recentProduct.jsp"/>
 <jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

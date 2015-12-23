@@ -30,7 +30,6 @@
 				fli.flight_end_arrival_city
 			FROM product pro, flight fli
 			WHERE pro.product_number = fli.product_number
-			and pro.product_banner = 1
 			and pro.product_number=#{product_number}
 		]]>
 	</select>
@@ -61,7 +60,6 @@
 				fli.flight_end_arrival_city
 			FROM product pro, flight fli
 			WHERE pro.product_number = fli.product_number
-			and pro.product_banner = 1
 			and pro.product_number=#{product_number}
 		]]>
 	</select>

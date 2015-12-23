@@ -30,6 +30,12 @@ public class RecentProductServiceImp implements RecentProductService {
 	@Autowired
 	private AdminBannerDao adminBannerDao;
 	
+	/**
+	 * @함수이름 : recentProductRead
+	 * @작성일 : 2015. 12. 21.
+	 * @개발자 : 전현준
+	 * @함수설명 : 쿠키 생성해서 read페이지(flightList.jsp) 페이지로 이동하는 함수
+	 */
 	@Override
 	public void recentProductRead(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
@@ -87,6 +93,12 @@ public class RecentProductServiceImp implements RecentProductService {
 //		HomeAspect.logger.info(HomeAspect.logMsg + count);
 	}
 
+	/**
+	 * @함수이름 : recentProductList
+	 * @작성일 : 2015. 12. 22.
+	 * @개발자 : 전현준
+	 * @함수설명 : recentProduct.jsp(최근 본 상품 include된 페이지)에서 쿠키 얻어와서 최근 본 상품 띄우는 함수
+	 */
 	@Override
 	public void recentProductList(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();

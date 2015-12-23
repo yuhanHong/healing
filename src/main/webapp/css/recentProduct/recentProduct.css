@@ -4,8 +4,9 @@
 .recentProduct{
 	position:fixed; background-color:ffffff;
 	border:1px solid  gray; margin-top:-570px; 
-	width:140px; height:400px; right:0px; padding-top:8px;
-	border-radius: 30px;
+	width:140px; height:400px; 
+	right:30px; top:800px; 							/* position:fixed일 경우, right, top 위치 조정 */	
+	padding-top:8px; border-radius: 30px;
 }
 
 .recentCookie{
