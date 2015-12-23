@@ -221,4 +221,19 @@ public class AdminOrderDaoImp implements AdminOrderDao {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectList("dao.adminOrderMapper.adminOrderStatsSearchyearPay");
 	}
+
+	@Override
+	public int adminMemberMoney(int member_number) {
+		
+		return sqlSessionTemplate.selectOne("dao.adminOrderMapper.adminMemberMoney",member_number);
+	}
+
+	@Override
+	public int adminMemberMoneyUpdate(int amount, int member_number) {
+		HashMap<String,Integer> hMap=new HashMap<String,Integer>();
+		hMap.put("amount", amount);
+		hMap.put("member_number", member_number);
+		
+		return sqlSessionTemplate.update("dao.adminOrderMapper.adminMemberMoneyUpdate",hMap);
+	}
 }

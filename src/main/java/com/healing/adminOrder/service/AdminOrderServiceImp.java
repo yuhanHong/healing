@@ -110,8 +110,6 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	    	orderDto.setPayment_state("결제완료");
 	    }
 	    
-	    
-
 	    adminOrderDao.adminOrderModify(orderDto);
 	    mav.addObject("orderDto", orderDto);	    
 		
@@ -124,7 +122,17 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	    HttpServletRequest request = (HttpServletRequest) map.get("request");
 	   
 	    int order_number=Integer.parseInt(request.getParameter("order_number")); 
-	   
+	    // 회원누적금액 계산---------------------------------------
+	    int member_number=Integer.parseInt(request.getParameter("member_number"));
+	    int order_pay=Integer.parseInt(request.getParameter("order_pay"));
+	    int order_money=Integer.parseInt(request.getParameter("order_money"));
+	    
+	    int memberMoney=adminOrderDao.adminMemberMoney(member_number);
+	    int amount=memberMoney-order_pay+order_money;
+	    int value=adminOrderDao.adminMemberMoneyUpdate(amount,member_number);
+	   // HomeAspect.logger.info(HomeAspect.logMsg+"회원누적금액업데이트체크:"+value);
+	    // 회원누적금액 계산---------------------------------------
+	    
 	    adminOrderDao.adminOrderPay(order_number);
 	    
 	}
@@ -134,7 +142,16 @@ public class AdminOrderServiceImp implements AdminOrderService {
 		// TODO Auto-generated method stub
 		Map<String, Object> map=mav.getModelMap();
 	    HttpServletRequest request = (HttpServletRequest) map.get("request");
-	   
+	    
+	    // 회원누적금액 계산---------------------------------------
+	    int member_number=Integer.parseInt(request.getParameter("member_number"));
+	    int order_pay=Integer.parseInt(request.getParameter("order_pay"));
+	    
+	    int memberMoney=adminOrderDao.adminMemberMoney(member_number);
+	    int amount=memberMoney-order_pay;
+	    int value=adminOrderDao.adminMemberMoneyUpdate(amount,member_number);
+	    // HomeAspect.logger.info(HomeAspect.logMsg+"회원누적금액업데이트체크:"+value);
+	   //----------------------------------------------------
 	    int order_number=Integer.parseInt(request.getParameter("order_number")); 
 
 	    adminOrderDao.adminOrderCancle(order_number);

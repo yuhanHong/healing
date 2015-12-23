@@ -89,10 +89,9 @@
 				<b>예매 금액 : <fmt:formatNumber value="${orderDto.order_money }" pattern="###,###"/>원</b>
 				<!-- 부분 환불 금액이나 추가입금 금액이 있는 경우 -->
 				<c:if test="${((orderDto.order_money)-(orderDto.order_pay))!=0}">
-						<b style="color:red;"> ${orderDto.payment_state} : 
-							<fmt:formatNumber value="${(orderDto.order_money)-(orderDto.order_pay)}" pattern="###,###"/>원</b> 
-						
-				</c:if>	
+					<b style="color:red;"> ${orderDto.payment_state} : 
+						<fmt:formatNumber value="${(orderDto.order_money)-(orderDto.order_pay)}" pattern="###,###"/>원</b> 
+				</c:if>
 			</div>		
 			<div class="adminOrderDiv" style="text-align: right;margin-right: 30px; border:0px;">
 				<c:if test="${orderDto.order_money!=0 }">

@@ -77,18 +77,17 @@ public class OrderServiceImp implements OrderService {
 		
 		ProductDto productDto=productDao.productRead(orderDto.getProduct_number());
 		FlightDto flightDto=productDao.flightRead(orderDto.getFlight_number());
+		
 		int orderMoney=orderDto.getOrder_money();
 		int member_number=Integer.parseInt(request.getParameter("member_number"));
-		int memberMoney=orderDao.getMemberMoney(member_number);
 		
-		int amount=memberMoney+orderMoney;
 		if(orderDto.getPayment_option().equals("카드")){
 			orderDto.setPayment_state("결제완료");
 			orderDto.setOrder_pay(orderDto.getOrder_money());
 			// 회원 누적구매금액--------------------------------
-			
+			int memberMoney=orderDao.getMemberMoney(member_number);
+			int amount=memberMoney+orderMoney;
 			int value=orderDao.updateMemberMoney(amount,member_number);
-			// HomeAspect.logger.info(HomeAspect.logMsg+"회원누적금액 체크:"+value);
 			// 회원 누적구매금액--------------------------------
 		}else{
 			orderDto.setPayment_state("입금전");

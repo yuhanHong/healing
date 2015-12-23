@@ -32,4 +32,8 @@ public interface AdminOrderDao {
 	public List<String> adminOrderStatsSearchyearly();
 	public List<String> adminOrderStatsSearchyear();
 	public List<String> adminOrderStatsSearchyearPay();
+	
+	// 회원누적금액계산
+	public int adminMemberMoney(int member_number);
+	public int adminMemberMoneyUpdate(int amount,int member_number);
 }

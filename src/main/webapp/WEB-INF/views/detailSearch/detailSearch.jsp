@@ -24,8 +24,7 @@
 			<img src="${root}/resources/boardImg/img01.PNG" align="center">
 			<h2 style="display:inline;"><span style="font-weight: bold; ">간편 검색</span></h2>
 		</div>
-			
-				
+		
 		<hr style="border:2px solid green; margin-top: 41px; width:100%">
 		<div id="dc_main">
 		<form name="dc_picker_form">

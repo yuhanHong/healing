@@ -31,7 +31,7 @@
 				<input type="hidden" name="order_number" value="${orderDto.order_number}">
 				<input type="hidden" name="payment_state" value="${orderDto.payment_state}">
 				<input type="hidden" name="order_pay" value="${orderDto.order_pay}">
-				<input type="hidden" name="member_number" value="${orderDto.member_number}">
+				<input type="hidden" name="member_number" value="${memberDto.member_number}">
 				<input id="order_adult" type="hidden" name="order_adult" value="0"/>
 				<input id="order_child" type="hidden" name="order_child"value="0"/>
 				<input id="order_baby" type="hidden" name="order_baby"value="0"/>
@@ -111,12 +111,12 @@
 				<c:if test="${((orderDto.order_money)-(orderDto.order_pay))!=0}">
 						<b  style="color:red"> ${orderDto.payment_state} : 
 							<fmt:formatNumber value="${(orderDto.order_money)-(orderDto.order_pay)}" pattern="###,###"/>원</b> 
-						<input type="button" value="결제확인" style="color: black;"onclick="return payCompl('${root}','${orderDto.order_number}')"/>
+						<input type="button" value="결제확인" style="color: black;"onclick="return payCompl('${root}','${orderDto.order_number}','${memberDto.member_number}','${orderDto.order_pay}','${orderDto.order_money}')"/>
 				</c:if>			
 			</div>
 				
 			<div class="adminOrderDiv" style="text-align: right;margin-right: 80px; margin-top: 10px;">
-				<input type="button" value="주문취소" onclick="return orderCancel('${root}','${orderDto.order_number}')"/>
+				<input type="button" value="주문취소" onclick="orderCancel('${root}','${orderDto.order_number}','${memberDto.member_number}','${orderDto.order_pay}')"/>
 				<input type="submit" value="확인"/>
 				<input type="button" value="취소" onclick="javascript:self.close()"/>
 			</div>

@@ -127,4 +127,12 @@
 	<select id="adminOrderStatsSearchyearPay" resultType="String">
 		SELECT nvl(sum(order_pay),0),to_char(order_date,'yyyy') FROM orders GROUP BY to_char(order_date,'yyyy') ORDER BY  2 DESC
 	</select>
+	
+	<select id="adminMemberMoney" parameterType="int" resultType="int">
+		select member_purchase from member where member_number=#{member_number}
+	</select>
+	
+	<update id="adminMemberMoneyUpdate" parameterType="java.util.Map">
+		update member set member_purchase=#{amount} where member_number=#{member_number}
+	</update>
 </mapper>
