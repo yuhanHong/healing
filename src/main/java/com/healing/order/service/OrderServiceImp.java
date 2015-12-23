@@ -97,7 +97,6 @@ public class OrderServiceImp implements OrderService {
 		// HomeAspect.logger.info(HomeAspect.logMsg+"회원누적금액 체크:"+value);
 		// 회원 누적구매금액--------------------------------
 		
-		
 		int check= orderDao.orderInsert(orderDto);
 		
 //		HomeAspect.logger.info(HomeAspect.logMsg+"///"+check+":  orderInsert Check");

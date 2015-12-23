@@ -116,7 +116,7 @@
 											<li style="width: 138px ;"><a href="javascript:pushRequest('${root}','${member_number }','${mypageList.order_number }','${mypageList.flight_number }','취소')">취소신청</a></li>
 										</c:if>
 										<c:if test="${mypageList.payment_state!='입금전'}">
-											<li style="width: 100px ;margin-left: 320px;"><a href="javascript:pushRequest('${root}','${mypageList.order_number }','${mypageList.flight_number }','취소')">취소신청</a></li>
+											<li style="width: 100px ;margin-left: 320px;"><a href="javascript:pushRequest('${root}','${member_number }','${mypageList.order_number }','${mypageList.flight_number }','취소')">취소신청</a></li>
 										</c:if>
 									</b>
 								</ul> 
