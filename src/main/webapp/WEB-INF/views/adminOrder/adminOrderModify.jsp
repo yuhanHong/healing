@@ -31,6 +31,7 @@
 				<input type="hidden" name="order_number" value="${orderDto.order_number}">
 				<input type="hidden" name="payment_state" value="${orderDto.payment_state}">
 				<input type="hidden" name="order_pay" value="${orderDto.order_pay}">
+				<input type="hidden" name="member_number" value="${orderDto.member_number}">
 				<input id="order_adult" type="hidden" name="order_adult" value="0"/>
 				<input id="order_child" type="hidden" name="order_child"value="0"/>
 				<input id="order_baby" type="hidden" name="order_baby"value="0"/>

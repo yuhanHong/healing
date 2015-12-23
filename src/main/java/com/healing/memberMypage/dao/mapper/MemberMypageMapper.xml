@@ -10,6 +10,14 @@
 		order by order_date desc
 	</select>
 	
+	<select id="memberMypageReList" parameterType="java.util.Map" resultType="com.healing.memberMypage.dto.MemberMypageDto">
+		<![CDATA[
+			SELECT * FROM mypage
+			WHERE member_number=#{member_number} AND flight_end_date < #{today}
+			order by order_date desc
+		]]>
+	</select>
+	
 	<insert id="memberMypageReviewInsert" parameterType="java.util.Map">
 		insert into review(review_number,order_number,member_number,product_number,review_content,review_score,flight_number)
 		values(review_review_number_seq.nextval,#{order_number},#{member_number},#{product_number},#{review_content},#{star_number},#{flight_number})

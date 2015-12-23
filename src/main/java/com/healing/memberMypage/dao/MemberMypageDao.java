@@ -11,6 +11,8 @@ import com.healing.memberMypage.dto.ReviewDto;
 public interface MemberMypageDao {
 	public List<MemberMypageDto> memberMypageOrderList(int member_number);
 	
+	public List<MemberMypageDto> memberMypageReList(int member_number,String today);
+	
 	public int memberMypageReviewInsert(HashMap<String,Object> hMap);
 	
 	public List<ScheduleDto> memberMypageGetSchedule(int member_number);

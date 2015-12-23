@@ -19,6 +19,7 @@ import com.healing.adminOrder.dao.AdminOrderDao;
 import com.healing.aop.HomeAspect;
 import com.healing.member.dto.MemberDto;
 import com.healing.order.dto.OrderDto;
+import com.healing.product.dao.ProductDao;
 import com.healing.product.dto.ProductDto;
 
 @Component
@@ -26,6 +27,9 @@ public class AdminOrderServiceImp implements AdminOrderService {
 
 	@Autowired
 	private AdminOrderDao adminOrderDao;
+	
+	@Autowired
+	private ProductDao productDao;
 
 	@Override
 	public void adminOrderSearch(ModelAndView mav) {
@@ -79,7 +83,7 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	    
 	    int order_number=Integer.parseInt(request.getParameter("order_number"));
 	    OrderDto orderDto=adminOrderDao.adminOrderRead(order_number);
-	    ProductDto productDto=adminOrderDao.adminProductRead(orderDto.getFlight_number());
+	    ProductDto productDto=productDao.productRead(orderDto.getFlight_number());
 	    MemberDto memberDto=adminOrderDao.adminOrderMember(orderDto.getMember_number());
 	    
 	    mav.addObject("orderDto", orderDto);	    
@@ -94,9 +98,10 @@ public class AdminOrderServiceImp implements AdminOrderService {
 		Map<String, Object> map=mav.getModelMap();
 	    HttpServletRequest request = (HttpServletRequest) map.get("request");
 	    OrderDto orderDto=(OrderDto)map.get("orderDto");
+	    int member_number=Integer.parseInt(request.getParameter("member_number"));
+	    // HomeAspect.logger.info(HomeAspect.logMsg+"회원넘버:"+member_number);
 	    
 //	    HomeAspect.logger.info(HomeAspect.logMsg+"///orderMoney"+orderDto.getOrder_money()+"//modimoney"+orderDto.getOrder_modify_money());
-	   
 	    if(orderDto.getOrder_pay()<orderDto.getOrder_money()){
 	    	orderDto.setPayment_state("추가 결제필요");
 	    }else if(orderDto.getOrder_pay()>orderDto.getOrder_money()){
@@ -104,6 +109,8 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	    }else{
 	    	orderDto.setPayment_state("결제완료");
 	    }
+	    
+	    
 
 	    adminOrderDao.adminOrderModify(orderDto);
 	    mav.addObject("orderDto", orderDto);	    
@@ -117,7 +124,7 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	    HttpServletRequest request = (HttpServletRequest) map.get("request");
 	   
 	    int order_number=Integer.parseInt(request.getParameter("order_number")); 
-
+	   
 	    adminOrderDao.adminOrderPay(order_number);
 	    
 	}

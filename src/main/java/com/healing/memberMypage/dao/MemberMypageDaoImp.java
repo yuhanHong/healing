@@ -19,6 +19,14 @@ public class MemberMypageDaoImp implements MemberMypageDao {
 	private SqlSessionTemplate sqlSessionTemplate;
 
 	@Override
+	public List<MemberMypageDto> memberMypageReList(int member_number,String today) {
+		HashMap<String,Object> hMap=new HashMap<String,Object>();
+		hMap.put("member_number", member_number);
+		hMap.put("today", today);
+		
+		return sqlSessionTemplate.selectList("dao.memberMyPageMapper.memberMypageReList",hMap);
+	}
+	
 	public List<MemberMypageDto> memberMypageOrderList(int member_number) {
 		
 		return sqlSessionTemplate.selectList("dao.memberMyPageMapper.memberMypageOrderList",member_number);

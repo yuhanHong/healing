@@ -1,6 +1,8 @@
 package com.healing.memberMypage.service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -88,8 +90,11 @@ public class MemberMypageServiceImp implements MemberMypageService {
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
 		int member_number=Integer.parseInt(request.getParameter("member_number"));
 //		HomeAspect.logger.info(HomeAspect.logMsg+"후기 회원넘버:"+member_number);
+		 Date date=new Date();
+		 SimpleDateFormat sdf=new SimpleDateFormat("yy/MM/dd");
+		 String today=sdf.format(date);
 		
-		List<MemberMypageDto> mypageDto=memberMypageDao.memberMypageOrderList(member_number);
+		List<MemberMypageDto> mypageDto=memberMypageDao.memberMypageReList(member_number,today);
 		List<ReviewDto> reviewDto=memberMypageDao.reviewList(member_number);
 		
 		mav.addObject("mypageDto",mypageDto);
