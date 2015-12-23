@@ -43,7 +43,7 @@
 			
 		</c:forEach>
 		<!-- 최근 본 상품 include 된 부분 -->
-		<c:import url="../recentProduct/recentProduct.jsp"/>
+<%-- 		<c:import url="../recentProduct/recentProduct.jsp"/> --%>
 	</div>
 	
 </body>

@@ -130,7 +130,7 @@ http://www.templatemo.com/free-website-templates/
 	</c:if>
 	
 	<!-- 최근 본 상품 include 된 부분 -->
-	<c:import url="../recentProduct/recentProduct.jsp"/>
+<%-- 	<c:import url="../recentProduct/recentProduct.jsp"/> --%>
 	
 	<!--==============================Content=================================-->
 	<div class="content">

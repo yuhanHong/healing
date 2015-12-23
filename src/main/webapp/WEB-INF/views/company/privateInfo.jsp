@@ -16,7 +16,7 @@
 	<div class="content_class">
 		
 		<!-- 최근 본 상품 include 된 부분 -->
-		<c:import url="../recentProduct/recentProduct.jsp"/>
+<%-- 		<c:import url="../recentProduct/recentProduct.jsp"/> --%>
 		<div>
 			<div style="float:left;">
 				<img src="${root}/resources/boardImg/img01.PNG" align="center">
