@@ -44,6 +44,7 @@ function resize(){
 	map_canvas.style.margin = "0px 0px 0px 330px";
 	continentDiv.style.height = hei+"px";
 	countryDiv.style.height = (hei)+"px";
+	continentDiv.children[0].style.height = (hei-50)+"px";
 	countryDiv.children[1].style.height = (hei-130)+"px";
 }
 
@@ -77,13 +78,27 @@ function freePlanSelectCountry(root, args, countryName){
 	
 	var latlng = null;
 	if(countryName=="일본"){
-		latlng = new google.maps.LatLng(36.16129383,138.41323134);
-	}else if(countryName=="한국"){
-		latlng = new google.maps.LatLng(36.52976696,127.95161035);
+		latlng = new google.maps.LatLng(36.204824,138.252924);
+	}else if(countryName=="중국"){
+		latlng = new google.maps.LatLng(29.96711809,112.34443188);
+	}else if(countryName=="필리핀"){
+		latlng = new google.maps.LatLng(12.879721,121.774017);
+	}else if(countryName=="태국"){
+		latlng = new google.maps.LatLng(15.54769022,101.05488203);
+	}else if(countryName=="캄보디아"){
+		latlng = new google.maps.LatLng(12.565679,104.990963);
+	}else if(countryName=="싱가포르"){
+		latlng = new google.maps.LatLng(1.352083,103.819836);
+	}else if(countryName=="라오스"){
+		latlng = new google.maps.LatLng(19.85627,102.495496);
+	}else if(countryName=="말레이시아"){
+		latlng = new google.maps.LatLng(4.210484,101.975766);
+	}else if(countryName=="베트남"){
+		latlng = new google.maps.LatLng(14.058324,108.277199);
 	}
 
 	myOptions = {
-			zoom:6,
+			zoom:5,
 			center:latlng,
 			mapTypeId:google.maps.MapTypeId.ROADMAP
 	};
@@ -126,6 +141,7 @@ function setMarkerInList(args, myOptions){
 		var infowindow = new google.maps.InfoWindow({ content: contentString, maxWidth:150});
 		
 		google.maps.event.addListener(marker, "click", function(){
+			
 			infowindow.open(map, marker);
 			
 		});
@@ -289,7 +305,7 @@ function clickCategory(img, cityName, root){
 		place_category="place";
 	}else if(img.id == "rest_btn"){
 		place_category="rest";
-	}else{
+	}else if(img.id == "hotel_btn"){
 		place_category="hotel";
 	}
 	
@@ -302,6 +318,24 @@ function clickCategory(img, cityName, root){
 			
 			if(args.data.length==0){
 				alert("장소가 존재하지 않습니다.");
+			}else{
+				// category 버튼 클릭 이벤트 ( 클릭 시 버튼 색 변경 ) 
+				if(place_category=="place"){
+					$(".city_category #rest_btn").attr("src",root+"/resources/freePlanImg/rest_p.png");
+					$(".city_category #hotel_btn").attr("src",root+"/resources/freePlanImg/hotel_p.png");
+					
+					img.src=root+"/resources/freePlanImg/place.png";
+				}else if(place_category=="rest"){
+					$(".city_category #place_btn").attr("src",root+"/resources/freePlanImg/place_p.png");
+					$(".city_category #hotel_btn").attr("src",root+"/resources/freePlanImg/hotel_p.png");
+					
+					img.src=root+"/resources/freePlanImg/rest.png";
+				}else{
+					$(".city_category #rest_btn").attr("src",root+"/resources/freePlanImg/rest_p.png");
+					$(".city_category #place_btn").attr("src",root+"/resources/freePlanImg/place_p.png");
+					
+					img.src=root+"/resources/freePlanImg/hotel.png";
+				}
 			}
 			
 			// 도시 선택 시 해당 도시 list의 첫번째 인덱스 장소로 map이 이동된다.
@@ -345,3 +379,4 @@ function clickEvent(){
 		$(this).css({'background-color':'#EAEAEA'});
 	});
 }
+

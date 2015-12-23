@@ -65,9 +65,9 @@
 			</div>
 			
 			<div class="city_category">
-				<img src="${root}/resources/freePlanImg/place.png" id="place_btn" onclick="clickCategory(this,'${freePlanList[0].place_city}','${root}')" style="cursor:hand;"/>
-				<img src="${root}/resources/freePlanImg/restaurant.png" id="rest_btn" onclick="clickCategory(this,'${freePlanList[0].place_city}','${root}')" style="cursor:hand;"/>
-				<img src="${root}/resources/freePlanImg/hotel.png" id="hotel_btn" onclick="clickCategory(this,'${freePlanList[0].place_city}','${root}')" style="cursor:hand;"/>
+				<img src="${root}/resources/freePlanImg/place_p.png" id="place_btn" onclick="clickCategory(this,'${freePlanList[0].place_city}','${root}')" style="cursor:hand;"/>
+				<img src="${root}/resources/freePlanImg/rest_p.png" id="rest_btn" onclick="clickCategory(this,'${freePlanList[0].place_city}','${root}')" style="cursor:hand;"/>
+				<img src="${root}/resources/freePlanImg/hotel_p.png" id="hotel_btn" onclick="clickCategory(this,'${freePlanList[0].place_city}','${root}')" style="cursor:hand;"/>
 			</div>
 			
 		 	<div id="city_list" class="city_list">
