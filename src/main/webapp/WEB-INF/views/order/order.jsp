@@ -7,8 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>예약 page</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<link rel="stylesheet" type="text/css" href="${root }/css/order/style.css"/>
-<script type="text/javascript" src="${root }/jquery/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="${root}/css/order/style.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/product/product.css"/>
+<script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/js/order/order.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -17,17 +18,28 @@
 <body>
 	<jsp:include page="../include/header.jsp"/>
 	
-<hr/>
+	<div class="nav">
+		<img src="${root}/resources/icons/product/nav_order.gif"/>
+	</div>
 	<form id="orderForm" action="${root}/order/write.do"  method ="post" onsubmit="return orderCheck(this,'${root}')">
 		<div id="orderPage">
 			<!-- Page Info -->
 			<div id="order_title">
-				<h1 style="">예약</h1>
+<!-- 				<h1 style="">예약</h1> -->
 			</div>
 			<!-- Product Info -->
-			<div class="orderDiv" id="productInfo">
-				<label>${productDto.product_name }</label><br/>
-				<label>${productDto.product_summary }</label>
+			<div class="productSummary" >
+				<div style="padding-bottom: 20px; margin: 15px 15px 15px 15px; border-bottom: 1px solid #D1D1D1;">
+					<div style="border:1px #ffffff solid; width:100%; height:150px;overflow:hidden;" id="product${productDto.product_number}" class="clearfix on">
+						<div style="float:left;"><img width="204" height="150" alt="상품이미지" src="${root}/resources/productPhoto/${productDto.product_number}/0-1-1.jpg"></div>
+						<div class="details" style="width: 620px; float:left; margin-left: 15px;">
+								<h3 style="padding: 0 0 10px 0; ">[ATP${productDto.product_number}] ${productDto.product_name}</h3>
+								<h4 style="color: #999; ">${productDto.product_summary}</h4>
+							<div class="first" style="margin-left: 15px;"><img src="http://img.modetour.co.kr/mode2010/modetour/product/txt_detail1.gif" alt="상품가격"><strong id="Price_ATP${productDto.product_number}"><fmt:formatNumber value="${productDto.product_price_adult}"/>원</strong></div>
+							<div style="margin-left: 15px;"><img src="http://img.modetour.co.kr/mode2010/modetour/product/txt_detail2.gif" alt="여행기간"><span id="DaysText_ATP${productDto.product_number}">${productDto.product_stay_days}박 ${productDto.product_days}일</span></div>
+						</div>
+					</div>
+				</div>
 			</div>
 			
 			<!-- INPUT -->
