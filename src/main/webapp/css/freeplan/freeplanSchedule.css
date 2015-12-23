@@ -126,9 +126,9 @@ ul,li {margin:0; padding:0;}
 }
 
 #city_list_name{
-	border:1px solid black;  float:left;
-	margin-top:25px; margin-left:6px;
-	height:30px; width:140px; line-height: 30px;
+	border:1px solid #ffffff;  float:left;
+	margin-top:5px; margin-left:6px;
+	height:70px; width:140px; line-height: 70px;
 }
 
 #plusImg{

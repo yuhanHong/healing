@@ -39,7 +39,7 @@ function dragFunc(){
 	 	   copycopy($item);		// 복사 함수 호출
 		}
 		
-		var delImg="<img id='delImg' class='delImg' src='http://localhost:8181/main/resources/freePlanImg/item_del_icon_a.png'/>";
+		var delImg="<img id='delImg' class='delImg' src='http://localhost:8181/main/resources/freePlanImg/delimg.jpg'/>";
 		function copycopy($item){
 			 var $list = $( "ul", $scj ).length ?    // ul 길이를 보고 없으면 만들고 있으면 ul 뒤에 붙인다
 			          $( "ul", $scj ) :

@@ -37,7 +37,7 @@
 							</div>
 						</c:if>
 						
-						<div class="placeListDiv">
+						<div class="placeListDiv" style="margin-bottom: 10px;">
 							<ul>
 								<li class="sch_num">${n}</li>
 								<li>
@@ -72,8 +72,14 @@
 					</c:forEach>
 				</select>
 			</div>
-			<div style="width:100px; height:50px; border:1px solid #ffffff; margin-left: 570px; margin-top:10px;">
-				<input type="button" value="삭제하기" onclick="deletePlan('${root}')"/>
+			<div style="height:50px; text-align:center; background: #99E000;
+    				border: solid 1px #99E000; width:300px; margin-left:590px;
+    				line-height: 50px;	margin-top:10px;
+    				font-weight: bold;
+    				font-size: 16px;
+   					color: #fff;
+    				cursor: pointer;" onclick="deletePlan('${root}')">
+				일정 삭제하기
 			</div>
 		</c:if>
 	</div>
