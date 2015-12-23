@@ -74,7 +74,7 @@ function result(root,str,min,max){
 			for(var i=0; i<args.data.length; i++){	
 				var money=args.data[i].product_price_adult;
 				
-				var form="<div class='dc_product_list' id='product"+args.data[i].product_number+"' onmouseover=\"productOnMouseOver('"+args.data[i].product_number+"')\" onmouseout=\"productOnMouseOut('"+args.data[i].product_number+"')\">";
+				var form="<div class='dc_product_list' id='product"+args.data[i].product_number+"' onclick=\"productOnClick('"+args.data[i].product_number+"','"+args.data[i].product_category+"')\" onmouseover=\"productOnMouseOver('"+args.data[i].product_number+"')\" onmouseout=\"productOnMouseOut('"+args.data[i].product_number+"')\">";
 					form+="<div id='dc_pro_img'><img src='"+root+"/resources/productPhoto/"+args.data[i].product_number+"/0-1-1.jpg' width='240px' height='270px;'/></div>";
 					form+="<div id='dc_pro_imfo' style='margin-top:10px'>";
 					form+="<ul>";
@@ -91,6 +91,15 @@ function result(root,str,min,max){
     	// alert(e.responseText);
 		}
 	});
+}
+
+function productOnClick(product_number,product_category){
+	var root=$("[name='root']").val();
+	var pc;
+	if(product_category="동남아") pc=1;
+	else if(product_category="중국") pc=2;
+	else if(product_category="일본") pc=3;
+	location.href=root+"/product/flightList.do?pNum=" + product_number + "&pc=" + pc;
 }
 
 function productOnMouseOver(product_number){

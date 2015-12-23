@@ -15,19 +15,19 @@
 	
 	<select id="detailSearchSortDay" parameterType="java.util.Map" resultType="com.healing.product.dto.ProductDto">
 		<![CDATA[
-			select product_number,product_name,product_stay_days,product_price_adult from product
+			select product_number,product_name,product_stay_days,product_price_adult,product_category from product
 			where product_stay_days>=#{minDay} and product_stay_days<=#{maxDay}
 		]]>
 	</select>
 	
 	<select id="detailSearchSortCityNumber" parameterType="int" resultType="com.healing.product.dto.ProductDto">
-		select product_number,product_name,product_stay_days,product_price_adult from product
+		select product_number,product_name,product_stay_days,product_price_adult,product_category from product
 		where product_number=#{product_number}
 	</select>
 	
 	<select id="detailSearchSortMulti" parameterType="java.util.Map" resultType="com.healing.product.dto.ProductDto">
 		<![CDATA[
-			select product_number,product_name,product_stay_days,product_price_adult from product
+			select product_number,product_name,product_stay_days,product_price_adult,product_category from product
 			where product_stay_days>=#{minDay} and product_stay_days<=#{maxDay} and product_number=#{product_number}
 		]]>
 	</select>
