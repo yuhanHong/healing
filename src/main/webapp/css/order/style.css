@@ -3,7 +3,7 @@
 
 #orderForm{
 	text-align: center;
-	margin-top: 50px;
+	
 }
 #order_title{
 	text-align: left;
@@ -13,6 +13,11 @@
 	width :940px;
 	margin:1px auto;
 	
+}
+
+.details{
+	width: 620px; float:left; margin-left: 30px; text-align: left; 
+	margin-top: 20px;
 }
 
 #productInfo{
@@ -36,6 +41,17 @@
 	height: 470px;
 }
 
+#orderAllDiv{
+	margin-top: 30px;
+	background-color: #eeeeee;
+	border: 1px solid #d4d4d4;
+	border-radius:10px;
+	width:600px;
+	margin-left:170px;
+	height: 290px;
+	
+}
+
 .stipulationType1{
 	 border:0;
 	 width:auto;
@@ -46,6 +62,9 @@
 }
 
 .orderDiv{
+	margin-left:100px;
+	width:600px;
+	text-align:left;
 	margin-top: 15px;
 }
 
