@@ -18,16 +18,16 @@ ul,li {margin:0; padding:0;}
 	background-color: #22741C;
 }
 
-.day_region ul li{
+#day_region ul li{
 	border:1px solid #22741C; 
 	border-bottom-color:#BDBDBD;
 	font-weight:bold; color:#ffffff;
 	height:40px; line-height: 40px;
 }
 
-.drop_region{
+#drop_region{
 	border:1px solid #c0c0c0; float:left;
-	width:300px; height:695px;
+	width:300px;
 }
 /* ----------------------- */
 
@@ -56,33 +56,32 @@ ul,li {margin:0; padding:0;}
 
 #schedule{
 	overflow-y:scroll; overflow-x:hidden; 
-	height:635px; 
 }
 
 
 /* --------------------- */
-.city_dialog{
+#city_dialog{
 	border:1px solid #c0c0c0; float:left;
-	width:300px; height:695px;
+	width:300px; 
 }
 
-.city_dialog .city_change{
+#city_dialog .city_change{
 	border:0px solid black;
 	height:40px; line-height: 40px;
 	background-color: #6ABC64;
 }
 
-.city_dialog .city_change div{
+#city_dialog .city_change div{
 	float:left; color:#ffffff;
 	font-weight: bold; margin-left: 30px;
 }
 
-.city_dialog .city_change select{
+#city_dialog .city_change select{
 	border:1px solid #ffffff;
 	margin-left: 110px;
 }
 
-.city_dialog .city_search{
+#city_dialog .city_search{
 	border:1px solid #ffffff;
 	border-bottom-color:#BDBDBD;
 	border-top-color:#BDBDBD;
@@ -109,7 +108,7 @@ ul,li {margin:0; padding:0;}
 #city_list{
 	border:1px solid #c0c0c0; 
 	border-bottom-color:#ffffff;
-	height:550px; overflow-y:scroll; overflow-x:hidden;
+	overflow-y:scroll; overflow-x:hidden;
 }
 
 #city_list li{
@@ -138,9 +137,6 @@ ul,li {margin:0; padding:0;}
 	height:30px; width:30px; line-height: 30px;
 }
 
-/*------------리스트부분 수정 end---------- */
-
-#map_schedule_canvas{
-	border:1px solid #c0c0c0;
-	width:630px; height:695px;
+body {
+	overflow : hidden;
 }

@@ -50,7 +50,6 @@ function resize(){
 function init(root){	
 	resize();
 	
-	//alert(root);
 	var url = root+"/freeplan/freePlanPrintMarker.do";
 	$.ajax({
 		url:url,
@@ -133,8 +132,36 @@ function setMarkerInList(args, myOptions){
 	}
 }
 
+function resizeShedule(){
+	// 구글 맵 resize
+	var w = window,
+	d = document,
+	e = d.documentElement,
+	g = d.getElementsByTagName('body')[0],
+	x = w.innerWidth || e.clientWidth || g.clientWidth,
+	y = w.innerHeight || e.clientHeight || g.clientHeight;
+	
+	// x, y는 브라우저 창의 크기
+	// map의 width는 x(브라우저 창의 폭)-600(drop_region폭+city_dialog폭)
+	var wid = x - 605;
+	var hei = y;
+	
+	map_schedule_canvas.style.width = wid+"px";
+	map_schedule_canvas.style.height = hei+"px";
+	map_schedule_canvas.style.margin = "0px 0px 0px 605px";
+	
+	drop_region.style.height = hei+"px";
+	city_dialog.style.height = hei+"px";
+	
+	drop_region.children[2].style.height = (hei-62)+"px";
+	city_dialog.children[3].style.height = (hei-140)+"px";
+}
+
 // freePlanSchedule.jsp 페이지 onload 시 호출되는 함수(선택한 도시 marker 찍기)
 function initSchedule(root, cityName){
+	// 브라우저 창 크기에 맞게 resize
+	resizeShedule();
+	
 	var url = root+"/freeplan/freePlanSelectCity.do?cityName="+cityName;
 	$.ajax({
 		url:url,
