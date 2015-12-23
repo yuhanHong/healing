@@ -85,7 +85,7 @@
 						<li>${countryName}</li>
 					</c:forEach>
 				</ul>
-				<div style="border:1px solid black; height:50px; text-align:center; background: #99E000;
+				<div style="height:50px; text-align:center; background: #99E000;
     				border: solid 1px #99E000;
     				line-height: 50px;
     				font-weight: bold;

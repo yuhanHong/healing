@@ -29,7 +29,7 @@
 				
 				<div class="line" style="margin-top: 20px;">
 					<label class="title">분류</label>
-					<span class="content">
+					<span class="content" style="border:0px solid #ffffff; width:600px;">
 						<input type="radio" name="faq_sort" <c:if test="${boardFaqDto.faq_sort eq 'package'}">checked="checked"</c:if> value="package"/>패키지여행
 						<input type="radio" name="faq_sort" <c:if test="${boardFaqDto.faq_sort eq 'free'}">checked="checked"</c:if> value="free">자유여행
 						<input type="radio" name="faq_sort" <c:if test="${boardFaqDto.faq_sort eq 'air'}">checked="checked"</c:if> value="air">항공

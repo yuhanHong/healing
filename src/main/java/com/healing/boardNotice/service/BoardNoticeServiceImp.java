@@ -212,6 +212,8 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 			boardNoticeDtoPrev = boardNoticeList.get(2);
 		}
 		
+		boardNoticeDto.setNotice_content(boardNoticeDto.getNotice_content().replace("<br/>", "\r\n"));
+		
 		mav.addObject("searchSort",searchSort);
 		mav.addObject("searchWord",searchWord);
 		mav.addObject("boardNoticeDto",boardNoticeDto);

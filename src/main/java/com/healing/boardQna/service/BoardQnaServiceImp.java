@@ -174,7 +174,12 @@ public class BoardQnaServiceImp implements BoardQnaService {
 		
 		List<BoardQnaDto> boardQnaList = null;
 		boardQnaList = boardQnaDao.boardQnaReadList(boardQnaDto);
-//		HomeAspect.logger.info(HomeAspect.logMsg+boardQnaList.size());
+		HomeAspect.logger.info(HomeAspect.logMsg+boardQnaList.size());
+		
+		for(int i = 0; i < boardQnaList.size(); i++){
+			boardQnaList.get(i).setQna_content(boardQnaDto.getQna_content().replace("<br/>", "\r\n"));
+		}
+		
 		
 		mav.addObject("boardQnaList",boardQnaList);
 		mav.addObject("pageNumber",pageNumber);
