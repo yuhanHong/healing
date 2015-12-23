@@ -18,7 +18,7 @@
 <body>
 <jsp:include page="../include/header.jsp"/>
 	<div class="outline_class" style="margin-left: 230px; width:900px;">
-	<div class="content_class" style="width:900px;  border: 1px solid red;">
+	<div class="content_class" style="width:900px;">
 	
 		<div style="float:left;margin-top:5px;">
 			<img src="${root}/resources/boardImg/img01.PNG" align="center">

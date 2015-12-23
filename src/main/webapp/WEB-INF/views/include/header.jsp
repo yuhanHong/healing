@@ -82,7 +82,7 @@ $(function(){
 </div>
 <div id="header">
   <div class="header_content">
-    <div class="logo"><a href="${root}">Healing</a> <span> |　develop tour packages </span></div>
+    <div class="logo"><a href="${root}"  style="color:#ffffff ; text-decoration: none;" >Healing</a> <span> |　develop tour packages </span></div>
     <div class="menu">
       <ul>
         <li><a href="${root}">home</a></li>

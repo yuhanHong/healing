@@ -55,7 +55,7 @@
 					if(data.productPhotoInfo.length != 0){
 						div += "<a href= ${root}/product/flightList.do?pNum="+ data.productInfo[i].product_number +"><img width='120px' height='80px' src=${root}/resources/productPhoto/" + data.productInfo[i].product_number + "/0-1-1.jpg></img></a><br>";	
 					}
-					div += "<a href= ${root}/product/flightList.do?pNum="+ data.productInfo[i].product_number + ">" +data.productInfo[i].product_name+"</a>";
+					div += "<b><a href= ${root}/product/flightList.do?pNum="+ data.productInfo[i].product_number + ">" +data.productInfo[i].product_name+"</a></b>";
 					div += "</div>";
 					$("#recProData").prepend(div);		// 최근 본 상품이 위로 올라가게 하는 조건
 					
@@ -68,16 +68,16 @@
 		});
 	});
 </script>
-<link rel="stylesheet" type="text/css" href="${root}/css/home/home.css"/>
+<link rel="stylesheet" type="text/css" href="${root}/css/recentProduct/recentProduct.css"/>
 </head>
 <body>
 	<div class="recentProduct" align="center">
-		<h3 style="color:white;">최근 본 상품</h3>
-		<input type="button" value="▲"/>
-			<div id="recProData" style="width:130px; height:360px;border:0px solid red">
+		<b style="line-height: 15px;"> > 최근 본 상품 < </b><br/>
+		<a href="#" style="font-size: 16px;">▲</a>
+			<div id="recProData" style="width:130px; height:330px;border:0px solid red">
 				
 			</div>
-		<input type="button" value="▼"/>
+		<a href="#" style="font-size: 16px;">▼</a>
 	</div>
 </body>
 </html>
