@@ -36,18 +36,16 @@ function flightOnMouseOut(flight_number){
 	    <div id="content">
 			<div class="nav"><img src="${root}/resources/icons/product/nav_flightList.gif" alt='' class="floatl" onerror="this.style.display='none';"/><ul><li><a href="${root}/">HOME</a></li><li> &nbsp;&gt;&nbsp; <a href="${root}/product/productList.do?pc=${pc}">${product_category}</a></li><c:if test="${product_category!=productDto.product_country}"><li> &nbsp;&gt;&nbsp; <a href="${root}/product/productList.do?pc=${pc}">${productDto.product_country}</a></li></c:if><li>&nbsp;&gt;&nbsp; <a href="${root}/product/productList.do?pc=${pc}">${product_city}</a></li></ul></div>
 			
-			<div class="productSummary" >
-				<div style="padding-bottom: 20px; margin: 15px 15px 15px 15px; border-bottom: 1px solid #D1D1D1;">
-					<div style="border:1px #ffffff solid; width:100%; height:150px;overflow:hidden;" id="product${productDto.product_number}" class="clearfix on">
-						<div style="float:left;"><img width="204" height="150" alt="상품이미지" src="${root}/resources/productPhoto/${productDto.product_number}/0-1-1.jpg"></div>
+			<div class="productSummary1" >
+					<div class="product_summary">
+						<div class="productPhoto"><img width="204" height="150" alt="상품이미지" src="${root}/resources/productPhoto/${productDto.product_number}/0-1-1.jpg"></div>
 						<div class="details" style="width: 620px; float:left; margin-left: 15px;">
 								<h3 style="padding: 0 0 10px 0; ">[ATP${productDto.product_number}] ${productDto.product_name}</h3>
 								<h4 style="color: #999; ">${productDto.product_summary}</h4>
-							<div class="first" style="margin-left: 15px;"><img src="http://img.modetour.co.kr/mode2010/modetour/product/txt_detail1.gif" alt="상품가격"><strong id="Price_ATP${productDto.product_number}"><fmt:formatNumber value="${productDto.product_price_adult}"/>원</strong></div>
-							<div style="margin-left: 15px;"><img src="http://img.modetour.co.kr/mode2010/modetour/product/txt_detail2.gif" alt="여행기간"><span id="DaysText_ATP${productDto.product_number}">${productDto.product_stay_days}박 ${productDto.product_days}일</span></div>
+							<div class="first" style="margin-left: 15px; font-size:14px;">상품가격 <fmt:formatNumber value="${productDto.product_price_adult}"/>원</div>
+									<div style="margin-left: 15px; font-size:14px;">여행기간 ${productDto.product_stay_days}박 ${productDto.product_days}일</div>
 						</div>
 					</div>
-				</div>
 			</div>
 					
 			<c:if test="${flightCount==0}">
@@ -67,7 +65,7 @@ function flightOnMouseOut(flight_number){
 		        				<span class="flightListElement arrival"><fmt:formatDate pattern="yyyy-MM-dd(E) HH시 mm분" value="${flightDto.flight_end_arrival}" /></span>
 		        				<span class="flightListElement airline" onmouseover="ToolTip(this,0);" onmouseout="ToolTip(this,1);"><img onerror="this.style.display='none';" src="${root}/resources/icons/airline/airline_${flightDto.flight_start_airline}.gif"></span>
 			        			<span class="flightListElement price"><fmt:formatNumber value="${productDto.product_price_adult}"/>원</span>
-			        			<span class="flightListElement occupancy">${flight_occupied}명 / ${flightDto.flight_occupancy}명</span>
+			        			<span class="flightListElement occupancy">${flight_ordered}명 / ${flightDto.flight_occupancy}명</span>
 			        		</div>
 		        		</c:forEach>
 					</div>

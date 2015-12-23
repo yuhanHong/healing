@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.adminProduct.service.AdminProductService;
 import com.healing.aop.HomeAspect;
+import com.healing.product.dto.BargainDto;
 import com.healing.product.dto.FlightDto;
 import com.healing.product.dto.ProductCityDto;
 import com.healing.product.dto.ProductDayDto;
@@ -146,6 +147,84 @@ public class AdminProductController {
 		mav.addObject("productPhotoDto",productPhotoDto);
 		
 		adminProductService.productPhotoWriteOk(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : adminBargain
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 홍유한
+	 * @함수설명 : admin이 상품 할인율을 조회할때 호출하여 adminBargain.jsp를 엽니다.
+	 */
+	@RequestMapping(value="/adminProduct/adminBargain.do",method=RequestMethod.GET)
+	public ModelAndView adminBargain(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		adminProductService.adminBargain(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : adminBargainWrite
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 홍유한
+	 * @함수설명 : admin이 상품 할인율을 최초입력할때 호출하여 adminBargain.jsp를 엽니다.
+	 */
+	@RequestMapping(value="/adminProduct/adminBargainWrite.do",method=RequestMethod.POST)
+	public ModelAndView adminBargainWrite(HttpServletRequest request, HttpServletResponse response, BargainDto bargainDto){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("bargainDto",bargainDto);
+		adminProductService.adminBargainWrite(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : adminBargain
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 홍유한
+	 * @함수설명 : admin이 상품 할인율을 수정할때 호출하여 adminBargain.jsp를 엽니다.
+	 */
+	@RequestMapping(value="/adminProduct/adminBargain.do",method=RequestMethod.POST)
+	public ModelAndView adminBargainUpdate(HttpServletRequest request, HttpServletResponse response, BargainDto bargainDto){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("bargainDto",bargainDto);
+		adminProductService.adminBargainUpdate(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : adminProductList
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 홍유한
+	 * @함수설명 : admin이 상품목록을 조회할때 호출하여 adminProductList.jsp를 엽니다.
+	 */
+	@RequestMapping(value="/adminProduct/adminProductList.do",method=RequestMethod.GET)
+	public ModelAndView adminProductList(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("response",response);
+		
+		adminProductService.adminProductList(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : adminProductUpdate
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 홍유한
+	 * @함수설명 : admin이 상품을 수정할때 호출하여 adminProductUpdate.jsp를 엽니다.
+	 */
+	@RequestMapping(value="/adminProduct/adminProductUpdate.do",method=RequestMethod.POST)
+	public ModelAndView adminProductUpdate(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("response",response);
+		
+		adminProductService.adminProductUpdate(mav);
 		
 		return mav;
 	}

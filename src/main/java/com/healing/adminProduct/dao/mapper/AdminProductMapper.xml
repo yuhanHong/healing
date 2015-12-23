@@ -39,5 +39,17 @@
 	<insert id="productPhotoWrite" parameterType="com.healing.product.dto.ProductPhotoDto">
 		insert into product_photo values(product_photo_number_seq.nextval,#{product_detail_number},#{product_day_number},#{product_number},#{product_photo_size},#{product_photo_path},#{product_photo_filename},'')
 	</insert>
+	
+	<select id="getBargain" resultType="com.healing.product.dto.BargainDto">
+		select * from bargain
+	</select>
+	
+	<insert id="setBargain" parameterType="com.healing.product.dto.BargainDto">
+		insert into bargain values(#{bargain_day1},#{bargain_rate1},#{bargain_day2},#{bargain_rate2})
+	</insert>
+	
+	<update id="updateBargain" parameterType="com.healing.product.dto.BargainDto">
+		update bargain set bargain_day1=#{bargain_day1},bargain_rate1=#{bargain_rate1},bargain_day2=#{bargain_day2},bargain_rate2=#{bargain_rate2}
+	</update>
 </mapper>
 	

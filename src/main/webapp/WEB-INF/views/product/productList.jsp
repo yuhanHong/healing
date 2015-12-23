@@ -44,14 +44,14 @@ function productOnMouseOut(product_number){
 			<c:if test="${count>0}">
 				<div class="productList" >
 					<c:forEach var="productDto" items="${productList}" varStatus="status">
-						<div style="padding-bottom: 20px; margin: 15px 15px 15px 15px; border-bottom: 1px solid #D1D1D1;">
+						<div class="product_summary" style="">
 							<div style="border:1px #ffffff solid; width:100%; height:150px;overflow:hidden;" id="product${productDto.product_number}" class="clearfix on" onmouseover="productOnMouseOver('${productDto.product_number}')" onmouseout="productOnMouseOut('${productDto.product_number}')" onclick="productOnClick('${productDto.product_number}','${pc}','${pageNumber}')">
 								<div style="float:left;"><img width="204" height="150" onerror="setNoImg(this,'204x150');" alt="상품이미지" src="${root}/resources/productPhoto/${productDto.product_number}/0-1-1.jpg"></div>
 								<div class="details" style="width: 620px; float:left; margin-left: 15px;">
 									<h3 style="padding: 0 0 10px 0; ">[ATP${productDto.product_number}] ${productDto.product_name}</h3>
 									<h4 style="color: #999; ">${productDto.product_summary}</h4>
-									<div class="first"><img src="http://img.modetour.co.kr/mode2010/modetour/product/txt_detail1.gif" alt="상품가격"><strong id="Price_ATP${productDto.product_number}"><fmt:formatNumber value="${productDto.product_price_adult}"/>원</strong></div>
-									<div><img src="http://img.modetour.co.kr/mode2010/modetour/product/txt_detail2.gif" alt="여행기간"><span id="DaysText_ATP${productDto.product_number}">${productDto.product_stay_days}박 ${productDto.product_days}일</span></div>
+									<div class="first" style="margin-left: 15px; font-size:14px;">상품가격 <fmt:formatNumber value="${productDto.product_price_adult}"/>원</div>
+									<div style="margin-left: 15px; font-size:14px;">여행기간 ${productDto.product_stay_days}박 ${productDto.product_days}일</div>
 								</div>
 							</div>
 						</div>
@@ -88,7 +88,7 @@ function productOnMouseOut(product_number){
    </c:if>
    
    <!-- 최근 본 상품 include 된 부분 -->
-<%--    <c:import url="../recentProduct/recentProduct.jsp"/> --%>
+   <c:import url="../recentProduct/recentProduct.jsp"/>
 <jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

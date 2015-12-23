@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.healing.aop.HomeAspect;
+import com.healing.product.dto.BargainDto;
 import com.healing.product.dto.FlightDto;
 import com.healing.product.dto.ProductCityDto;
 import com.healing.product.dto.ProductDayDto;
@@ -66,10 +67,24 @@ public class AdminProductDaoImp implements AdminProductDao{
 		
 		return result;
 	}
-	
 
 	@Override
 	public int productPhotoWrite(ProductPhotoDto productPhotoDto) {
 		return sessionTemplate.insert("dao.adminProductMapper.productPhotoWrite",productPhotoDto);
+	}
+
+	@Override
+	public BargainDto getBargain() {
+		return sessionTemplate.selectOne("dao.adminProductMapper.getBargain");
+	}
+	
+	@Override
+	public int setBargain(BargainDto bargainDto) {
+		return sessionTemplate.insert("dao.adminProductMapper.setBargain",bargainDto);
+	}
+	
+	@Override
+	public int updateBargain(BargainDto bargainDto) {
+		return sessionTemplate.update("dao.adminProductMapper.updateBargain",bargainDto);
 	}
 }

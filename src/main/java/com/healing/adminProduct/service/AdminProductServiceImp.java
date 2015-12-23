@@ -23,6 +23,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.adminProduct.dao.AdminProductDao;
 import com.healing.aop.HomeAspect;
+import com.healing.product.dao.ProductDao;
+import com.healing.product.dto.BargainDto;
 import com.healing.product.dto.FlightDto;
 import com.healing.product.dto.ProductCityDto;
 import com.healing.product.dto.ProductDayDto;
@@ -268,5 +270,45 @@ public class AdminProductServiceImp implements AdminProductService {
 		mav.addObject("product_number", product_number);	    
 	    mav.addObject("check", check);	    
 		mav.setViewName("adminProduct/adminProductWriteOk");
+	}
+
+	@Override
+	public void adminBargain(ModelAndView mav) {
+		BargainDto bargainDto=adminProductDao.getBargain();
+		
+		mav.addObject("bargainDto", bargainDto);
+		mav.setViewName("adminProduct/adminBargain");
+	}
+
+	@Override
+	public void adminBargainWrite(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
+		BargainDto bargainDto=(BargainDto)map.get("bargainDto");
+		HomeAspect.logger.info(HomeAspect.logMsg + bargainDto);
+		int check=adminProductDao.setBargain(bargainDto);
+
+	    mav.addObject("check", check);	    
+		mav.setViewName("adminProduct/adminBargainOk");
+	}
+
+	@Override
+	public void adminBargainUpdate(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
+		BargainDto bargainDto=(BargainDto)map.get("bargainDto");
+		
+		int check=adminProductDao.updateBargain(bargainDto);
+
+	    mav.addObject("check", check);	    
+		mav.setViewName("adminProduct/adminBargainOk");
+	}
+
+	@Override
+	public void adminProductList(ModelAndView mav) {
+		
+	}
+
+	@Override
+	public void adminProductUpdate(ModelAndView mav) {
+		
 	}
 }

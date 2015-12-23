@@ -24,5 +24,20 @@
 	<select id="flightRead" parameterType="int" resultType="com.healing.product.dto.FlightDto"> 
 		select * from flight where flight_number=#{flight_number}	
 	</select>
+	<select id="productCitiesRead" parameterType="int" resultType="com.healing.product.dto.ProductCityDto">
+		SELECT * FROM product_city WHERE PRODUCT_NUMBER = #{product_number}
+	</select>
+	<select id="productDayGetList" parameterType="int" resultType="com.healing.product.dto.ProductDayDto">
+		SELECT * FROM product_day WHERE PRODUCT_NUMBER = #{product_number} order by product_day_number asc
+	</select>
+	<select id="productDetailGetList" parameterType="int" resultType="com.healing.product.dto.ProductDetailDto">
+		SELECT * FROM product_detail WHERE product_day_number = #{product_day_number} order by product_detail_number asc
+	</select>
+	<select id="productPhotoGetList" parameterType="int" resultType="com.healing.product.dto.ProductPhotoDto">
+		SELECT * FROM product_photo WHERE product_detail_number = #{product_detail_number} order by product_photo_number asc
+	</select>
+	<select id="getOrdered"  parameterType="int" resultType="int">
+		SELECT sum(order_adult+order_child+order_baby) FROM orders WHERE product_number=#{product_number}
+	</select>
 </mapper>
 	

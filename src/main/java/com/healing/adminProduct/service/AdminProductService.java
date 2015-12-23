@@ -16,4 +16,9 @@ public interface AdminProductService {
 	void productDayWriteOk(ModelAndView mav);
 	void productDetailWriteOk(ModelAndView mav);
 	void productPhotoWriteOk(ModelAndView mav);
+	void adminBargain(ModelAndView mav);
+	void adminBargainWrite(ModelAndView mav);
+	void adminBargainUpdate(ModelAndView mav);
+	void adminProductList(ModelAndView mav);
+	void adminProductUpdate(ModelAndView mav);
 }

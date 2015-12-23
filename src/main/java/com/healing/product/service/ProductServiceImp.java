@@ -2,6 +2,7 @@ package com.healing.product.service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.healing.aop.HomeAspect;
 import com.healing.product.dao.ProductDao;
 import com.healing.product.dto.FlightDto;
+import com.healing.product.dto.ProductDayDto;
+import com.healing.product.dto.ProductDetailDto;
 import com.healing.product.dto.ProductDto;
+import com.healing.product.dto.ProductPhotoDto;
 import com.healing.product.dto.ProductSearchDto;
 import com.healing.recentProduct.dao.RecentProductDao;
 
@@ -120,6 +124,9 @@ public class ProductServiceImp implements ProductService {
 		flightList=productDao.flightGetList(product_number);		// 항공정보 pNum값이 일치하는것만 오름차순 정렬
 //		HomeAspect.logger.info(HomeAspect.logMsg + "flightList:" + flightList);
 		
+		int flight_ordered=productDao.getOrdered(product_number);
+		
+		mav.addObject("flight_ordered",flight_ordered);
 		mav.addObject("flightCount",flightCount);
 		mav.addObject("productDto",productDto);
 		mav.addObject("flightList",flightList);
@@ -162,9 +169,23 @@ public class ProductServiceImp implements ProductService {
 		int flight_number=Integer.parseInt(fNum);
 		ProductDto productDto = productDao.productRead(product_number);
 		FlightDto flightDto = productDao.flightRead(flight_number);
+		String product_cities = productDao.productCitiesRead(product_number);
+		List<ProductDayDto> productDayList = productDao.productDayGetList(product_number);
+		List<List<ProductDetailDto>> productDetailList = new ArrayList<List<ProductDetailDto>>();
+		List<List<List<ProductPhotoDto>>> productPhotoList = new ArrayList<List<List<ProductPhotoDto>>>();
+		for(int i=0;i<productDayList.size();i++){
+			productDetailList.add(i,productDao.productDetailGetList(productDayList.get(i).getProduct_day_number()));
+			List<List<ProductPhotoDto>> tempList = new ArrayList<List<ProductPhotoDto>>();
+			for(int j=0;j<productDetailList.get(i).size();j++){
+				tempList.add(j, productDao.productPhotoGetList(productDetailList.get(i).get(j).getProduct_detail_number()));;
+			}
+			productPhotoList.add(i,tempList);
+		}
 		
+		int flight_ordered=productDao.getOrdered(product_number);
 		
-		/** //////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////
+		/** 
 		 * @개발자 : 전현준
 		 * @수정내용 : flightList 함수 안에 쿠키 생성 추가
 		 * @수정날짜 : 2015. 12. 21.
@@ -215,9 +236,13 @@ public class ProductServiceImp implements ProductService {
 		mav.addObject("flightList",flightList);
 		////////////////////////////////////////////////////////////////////////////////////
 		
-		
+		mav.addObject("flight_ordered",flight_ordered);
 		mav.addObject("productDto",productDto);
 		mav.addObject("flightDto",flightDto);
+		mav.addObject("product_cities",product_cities);
+		mav.addObject("productDayList",productDayList);
+		mav.addObject("productDetailList",productDetailList);
+		mav.addObject("productPhotoList",productPhotoList);
 		mav.addObject("pNum",pNum);
 		mav.addObject("fNum",fNum);
 		mav.addObject("pc",pc);

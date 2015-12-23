@@ -71,7 +71,7 @@
 
 </head>
 <body>
-
+	
 	<jsp:include page="../include/header.jsp" />
 
 	<div id="Containerwrap">
@@ -79,7 +79,6 @@
 
 		<div id="content">
 			<div class="nav">
-				
 				<img src="${root}/resources/icons/product/nav_productRead.gif"
 					alt='' class="floatl" onerror="this.style.display='none';" />
 				<ul>
@@ -101,9 +100,16 @@
 						<a href="#top" onclick="product_photo_view(); return false;"><img
 							src="${root}/resources/productPhoto/${productDto.product_number}/0-1-1.jpg"
 							width="410" height="278" /></a>
+<%-- 				<c:forEach var="productPhotoListList" items="${productPhotoList}" varStatus="status1"> --%>
+<%-- 					<c:forEach var="productPhotoListListList" items="${productPhotoListList}" varStatus="status2"> --%>
+<%-- 						<c:forEach var="productPhotoDto" items="${productPhotoListListList}" varStatus="status3"> --%>
+<%-- 							<img src="${root}/resources/productPhoto/${productDto.product_number}/${productPhotoDto.product_photo_filename}" width="100px"/> --%>
+<%-- 							<img src="${root}/resources/productPhoto/${productDto.product_number}/${productPhotoList[1][0][0].product_photo_filename}" width="100px"/> --%>
+<%-- 						</c:forEach> --%>
+<%-- 					</c:forEach> --%>
+<%-- 				</c:forEach> --%>
 					</div>
-					<div
-						style="float: left; width: 450px; height: 300px; margin: 0px 20px;">
+					<div style="float: left; width: 450px; height: 300px; margin: 0px 20px;">
 						<div class="code_wrap"
 							style="padding: 10px 0px; border-bottom: 1px solid #666666;">
 							<span class="code_title">상품코드</span> | <span class="code_num">ATP${productDto.product_number}${flightDto.flight_start_airline}${flightDto.flight_number}</span>
@@ -118,7 +124,7 @@
 						<div class="itinerary">
 							
 							<!-- 최근 본 상품 include 된 부분 -->
-<%-- 							<c:import url="../recentProduct/recentProduct.jsp"/> --%>
+							<c:import url="../recentProduct/recentProduct.jsp"/>
 							
 							<div class="summary_table" style="z-index: 2;">
 								
@@ -133,7 +139,7 @@
 											<td><img
 												src="${root}/resources/icons/airline/airline_${flightDto.flight_start_airline}.gif"
 												style="width: 22px;" onerror="this.style.display='none';" />
-												아시아나 항공</td>
+												${flightDto.flight_start_airline}</td>
 										</tr>
 										<tr>
 											<th>여행기간</th>
@@ -142,21 +148,21 @@
 													${productDto.product_days}일 [기내
 													${productDto.product_days-1-productDto.product_stay_days}일숙박]</div>
 												<ul class="period_list">
-													<li><span class="ico kor_sta"><i class="hidden">한국출발</i></span><span
+													<li><span ><b class="hidden">한국출발&nbsp;</b></span><span
 														class="text"><strong><fmt:formatDate
 																	value="${flightDto.flight_start_departure}" type="both"
 																	pattern="yyyy년 M월 d일 (E) HH:mm" /></strong></span></li>
-													<li><span class="ico local_arr"><i
-															class="hidden">현지도착</i></span><span class="text"><fmt:formatDate
+													<li><span ><b
+															class="text">현지도착&nbsp;</b></span><span class="text"><fmt:formatDate
 																value="${flightDto.flight_start_arrival}" type="both"
 																pattern="yyyy년 M월 d일 (E) HH:mm" /></span></li>
 													<!-- 현지도착 -->
-													<li><span class="ico local_sta"><i
-															class="hidden">현지출발</i></span><span class="text"><fmt:formatDate
+													<li><span ><b
+															class="text">현지출발&nbsp;</b></span><span class="text"><fmt:formatDate
 																value="${flightDto.flight_end_departure}" type="both"
 																pattern="yyyy년 M월 d일 (E) HH:mm" /></span></li>
 													<!-- 현지출발 -->
-													<li><span class="ico kor_arr"><i class="hidden">한국도착</i></span><span
+													<li><span ><b class="hidden">한국도착&nbsp;</b></span><span
 														class="text"><strong><fmt:formatDate
 																	value="${flightDto.flight_end_arrival}" type="both"
 																	pattern="yyyy년 M월 d일 (E) HH:mm" /></strong></span></li>
@@ -166,7 +172,7 @@
 										</tr>
 										<tr>
 											<th>예약인원</th>
-											<td style="position: relative;">현재 성인 0명 (여유 좌석 1명)</td>
+											<td style="position: relative;">현재 성인 ${flight_ordered}명 (여유 좌석 ${flightDto.flight_occupancy-flight_ordered}명)</td>
 										</tr>
 										<tr>
 											<th>인솔자</th>
@@ -2630,135 +2636,12 @@
                             -->
 								<div class="board_contain" id="ProductPreview"></div>
 							</div>
-							<div id="ContentMain_ContentPlaceHolder_Pnl_City">
 
-								<div id="widgets">
-									<table>
-										<caption>환율/날씨/시각</caption>
-										<colgroup>
-											<col width="231" />
-											<col width="231" />
-											<col width="231" />
-										</colgroup>
-										<thead>
-											<tr>
-												<th scope="col"><img
-													src="http://img.modetour.co.kr/modetour/2014/itinerary/tit_wg_local_currency.png"
-													alt="현지통화" /></th>
-												<th scope="col"><img
-													src="http://img.modetour.co.kr/modetour/2014/itinerary/tit_wg_local_weather.png"
-													alt="현지날씨" /></th>
-												<th scope="col"><img
-													src="http://img.modetour.co.kr/modetour/2014/itinerary/tit_wg_local_time.png"
-													alt="현지시각" /></th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td class="exchange">
-													<div>
-														<div class="area">
-															<select class="selcountry" id="Cmd_City"
-																onchange="CityInfo(this);" title="도시선택">
-
-																<option value="1275">말레이시아/코타키나발루</option>
-
-															</select>
-															<!--
-														<select name="" id="" class="selcountry">
-															<option value="0">영국/런던</option>
-															<option value="1">태국/방콕</option>
-														</select>
-														-->
-															<ul>
-																<li>1달러(USD) = <strong>1198.61원</strong></li>
-																<li><strong></strong></li>
-																<li id="Exchage2"></li>
-																<li id="Exchage3"></li>
-															</ul>
-															<!--
-														<ul>
-															<li>1달러(USD) = <strong>1078.04원</strong></li>
-															<li>1유로(EUR) = <strong>1379.26원</strong></li>
-															<li>1파운드(GBP) = <strong>1757.90원</strong></li>
-															<li>1달러(USD) ≒ <strong>0.64(GBP)</strong></li>
-															<li>1바트(THB)= <strong>35.32원</strong></li>
-															<li>1달러(USD)≒ <strong>31.58(THB)</strong></li>
-														</ul>
-														-->
-														</div>
-													</div>
-												</td>
-												<td class="weather">
-													<div id="WeatherWrap">
-														<div class="w_date" id="WeatherDate">2014/12/31 (수)</div>
-														<div class="w_info">
-															<a href="#top"
-																onclick="WeatherMove('Pre'); return false;"
-																class="wea_prev"><span class="blind">이전</span></a> <img
-																id="WeatherImg"
-																src="http://img.modetour.co.kr/mode2010/kweather/8.png"
-																alt="오전 소나기" onerror="setNoImg(this,'44x44');" /> <a
-																href="#top" onclick="WeatherMove('Next'); return false;"
-																class="wea_next"><span class="blind">다음</span></a>
-														</div>
-														<div class="w_detail">
-															<p id="WeatherText">오전 소나기</p>
-															<p>
-																<strong id="Temperature">최저 9.5℃ / 최고 14.5℃</strong>
-															</p>
-														</div>
-													</div>
-													<div class="nothing">해당지역 정보 미제공</div>
-												</td>
-												<td class="time">
-													<div id="ParallaxWrap">
-														<p id="Now_Date">2014/12/31 (수)</p>
-														<p>
-															<strong id="Now_Time">10:00:00</strong>
-														</p>
-														<p id="ParallaxTxt">(8시간 25분 느림)</p>
-													</div>
-													<div class="nothing">해당지역 정보 미제공</div>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-
-							</div>
-
-							<div id="helpDesk">
-								<div class="phone">
-									<img alt="힐링투어 여행 예약센터 1544-5252"
-										src="//img.modetour.co.kr/modetour/2014/itinerary/tel_helpdesk.png">
-									<img class="text" alt="여행상품에 대해 궁금한 점 있으시면 문의주세요!"
-										src="//img.modetour.co.kr/modetour/2014/itinerary/tel_helpdesk2.png">
-									<div class="btn_wrap">
-										<a class="button"
-											href="/MyPage/Myque_Wirte2.aspx?mloc=1503&PCode=AMP700&Pnum=27372215"><span>1:1
-												문의하기</span><i class="arr"></i></a> <a class="button"
-											href="/board/support/faqlist.aspx?mloc=1702"><span>자주묻는
-												질문</span><i class="arr"></i></a>
-									</div>
-								</div>
-								<div class="guide">
-									<dl>
-										<dt>해외/국내 여행 상담</dt>
-										<dd>평일 09:00~19:00</dd>
-										<dd class="space">토요일/휴일 09:00~18:00</dd>
-										<dt>항공권 및 호텔, 제휴카드 상담, 기업단체문의</dt>
-										<dd class="space">평일 09:00~18:00(토요일/휴일 휴무)</dd>
-										<dt>여행불편접수</dt>
-										<dd>평일 09:00~12:30, 13:30~18:00(토요일/휴일 휴무)</dd>
-									</dl>
-								</div>
-							</div>
 						</div>
 
 						<!-- 우측 메뉴 -->
 
-						<div id="aside" class="aside">
+						<%-- <div id="aside" class="aside">
 							<div id="totalPrice">
 								<div class="title">성인 1인 가격</div>
 								<div class="contents">
@@ -2948,7 +2831,7 @@
 									</ul>
 								</div>
 							</div>
-						</div>
+						</div> --%>
 						<!-- 우측메뉴 -->
 
 
@@ -2970,7 +2853,8 @@
 
 		<form id="N_Form" name="N_Form" method="get"
 			action="/booking/Package/booking.aspx">
-			<input type="submit" class="hideSubmitBtn" /> <input type="hidden"
+<!-- 			<input type="submit" class="hideSubmitBtn" />  -->
+			<input type="hidden"
 				name="MLoc" value='01' /> <input type="hidden" name="NoMember"
 				value='' /> <input type="hidden" id="Pnum" name="Pnum"
 				value='27372215' /> <input type="hidden" name="Inum" value='0' />
@@ -3021,12 +2905,6 @@
 				type="hidden" id="Param_PII_GuideDecide" value="N" /> <input
 				type="hidden" id="Param_PII_ConductorDecide" value="N" />
 		</form>
-
-
-		<script type="text/javascript">
-			
-		</script>
-
 
 		<script type="text/javascript">
 			// 일정표 타이틀
@@ -3223,7 +3101,7 @@
 
 		<!--Content End-->
 	</div>
-	
+	<a href="${root}/order/write.do?pNum=${productDto.product_number}&fNum=${flightDto.flight_number}">구매하기</a>
 	<jsp:include page="../include/footer.jsp" />
 </body>
 </html>

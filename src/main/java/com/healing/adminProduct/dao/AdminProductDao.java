@@ -1,5 +1,6 @@
 package com.healing.adminProduct.dao;
 
+import com.healing.product.dto.BargainDto;
 import com.healing.product.dto.FlightDto;
 import com.healing.product.dto.ProductCityDto;
 import com.healing.product.dto.ProductDayDto;
@@ -20,4 +21,7 @@ public interface AdminProductDao {
 	int productDayWrite(ProductDayDto productDayDto);
 	int productDetailWrite(ProductDetailDto productDetailDto);
 	int productPhotoWrite(ProductPhotoDto productPhotoDto);
+	BargainDto getBargain();
+	int setBargain(BargainDto bargainDto);
+	int updateBargain(BargainDto bargainDto);
 }

@@ -3,7 +3,10 @@ package com.healing.product.dao;
 import java.util.List;
 
 import com.healing.product.dto.FlightDto;
+import com.healing.product.dto.ProductDayDto;
+import com.healing.product.dto.ProductDetailDto;
 import com.healing.product.dto.ProductDto;
+import com.healing.product.dto.ProductPhotoDto;
 import com.healing.product.dto.ProductSearchDto;
 
 /**
@@ -19,4 +22,9 @@ public interface ProductDao {
 	int flightGetCount(int product_number);
 	List<ProductDto> flightGetList(int product_number);
 	FlightDto flightRead(int flight_number);
+	String productCitiesRead(int product_number);
+	List<ProductDayDto> productDayGetList(int product_number);
+	List<ProductDetailDto> productDetailGetList(int product_day_number);
+	List<ProductPhotoDto> productPhotoGetList(int product_detail_number);
+	int getOrdered(int product_number);
 }
