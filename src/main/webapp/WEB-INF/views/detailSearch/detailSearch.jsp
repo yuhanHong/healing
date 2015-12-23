@@ -40,25 +40,25 @@
 				  </ul>
 				  <div id="tabs-1">
 				    <p>
-				    <input type="checkbox" name="interest_content" value="캄보디아"/>캄보디아 &nbsp;&nbsp;
-				    <input type="checkbox" name="interest_content" value="태국"/>태국 &nbsp;&nbsp;
-				    <input type="checkbox" name="interest_content" value="푸켓 "/>푸켓 &nbsp;&nbsp;
-				    <input type="checkbox" name="interest_content" value="필리핀"/>필리핀 &nbsp;&nbsp;
-				    <input type="checkbox" name="interest_content" value="세부"/>세부 &nbsp;&nbsp;
-				    <input type="checkbox" name="interest_content" value="보라카이"/>보라카이 &nbsp;&nbsp;
-				    <input type="checkbox" name="interest_content" value="베트남"/>베트남 &nbsp;&nbsp;
-				    <input type="checkbox" name="interest_content" value="발리"/>발리 &nbsp;&nbsp;
-				    <input type="checkbox" name="interest_content" value="몰디브"/>몰디브 &nbsp;&nbsp;
+					    <input type="checkbox" name="interest_content" value="캄보디아"/>캄보디아 &nbsp;&nbsp;
+					    <input type="checkbox" name="interest_content" value="태국"/>태국 &nbsp;&nbsp;
+					    <input type="checkbox" name="interest_content" value="푸켓 "/>푸켓 &nbsp;&nbsp;
+					    <input type="checkbox" name="interest_content" value="필리핀"/>필리핀 &nbsp;&nbsp;
+					    <input type="checkbox" name="interest_content" value="세부"/>세부 &nbsp;&nbsp;
+					    <input type="checkbox" name="interest_content" value="보라카이"/>보라카이 &nbsp;&nbsp;
+					    <input type="checkbox" name="interest_content" value="베트남"/>베트남 &nbsp;&nbsp;
+					    <input type="checkbox" name="interest_content" value="발리"/>발리 &nbsp;&nbsp;
+					    <input type="checkbox" name="interest_content" value="몰디브"/>몰디브 &nbsp;&nbsp;
 				    </p>
 				  </div>
 				  <div id="tabs-2">
 				    <p>
-				    	<input type="checkbox" name="interest_content" value="도쿄"/>북경 &nbsp;&nbsp;
-				    	<input type="checkbox" name="interest_content" value="도쿄"/>상해 &nbsp;&nbsp;
-				    	<input type="checkbox" name="interest_content" value="도쿄"/>홍콩 &nbsp;&nbsp;
-				    	<input type="checkbox" name="interest_content" value="도쿄"/>대만 &nbsp;&nbsp;
-				    	<input type="checkbox" name="interest_content" value="도쿄"/>백두산 &nbsp;&nbsp;
-				    	<input type="checkbox" name="interest_content" value="도쿄"/>하이난 &nbsp;&nbsp;    
+				    	<input type="checkbox" name="interest_content" value="북경"/>북경 &nbsp;&nbsp;
+				    	<input type="checkbox" name="interest_content" value="상해"/>상해 &nbsp;&nbsp;
+				    	<input type="checkbox" name="interest_content" value="홍콩"/>홍콩 &nbsp;&nbsp;
+				    	<input type="checkbox" name="interest_content" value="대만"/>대만 &nbsp;&nbsp;
+				    	<input type="checkbox" name="interest_content" value="백두산"/>백두산 &nbsp;&nbsp;
+				    	<input type="checkbox" name="interest_content" value="하이난"/>하이난 &nbsp;&nbsp;    
 				    </p>
 				  </div>
 				  <div id="tabs-3">
@@ -68,8 +68,8 @@
 				    	<input type="checkbox" name="interest_content" value="오키나와"/>오키나와 &nbsp;&nbsp;
 					    <input type="checkbox" name="interest_content" value="훗카이도"/>훗카이도 &nbsp;&nbsp;
 				   		<input type="checkbox" name="interest_content" value="쿄토"/>쿄토 &nbsp;&nbsp;
-				   		<input type="checkbox" name="interest_content" value="쿄토"/>큐슈 &nbsp;&nbsp;
-				   		<input type="checkbox" name="interest_content" value="쿄토"/>대마도 &nbsp;&nbsp;
+				   		<input type="checkbox" name="interest_content" value="큐슈"/>큐슈 &nbsp;&nbsp;
+				   		<input type="checkbox" name="interest_content" value="대마도"/>대마도 &nbsp;&nbsp;
 				    </p>
 				  	</div>
 					</div>
