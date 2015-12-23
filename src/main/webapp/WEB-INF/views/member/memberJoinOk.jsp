@@ -9,7 +9,6 @@
 </head>
 <body>
 <script type="text/javascript">
-			alert("${check}");
 		</script>
 	<c:if test="${check>0}">
 		<script type="text/javascript">

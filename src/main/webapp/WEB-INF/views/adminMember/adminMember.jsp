@@ -148,7 +148,7 @@ $(function(){
 				<li id="adm_member_id">아이디</li>
 				<li id="adm_member_phone">전화번호</li>
 				<li id="adm_member_email">이메일</li>
-				<li id="adm_member_date">날짜</li>
+				<li id="adm_member_date">가입날짜</li>
 				<li id="adm_member_purchase">구매금액</li>
 				<li id="adm_member_level">등급</li>
 			</ul>

@@ -35,8 +35,8 @@
  		<ul>
  			<c:if  test="${admin_number!=null}">
 	 			<li style="width:80px;height: 60px; line-height: -10px;"><output id="result"></output></li>
-	 			<li style="margin-left: -50px; line-height: 13px;"><span style="font-size: 13px;" >${admin_name}님 ${admin_level}계정으로 로그인하셨습니다.</span></li>
-				<li style="font-size: 13px; line-height: 13px;"><b><a href="${root}/boardFaq/list.do">게시판 관리</a></b></li>
+	 			<li style="margin-left: -50px; line-height: 16px;"><span style="font-size: 13px;" >${admin_name}님 ${admin_level}계정으로 로그인하셨습니다.</span></li>
+				<li style="font-size: 13px; line-height: 16px;"><b><a href="${root}/boardFaq/list.do">게시판 관리</a></b></li>
 			</c:if>
 		</ul>
 	</div>	

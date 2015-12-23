@@ -47,6 +47,7 @@
 						<li>
 							<c:if test="${admin.admin_level=='Master'}">
 								Master
+								<input type="hidden" name="admin_level" value="Master"/>
 							</c:if>
 							
 							<c:if test="${admin.admin_level!='Master'}">
