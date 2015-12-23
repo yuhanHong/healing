@@ -16,4 +16,12 @@
 	<select id="getMemberInfo" parameterType="int" resultType="com.healing.member.dto.MemberDto">
 		select * from member where member_number=#{member_number}		
 	</select>
+	
+	<select id="getMemberMoney" parameterType="int" resultType="int">
+		select MEMBER_PURCHASE from member where member_number=#{member_number}
+	</select>
+	
+	<update id="updateMemberMoney" parameterType="java.util.Map">
+		update member set member_purchase=#{amount} where member_number=#{member_number}
+	</update>
 </mapper>

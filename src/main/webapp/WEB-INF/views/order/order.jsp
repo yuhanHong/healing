@@ -24,6 +24,7 @@
 	</div>
 	<form id="orderForm" action="${root}/order/write.do"  method ="post" onsubmit="return orderCheck(this,'${root}')">
 		<div id="orderPage">
+			<input type="hidden" name="member_number" value="${member_number}"/>
 			<!-- Page Info -->
 			<div id="order_title" >
 <!-- 				<h1 style="">예약</h1> -->
