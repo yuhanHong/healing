@@ -119,7 +119,6 @@
 				<input type="submit" value="확인"/>
 				<input type="button" value="취소" onclick="javascript:self.close()"/>
 			</div>
-			
 		</div>
 	</form>
 </body>

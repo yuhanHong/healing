@@ -40,9 +40,6 @@
 				<li id="amd_up_title" style="color:red;">추방된 회원입니다.</li>
 			</c:if>
 		</ul>
-		<ul>
-			<li id="amd_up_title"><a href="">${memberDto.member_name}님의 예약정보</a></li>
-		</ul>
 	</div>
 	<form action="${root}/adminMember/adminMemberUpdateOk.do" method="POST">
 		<div id="adm_updateForm">

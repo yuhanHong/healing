@@ -63,4 +63,25 @@ public class MemberMypageDaoImp implements MemberMypageDao {
 		
 		return sqlSessionTemplate.selectList("dao.memberMyPageMapper.reviewList",member_number);
 	}
+
+	@Override
+	public int reviewCount(int product_number) {
+		
+		return sqlSessionTemplate.selectOne("dao.memberMyPageMapper.reviewCount",product_number);
+	}
+
+	@Override
+	public List<Integer> scoreList(int product_number) {
+		
+		return sqlSessionTemplate.selectList("dao.memberMyPageMapper.scoreList",product_number);
+	}
+
+	@Override
+	public int avgScore(float starAvg,int product_number) {
+		HashMap<String,Object> hMap=new HashMap<String,Object>();
+		hMap.put("starAvg", starAvg);
+		hMap.put("product_number", product_number);
+		
+		return sqlSessionTemplate.update("dao.memberMyPageMapper.avgScore",hMap);
+	}
 }

@@ -39,5 +39,19 @@
 	<select id="memberMypageGetScheduleCnt" parameterType="int" resultType="int">
 		select count(*) from schedule where member_number=#{member_number}
 	</select>
+	
+	<select id="reviewCount" parameterType="int" resultType="int">
+		SELECT count(*) FROM review
+		where product_number=#{product_number}
+	</select>
+	
+	<select id="scoreList" parameterType="int" resultType="int">
+		SELECT review_score FROM review
+		where product_number=#{product_number}
+	</select>
+	
+	<update id="avgScore" parameterType="java.util.Map">
+		update product set product_average_score=${starAvg} where product_number=${product_number}
+	</update>
 </mapper>
 	

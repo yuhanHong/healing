@@ -77,7 +77,6 @@ $(function(){
 
 <div id="am_main">
 	<h2 style="margin-top: 40px;">회원 관리</h2>
-	<div id="adminMemberFormDiv">
 		<form action="${root}/adminMember/adminMemberSearch.do" method="POST">
 			<div id="adm_firstMenu">
 				<ul>
@@ -122,7 +121,7 @@ $(function(){
 					<li class="adm_secondMenu_option" id="adm_arange">
 						<select name="level_sort" onchange="location.href='${root}/adminMember/adminMemberSort.do?value='+(this.options[this.selectedIndex].value)">
 							<option value="title">등급별</option>
-							<option value="nomal">일반회원</option>
+							<option value="normal">일반회원</option>
 							<option value="vip">vip회원</option>
 							<option value="delete">탈퇴된회원</option>
 						</select>
@@ -132,7 +131,7 @@ $(function(){
 					</li>
 					<li class="adm_secondMenu_option"  style="width:80px;">
 						<select name="memberLevel" id="memberLevel">
-							<option value="nomal">일반회원</option>
+							<option value="normal">일반회원</option>
 							<option value="vip">vip</option>
 						</select>
 					</li>
@@ -187,6 +186,5 @@ $(function(){
 			</div>
 		</div>	
 	</div>
-</div>
 </body>
 </html>

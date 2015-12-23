@@ -49,6 +49,20 @@ public class MemberMypageServiceImp implements MemberMypageService {
 		int check=memberMypageDao.memberMypageReviewInsert(hMap);
 		// HomeAspect.logger.info(HomeAspect.logMsg+"후기체크:"+check);
 		
+		// 별점 평균
+		int count=memberMypageDao.reviewCount(product_number); // 상품넘버로 상품에 등록된 모든 후기의 숫자를 가져온다.
+		List<Integer> scoreList=memberMypageDao.scoreList(product_number);
+		// HomeAspect.logger.info(HomeAspect.logMsg+"후기갯수:"+count);
+		int amount=0;
+		
+		for(int i=0;i<scoreList.size();i++){
+			amount+=scoreList.get(i);
+		}
+		float starAvg=(float)amount/count;
+		
+		int value=memberMypageDao.avgScore(starAvg,product_number);
+		// HomeAspect.logger.info(HomeAspect.logMsg+"후기 평점등록체크:"+value);
+		
 		mav.addObject("check",check);
 		mav.setViewName("memberMypage/memberMypageReviewInsertOk");
 	}

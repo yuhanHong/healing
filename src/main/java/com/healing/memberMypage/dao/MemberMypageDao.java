@@ -19,4 +19,7 @@ public interface MemberMypageDao {
 	public String memberMypageGetContent(int member_number, String day);
 	public int memberMypageDeletePlan(int member_number);
 	public List<ReviewDto> reviewList(int member_number);
+	public int reviewCount(int product_number);
+	public List<Integer> scoreList(int product_number);
+	public int avgScore(float starAvg,int product_number);
 }
