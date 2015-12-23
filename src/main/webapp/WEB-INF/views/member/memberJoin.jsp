@@ -107,7 +107,12 @@
 							</p>
 						  </div>
 						  <div id="tabs-2" style="width:600px;">
-						    <p></p>
+						    <p>
+						    	<input type="checkbox" name="interest_content" value="북경 "/>북경	 &nbsp;&nbsp;
+						    	<input type="checkbox" name="interest_content" value="상해 "/>상해 &nbsp;&nbsp;
+						    	<input type="checkbox" name="interest_content" value="장가계 "/>장가계 &nbsp;&nbsp;
+						    	<input type="checkbox" name="interest_content" value="백두산 "/>백두산 &nbsp;&nbsp;
+						    </p>
 						  </div>
 						  <div id="tabs-3" style="width:600px;">
 						    <p>

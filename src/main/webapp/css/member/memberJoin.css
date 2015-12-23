@@ -17,9 +17,10 @@
 }
 
 #memberSection{
-	width:750px; overflow:hidden;
+	width:700px; overflow:hidden;
 	margin-top:15px;
 	margin-left: 50px;
+	border: 0px solid black;
 }
 
 #subj{
@@ -29,7 +30,7 @@
 	margin-left: 0px;font-weight: bold;
 }
 #fieldDiv{
-	width:400px; height:30px;
+	width:350px; height:30px;
 	border: 0px solid black;
 	margin-top:10px; float:left;
 }
@@ -44,6 +45,7 @@
 	width:180px; height:30px;
 	border: 0px solid black;
 	margin-top:10px; float:left;
+	border:0px solid red;
 }
 
 #field:focus{
