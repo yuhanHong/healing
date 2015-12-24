@@ -51,8 +51,15 @@ function boardQnaSearch(root){
 	location.href= url;
 }
 
+
+
+/**
+ * @함수이름 : boardNoticeForm
+ * @날짜 : 2015. 12. 24.
+ * @개발자 : 전현준
+ * @설명 : 문의사항 작성할 때 유효성 검사
+ */
 function boardQnaForm(form){
-	
 	if(form.qna_writer.value == ""){
 		alert("작성자를 입력하세요.");
 		form.qna_writer.focus();

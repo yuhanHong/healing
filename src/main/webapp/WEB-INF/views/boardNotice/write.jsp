@@ -7,7 +7,7 @@
 <title>Notice 게시판 글작성</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/boardNotice/boardNotice.css"/>
-<script type="text/javascript" src="${root}/js/boardNotice/boardNoticeWrite.js"></script>
+<script type="text/javascript" src="${root}/js/boardNotice/boardNotice.js"></script>
 </head>
 <body>
 	<jsp:include page="../include/header.jsp"/>

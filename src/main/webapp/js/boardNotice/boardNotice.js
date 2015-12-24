@@ -28,3 +28,30 @@ function updateFunc(notice_number, pageNumber, root){
 	var url = root+"/boardNotice/update.do?notice_number="+notice_number+"&pageNumber="+pageNumber;
 	location.href=url;
 }
+
+
+/**
+ * @함수이름 : boardNoticeForm
+ * @날짜 : 2015. 12. 24.
+ * @개발자 : 전현준
+ * @설명 : 공지사항 작성할 때 유효성 검사
+ */
+function boardNoticeForm(form){
+	if(form.notice_writer.value == ""){
+		alert("작성자를 입력하세요.");
+		form.notice_writer.focus();
+		return false;
+	}
+	
+	if(form.notice_title.value == ""){
+		alert("제목을 입력하세요.");
+		form.notice_title.focus();
+		return false;
+	}
+	
+	if(form.notice_content.value == ""){
+		alert("내용을 입력하세요.");
+		form.notice_content.focus();
+		return false;
+	}
+}

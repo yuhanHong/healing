@@ -7,7 +7,7 @@
 <title>FAQ 게시판 글작성</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/boardFaq/boardFaq.css"/>
-<script type="text/javascript" src=""></script>
+<script type="text/javascript" src="${root}/js/boardFaq/boardFaq.js"></script>
 </head>
 <body>
 	<jsp:include page="../include/header.jsp"/>
