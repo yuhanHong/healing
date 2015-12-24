@@ -76,7 +76,7 @@
 						<li id="${freePlanDto.place_number}" class="list_li" tabindex="-1">
 							<input type="hidden" name="place_number" value="${freePlanDto.place_number}"/>
 							<img id="city_list_photo" src="${root}/resources/mapImage/${freePlanDto.place_file_name}" style="width:70px; height:70px;"/>
-							<p id="city_list_name">${freePlanDto.place_name}</p>
+							<div id="city_list_name">${freePlanDto.place_name}</div>
 							<img id="plusImg" class="plusImg" src="${root}/resources/freePlanImg/add.png" style="cursor:hand;"/>
 						</li>
 					</c:forEach>

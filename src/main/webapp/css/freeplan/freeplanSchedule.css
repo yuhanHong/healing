@@ -129,6 +129,8 @@ ul,li {margin:0; padding:0;}
 	border:1px solid #ffffff;  float:left;
 	margin-top:5px; margin-left:6px;
 	height:70px; width:140px; line-height: 70px;
+	white-space:nowrap; overflow:hidden;
+	text-overflow:ellipsis;
 }
 
 #plusImg{

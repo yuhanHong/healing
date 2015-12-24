@@ -113,7 +113,7 @@ public class MemberMypageServiceImp implements MemberMypageService {
 		//HomeAspect.logger.info(HomeAspect.logMsg+"자유여행 회원넘버:"+member_number);
 		
 		int check = memberMypageDao.memberMypageGetScheduleCnt(member_number);
-//		HomeAspect.logger.info(HomeAspect.logMsg+check);
+		//HomeAspect.logger.info(HomeAspect.logMsg+check);
 		
 		List<ScheduleDto> scheduleList = null;
 		
@@ -127,6 +127,7 @@ public class MemberMypageServiceImp implements MemberMypageService {
 			for(int i = 0; i < scheduleList.size(); i++){
 				// day에 추가한 장소 교유 번호를 뽑아낸다(place_number)
 				String schedule_content = scheduleList.get(i).getSchedule_content();
+				//HomeAspect.logger.info(HomeAspect.logMsg+schedule_content);
 				
 				String[] place_number = schedule_content.split(",");
 				// 각 day에 저장되어 있는 장소 개수 저장
