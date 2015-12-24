@@ -24,7 +24,7 @@
 <body>
 	<jsp:include page="../include/header.jsp"/>
 	<!-- 최근 본 상품 include 된 부분 -->
-	<c:import url="../recentProduct/recentProduct.jsp"/>
+<%-- 	<c:import url="../recentProduct/recentProduct.jsp"/> --%>
 	
 	<div class="outline_class">
 		<jsp:include page="../include/boardSideMenu.jsp"/>
@@ -104,7 +104,7 @@
 										
 										<div class="answer">
 											<div class="title" style="border:0px solid black; background-color: #F6F6F6; ">A.</div>						
-											<div class="content" style="border:0px solid black; background-color: #F6F6F6; width:680px;">${boardFaqDto.faq_content}</div>
+											<div style="border:0px solid black; background-color: #F6F6F6; width:680px; text-align: left;">${boardFaqDto.faq_content}</div>
 											<c:if test="${admin_name != null}">
 												<div>
 													<input type="button" value="수정" onclick = "javascript:updateFunc('${boardFaqDto.faq_number}','${root}','${faq_sort}','${searchWord}')"/>

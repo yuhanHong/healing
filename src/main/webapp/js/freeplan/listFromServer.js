@@ -280,6 +280,7 @@ function clickSearchBtn(root, cityName){
 			var result="";
 			for(var i = 0; i < args.data.length; i++){
 				var city_list_child="<li id='"+args.data[i].place_number+"' class='list_li' tabindex='-1'>";
+				city_list_child+="<input type='hidden' name='place_number' value='"+args.data[i].place_number+"'/>";
 				city_list_child+="<img id='city_list_photo' src='"+root+"/resources/mapImage/"+args.data[i].place_file_name+"'style='width:70px; height:70px;'/>";
 				city_list_child+="<p id='city_list_name'>"+args.data[i].place_name+"</p>";
 				city_list_child+="<img id='plusImg' class='plusImg' src='"+root+"/resources/freePlanImg/add.png' style='cursor:hand;'/>";
@@ -354,6 +355,7 @@ function clickCategory(img, cityName, root){
 			var result="";
 			for(var i = 0; i < args.data.length; i++){
 				var city_list_child="<li id='"+args.data[i].place_number+"' class='list_li' tabindex='-1'>";
+				city_list_child+="<input type='hidden' name='place_number' value='"+args.data[i].place_number+"'/>";
 				city_list_child+="<img id='city_list_photo' src='"+root+"/resources/mapImage/"+args.data[i].place_file_name+"'style='width:70px; height:70px;'/>";
 				city_list_child+="<p id='city_list_name'>"+args.data[i].place_name+"</p>";
 				city_list_child+="<img id='plusImg' class='plusImg' src='"+root+"/resources/freePlanImg/add.png' style='cursor:hand;'/>";
