@@ -53,8 +53,27 @@ function boardQnaSearch(root){
 
 function boardQnaForm(form){
 	
-	if(form.qna_password.value==""){
-		alert("비밀번호를 입력해주세요.");
+	if(form.qna_writer.value == ""){
+		alert("작성자를 입력하세요.");
+		form.qna_writer.focus();
+		return false;
+	}
+	
+	if(form.qna_title.value == ""){
+		alert("제목을 입력하세요.");
+		form.qna_title.focus();
+		return false;
+	}
+	
+	if(form.qna_password.value == ""){
+		alert("비밀번호를 입력하세요.");
+		form.qna_password.focus();
+		return false;
+	}
+	
+	if(form.qna_content.value == ""){
+		alert("내용을 입력하세요.");
+		form.qna_content.focus();
 		return false;
 	}
 }

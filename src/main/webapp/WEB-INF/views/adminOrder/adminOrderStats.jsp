@@ -5,7 +5,7 @@
 <html>
 <head>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>관리자모드 - 통계</title>
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="${root }/css/adminOrder/style.css"/>

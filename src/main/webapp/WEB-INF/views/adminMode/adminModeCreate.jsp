@@ -4,7 +4,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery-ui.js"></script>

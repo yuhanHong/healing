@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>Notice 게시판 글작성</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/boardNotice/boardNotice.css"/>

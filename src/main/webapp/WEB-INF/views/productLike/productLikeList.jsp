@@ -5,7 +5,7 @@
 <html>
 <head>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>관심상품</title>
 <script type="text/javascript" src="${root}/js/productLike/productLike.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>

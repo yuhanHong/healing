@@ -6,6 +6,7 @@
 <head>
 <title></title>
 <link href="${root}/css/side_menu/style.css" rel="stylesheet">
+<script type="text/javascript" src="${root}/js/boardNotice/boardNoticeWrite.js"></script>
 </head>
 <body>
 	<div class="side_menu_class">
