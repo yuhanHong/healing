@@ -76,7 +76,8 @@ public class ProductLikeServiceImp implements ProductLikeService {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		
-		int member_number=Integer.parseInt(request.getParameter("member_number"));
+		HttpSession session=request.getSession();
+		int member_number=(Integer) session.getAttribute("member_number");
 		List<ProductLikeDto> flightLikeList=productLikeDao.getProductLikeList(member_number);
 		for(int i=0; i<flightLikeList.size();i++){
 			//HomeAspect.logger.info(HomeAspect.logMsg+"productLikeList"+flightLikeList.get(i).getProduct_number());
@@ -125,7 +126,8 @@ public class ProductLikeServiceImp implements ProductLikeService {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 	
-		int member_number=Integer.parseInt(request.getParameter("member_number"));
+		HttpSession session=request.getSession();
+		int member_number=(Integer) session.getAttribute("member_number");
 		productLikeDao.productLikeAllDelete(member_number);
 		mav.addObject("member_number",member_number);
 		
