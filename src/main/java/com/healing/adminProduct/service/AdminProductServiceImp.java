@@ -47,6 +47,9 @@ public class AdminProductServiceImp implements AdminProductService {
 	public void productWrite(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();
 		
+		BargainDto bargainDto=adminProductDao.getBargain();
+		
+		mav.addObject("bargainDto", bargainDto);
 		mav.setViewName("adminProduct/adminProductWrite");
 	}
 

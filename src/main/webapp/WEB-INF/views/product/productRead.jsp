@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ page import="java.util.Date" %>
 <!DOCTYPE html>
 <c:set var="root" value="${pageContext.request.contextPath}" />
 <html>
@@ -41,6 +42,35 @@
 <script type="text/javascript" src="http://js.modetour.com/Jquery/jquery.tmpl.js"></script>
 <script type="text/javascript" src="http://js.modetour.com/jquery/jquery-ajaxq.js"></script>
 <script type="text/javascript" src="http://js.modetour.com/Json/json2.js"></script>
+<script type="text/javascript">
+		$("#product_like").click(function(){
+			
+			var url="${root}/productLike/productLikeinsert.do?flight_number=6&member_number=2&product_number=10";
+			var check=confirm("관심 상품으로 등록하시겠습니까?");
+			if(check==true){
+				$.ajax({
+					url:url,
+					type:"get",
+					dataType:"text",
+					success:function(data){
+						var result=data;
+						
+						if(result=="1"){
+							alert("등록이 되었습니다.");
+						}else {
+							alert("등록이 실패되었습니다.");
+						}	
+					},
+					error:function(xhr, status, errorMsg){
+						alert("이미 등록된 상품입니다.");
+						
+					}
+				});
+			}else{
+				return;
+			}
+		});
+	</script>
 </head>
 <body>
 	
@@ -369,13 +399,18 @@
 								<div id="detail_0" class="contents">
 
 <!-- 	for문, List<Product_detailDto> detailList[i] -->
+
 									<c:forEach var="i" begin="1" end="${fn:length(productDayList)-1}" >
 										<c:set var="productDayDto" value="${productDayList[i]}" />
 									
 										<div class="daily_routine">
 											<div class="itinerary">
 												<div class="day">
-													<span class="days"><b>${i}일</b></span> <span class="date"><fmt:formatDate value="${flightDto.flight_start_departure}" type="date" pattern="yyyy년 M월 d일 E요일" />+${i}</span>
+													<span class="days"><b>${i}일</b></span>
+													<span class="date">
+<%-- 													<c:set var="currDate" value="<%=new Date((Date)${flightDto.flight_start_departure} + 60*60*24*1000)%>"/> --%>
+<%--            											<fmt:formatDate type="date" pattern="yyyy년 M월 d일 E요일" value="${currDate}"/> --%>
+													</span>
 												</div>
 												
 												<div class="plan">
@@ -399,8 +434,8 @@
 															<c:set var="productPhotoDto" value="${productPhotoList[i][j][k]}" />
 															<img src="${root}/resources/productPhoto/${productDto.product_number}/${productPhotoDto.product_photo_filename}" width="300px" height="200px"/>
 															<h3>☆${productDetailDto.product_detail_name}☆</h3>
-															<h4>${productDetailDto.product_detail_explain}</h4>
-															<br/>
+															<span style="font-size: 15px;">${productDetailDto.product_detail_explain}</span>
+															<br/><br/>
 														</c:forEach>
 													</c:forEach>
 										
@@ -475,10 +510,10 @@
 				보험 약관에 따라 보험금이 지급되지 않습니다. <br />- 자세한 세부사항은 홈페이지 하단 여행보험을 참조 바랍니다.
 			</div>
 		
-			<div style="align: center;">
+			<span style="margin: 0px auto;">
 				<input type="button" id="product_like" value="관심상품 추가"/>
 				<input type="button" id="product_order" onclick="javascript:location.href='${root}/order/write.do?pNum=${productDto.product_number}&fNum=${flightDto.flight_number}'" value="예약하기"/>
-			</div>
+			</span>
 		
 		</div>
 

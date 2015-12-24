@@ -21,35 +21,7 @@
 	
 	<input type="hidden" id="root" value="${root}" />
 	
-	<script type="text/javascript">
-		$("#product_like").click(function(){
-			
-			var url="${root}/productLike/productLikeinsert.do?flight_number=6&member_number=2&product_number=10";
-			var check=confirm("관심 상품으로 등록하시겠습니까?");
-			if(check==true){
-				$.ajax({
-					url:url,
-					type:"get",
-					dataType:"text",
-					success:function(data){
-						var result=data;
-						
-						if(result=="1"){
-							alert("등록이 되었습니다.");
-						}else {
-							alert("등록이 실패되었습니다.");
-						}	
-					},
-					error:function(xhr, status, errorMsg){
-						alert("이미 등록된 상품입니다.");
-						
-					}
-				});
-			}else{
-				return;
-			}
-		});
-	</script>
+	
 	<form style="width :1300px;">
 	<h2>예약관리</h2>
 		<div id="adminOrderSearch">
