@@ -20,7 +20,6 @@
 	<jsp:include page="../include/adminSide.jsp"/>
 	
 	<input type="hidden" id="root" value="${root}" />
-	<input type="button" id="product_like" value="관심상품 추가"/>
 	
 	<script type="text/javascript">
 		$("#product_like").click(function(){

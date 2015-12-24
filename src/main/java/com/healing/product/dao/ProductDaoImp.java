@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.healing.aop.HomeAspect;
+import com.healing.memberMypage.dto.ReviewDto;
 import com.healing.product.dto.FlightDto;
 import com.healing.product.dto.ProductCityDto;
 import com.healing.product.dto.ProductDayDto;
@@ -48,7 +49,7 @@ public class ProductDaoImp implements ProductDao {
 	}
 
 	@Override
-	public List<ProductDto> flightGetList(int product_number) {
+	public List<FlightDto> flightGetList(int product_number) {
 		return sqlSessionTemplate.selectList("dao.productMapper.flightGetList",product_number);
 	}
 	
@@ -86,7 +87,18 @@ public class ProductDaoImp implements ProductDao {
 	}
 
 	@Override
-	public int getOrdered(int product_number) {
-		return sqlSessionTemplate.selectOne("dao.productMapper.getOrdered",product_number);
+	public int getOrdered(int flight_number) {
+		return sqlSessionTemplate.selectOne("dao.productMapper.getOrdered",flight_number);
+	}
+
+	@Override
+	public String productCityRead(int product_number) {
+		List<ProductCityDto> productCityList = sqlSessionTemplate.selectList("dao.productMapper.productCitiesRead",product_number);
+		return productCityList.get(0).getProduct_city();
+	}
+
+	@Override
+	public List<ReviewDto> reviewGetList(int product_number) {
+		return sqlSessionTemplate.selectList("dao.productMapper.reviewGetList",product_number);
 	}
 }

@@ -20,12 +20,12 @@ function productOnClick(product_number,pc,pageNumber){
 
 function productOnMouseOver(product_number){
 	var li=document.getElementById("product"+product_number);
-	li.style.border="1px #ff0000 solid";
+	li.style.backgroundColor="#F6F6F6";
 }
 
 function productOnMouseOut(product_number){
 	var li=document.getElementById("product"+product_number);
-	li.style.border="1px #ffffff solid";
+	li.style.backgroundColor="#ffffff";
 }
 </script>
 </head>
@@ -35,7 +35,8 @@ function productOnMouseOut(product_number){
     <div id="Containerwrap">
         <!--Content Start-->        
 	    <div id="content">
-			<div class="nav"><img src="${root}/resources/icons/product/nav_productList.gif" alt='' class="floatl" onerror="this.style.display='none';"/><ul><li><a href="${root}/">HOME</a></li><li> &nbsp;&gt;&nbsp; <a href="${root}/product/productList.do?pc=${pc}">${product_category}</a></li></ul></div>
+			<div class="nav"><img src="${root}/resources/boardImg/img01.PNG" align="center">
+				<h2 style="display:inline;"><span style="font-weight: bold; ">여행상품</span></h2><ul><li><a href="${root}/">HOME</a></li><li> &nbsp;&gt;&nbsp; <a href="${root}/product/productList.do?pc=${pc}">${product_category}</a></li></ul></div>
 			
 			<c:if test="${count==0}">
 				<div align="center"><h3>등록된 상품이 없습니다.</h3></div>

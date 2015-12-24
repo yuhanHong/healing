@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.aop.HomeAspect;
+import com.healing.memberMypage.dto.ReviewDto;
 import com.healing.product.dao.ProductDao;
 import com.healing.product.dto.FlightDto;
 import com.healing.product.dto.ProductDayDto;
@@ -120,13 +121,17 @@ public class ProductServiceImp implements ProductService {
 			return;
 		}
 		
-		List<ProductDto> flightList=null;
+		List<FlightDto> flightList=null;
 		flightList=productDao.flightGetList(product_number);		// 항공정보 pNum값이 일치하는것만 오름차순 정렬
 //		HomeAspect.logger.info(HomeAspect.logMsg + "flightList:" + flightList);
 		
-		int flight_ordered=productDao.getOrdered(product_number);
+		List<Integer> flightOrderedList=new ArrayList<Integer>();
+		for(int i=0;i<flightList.size();i++){
+			int flight_ordered=productDao.getOrdered(flightList.get(i).getFlight_number());
+			flightOrderedList.add(i, flight_ordered);
+		}
 		
-		mav.addObject("flight_ordered",flight_ordered);
+		mav.addObject("flightOrderedList",flightOrderedList);
 		mav.addObject("flightCount",flightCount);
 		mav.addObject("productDto",productDto);
 		mav.addObject("flightList",flightList);
@@ -170,6 +175,7 @@ public class ProductServiceImp implements ProductService {
 		ProductDto productDto = productDao.productRead(product_number);
 		FlightDto flightDto = productDao.flightRead(flight_number);
 		String product_cities = productDao.productCitiesRead(product_number);
+		String product_city = productDao.productCityRead(product_number);
 		List<ProductDayDto> productDayList = productDao.productDayGetList(product_number);
 		List<List<ProductDetailDto>> productDetailList = new ArrayList<List<ProductDetailDto>>();
 		List<List<List<ProductPhotoDto>>> productPhotoList = new ArrayList<List<List<ProductPhotoDto>>>();
@@ -181,8 +187,8 @@ public class ProductServiceImp implements ProductService {
 			}
 			productPhotoList.add(i,tempList);
 		}
-		
-		int flight_ordered=productDao.getOrdered(product_number);
+		List<ReviewDto> reviewList = productDao.reviewGetList(product_number);
+		int flight_ordered=productDao.getOrdered(flight_number);
 		
 		//////////////////////////////////////////////////////////
 		/** 
@@ -192,7 +198,7 @@ public class ProductServiceImp implements ProductService {
 		 * @최종수정날짜 : 2015. 12. 23.
 		 */
 		
-		List<ProductDto> flightList=null;
+		List<FlightDto> flightList=null;
 		flightList=productDao.flightGetList(product_number);		// 항공정보 pNum값이 일치하는것만 오름차순 정렬
 //		HomeAspect.logger.info(HomeAspect.logMsg + "flightList:" + flightList);
 		
@@ -239,6 +245,7 @@ public class ProductServiceImp implements ProductService {
 		mav.addObject("flight_ordered",flight_ordered);
 		mav.addObject("productDto",productDto);
 		mav.addObject("flightDto",flightDto);
+		mav.addObject("product_city",product_city);
 		mav.addObject("product_cities",product_cities);
 		mav.addObject("productDayList",productDayList);
 		mav.addObject("productDetailList",productDetailList);

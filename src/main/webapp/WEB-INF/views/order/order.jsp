@@ -20,7 +20,8 @@
 	<jsp:include page="../include/header.jsp"/>
 	
 	<div class="nav">
-		<img src="${root}/resources/icons/product/nav_order.gif"/>
+		<img src="${root}/resources/boardImg/img01.PNG" align="center">
+		<h2 style="display:inline;"><span style="font-weight: bold; ">여행 일정표</span></h2>
 	</div>
 	<form id="orderForm" action="${root}/order/write.do"  method ="post" onsubmit="return orderCheck(this,'${root}')">
 		<div id="orderPage">

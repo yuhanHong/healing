@@ -20,12 +20,12 @@ function flightOnClick(flight_number,product_number,pc,pageNumber){
 
 function flightOnMouseOver(flight_number){
 	var li=document.getElementById("flight"+flight_number);
-	li.style.border="1px #ff0000 solid";
+	li.style.backgroundColor="#f6f6f6";
 }
 
 function flightOnMouseOut(flight_number){
 	var li=document.getElementById("flight"+flight_number);
-	li.style.border="1px #ffffff solid";
+	li.style.backgroundColor="#ffffff";
 	li.style.borderBottom="1px #dddddd solid";
 }
 </script>
@@ -34,7 +34,8 @@ function flightOnMouseOut(flight_number){
 	<div id="Containerwrap">
         <!--Content Start-->        
 	    <div id="content">
-			<div class="nav"><img src="${root}/resources/icons/product/nav_flightList.gif" alt='' class="floatl" onerror="this.style.display='none';"/><ul><li><a href="${root}/">HOME</a></li><li> &nbsp;&gt;&nbsp; <a href="${root}/product/productList.do?pc=${pc}">${product_category}</a></li><c:if test="${product_category!=productDto.product_country}"><li> &nbsp;&gt;&nbsp; <a href="${root}/product/productList.do?pc=${pc}">${productDto.product_country}</a></li></c:if><li>&nbsp;&gt;&nbsp; <a href="${root}/product/productList.do?pc=${pc}">${product_city}</a></li></ul></div>
+			<div class="nav"><img src="${root}/resources/boardImg/img01.PNG" align="center">
+				<h2 style="display:inline;"><span style="font-weight: bold; ">항공권 선택</span></h2><ul><li><a href="${root}/">HOME</a></li><li> &nbsp;&gt;&nbsp; <a href="${root}/product/productList.do?pc=${pc}">${product_category}</a></li><c:if test="${product_category!=productDto.product_country}"><li> &nbsp;&gt;&nbsp; <a href="${root}/product/productList.do?pc=${pc}">${productDto.product_country}</a></li></c:if><li>&nbsp;&gt;&nbsp; <a href="${root}/product/productList.do?pc=${pc}">${product_city}</a></li></ul></div>
 			
 			<div class="productSummary1" >
 					<div class="product_summary">
@@ -65,7 +66,7 @@ function flightOnMouseOut(flight_number){
 		        				<span class="flightListElement arrival"><fmt:formatDate pattern="yyyy-MM-dd(E) HH시 mm분" value="${flightDto.flight_end_arrival}" /></span>
 		        				<span class="flightListElement airline" onmouseover="ToolTip(this,0);" onmouseout="ToolTip(this,1);"><img onerror="this.style.display='none';" src="${root}/resources/icons/airline/airline_${flightDto.flight_start_airline}.gif"></span>
 			        			<span class="flightListElement price"><fmt:formatNumber value="${productDto.product_price_adult}"/>원</span>
-			        			<span class="flightListElement occupancy">${flight_ordered}명 / ${flightDto.flight_occupancy}명</span>
+			        			<span class="flightListElement occupancy">${flightOrderedList[status.index]}명 / ${flightDto.flight_occupancy}명</span>
 			        		</div>
 		        		</c:forEach>
 					</div>
