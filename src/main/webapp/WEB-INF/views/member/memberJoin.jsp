@@ -30,14 +30,14 @@
 				<h2 style="display:inline;"><span style="font-weight: bold; ">회원가입</span></h2>
 			</div>
 				
-					
 			<hr style="border:2px solid green; margin-top: 41px;">
 			<div class="content" style="width: 950px;">
+			<h4>※표시가 있는부분은 반드시 입력해 주십시오.</h4>
 			<form action="${root}/member/memberJoinOk.do" name="memberForm" method="POST"  onsubmit="return joinForm(this)">
 
 					<div id="memberSection">
 						<div id="memberId">
-							<div id="subj">아이디</div>
+							<div id="subj">※ 아이디</div>
 							<div id="fieldDiv">
 								<input type="text" size="30" id="field" name="member_id" size="20" maxlength="10" oninput="idCheck(this,'${root}')"/>
 							</div>
@@ -45,35 +45,35 @@
 						</div>
 						
 						<div>
-							<div id="subj">비밀번호</div>
+							<div id="subj">※ 비밀번호</div>
 							<div id="fieldDiv">
 								<input type="password" size="30" id="field" name="member_password"/>
 							</div>
 							<div id="exField">&nbsp;</div>
 						</div>
 						<div>
-							<div id="subj">비밀번호확인</div>
+							<div id="subj">※ 비밀번호확인</div>
 							<div id="fieldDiv">
 								<input type="password" size="30" id="field" name="passwordCheck"/>
 							</div>
 							<div id="exField">&nbsp;</div>
 						</div>
 						<div>
-							<div id="subj">이름</div>
+							<div id="subj">※ 이름</div>
 							<div id="fieldDiv">
 								<input type="text" size="30" id="field" name="member_name"/>
 							</div>
 							<div id="exField">&nbsp;</div>
 						</div>
 						<div>
-							<div id="subj">전화번호</div>
+							<div id="subj">※ 전화번호</div>
 							<div id="fieldDiv">
 								<input type="text" size="30" id="field" name="member_phone"/>
 							</div>
 							<div id="exField">&nbsp;</div>
 						</div>
 						<div>
-							<div id="subj">이메일</div>
+							<div id="subj">※ 이메일</div>
 							<div id="fieldDiv">
 								<input type="text" size="30" id="field" name="member_email"/>
 							</div>

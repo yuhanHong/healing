@@ -90,7 +90,7 @@ $(function(){
         <li><a href="${root}/product/productList.do?pc=2">중국</a></li>
         <li><a href="${root}/product/productList.do?pc=3">일본</a></li>
         <li><a href="${root}/freeplan/freePlanList.do?member_number=${member_number}">자유여행</a></li>
-        <li><a href="${root}/detailSearch/detailSearch.do">간편검색</a></li>
+        <li><a href="${root}/detailSearch/detailSearch.do">맞춤검색</a></li>
       </ul>
     </div>
   </div>
