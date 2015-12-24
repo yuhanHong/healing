@@ -66,7 +66,7 @@
 			<div id="memberOp">
 				<div id="subj"><span>전화번호</span></div>
 				<div id="fieldDiv">
-					<input type="text" name="member_phone" value="${memberDto.member_phone}" size="40" />
+					<input type="text" name="member_phone" value="0${memberDto.member_phone}" size="40" />
 					
 				</div>
 			</div>

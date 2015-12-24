@@ -18,7 +18,7 @@
 	</select>
 	
 	<select id="getMemberMoney" parameterType="int" resultType="int">
-		select MEMBER_PURCHASE from member where member_number=#{member_number}
+		select nvl(MEMBER_PURCHASE,0) from member where member_number=#{member_number}
 	</select>
 	
 	<update id="updateMemberMoney" parameterType="java.util.Map">

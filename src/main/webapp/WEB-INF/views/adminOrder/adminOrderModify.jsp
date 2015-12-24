@@ -57,7 +57,7 @@
 			<div class="adminOrderDiv">
 				<ul>
 					<li>예약 상품</li>  
-					<li style="width:350px">${productDto.product_name } / ${productDto.product_summary }</li>
+					<li style="width:350px">${productDto.product_name }</li>
 				</ul>
 			</div>
 			
@@ -70,7 +70,7 @@
 			<div class="adminOrderDiv">
 				<ul>
 					<li>전화번호 </li>
-					<li style="width:350px"><input style="height:20px;" name="order_phone" type="text" value="${orderDto.order_phone}"/> </li>   
+					<li style="width:350px"><input style="height:20px;" name="order_phone" type="text" value="0${orderDto.order_phone}"/> </li>   
 				</ul>
 			</div>
 			<div class="adminOrderDiv">
@@ -87,12 +87,12 @@
 			</div>
 			<div class="adminOrderDiv">
 				<ul>
-					<li>성인 인원 </li>
-					<li style="width:50px"><input style="height:21px;width:40px;" id="adult"  type="number"  value="${orderDto.order_adult}" max="20" min="1" size="1"></li>									
-					<li>아동 인원 </li>
-					<li style="width:50px"><input style="height:21px;width:40px;" id="child" type="number"  value="${orderDto.order_child}" max="20" min="0" size="1"></li>
-					<li>유아 인원</li>
-					<li style="width:50px"><input style="height:21px; width:40px;" id="baby" type="number"  value="${orderDto.order_baby}" max="20" min="0" size="1"></li>
+					<li style="height: 30px;">성인 인원 </li>
+					<li style="height: 30px;width:50px"><input style="height:21px;width:40px;" id="adult"  type="number"  value="${orderDto.order_adult}" max="20" min="1" size="1"></li>									
+					<li style="height: 30px;">아동 인원 </li>
+					<li style="height: 30px;width:50px"><input style="height:21px;width:40px;" id="child" type="number"  value="${orderDto.order_child}" max="20" min="0" size="1"></li>
+					<li style="height: 30px;">유아 인원</li>
+					<li style="height: 30px;width:50px"><input style="height:21px; width:40px;" id="baby" type="number"  value="${orderDto.order_baby}" max="20" min="0" size="1"></li>
 				</ul>
 			</div>
 	

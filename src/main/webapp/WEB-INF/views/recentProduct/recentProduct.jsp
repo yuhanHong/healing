@@ -24,6 +24,7 @@
 		list.add(value);
 	}
 
+
 	/* out.print("value값:" + list.get(0) + "<br>");
 	out.print("value값:" + list.get(1) + "<br>");
 	out.print("사이즈:" + list.size()); */
@@ -62,9 +63,17 @@
 					}
 					div += "<b><a href= ${root}/product/flightList.do?pNum="+ data.productInfo[i].product_number + ">" +data.productInfo[i].product_name+"</a></b>";
 					div += "</div>";
+					
+					/*if(i >= 2){ 
+						var space="";
+						space="<div style='height:300px;'></div>";
+						$("#recProData").append(space);	
+					}*/
+					
 					$("#recProData").prepend(div);		// 최근 본 상품이 위로 올라가게 하는 조건
 					
-					if(i >= 2){ break; }				// i값이 증가 될 때마다 2이상을 넘게되면 첨에 봤던 상품은 사라지게 하는 조건
+						
+							// i값이 증가 될 때마다 2이상을 넘게되면 첨에 봤던 상품은 사라지게 하는 조건
 				}
 			},
 			error:function(xhr, status, errorMsg){		// 이곳의 ajax에서 에러가 나면 얼럿창으로 에러 메시지 출력
@@ -78,13 +87,11 @@
 <body>
 
 <div id="recentProductWrap">
-	<div class="recentProduct" style="" align="center">
-		<b style="line-height: 15px;"> &gt; 최근 본 상품 &lt; </b><br/>
-		<a href="#" style="font-size: 16px;">▲</a>
-			<div id="recProData" style="width:130px; height:330px;border:0px solid red">
+	<div class="recentProduct" style="orverflow:hiddden;" align="center">
+		<b style="line-height: 30px;"> &gt; 최근 본 상품 &lt; </b><br/>
+			<div id="recProData" style="width:130px; height:330px;border:0px solid red; ">
 				
 			</div>
-		<a href="#" style="font-size: 16px;">▼</a>
 	</div>
 </div>
 </body>

@@ -156,7 +156,8 @@ function addFlight(){
 	var content=document.createElement("div");
 	content.style="height: 560px;";
 	content.id="flight"+(index);
-	content.innerHTML='<a href="javascript:removeElement(\''+title.id+'\')">삭제</a><br/>'
+	content.innerHTML=''
+//		+'<a href="javascript:removeElement(\''+title.id+'\')">삭제</a><br/>'
 					+ '<h4>예약 가능 인원수</h4>'
 					+ '<div class="title" ><label>예약 가능 인원</label></div>'
 					+ '<div class="content"><input type="text" maxlength="2" size="1" name="flight_occupancy'+index+'" oninput="numberOnInput(event)"/>명</div>'
@@ -243,7 +244,8 @@ function addDay(){
 	var content=document.createElement("div");
 	content.id="day"+(index);
 	content.style="height: 560px;";
-	content.innerHTML='<a href="javascript:removeElement(\''+title.id+'\')">삭제</a><br/>'
+	content.innerHTML=''
+//		+'<a href="javascript:removeElement(\''+title.id+'\')">삭제</a><br/>'
 					+ '<div class="content"><input type="hidden" name="product_day_nth_day'+index+'" value="'+index+'"/></div>'
 					+ '<div class="title"><label>조식</label></div>'
 					+ '<div class="content"><input type="text" name="product_day_breakfast'+index+'"/></div>'
@@ -295,7 +297,8 @@ function addDetail(dayNumber){
 	var content=document.createElement("div");
 	content.style="height: 560px;";
 	content.id="detail"+ dayNumber + "-" + (index);
-	content.innerHTML='<a href="javascript:removeElement(\''+title.id+'\')">삭제</a><br/>'
+	content.innerHTML=''
+//		+'<a href="javascript:removeElement(\''+title.id+'\')">삭제</a><br/>'
 					+ '<div class="title"><label>세부일정 이름</label></div>'
 					+ '<div class="content"><input type="text" oninput="javascript:addDetail('+dayNumber+')" name="product_detail_name'+dayNumber+'-'+index+'"/></div>'
 					+ '<div class="title" style="height: 116px;"><label>세부일정 설명</label></div>'

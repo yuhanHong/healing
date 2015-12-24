@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="http://www.modetour.com/Include/css/Modetour/product/product.css" type="text/css" />
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="${root}/jquery/jquery.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery.cycle2.min.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery.cycle2.scrollVert.js"></script>
 <script type="text/javascript" src="${root}/jquery/effect.min.js"></script>
@@ -43,9 +44,9 @@
 <script type="text/javascript" src="http://js.modetour.com/jquery/jquery-ajaxq.js"></script>
 <script type="text/javascript" src="http://js.modetour.com/Json/json2.js"></script>
 <script type="text/javascript">
-		$("#product_like").click(function(){
-			
-			var url="${root}/productLike/productLikeinsert.do?flight_number=6&member_number=2&product_number=10";
+	function productlike(){
+
+			var url="${root}/productLike/productLikeinsert.do?flight_number=${flightDto.flight_number}&member_number=${member_number}&product_number=${productDto.product_number}";
 			var check=confirm("관심 상품으로 등록하시겠습니까?");
 			if(check==true){
 				$.ajax({
@@ -69,7 +70,7 @@
 			}else{
 				return;
 			}
-		});
+	}
 	</script>
 </head>
 <body>
@@ -511,7 +512,7 @@
 			</div>
 		
 			<span style="margin: 0px auto;">
-				<input type="button" id="product_like" value="관심상품 추가"/>
+				<input type="button" id="product_like" value="관심상품 추가" onclick="productlike()"/>
 				<input type="button" id="product_order" onclick="javascript:location.href='${root}/order/write.do?pNum=${productDto.product_number}&fNum=${flightDto.flight_number}'" value="예약하기"/>
 			</span>
 		

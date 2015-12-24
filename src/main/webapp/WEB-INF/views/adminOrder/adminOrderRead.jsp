@@ -39,7 +39,7 @@
 			<div class="adminOrderDiv">
 				<ul>
 					<li>예약 상품</li>  
-					<li style="width:350px">${productDto.product_name } / ${productDto.product_summary }</li>
+					<li style="width:350px">${productDto.product_name }</li>
 				</ul>
 			</div>
 			<div class="adminOrderDiv">
@@ -51,7 +51,7 @@
 			<div class="adminOrderDiv">
 				<ul>
 					<li>전화번호</li>
-					<li style="width:350px">${orderDto.order_phone}</li>
+					<li style="width:350px">0${orderDto.order_phone}</li>
 				</ul>
 			</div>
 			<div class="adminOrderDiv">

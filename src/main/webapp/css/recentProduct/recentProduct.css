@@ -2,11 +2,12 @@
 
 /* 최근 본 상품 스타일 페이지 시트 지정 */
 .recentProduct{
-	position:fixed; background-color:ffffff;
+	position:fixed; background-color:write;
 	border:1px solid  gray; margin-top:-570px; 
-	width:140px; height:400px; 
+	width:140px; height:370px; 
 	right:30px; top:800px; 							/* position:fixed일 경우, right, top 위치 조정 */	
 	padding-top:8px; border-radius: 30px;
+	overflow: hidden;
 }
 
 .recentCookie{

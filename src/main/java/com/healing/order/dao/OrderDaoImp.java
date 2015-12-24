@@ -44,7 +44,6 @@ public class OrderDaoImp implements OrderDao {
 
 		@Override
 		public int getMemberMoney(int member_number) {
-			
 			return sqlSessionTemplate.selectOne("dao.orderMapper.getMemberMoney",member_number);
 		}
 

@@ -77,7 +77,7 @@ $(function(){
 			  <li><a href="${root}/boardFaq/list.do">고객센터</a></li>
 			 <li><a href="${root}/company/tourInfo.do">회사정보</a></li>
 		
-		 <li><a href="${root}/main/adminHome.do">(관리자모드)</a></li>
+<%-- 		 <li><a href="${root}/main/adminHome.do">(관리자모드)</a></li> --%>
 	</ul>
 </div>
 <div id="header">

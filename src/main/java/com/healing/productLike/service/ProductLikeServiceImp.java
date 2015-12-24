@@ -10,6 +10,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -48,7 +49,9 @@ public class ProductLikeServiceImp implements ProductLikeService {
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		HttpServletResponse response=(HttpServletResponse)map.get("response");
 		
-		int member_number=Integer.parseInt(request.getParameter("member_number"));
+		HttpSession session=request.getSession();
+		int member_number=(Integer) session.getAttribute("member_number");
+		//int member_number=Integer.parseInt(request.getParameter("member_number"));
 		int flight_number=Integer.parseInt(request.getParameter("flight_number"));
 		int product_number=Integer.parseInt(request.getParameter("product_number"));
 	//	HomeAspect.logger.info(HomeAspect.logMsg+"productLikeinsert"+member_number+"/"+product_number);

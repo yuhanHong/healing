@@ -17,12 +17,14 @@
 }
 
 #dc_sl{
-	width:50%; margin-left:220px; margin-top:30px;
-	border:0px solid blue;
+	width:53.2%; margin-left:150px; margin-top:5px;
+	border:1px solid #aaaaaa; border-radius:3px; height: 30px;
+ 	line-height: 12px;
 }
 
 #dc_sl ul{
-	margin:0px; padding:0px;
+	margin:10px; padding:0px;
+	margin-left: 40px;
 }
 
 #dc_sl li{

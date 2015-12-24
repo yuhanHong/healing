@@ -56,7 +56,8 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		
 		boardNoticeDto.setNotice_readCount(0);
 		boardNoticeDto.setNotice_date(new Date());
-		boardNoticeDto.setNotice_content(boardNoticeDto.getNotice_content().replace("\r\n", "<br/>"));
+		boardNoticeDto.setNotice_title(boardNoticeDto.getNotice_title().replace("&", "&amp").replace("<", "&lt;").replace(">", "&gt;").replace("\r\n", "<br/>"));
+		boardNoticeDto.setNotice_content(boardNoticeDto.getNotice_content().replace("&", "&amp").replace("<", "&lt;").replace(">", "&gt;").replace("\r\n", "<br/>"));
 		
 		MultipartFile upFile = request.getFile("file");
 		String fileName=Long.toString(System.currentTimeMillis())+"_"+upFile.getOriginalFilename();

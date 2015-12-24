@@ -42,7 +42,8 @@ public class BoardFaqServiceImp implements BoardFaqService {
 		HttpServletRequest request=(HttpServletRequest)map.get("request");
 		BoardFaqDto boardFaqDto = (BoardFaqDto)map.get("boardFaqDto");
 		
-		boardFaqDto.setFaq_content(boardFaqDto.getFaq_content().replace("\r\n", "<br/>"));
+		boardFaqDto.setFaq_title(boardFaqDto.getFaq_title().replace("&", "&amp").replace("<", "&lt;").replace(">", "&gt;").replace("\r\n", "<br/>"));
+		boardFaqDto.setFaq_content(boardFaqDto.getFaq_content().replace("&", "&amp").replace("<", "&lt;").replace(">", "&gt;").replace("\r\n", "<br/>"));
 		
 		int check = boardFaqDao.boardFaqWriteInsert(boardFaqDto);
 //		HomeAspect.logger.info(HomeAspect.logMsg+check);

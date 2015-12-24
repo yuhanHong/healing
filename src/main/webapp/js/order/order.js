@@ -46,7 +46,7 @@ $(function() {
 	 var adult_money=0;
 	 var child_money=0;
 	 var baby_money=0;
-	 
+
 	 $("#adult").click(function(){		
 		$("#order_adult").val($("#adult").val());
 		resultFun();
@@ -59,6 +59,7 @@ $(function() {
 		 $("#order_baby").val($("#baby").val());		
 		 resultFun();
 	});
+	 
 	 
 	 function resultFun(){
 		 adult_money=$("#hiddenInfo").children().eq(2).val()*$("#adult").val();

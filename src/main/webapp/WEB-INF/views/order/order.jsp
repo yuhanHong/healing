@@ -24,6 +24,7 @@
 		<h2 style="display:inline;"><span style="font-weight: bold; ">여행 일정표</span></h2>
 	</div>
 	<form id="orderForm" action="${root}/order/write.do"  method ="post" onsubmit="return orderCheck(this,'${root}')">
+		<input type="hidden" value="${member_number }"name="member_number"/>
 		<div id="orderPage">
 			<input type="hidden" name="member_number" value="${member_number}"/>
 			<!-- Page Info -->
@@ -80,7 +81,7 @@
 						
 						<!--예약자 전화번호 ;  회원-->
 							<c:if test="${member_number!=null }">
-							<input type="text" name=order_phone size="10" value="${member.member_phone }"/>
+							<input type="text" name=order_phone size="10" value="0${member.member_phone }"/>
 							</c:if>
 						
 						<!-- 비회원 -->

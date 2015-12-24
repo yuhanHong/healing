@@ -11,7 +11,7 @@ $(function() {
 		min: 2,
 		max: 30,
 		slide: function( event, ui ) {
-			$( "#amount" ).val( ui.values[ 0 ] +"일" +"~"+ui.values[ 1 ] + "일" );
+			$( "#amount" ).html( "여행 일수 : "+ui.values[ 0 ] +"일  " +"~  "+ui.values[ 1 ] + "일" );
 			minvalue=ui.values[ 0 ];
 			maxvalue=ui.values[ 1 ];
 		}
@@ -58,12 +58,11 @@ function result(root,str,min,max){
 		,url:url		// url 주소
 		,dataType:"json"
 		,success:function(args){
-			$("#dc_imfo").children().remove();
-			var count="<b>("+args.data.length+")개의 상품이 선택되었습니다.</b>";
+	
 			var notice="<b id='notice' style='margin-left:360px;'>선택된 상품이 없습니다.</b>";
 				
 			$("#dc_product").children().remove();	
-			$("#dc_imfo").append(count);
+		
 			if(args.data.length==0){
 				$("#dc_product").append(notice);
 			}

@@ -83,9 +83,9 @@ public class AdminOrderServiceImp implements AdminOrderService {
 	    
 	    int order_number=Integer.parseInt(request.getParameter("order_number"));
 	    OrderDto orderDto=adminOrderDao.adminOrderRead(order_number);
-	    ProductDto productDto=productDao.productRead(orderDto.getFlight_number());
+	    ProductDto productDto=productDao.productRead(orderDto.getProduct_number());
 	    MemberDto memberDto=adminOrderDao.adminOrderMember(orderDto.getMember_number());
-	    
+		    
 	    mav.addObject("orderDto", orderDto);	    
 	    mav.addObject("productDto", productDto);	
 	    mav.addObject("memberDto", memberDto);	

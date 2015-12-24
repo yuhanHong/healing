@@ -66,7 +66,8 @@ public class BoardQnaServiceImp implements BoardQnaService {
 		
 		boardQnaWriteNumber(boardQnaDto);
 		
-		boardQnaDto.setQna_content(boardQnaDto.getQna_content().replace("\r\n", "<br/>"));
+		boardQnaDto.setQna_title(boardQnaDto.getQna_title().replace("&", "&amp").replace("<", "&lt;").replace(">", "&gt;").replace("\r\n", "<br/>"));
+		boardQnaDto.setQna_content(boardQnaDto.getQna_content().replace("&", "&amp").replace("<", "&lt;").replace(">", "&gt;").replace("\r\n", "<br/>"));
 		
 		int check = boardQnaDao.boardQnaInsert(boardQnaDto);
 //		HomeAspect.logger.info(HomeAspect.logMsg+check);
