@@ -108,7 +108,14 @@
 							<div class="content"><input type="text" name="product_bargain_day2" maxlength="2" oninput="numberOnInput(event)"/>일 전</div>
 							<div class="title"><label>할인율2</label></div>
 							<div class="content"><input type="text" name="product_bargain_rate2" maxlength="2" oninput="numberOnInput(event)"/>%</div>
-							
+							<c:if test="${bargainDto!=null}">
+								<script>
+									productForm.product_bargain_day1.value="${bargainDto.bargain_day1}";
+									productForm.product_bargain_rate1.value="${bargainDto.bargain_rate1}";
+									productForm.product_bargain_day2.value="${bargainDto.bargain_day2}";
+									productForm.product_bargain_rate2.value="${bargainDto.bargain_rate2}";
+								</script>
+							</c:if>
 							<div id="day0"><div id="details0"><div id="detail0-1">
 								<div class="title"><label>사진 등록</label></div>
 								<div class="content"><input type="file" name="product_photo0-1-1" class="photos"/></div>

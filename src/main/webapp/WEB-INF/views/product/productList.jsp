@@ -53,6 +53,7 @@ function productOnMouseOut(product_number){
 									<h4 style="color: #999; ">${productDto.product_summary}</h4>
 									<div class="first" style="margin-left: 15px; font-size:14px;">상품가격 <fmt:formatNumber value="${productDto.product_price_adult}"/>원</div>
 									<div style="margin-left: 15px; font-size:14px;">여행기간 ${productDto.product_stay_days}박 ${productDto.product_days}일</div>
+									<div style="margin-left: 15px; font-size:14px;">평점 : ${productDto.product_average_score}점 <c:forEach begin="${1}" end="${productDto.product_average_score}"><img src="${root}/css/images/yellowStar.png" width="12px"/></c:forEach><c:forEach begin="${productDto.product_average_score}" end="${4}" ><img src="${root}/css/images/emptyStar.png" width="12px"/></c:forEach></div>
 								</div>
 							</div>
 						</div>
