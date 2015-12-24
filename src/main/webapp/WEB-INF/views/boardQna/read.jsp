@@ -98,12 +98,13 @@
 																						 '${root}')"/>
 				</c:if>
 				<input type="button" value="수정" onclick="updateFunc('${boardQnaList[0].qna_number}',
-																	 '${pageNumber}',
-																	 '${searchSort}',
-																	 '${searchWord}',
-																	 '${root}')"/>
+																		 '${pageNumber}',
+																		 '${searchSort}',
+																		 '${searchWord}',
+																		 '${root}')"/>
+				
 				<!-- 삭제는 관리자만 가능하며 답변글이 존재하면 삭제할 수 없다. -->
-				<c:if test="${boardQnaList[1] == null}">
+				<c:if test="${boardQnaList[1] == null && admin_name != null}">
 					<input type="button" value="삭제" onclick="deleteFunc('${boardQnaList[0].qna_number}',
 																		 '${boardQnaList[1].qna_sequence_number}',	
 																		 '${pageNumber}',

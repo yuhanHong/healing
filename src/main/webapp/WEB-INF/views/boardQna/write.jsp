@@ -7,19 +7,8 @@
 <title>Notice 게시판 글작성</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/boardQna/boardQna.css"/>
+<script type="text/javascript" src="${root}/js/boardQna/boardQna.js"></script>
 <script type="text/javascript" src="${root}/jquery/jquery.js"></script>
-<script type="text/javascript">
-	$(function(){
-		$("input[name='chk_pwd']").click(function(){
-			if($("input[name='chk_pwd']").is(':checked')==true){
-				$(".is-check").css("display", "block");
-			}else{
-				$(".is-check").css("display", "none");
-				$("input[name='qna_password']").val("");	// 체크박스 해제 시 작성했던 비밀번호도 지워짐
-			}
-		});
-	});
-</script>
 </head>
 <body>
 	<jsp:include page="../include/header.jsp"/>
@@ -64,14 +53,7 @@
 				<c:if test="${qna_number==0}">		<!-- 답변글이 아닌 경우만 비밀번호 입력 받을 수 있음 -->
 					<div class="line">
 						<div>
-							<label class="title" style="width:70px">비공개</label>
-							<span class="content" style="width:150px;">
-								<input type="checkbox" name="chk_pwd" value="chk_pwd"/> 비공개로 하기
-							</span>
-						</div>
-						
-						<div class="is-check" >
-							<label class="title" style="width:80px;">비밀번호</label>
+							<label class="title" style="width:70px">비밀번호</label>
 							<span class="content">
 								<input type="text" name="qna_password"/>
 							</span>

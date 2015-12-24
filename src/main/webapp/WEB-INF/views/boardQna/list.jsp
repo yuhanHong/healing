@@ -81,7 +81,7 @@
 								</c:if>
 							</li>
 							<li>
-								<a href="javascript:readFunc('${root}', '${boardQnaDto.qna_password}','${boardQnaDto.qna_number}','${currentPage}','${searchSort}','${searchWord}')">
+								<a href="javascript:readFunc('${root}', '${boardQnaDto.qna_password}','${boardQnaDto.qna_number}','${currentPage}','${searchSort}','${searchWord}','${admin_name}')">
 									${boardQnaDto.qna_title}
 									<c:if test="${boardQnaDto.qna_password ne null}">
 										<img src="${root}/resources/boardImg/lock.PNG" align="center">

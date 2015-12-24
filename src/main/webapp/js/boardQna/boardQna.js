@@ -24,9 +24,11 @@ function replyFunc(qna_number, qna_group_number, qna_sequence_number, pageNumber
 	location.href = url;
 }
 
-function readFunc(root, qna_password, qna_number, currentPage, searchSort, searchWord){
+function readFunc(root, qna_password, qna_number, currentPage, searchSort, searchWord, admin_name){
 	var url = null;
-	if(qna_password == ""){
+	
+	// 비밀번호가 걸려있지 않은 경우와 관리자가 게시글을 읽을 경우 비밀번호 확인하지 않고 read할 수 있다.
+	if(qna_password == "" || admin_name != ""){
 		url = root+"/boardQna/read.do?qna_number="+qna_number+"&pageNumber="+currentPage+"&searchSort="+searchSort+"&searchWord="+searchWord;
 	}else{
 		var returnValue = prompt("비밀번호를 입력하세요.","");
@@ -47,4 +49,12 @@ function boardQnaSearch(root){
 	//alert(searchWord+","+searchSort);
 	var url = root+"/boardQna/list.do?searchWord="+searchWord+"&searchSort="+searchSort;
 	location.href= url;
+}
+
+function boardQnaForm(form){
+	
+	if(form.qna_password.value==""){
+		alert("비밀번호를 입력해주세요.");
+		return false;
+	}
 }
