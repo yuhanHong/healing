@@ -19,7 +19,7 @@
 	<div class="outline_class">
 		<jsp:include page="../include/boardSideMenu.jsp"/>
 		<!-- 최근 본 상품 include 된 부분 -->
-<%-- 		<c:import url="../recentProduct/recentProduct.jsp"/> --%>
+		<c:import url="../recentProduct/recentProduct.jsp"/>
 		
 		<div class="content_class">
 			<div>
