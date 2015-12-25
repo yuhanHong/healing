@@ -27,10 +27,10 @@
     
     <div class="footer_right">
       <ul class="social_icons">
-        <li><a href="#"><img src="${root}/resources/footer/icon_rss.png" alt="" /></a></li>
-        <li><a href="#"><img src="${root}/resources/footer/icon_facebook.png" alt="" /></a></li>
-        <li><a href="#"><img src="${root}/resources/footer/icon_twitter.png" alt="" /></a></li>
-        <li><a href="#"><img src="${root}/resources/footer/icon_dribbble.png" alt="" /></a></li>
+        <li><a href="http://www.feedly.com" target="_blank"><img src="${root}/resources/footer/icon_rss.png" alt="" /></a></li>
+        <li><a href="http://www.facebook.com" target="_blank"><img src="${root}/resources/footer/icon_facebook.png" alt="" /></a></li>
+        <li><a href="http://www.twitter.com" target="_blank"><img src="${root}/resources/footer/icon_twitter.png" alt="" /></a></li>
+        <li><a href="https://dribbble.com" target="_blank"><img src="${root}/resources/footer/icon_dribbble.png" alt="" /></a></li>
       </ul>
     </div>
     
