@@ -36,7 +36,6 @@
 	</select>
 	
 	<select id="getPath" resultType="String">
-		<!-- select product_photo_filename from product_photo where product_number=#{product_number} order by product_photo_number asc -->
 		select product_photo_filename from product_photo where product_number=#{product_number} order by product_photo_number asc
 	</select>
 	

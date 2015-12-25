@@ -33,23 +33,21 @@ function updateFunc(faq_number,root, faq_sort, searchWord){
 
 
 /**
- * @함수이름 : boardNoticeForm
+ * @함수이름 : boardFaqForm
  * @날짜 : 2015. 12. 24.
  * @개발자 : 전현준
- * @설명 : 문의사항 작성할 때 유효성 검사
+ * @설명 : 자주 묻는 질문 작성할 때 유효성 검사 추가
  */
 function boardFaqForm(form){
-	/*var faq_sort = $("input:radio[name='faq_sort']");
-	for(i=0; i<faq_sort.length; i++){
-		if(faq_sort[i].checked == false){
-			alert("구분을 선택해주세요.");
-			faq_sort[0].focus();
-			return false;
-		}
-	}*/
+	var faq_sort = $("input:radio[name='faq_sort']");	
+	if(faq_sort.is(":checked") == false){			// 구분 - 라디오버튼 체크됬는지 여부(true or false)
+		alert("구분을 선택해주세요.");
+		faq_sort[0].focus();
+		return false;
+	}
 	
 	if(form.faq_title.value == ""){
-		alert("제목를 입력하세요.");
+		alert("제목을 입력하세요.");
 		form.faq_title.focus();
 		return false;
 	}

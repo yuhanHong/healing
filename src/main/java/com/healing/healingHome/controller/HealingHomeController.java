@@ -11,6 +11,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.healingHome.service.HealingHomeService;
 
+/**
+ * @클래스이름 : HealingHomeController
+ * @작성일 : 2015. 12. 15.
+ * @개발자 : 전현준
+ * @함수설명 : Tomcat7.0 실행하면 사용자 main 페이지 찾는 컨트롤러
+ */
 @Controller
 public class HealingHomeController {
 	@Autowired
@@ -21,7 +27,7 @@ public class HealingHomeController {
 	 * @리턴타입 : ModelAndView
 	 * @작성일 : 2015. 12. 15.
 	 * @개발자 : 전현준
-	 * @함수설명 : healingHome.do 요청이 들어오면 menu.jsp로 페이지 이동(추후 메인으로 될 페이지)
+	 * @함수설명 : healingHome.do 요청이 들어오면 /include/home.jsp로 페이지 이동(메인 페이지)
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)		// 나중에 메인페이지에 링크 걸리게되면 main - HomeController : home함수를 주석걸고 mapping을 추가해야함
 	//@RequestMapping(value="/healingHome/healingHome.do", method=RequestMethod.GET)

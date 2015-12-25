@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>공지사항 수정</title>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
-<script type="text/javascript" src="${root}/js/boardNotice/boardNoticeWrite.js"></script>
+<script type="text/javascript" src="${root}/js/boardNotice/boardNotice.js"></script>
 <link rel="stylesheet" type="text/css" href="${root}/css/boardNotice/boardNotice.css"/>
 </head>
 <body>

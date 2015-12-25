@@ -64,6 +64,19 @@ public class MemberServiceImp implements MemberService {
 		memberDto.setMember_date(new Date()); // 가입날짜
 		memberDto.setMember_level(normal);	// 회원 기본등급 노말 설정
 		
+		/**
+		 * @작성일 : 2015. 12. 25.
+		 * @개발자 : 전현준
+		 * @수정사항 : 회원가입 이메일 부분 수정
+		 */
+		// 이메일 넘어온 값 3개 parameterValues로 받기
+		String[] email = request.getParameterValues("member_email");
+		//HomeAspect.logger.info(HomeAspect.logMsg + email);
+		
+		// String 배열로 받은 변수를 set하기
+		String member_email = email[0] + email[1] + email[2];
+		memberDto.setMember_email(member_email);
+		
 		// String member_id=memberDto.getMember_id();  // 입력받는 아이디
 		int check=memberDao.memberInsert(memberDto);         // 회원정보 인설트
 		// HomeAspect.logger.info(HomeAspect.logMsg+"입력받는 아이디:"+member_id);

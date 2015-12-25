@@ -190,10 +190,10 @@ public class ProductServiceImp implements ProductService {
 		List<ReviewDto> reviewList = productDao.reviewGetList(product_number);
 		int flight_ordered=productDao.getOrdered(flight_number);
 		
-		//////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////
 		/** 
 		 * @개발자 : 전현준
-		 * @수정내용 : flightList 함수 안에 쿠키 생성 추가
+		 * @수정내용 : flightList 함수 안에 최근 본 상품 - 쿠키 생성 부분 추가
 		 * @수정날짜 : 2015. 12. 21.
 		 * @최종수정날짜 : 2015. 12. 23.
 		 */

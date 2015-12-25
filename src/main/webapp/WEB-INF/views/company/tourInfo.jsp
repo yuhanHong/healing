@@ -5,13 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회사정보</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/boardFaq/boardFaq.css"/>
 <style type="text/css">
 #companyinfo li{
-
-display: block;
-float: left;
+	display: block;
+	float: left;
 }
 </style>
 </head>

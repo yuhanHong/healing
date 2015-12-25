@@ -28,7 +28,7 @@
 				<div class="line" style="margin-top: 20px;">
 					<label class="title" style="float:left; width:60px; height:40px;">구분</label>
 					<span class="content" style="width:500px; text-align:left;">
-						<input type="radio" name="faq_sort" value="package" checked="checked">패키지여행
+						<input type="radio" name="faq_sort" value="package">패키지여행
 						<input type="radio" name="faq_sort" value="free">자유여행
 						<input type="radio" name="faq_sort" value="air">항공
 						<input type="radio" name="faq_sort" value="hotel">호텔

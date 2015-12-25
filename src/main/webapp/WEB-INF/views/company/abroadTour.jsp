@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>해외여행 이용약관</title>
 <link rel="stylesheet" type="text/css" href="${root}/css/boardFaq/boardFaq.css"/>
 </head>
 <body>

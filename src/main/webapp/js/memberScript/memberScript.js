@@ -2,6 +2,7 @@
 
 function joinForm(form){
 //	alert("!");
+
 	if(form.member_id.value==""){
 		alert("아이디는 반드시 입력하셔야합니다.");
 		form.member_id.focus();
@@ -46,84 +47,80 @@ function joinForm(form){
 	}
 	
 	
-   var re = /^[0-9]+$/;
-   if(!re.test(form.member_phone.value)) {
-          alert("숫자만 넣으셔야 합니다.");
-          form.member_phone.focus();
-          return false;
-   }
+	var re = /^[0-9]+$/;
+	if(!re.test(form.member_phone.value)) {
+		alert("숫자만 넣으셔야 합니다.");
+		form.member_phone.focus();
+		return false;
+	}
+	
+	/**
+	 * @날짜 : 2015. 12. 25.
+	 * @개발자 : 전현준 
+	 * @수정내용 : 회원가입 이메일 부분 수정에 따른 유효성 검사 수정
+	 */
+	// 이메일 - 아이디 입력 부분 유효성 검사
+	if(form['member_email'][0].value == ""){
+		alert("이메일을 입력해주세요.");
+		form['member_email'][0].focus();
+		return false;
+	}
+	
+	// 이메일 - 주소 입력 부분 유효성 검사
+	if(form['member_email'][2].value == ""){
+		alert("이메일을 입력해주세요.");
+		form['member_email'][2].focus();
+		return false;
+	}
+	
+	// 이메일 입력할때 앞에칸에 @를 넣었을때 유효성 검사
+	// (참고) 이메일 입력칸에 @를 안넣었을때 ===> form['member_email'][0].value.indexOf('@') == -1값이다.
+	if(form['member_email'][0].value.indexOf('@') != -1){		
+		alert("이메일을 바르게 입력하세요.");
+		form['member_email'][0].focus();
+		return false;
+	}
+	
+	// 이메일 입력할때 앞에칸에 .를 넣었을때 유효성 검사
+	// (참고) 이메일 입력칸에 .을 안넣었을때 ===> form['member_email'][0].value.indexOf('@') == -1값이다.
+	if(form['member_email'][0].value.indexOf('.') != -1){		
+		alert("이메일을 바르게 입력하세요.");
+		form['member_email'][0].focus();
+		return false;
+	}
+	
+	// 이메일 뒤에 주소적는 칸에 @를 입력했을 경우
+	if(form['member_email'][2].value.indexOf('@') != -1){		
+		alert("이메일을 바르게 입력하세요.");
+		form['member_email'][2].focus();
+		return false;
+	}
+	
+	// 이메일 주소 넣는 칸에 .이 맨앞에 있는 경우
+	if(form['member_email'][2].value.indexOf('.')==0){
+		alert("이메일을 바르게 입력하세요.");
+		form['member_email'][2].focus();
+		return false;
+	}
+	
+	// 이메일 뒤에 주소적는 칸에 .만 입력했을 경우 혹은 맨끝에 글자가 .으로 끝났을 경우
+	if(form['member_email'][2].value.lastIndexOf('.')==form['member_email'][2].value.length-1){
+		alert("이메일을 바르게 입력하세요.");
+		form['member_email'][2].focus();
+		return false;
+	}
+	   
+	if(form.join1.checked==false){
+		alert("약관은 반드시 동의하셔야 합니다.");
+		form.join1.focus();
+		return false;
+	}
    
-   if(form.member_email.value==""){
-	      alert("이메일 입력하세요.");
-	      form.member_email.focus();
-	      return false;
-	   }
-	   
-	   if(form.member_email.value.indexOf('@')==-1){
-	      alert("이메일을 바르게 입력하세요.");
-	      form.member_email.focus();
-	      return false;
-	   }
-	   
-	   if(form.member_email.value.indexOf('@')==0){
-	      alert("이메일을 바르게 입력하세요.");
-	      form.member_email.focus();
-	      return false;
-	   }
-	   
-	   if(form.member_email.value.indexOf('@')!=form.member_email.value.lastIndexOf('@')){
-	      alert("이메일을 바르게 입력하세요.");
-	      form.member_email.focus();
-	      return false;
-	   }
-	   
-	   if(form.member_email.value.lastIndexOf('@')==form.member_email.value.length-1){
-	      alert("이메일을 바르게 입력하세요.");
-	      form.member_email.focus();
-	      return false;
-	   }
-	   
-	   if(form.member_email.value.indexOf('.')==-1){
-	      alert("이메일을 바르게 입력하세요.");
-	      form.member_email.focus();
-	      return false;
-	   }
-	   
-	   if(form.member_email.value.indexOf('.')==0){
-	      alert("이메일을 바르게 입력하세요.");
-	      form.member_email.focus();
-	      return false;
-	   }
-	   
-	   if(form.member_email.value.indexOf('.')!=form.member_email.value.lastIndexOf('.')){
-	      alert("이메일을 바르게 입력하세요.");
-	      form.member_email.focus();
-	      return false;
-	   }
-	   
-	   if(form.member_email.value.lastIndexOf('.')==form.member_email.value.length-1){
-	      alert("이메일을 바르게 입력하세요.");
-	      form.member_email.focus();
-	      return false;
-	   }
-	   
-	   if(form.member_email.value.lastIndexOf('@')+2>form.member_email.value.indexOf('.')){
-	      alert("이메일을 바르게 입력하세요.");
-	      form.member_email.focus();
-	      return false;
-	   }
-	   
-   if(form.join1.checked==false){
-	   alert("약관은 반드시 동의하셔야 합니다.");
-	   form.join1.focus();
-	   return false;
-   }
-   
-   if(form.join2.checked==false){
-	   alert("약관은 반드시 동의하셔야 합니다.");
-	   form.join2.focus();
-	   return false;
-   }
+	if(form.join2.checked==false){
+		alert("약관은 반드시 동의하셔야 합니다.");
+		form.join2.focus();
+		return false;
+	}
 
 }
 
@@ -191,4 +188,22 @@ function idCheck(idInputText,root){
 		}
 	});
 }
+
+/**
+ * JQuery 함수
+ * @작성일 : 2015. 12. 25.
+ * @개발자 : 전현준
+ * @함수설명 : 회원가입 부분 - 이메일 선택 Jquery 함수
+ */
+$(function(){
+	$("select[name='member_email_sel']").change(function(){
+		if($("select[name='member_email_sel']")[0].value == "self_input"){
+			$("input[name='member_email']")[2].value = "";
+			$("input[name='member_email']")[2].readOnly = false;				
+		}else{
+			$("input[name='member_email']")[2].value = $("select[name='member_email_sel']")[0].value;
+			$("input[name='member_email']")[2].readOnly = true;	
+		}
+	});
+});
 

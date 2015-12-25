@@ -28,9 +28,7 @@ public class HealingHomeServiceImp implements HealingHomeService {
 	 * @함수이름 : healingHome
 	 * @작성일 : 2015. 12. 15.
 	 * @개발자 : 전현준
-	 * @함수설명 : 1. healingHome.do 요청이 들어오면 /include/home.jsp로 페이지 이동(추후 메인으로 될 페이지)
-	 * @수정일 : 2015. 12. 18.
-	 * @수정내용(추가) : 2. 최근 본 상품 목록 가져오기(쿠키 이용)
+	 * @함수설명 : healingHome.do 요청이 들어오면 /include/home.jsp로 페이지 이동(추후 메인으로 될 페이지)
 	 */
 	@Override
 	public void healingHome(ModelAndView mav) {

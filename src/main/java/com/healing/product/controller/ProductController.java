@@ -39,7 +39,7 @@ public class ProductController {
 		
 		return mav;
 	}
-
+	
 	@RequestMapping(value="/product/productRead.do",method=RequestMethod.GET)
 	public ModelAndView productRead(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();

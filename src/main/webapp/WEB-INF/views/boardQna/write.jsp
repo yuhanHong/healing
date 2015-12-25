@@ -70,7 +70,7 @@
 					<div class="line">
 						<label class="title" style="width:70px;">문의 구분</label>
 						<span class="content" style="width:300px">
-							<input type="radio" name="qna_sort" value="reservation" checked="checked">예약
+							<input type="radio" name="qna_sort" value="reservation">예약
 							<input type="radio" name="qna_sort" value="payment">결제
 							<input type="radio" name="qna_sort" value="product">상품
 							<input type="radio" name="qna_sort" value="etc">기타

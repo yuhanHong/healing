@@ -43,7 +43,7 @@ public class DetailSearchController {
 		try{
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out=response.getWriter();
-			out.print(jso.toString());        // out.print 내용을 ajax의 dataType이 jason인 놈에게 데이터 쏴줌
+			out.print(jso.toString());        // out.print 내용을 ajax의 dataType이 json인 놈에게 데이터 쏴줌
 		}catch(Exception e){
 			e.printStackTrace();
 		}

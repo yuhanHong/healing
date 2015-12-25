@@ -11,11 +11,11 @@
 <link rel="stylesheet" type="text/css" href="${root}/css/jquery-ui.css"/>
 <link rel="stylesheet" type="text/css" href="${root}/css/member/memberJoin.css"/>
 <script type="text/javascript" src="${root}/js/memberScript/memberScript.js"></script>
- <script>
-  $(function() {
-    $( "#tabs" ).tabs();
-  });
-  </script>
+<script>
+	$(function() {
+		$( "#tabs" ).tabs();
+	});
+</script>
 
 </head>
 <body>
@@ -75,9 +75,17 @@
 						<div>
 							<div id="subj">※ 이메일</div>
 							<div id="fieldDiv">
-								<input type="text" size="30" id="field" name="member_email"/>
+								<input type="text" size="12" id="field" name="member_email"/>@<input type="hidden" name="member_email" value="@" size="1" id="field"><input type="text" name="member_email" size="12" id="field">
+								<select name="member_email_sel" id="field">
+									<option value="self_input"> 직접입력 </option>
+									<option value="naver.com"> naver.com </option>
+									<option value="hanmail.net"> hanmail.net </option>
+									<option value="nate.com"> nate.com </option>
+									<option value="google.com"> google.com </option>
+									<option value="yahoo.com"> yahoo.com </option>
+									<option value="facebook.com"> facebook.com </option>
+								</select>
 							</div>
-
 						</div>
 						<div>
 							<div id="exField" style="width:700px">

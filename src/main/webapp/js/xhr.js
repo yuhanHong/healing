@@ -1,5 +1,8 @@
 /**
- * 
+ *  @함수이름 : createXHR
+ *  @작성일 : 2015. 12. 8.
+ *  @개발자 : 전현준
+ *  @함수설명 : 요청된 XMLHttpRequest 객체가 지니고 있는 버전에 따른 try/catch 처리
  */
 
 var xhr = null;
@@ -22,6 +25,11 @@ function createXHR(){
 	}
 }
 
+/** @함수이름 : sendRequest
+ *  @작성일 : 2015. 12. 8.
+ *  @개발자 : 전현준
+ *  @함수설명 : ajax 이용하기 위한 함수(method : get/post, url : 요청한 페이지 url, callback : callback함수, params : parameter)
+ */
 function sendRequest(method, url, callback, params){
 	//debugger;
 	xhr = createXHR();
@@ -37,7 +45,7 @@ function sendRequest(method, url, callback, params){
 	}
 	
 	xhr.open(httpMethod, httpUrl, true);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");		// post 방식일 때 필요함
 	xhr.send(httpMethod=="POST" ? httpParams : null);
 	xhr.onreadystatechange = callback;
 }

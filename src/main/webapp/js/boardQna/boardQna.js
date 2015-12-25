@@ -57,7 +57,7 @@ function boardQnaSearch(root){
  * @함수이름 : boardNoticeForm
  * @날짜 : 2015. 12. 24.
  * @개발자 : 전현준
- * @설명 : 문의사항 작성할 때 유효성 검사
+ * @설명 : 문의사항 작성할 때 유효성 검사 추가
  */
 function boardQnaForm(form){
 	if(form.qna_writer.value == ""){
@@ -75,6 +75,13 @@ function boardQnaForm(form){
 	if(form.qna_password.value == ""){
 		alert("비밀번호를 입력하세요.");
 		form.qna_password.focus();
+		return false;
+	}
+	
+	var qna_sort = $("input:radio[name='qna_sort']");
+	if(qna_sort.is(":checked") == false){				// 문의 구분 - 라디오버튼 체크됬는지 여부(true or false)
+		alert("문의 구분을 선택해주세요.");
+		qna_sort[0].focus();
 		return false;
 	}
 	
