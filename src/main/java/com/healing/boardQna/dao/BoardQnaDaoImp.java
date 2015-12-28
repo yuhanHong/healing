@@ -12,6 +12,7 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
+import com.healing.aop.HomeAspect;
 import com.healing.boardQna.dto.BoardQnaDto;
 
 @Component
@@ -38,31 +39,16 @@ public class BoardQnaDaoImp implements BoardQnaDao {
 	}
 
 	@Override
-	public int boardQnaGetCount() {
-		return sessionTemplate.selectOne("dao.boardQnaMapper.boardQnaGetCount");
-	}
-
-	@Override
 	public int boardQnaGetCountSearch(String searchSort, String searchWord) {
 		int value = 0;
 		
-		if(searchSort.equals("titleSort")){
-			value = sessionTemplate.selectOne("dao.boardQnaMapper.boardQnaGetCountTitle", searchWord);
-		}else if(searchSort.equals("contentSort")){
-			value = sessionTemplate.selectOne("dao.boardQnaMapper.boardQnaGetCountContent", searchWord);
-		}else if(searchSort.equals("writerSort")){
-			value = sessionTemplate.selectOne("dao.boardQnaMapper.boardQnaGetCountWriter", searchWord);
-		}
+		HashMap<String, String> hMap = new HashMap<String, String>();
+		hMap.put("searchSort", searchSort);
+		hMap.put("searchWord", searchWord);
+		
+		value = sessionTemplate.selectOne("dao.boardQnaMapper.boardQnaGetCountSearch",hMap);
 		
 		return value;
-	}
-	
-	@Override
-	public List<BoardQnaDto> boardQnaGetList(int startRow, int endRow) {
-		HashMap<String, Object> hMap = new HashMap<String, Object>();
-		hMap.put("startRow", startRow);
-		hMap.put("endRow", endRow);
-		return sessionTemplate.selectList("dao.boardQnaMapper.boardQnaGetList", hMap);
 	}
 	
 	@Override
@@ -72,14 +58,9 @@ public class BoardQnaDaoImp implements BoardQnaDao {
 		hMap.put("startRow", startRow);
 		hMap.put("endRow", endRow);
 		hMap.put("searchWord", searchWord);
+		hMap.put("searchSort", searchSort);
 		
-		if(searchSort.equals("titleSort")){
-			boardQnaList = sessionTemplate.selectList("dao.boardQnaMapper.boardQnaGetListSearchTitle", hMap);
-		}else if(searchSort.equals("contentSort")){
-			boardQnaList = sessionTemplate.selectList("dao.boardQnaMapper.boardQnaGetListSearchContent", hMap);
-		}else if(searchSort.equals("writerSort")){
-			boardQnaList = sessionTemplate.selectList("dao.boardQnaMapper.boardQnaGetListSearchWriter", hMap);
-		}
+		boardQnaList = sessionTemplate.selectList("dao.boardQnaMapper.boardQnaGetListSearch",hMap);
 		
 		return boardQnaList;
 	}

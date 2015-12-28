@@ -136,32 +136,10 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		
 		List<BoardNoticeDto> boardNoticeList = null;
 		
-		if(searchSort == null || searchSort.equals("")){
-			count = boardNoticeDao.boardNoticeGetCount();		
-//			HomeAspect.logger.info(HomeAspect.logMsg+count);
-			
-			if(count > 0){
-				boardNoticeList = boardNoticeDao.boardNoticeGetList(startRow, endRow);
-//				HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeList.size());
-			}
-		}else{
-			if(searchSort.equals("titleSort")){					// 제목 검색
-				count = boardNoticeDao.boardNoticeGetCountTitle(searchWord);
-//				HomeAspect.logger.info(HomeAspect.logMsg+count);
-				
-				if(count > 0){
-					boardNoticeList = boardNoticeDao.boardNoticeGetListTitle(startRow, endRow, searchWord);
-//					HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeList.size());
-				}
-			}else if(searchSort.equals("contentSort")){
-				count = boardNoticeDao.boardNoticeGetCountContent(searchWord);
-//				HomeAspect.logger.info(HomeAspect.logMsg+count);
-				
-				if(count > 0){
-					boardNoticeList = boardNoticeDao.boardNoticeGetListContent(startRow, endRow, searchWord);
-//					HomeAspect.logger.info(HomeAspect.logMsg+boardNoticeList.size());
-				}
-			}
+		count = boardNoticeDao.boardNoticeGetCount(searchSort, searchWord);
+		
+		if(count > 0){
+			boardNoticeList = boardNoticeDao.boardNoticeGetList(startRow, endRow, searchSort, searchWord);
 		}
 
 		mav.addObject("searchSort", searchSort);
@@ -298,25 +276,15 @@ public class BoardNoticeServiceImp implements BoardNoticeService {
 		BoardNoticeDto boardNoticeDtoPre = boardNoticeDao.boardNoticeSelect(Integer.parseInt(request.getParameter("notice_number")));
 		
 		if(boardNoticeDtoPre.getNotice_file_name()!=null){
-			//ShopAspect.logger.info(ShopAspect.logMsg+"OK");
 			File checkFile = new File(boardNoticeDtoPre.getNotice_file_path());
 			if(checkFile.exists() && checkFile.isFile()){
 				boolean b=checkFile.delete();
-//				HomeAspect.logger.info(HomeAspect.logMsg+b);
 			}
 		}
-		
-//		HomeAspect.logger.info(HomeAspect.logMsg+"notice_number:"+boardNoticeDto.getNotice_number());
-//		HomeAspect.logger.info(HomeAspect.logMsg+"notice_content:"+boardNoticeDto.getNotice_content());
-//		HomeAspect.logger.info(HomeAspect.logMsg+"notice_writer:"+boardNoticeDto.getNotice_writer());
-//		HomeAspect.logger.info(HomeAspect.logMsg+"notice_file_name:"+boardNoticeDto.getNotice_file_name());
-//		HomeAspect.logger.info(HomeAspect.logMsg+"notice_file_path:"+boardNoticeDto.getNotice_file_path());
-//		HomeAspect.logger.info(HomeAspect.logMsg+"notice_file_size:"+boardNoticeDto.getNotice_file_size());
 		
 		boardNoticeDto.setNotice_content(boardNoticeDto.getNotice_content().replace("\r\n", "<br/>"));
 		
 		int check = boardNoticeDao.boardNoticeUpdate(boardNoticeDto);
-//		HomeAspect.logger.info(HomeAspect.logMsg+check);
 		
 		mav.addObject("check",check);
 		mav.addObject("pageNumber",Integer.parseInt(request.getParameter("pageNumber")));

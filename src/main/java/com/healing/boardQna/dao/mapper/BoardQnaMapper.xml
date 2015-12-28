@@ -27,60 +27,40 @@
 			#{qna_password}, #{qna_group_number}, #{qna_sequence_number}, #{qna_readCount})
 	</insert>
 	
-	<select id="boardQnaGetCount" resultType="int">
-		select count(*) from qna where qna_sequence_number=0
+	<select id="boardQnaGetCountSearch" parameterType="java.util.HashMap" resultType="int">
+		select count(*) from qna where
+			<if test="searchSort == 'titleSort' or searchSort eq 'titleSort'">
+				qna_title like '%' || #{searchWord} || '%' and 
+			</if>
+			<if test="searchSort == 'contentSort' or searchSort eq 'contentSort'">
+				qna_content like '%' || #{searchWord} || '%' and 
+			</if>
+			<if test="searchSort == 'writerSort' or searchSort eq 'writerSort'">
+				qna_writer like '%' || #{searchWord} || '%' and 
+			</if>
+		qna_sequence_number=0
 	</select>
 	
-	<select resultType="int" id="boardQnaGetCountTitle" parameterType="String"> 
-		select count(*) from qna where qna_title like '%' || #{searchWord} || '%' and qna_sequence_number=0
-	</select>
-
-	<select resultType="int" id="boardQnaGetCountContent" parameterType="String"> 
-		select count(*) from qna where qna_content like '%' || #{searchWord} || '%' and qna_sequence_number=0
-	</select>
-
-	<select resultType="int" id="boardQnaGetCountWriter" parameterType="String"> 
-		select count(*) from qna where qna_writer like '%' || #{searchWord} || '%' and qna_sequence_number=0
-	</select>
-	
-	<select id="boardQnaGetList" parameterType="java.util.HashMap" resultType="com.healing.boardQna.dto.BoardQnaDto">
+	<select id="boardQnaGetListSearch" parameterType="java.util.HashMap" resultType="com.healing.boardQna.dto.BoardQnaDto">
 		<![CDATA[
-		select * from
-			(select rownum rnum, g.* from
-			(select * from  qna where qna_sequence_number=0 order by qna_number desc) g)
-		where
-			rnum between #{startRow} and #{endRow}
-		]]>
-	</select>
-	
-	<select resultType="com.healing.boardQna.dto.BoardQnaDto" id="boardQnaGetListSearchTitle" parameterType="java.util.HashMap">
-		<![CDATA[ 
-			select * from 
-				(select rownum rnum, g.* from 
-				(select * from qna where qna_title like '%' || #{searchWord} || '%' and qna_sequence_number=0
-				 order by qna_number desc) g) 
-			where rnum between #{startRow} and #{endRow} 
-		]]>
-	</select>
-
-	<select resultType="com.healing.boardQna.dto.BoardQnaDto" id="boardQnaGetListSearchContent" parameterType="java.util.HashMap">
-		<![CDATA[ 
-			select * from 
-				(select rownum rnum, g.* from 
-				(select * from qna where qna_content like '%' || #{searchWord} || '%' and qna_sequence_number=0
+			select * from
+				(select rownum rnum, g.* from
+				(select * from qna where qna_sequence_number = 0  ]]>
+			
+			<if test="searchSort == 'titleSort' or searchSort eq 'titleSort'">
+				and qna_title like '%' || #{searchWord} || '%'
+			</if>
+			<if test="searchSort == 'contentSort' or searchSort eq 'contentSort'">
+				and qna_content like '%' || #{searchWord} || '%'
+			</if>
+			<if test="searchSort == 'writerSort' or searchSort eq 'writerSort'">
+				and qna_writer like '%' || #{searchWord} || '%'
+			</if>
+			
+		<![CDATA[
 				order by qna_number desc) g) 
-			where rnum between #{startRow} and #{endRow} 
-		]]>
-	</select>
-
-	<select resultType="com.healing.boardQna.dto.BoardQnaDto" id="boardQnaGetListSearchWriter" parameterType="java.util.HashMap">
-		<![CDATA[ 
-			select * from 
-				(select rownum rnum, g.* from 
-				(select * from qna where qna_writer like '%' || #{searchWord} || '%' and qna_sequence_number=0
-				order by qna_number desc) g) 
-			where rnum between #{startRow} and #{endRow} 
-		]]>
+			where 
+				rnum between #{startRow} and #{endRow}   ]]>
 	</select>
 	
 	<update id="readCount" parameterType="int">

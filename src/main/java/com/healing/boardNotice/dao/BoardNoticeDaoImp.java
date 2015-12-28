@@ -36,46 +36,23 @@ public class BoardNoticeDaoImp implements BoardNoticeDao {
 	}
 
 	@Override
-	public int boardNoticeGetCount() {
-		return sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeGetCount");
-	}
-
-	@Override
-	public int boardNoticeGetCountTitle(String searchWord) {
-		return sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeGetCountTitle", searchWord);
+	public int boardNoticeGetCount(String searchSort, String searchWord) {
+		HashMap<String, Object> hMap = new HashMap<String, Object>();
+		hMap.put("searchSort", searchSort);
+		hMap.put("searchWord", searchWord);
+		return sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeGetCount", hMap);
 	}
 	
 	@Override
-	public int boardNoticeGetCountContent(String searchWord) {
-		return sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeGetCountContent", searchWord);
-	}
-	
-	@Override
-	public List<BoardNoticeDto> boardNoticeGetList(int startRow, int endRow) {
-		HashMap<String, Integer> hMap = new HashMap<String, Integer>();
+	public List<BoardNoticeDto> boardNoticeGetList(int startRow, int endRow, String searchSort, String searchWord) {
+		HashMap<String, Object> hMap = new HashMap<String, Object>();
 		hMap.put("startRow", startRow);
 		hMap.put("endRow", endRow);
+		hMap.put("searchSort", searchSort);
+		hMap.put("searchWord", searchWord);
 		return sessionTemplate.selectList("dao.boardNoticeMapper.boardNoticeGetList", hMap);
 	}
 
-	@Override
-	public List<BoardNoticeDto> boardNoticeGetListTitle(int startRow, int endRow, String searchWord) {
-		HashMap<String, Object> hMap = new HashMap<String, Object>();
-		hMap.put("startRow", startRow);
-		hMap.put("endRow", endRow);
-		hMap.put("searchWord", searchWord);
-		return sessionTemplate.selectList("dao.boardNoticeMapper.boardNoticeGetListTitle", hMap);
-	}
-	
-	@Override
-	public List<BoardNoticeDto> boardNoticeGetListContent(int startRow, int endRow, String searchWord) {
-		HashMap<String, Object> hMap = new HashMap<String, Object>();
-		hMap.put("startRow", startRow);
-		hMap.put("endRow", endRow);
-		hMap.put("searchWord", searchWord);
-		return sessionTemplate.selectList("dao.boardNoticeMapper.boardNoticeGetListContent", hMap);
-	}
-	
 	@Override
 	public LinkedList<BoardNoticeDto> boardNoticeReadSelect(int notice_number, String searchWord, String searchSort) {
 		LinkedList<BoardNoticeDto> boardNoticeList = new LinkedList<BoardNoticeDto>();
@@ -97,43 +74,18 @@ public class BoardNoticeDaoImp implements BoardNoticeDao {
 			HashMap<String, Object> hMap = new HashMap<String, Object>();
 			hMap.put("notice_number", notice_number);
 			hMap.put("searchWord", searchWord);
+			hMap.put("searchSort", searchSort);
 			
-			if(searchSort == null || searchSort.equals("")){			// 검색하지 않았을 때
-				int notice_number_prev = sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeNumberPrev", notice_number);
-				if(notice_number_prev != 0){
-					boardNoticeDtoPrev=sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeSelect", notice_number_prev);
-					boardNoticeList.add(boardNoticeDtoPrev);
-				}
-				
-				int notice_number_next = sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeNumberNext", notice_number);
-				if(notice_number_next != 0){
-					boardNoticeDtoNext=sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeSelect", notice_number_next);
-					boardNoticeList.add(boardNoticeDtoNext);
-				}
-			}else if(searchSort.equals("titleSort")){					// 주제 검색할 때
-				int notice_number_prev = sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeNumberPrevTitle", hMap);
-				if(notice_number_prev != 0){
-					boardNoticeDtoPrev=sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeSelect", notice_number_prev);
-					boardNoticeList.add(boardNoticeDtoPrev);
-				}
-				
-				int notice_number_next = sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeNumberNextTitle", hMap);
-				if(notice_number_next != 0){
-					boardNoticeDtoNext=sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeSelect", notice_number_next);
-					boardNoticeList.add(boardNoticeDtoNext);
-				}
-			}else if(searchSort.equals("contentSort")){					// 내용 검색할 때
-				int notice_number_prev = sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeNumberPrevContent", hMap);
-				if(notice_number_prev != 0){
-					boardNoticeDtoPrev=sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeSelect", notice_number_prev);
-					boardNoticeList.add(boardNoticeDtoPrev);
-				}
-				
-				int notice_number_next = sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeNumberNextContent", hMap);
-				if(notice_number_next != 0){
-					boardNoticeDtoNext=sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeSelect", notice_number_next);
-					boardNoticeList.add(boardNoticeDtoNext);
-				}
+			int notice_number_prev = sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeNumberPrev", hMap);
+			if(notice_number_prev != 0){
+				boardNoticeDtoPrev=sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeSelect", notice_number_prev);
+				boardNoticeList.add(boardNoticeDtoPrev);
+			}
+			
+			int notice_number_next = sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeNumberNext", hMap);
+			if(notice_number_next != 0){
+				boardNoticeDtoNext=sessionTemplate.selectOne("dao.boardNoticeMapper.boardNoticeSelect", notice_number_next);
+				boardNoticeList.add(boardNoticeDtoNext);
 			}
 			
 			transactionManager.commit(status);

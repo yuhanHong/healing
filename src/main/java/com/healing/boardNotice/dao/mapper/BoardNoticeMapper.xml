@@ -22,46 +22,31 @@
 			#{notice_readCount})
 	</insert>
 	
-	<select id="boardNoticeGetCount" resultType="int">
+	<select id="boardNoticeGetCount" parameterType="java.util.HashMap" resultType="int">
 		select count(*) from notice
-	</select>
-	
-	<select id="boardNoticeGetCountTitle" parameterType="String" resultType="int">
-		select count(*) from notice where notice_title like '%' || #{searchWord} || '%'
-	</select>
-	
-	<select id="boardNoticeGetCountContent" parameterType="String" resultType="int">
-		select count(*) from notice where notice_content like '%' || #{searchWord} || '%'
+		<if test="searchSort == 'titleSort' or searchSort eq 'titleSort'">
+			where notice_title like '%' || #{searchWord} || '%'
+		</if>
+		<if test="searchSort == 'contentSort' or searchSort eq 'contentSort'">
+			where notice_content like '%' || #{searchWord} || '%'
+		</if>
 	</select>
 	
 	<select id="boardNoticeGetList" parameterType="java.util.HashMap" resultType="com.healing.boardNotice.dto.BoardNoticeDto">
 		<![CDATA[
 			select * from
 				(select rownum rnum, g.* from
-				(select * from notice order by notice_number desc) g)
+				(select * from notice ]]>
+			<if test="searchSort == 'titleSort' or searchSort eq 'titleSort'">
+				where notice_title like '%' || #{searchWord} || '%'
+			</if>
+			<if test="searchSort == 'contentSort' or searchSort eq 'contentSort'">
+				where notice_content like '%' || #{searchWord} || '%'
+			</if>	
+		<![CDATA[		
+				order by notice_number desc) g)
 			where
-				rnum between #{startRow} and #{endRow}
-		]]>
-	</select>
-	
-	<select id="boardNoticeGetListTitle" parameterType="java.util.HashMap" resultType="com.healing.boardNotice.dto.BoardNoticeDto">
-		<![CDATA[
-			select * from
-				(select rownum rnum, g.* from
-				(select * from notice where notice_title like '%' || #{searchWord} || '%' order by notice_number desc) g)
-			where
-				rnum between #{startRow} and #{endRow}
-		]]>
-	</select>
-	
-	<select id="boardNoticeGetListContent" parameterType="java.util.HashMap" resultType="com.healing.boardNotice.dto.BoardNoticeDto">
-		<![CDATA[
-			select * from
-				(select rownum rnum, g.* from
-				(select * from notice where notice_content like '%' || #{searchWord} || '%' order by notice_number desc) g)
-			where
-				rnum between #{startRow} and #{endRow}
-		]]>
+				rnum between #{startRow} and #{endRow} ]]>
 	</select>
 	
 	<update id="readCount" parameterType="int">
@@ -74,40 +59,30 @@
 	</update>
 	
 	<!-- Read -->
-	<select id="boardNoticeNumberPrev" parameterType="int" resultType="int">
+	<select id="boardNoticeNumberPrev" parameterType="java.util.HashMap" resultType="int">
 		<![CDATA[
-		SELECT nvl(MAX(notice_number),0) FROM notice WHERE notice_number < #{notice_number}
+			SELECT nvl(MAX(notice_number),0) FROM notice WHERE notice_number < #{notice_number}
 		]]>
-	</select>
 	
-	<select id="boardNoticeNumberPrevTitle" parameterType="java.util.HashMap" resultType="int">
-		<![CDATA[
-		SELECT nvl(MAX(notice_number),0) FROM notice WHERE notice_number < #{notice_number} and notice_title like '%' || #{searchWord} || '%'
-		]]>
-	</select>
-	
-	<select id="boardNoticeNumberPrevContent" parameterType="java.util.HashMap" resultType="int">
-		<![CDATA[
-		SELECT nvl(MAX(notice_number),0) FROM notice WHERE notice_number < #{notice_number} and notice_content like '%' || #{searchWord} || '%'
-		]]>
+		<if test="searchSort == 'titleSort' or searchSort eq 'titleSort'">
+			and notice_title like '%' || #{searchWord} || '%'
+		</if>
+		<if test="searchSort == 'contentSort' or searchSort eq 'contentSort'">
+			and notice_content like '%' || #{searchWord} || '%'
+		</if>	
 	</select>
 	
 	<select id="boardNoticeNumberNext" parameterType="int" resultType="int">
 		<![CDATA[
 		SELECT nvl(min(notice_number),0) FROM notice WHERE notice_number > #{notice_number}
 		]]>
-	</select>
-	
-	<select id="boardNoticeNumberNextTitle" parameterType="java.util.HashMap" resultType="int">
-		<![CDATA[
-		SELECT nvl(min(notice_number),0) FROM notice WHERE notice_number > #{notice_number} and notice_title like '%' || #{searchWord} || '%'
-		]]>
-	</select>
-	
-	<select id="boardNoticeNumberNextContent" parameterType="java.util.HashMap" resultType="int">
-		<![CDATA[
-		SELECT nvl(min(notice_number),0) FROM notice WHERE notice_number > #{notice_number} and notice_content like '%' || #{searchWord} || '%'
-		]]>
+		
+		<if test="searchSort == 'titleSort' or searchSort eq 'titleSort'">
+			and notice_title like '%' || #{searchWord} || '%'
+		</if>
+		<if test="searchSort == 'contentSort' or searchSort eq 'contentSort'">
+			and notice_content like '%' || #{searchWord} || '%'
+		</if>	
 	</select>
 	<!-- read 끝 -->
 	
