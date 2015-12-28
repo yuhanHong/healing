@@ -79,6 +79,8 @@ body, html {
 }
 
 .productListPages{
+	width: 880px;
+	margin: 0px auto;
 	text-align: center;
 	font-size: 14px;
 	padding: 5px 0px 0px;

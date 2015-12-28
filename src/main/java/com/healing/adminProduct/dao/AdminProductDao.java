@@ -1,5 +1,7 @@
 package com.healing.adminProduct.dao;
 
+import java.util.List;
+
 import com.healing.product.dto.BargainDto;
 import com.healing.product.dto.FlightDto;
 import com.healing.product.dto.ProductCityDto;
@@ -7,6 +9,7 @@ import com.healing.product.dto.ProductDayDto;
 import com.healing.product.dto.ProductDetailDto;
 import com.healing.product.dto.ProductDto;
 import com.healing.product.dto.ProductPhotoDto;
+import com.healing.product.dto.ProductSearchDto;
 
 /**
  * @이름 : AdminProductDao
@@ -24,4 +27,6 @@ public interface AdminProductDao {
 	BargainDto getBargain();
 	int setBargain(BargainDto bargainDto);
 	int updateBargain(BargainDto bargainDto);
+	List<ProductDto> adminProductSearch(ProductSearchDto productSearchDto);
+	int adminProductGetCount(ProductSearchDto productSearchDto);
 }

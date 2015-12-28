@@ -44,34 +44,33 @@
 <script type="text/javascript" src="http://js.modetour.com/jquery/jquery-ajaxq.js"></script>
 <script type="text/javascript" src="http://js.modetour.com/Json/json2.js"></script>
 <script type="text/javascript">
-	function productlike(){
-
-			var url="${root}/productLike/productLikeinsert.do?flight_number=${flightDto.flight_number}&member_number=${member_number}&product_number=${productDto.product_number}";
-			var check=confirm("관심 상품으로 등록하시겠습니까?");
-			if(check==true){
-				$.ajax({
-					url:url,
-					type:"get",
-					dataType:"text",
-					success:function(data){
-						var result=data;
-						
-						if(result=="1"){
-							alert("등록이 되었습니다.");
-						}else {
-							alert("등록이 실패되었습니다.");
-						}	
-					},
-					error:function(xhr, status, errorMsg){
-						alert("이미 등록된 상품입니다.");
-						
-					}
-				});
-			}else{
-				return;
+function productlike(){
+	var url="${root}/productLike/productLikeinsert.do?flight_number=${flightDto.flight_number}&member_number=${member_number}&product_number=${productDto.product_number}";
+	var check=confirm("관심 상품으로 등록하시겠습니까?");
+	if(check==true){
+		$.ajax({
+			url:url,
+			type:"get",
+			dataType:"text",
+			success:function(data){
+				var result=data;
+				
+				if(result=="1"){
+					alert("등록이 되었습니다.");
+				}else {
+					alert("등록이 실패되었습니다.");
+				}	
+			},
+			error:function(xhr, status, errorMsg){
+				alert("이미 등록된 상품입니다.");
+				
 			}
+		});
+	}else{
+		return;
 	}
-	</script>
+}
+</script>
 </head>
 <body>
 	
@@ -400,7 +399,7 @@
 								<div id="detail_0" class="contents">
 
 <!-- 	for문, List<Product_detailDto> detailList[i] -->
-
+									<c:if test="${productDayList!=null}">
 									<c:forEach var="i" begin="1" end="${fn:length(productDayList)-1}" >
 										<c:set var="productDayDto" value="${productDayList[i]}" />
 									
@@ -429,17 +428,20 @@
 														</div>
 													</c:if>
 													
+													<c:if test="${productDetailList[i]!=null}">
 													<c:forEach var="j" begin="0" end="${fn:length(productDetailList[i])-1}" >
 														<c:set var="productDetailDto" value="${productDetailList[i][j]}" />
-														<c:forEach var="k" begin="0" end="${fn:length(productPhotoList[i][j])-1}" >
+														<c:if test="${productPhotoList[i][j]!=null}">
+														<c:forEach var="k" begin="0" end="${fn:length(productPhotoList[i][j])==0?0:fn:length(productPhotoList[i][j])-1}" >
 															<c:set var="productPhotoDto" value="${productPhotoList[i][j][k]}" />
-															<img src="${root}/resources/productPhoto/${productDto.product_number}/${productPhotoDto.product_photo_filename}" width="300px" height="200px"/>
+															<img src="${root}/resources/productPhoto/${productDto.product_number}/${productPhotoDto.product_photo_filename}" width="300px" height="200px" alt="이미지 준비중입니다."/>
+														</c:forEach>
+														</c:if>
 															<h3>☆${productDetailDto.product_detail_name}☆</h3>
 															<span style="font-size: 15px;">${productDetailDto.product_detail_explain}</span>
 															<br/><br/>
-														</c:forEach>
 													</c:forEach>
-										
+													</c:if>
 													<c:if test="${i==(fn:length(productDayList)-1)}">
 														<div class="tour">
 															<div class="timeline">
@@ -457,6 +459,7 @@
 										</div>
 											
 									</c:forEach>
+									</c:if>
 								</div>
 										<!-- 일정끝 -->
 
@@ -512,7 +515,7 @@
 			</div>
 		
 			<span style="margin: 0px auto;">
-				<input type="button" id="product_like" value="관심상품 추가" onclick="productlike()"/>
+				<input type="button" id="product_like" onclick="productlike()" value="관심상품 추가"/>
 				<input type="button" id="product_order" onclick="javascript:location.href='${root}/order/write.do?pNum=${productDto.product_number}&fNum=${flightDto.flight_number}'" value="예약하기"/>
 			</span>
 		

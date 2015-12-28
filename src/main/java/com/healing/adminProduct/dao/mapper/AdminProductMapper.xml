@@ -51,5 +51,38 @@
 	<update id="updateBargain" parameterType="com.healing.product.dto.BargainDto">
 		update bargain set bargain_day1=#{bargain_day1},bargain_rate1=#{bargain_rate1},bargain_day2=#{bargain_day2},bargain_rate2=#{bargain_rate2}
 	</update>
+	
+	<select id="adminProductSearch" parameterType="com.healing.product.dto.ProductSearchDto" resultType="com.healing.product.dto.ProductDto">
+		<![CDATA[
+		SELECT * FROM (SELECT ROWNUM rnum, b.* FROM (SELECT * FROM product
+			where 1=1]]>
+			<if test="product_number != null and product_number !=''">
+				AND product_number = #{product_number}
+			</if>
+			<if test="product_name != null and product_name !=''">
+				AND product_name like '%'||#{product_name}||'%'
+			</if>
+			<if test="product_country != null and product_country !=''">
+				AND product_country like '%'||#{product_country}||'%'
+			</if>
+		<![CDATA[  ORDER BY product_number DESC) b) where rnum>= #{startRow} and rnum<=#{endRow}]]>
+		
+	</select>
+	<select id="adminProductGetCount" parameterType="com.healing.product.dto.ProductSearchDto" resultType="int">
+		<![CDATA[
+		SELECT nvl(count(*),0) FROM (SELECT ROWNUM rnum, b.* FROM (SELECT * FROM product
+			where 1=1]]>
+			<if test="product_number != null and product_number !=''">
+				AND product_number = #{product_number}
+			</if>
+			<if test="product_name != null and product_name !=''">
+				AND product_name like '%'||#{product_name}||'%'
+			</if>
+			<if test="product_country != null and product_country !=''">
+				AND product_country like '%'||#{product_country}||'%'
+			</if>
+		<![CDATA[  ORDER BY product_number DESC) b)]]>
+		
+	</select>
 </mapper>
 	

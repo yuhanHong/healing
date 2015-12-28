@@ -21,4 +21,5 @@ public interface AdminProductService {
 	void adminBargainUpdate(ModelAndView mav);
 	void adminProductList(ModelAndView mav);
 	void adminProductUpdate(ModelAndView mav);
+	void adminProductUpdateOk(ModelAndView mav);
 }

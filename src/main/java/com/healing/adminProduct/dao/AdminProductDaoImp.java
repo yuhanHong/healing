@@ -1,5 +1,7 @@
 package com.healing.adminProduct.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,6 +14,7 @@ import com.healing.product.dto.ProductDayDto;
 import com.healing.product.dto.ProductDetailDto;
 import com.healing.product.dto.ProductDto;
 import com.healing.product.dto.ProductPhotoDto;
+import com.healing.product.dto.ProductSearchDto;
 
 /**
  * @이름 : AdminProductDaoImp
@@ -86,5 +89,15 @@ public class AdminProductDaoImp implements AdminProductDao{
 	@Override
 	public int updateBargain(BargainDto bargainDto) {
 		return sessionTemplate.update("dao.adminProductMapper.updateBargain",bargainDto);
+	}
+
+	@Override
+	public List<ProductDto> adminProductSearch(ProductSearchDto productSearchDto) {
+		return sessionTemplate.selectList("dao.adminProductMapper.adminProductSearch",productSearchDto);
+	}
+
+	@Override
+	public int adminProductGetCount(ProductSearchDto productSearchDto) {
+		return sessionTemplate.selectOne("dao.adminProductMapper.adminProductGetCount",productSearchDto);
 	}
 }

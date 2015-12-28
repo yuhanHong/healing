@@ -18,6 +18,7 @@ import com.healing.product.dto.ProductDayDto;
 import com.healing.product.dto.ProductDetailDto;
 import com.healing.product.dto.ProductDto;
 import com.healing.product.dto.ProductPhotoDto;
+import com.healing.product.dto.ProductSearchDto;
 
 /**
  * @이름 : AdminProductController
@@ -204,8 +205,59 @@ public class AdminProductController {
 	@RequestMapping(value="/adminProduct/adminProductList.do",method=RequestMethod.GET)
 	public ModelAndView adminProductList(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
+		String type = request.getParameter("type");
+		String keyword = request.getParameter("keyword");
+		
+		ProductSearchDto productSearchDto = new ProductSearchDto();
+		
+		if(type != null && type!=""){
+			if(type.equals("product_name")){
+				productSearchDto.setProduct_name(keyword);
+			}else if(type.equals("product_country")){
+				productSearchDto.setProduct_country(keyword);
+			}else if(type.equals("product_number")){
+				productSearchDto.setProduct_number(Integer.parseInt(keyword));
+			}
+		}
+		
+		mav.addObject("type",type);
+		mav.addObject("keyword",keyword);
 		mav.addObject("request",request);
 		mav.addObject("response",response);
+		mav.addObject("productSearchDto",productSearchDto);
+		
+		adminProductService.adminProductList(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : adminProductList
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 홍유한
+	 * @함수설명 : admin이 상품목록을 검색할때 호출하여 adminProductList.jsp를 엽니다.
+	 */
+	@RequestMapping(value="/adminProduct/adminProductList.do",method=RequestMethod.POST)
+	public ModelAndView adminProductList(HttpServletRequest request, HttpServletResponse response,ProductSearchDto productSearchDto){
+		ModelAndView mav=new ModelAndView();
+		String type = request.getParameter("type");
+		String keyword = "";
+		
+		if(type != null && type!=""){
+			if(type.equals("product_name")){
+				keyword=productSearchDto.getProduct_name();
+			}else if(type.equals("product_country")){
+				keyword=productSearchDto.getProduct_country();
+			}else if(type.equals("product_number")){
+				keyword=productSearchDto.getProduct_number()+"";
+			}
+		}
+		
+		mav.addObject("type",type);
+		mav.addObject("keyword",keyword);
+		mav.addObject("request",request);
+		mav.addObject("response",response);
+		mav.addObject("productSearchDto",productSearchDto);
 		
 		adminProductService.adminProductList(mav);
 		
@@ -218,13 +270,33 @@ public class AdminProductController {
 	 * @개발자 : 홍유한
 	 * @함수설명 : admin이 상품을 수정할때 호출하여 adminProductUpdate.jsp를 엽니다.
 	 */
-	@RequestMapping(value="/adminProduct/adminProductUpdate.do",method=RequestMethod.POST)
+	@RequestMapping(value="/adminProduct/adminProductUpdate.do",method=RequestMethod.GET)
 	public ModelAndView adminProductUpdate(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav=new ModelAndView();
+		String pNum=request.getParameter("pNum");
+		
+		mav.addObject("pNum",pNum);
 		mav.addObject("request",request);
 		mav.addObject("response",response);
 		
 		adminProductService.adminProductUpdate(mav);
+		
+		return mav;
+	}
+	
+	/**
+	 * @함수이름 : adminProductUpdate
+	 * @작성일 : 2015. 12. 23.
+	 * @개발자 : 홍유한
+	 * @함수설명 : admin이 상품을 수정할때 호출하여 adminProductUpdate.jsp를 엽니다.
+	 */
+	@RequestMapping(value="/adminProduct/adminProductUpdate.do",method=RequestMethod.POST)
+	public ModelAndView adminProductUpdateOk(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("response",response);
+		
+		adminProductService.adminProductUpdateOk(mav);
 		
 		return mav;
 	}
