@@ -118,6 +118,8 @@ public class RecentProductServiceImp implements RecentProductService {
 		List<ProductDto> product = new ArrayList<ProductDto>();
 		List<ProductPhotoDto> productPhoto = new ArrayList<ProductPhotoDto>();
 		
+		JSONObject json = new JSONObject();			// JSONObject 객체 생성
+
 		if(cookies != null){
 			for(int i=0; i<cookiesLength-1; i++){
 				// 상품명, 상품가격, 상품이미지를 상품번호를 이용해서 갖고온다.
@@ -130,10 +132,9 @@ public class RecentProductServiceImp implements RecentProductService {
 				
 				product.addAll(productDto);
 				productPhoto.addAll(productPhotoDto);
+
 			}
 		}
-		
-		JSONObject json = new JSONObject();			// JSONObject 객체 생성
 		json.put("productInfo", product);			// JSONObject에 값 넣기
 		json.put("productPhotoInfo", productPhoto);
 		
@@ -145,6 +146,7 @@ public class RecentProductServiceImp implements RecentProductService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 	/*@Override

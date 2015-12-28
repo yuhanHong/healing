@@ -1,5 +1,6 @@
 package com.healing.product.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -100,5 +101,18 @@ public class ProductDaoImp implements ProductDao {
 	@Override
 	public List<ReviewDto> reviewGetList(int product_number) {
 		return sqlSessionTemplate.selectList("dao.productMapper.reviewGetList",product_number);
+	}
+
+	@Override
+	public int productPlusCount(int product_number) {
+		HashMap<String,Integer> hMap=new HashMap<String,Integer>();
+		hMap.put("product_number", product_number);
+		
+		return sqlSessionTemplate.update("dao.productMapper.productPlusCount",product_number);
+	}
+
+	@Override
+	public List<ProductDto> productHighestCount(int endRow) {
+		return sqlSessionTemplate.selectList("dao.productMapper.productHighestCount",endRow);
 	}
 }

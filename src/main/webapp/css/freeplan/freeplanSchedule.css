@@ -31,17 +31,17 @@ ul,li {margin:0; padding:0;}
 }
 /* ----------------------- */
 
-.day{
+.ui-state-disabled{
 	border:1px solid #c0c0c0;
 	height:40px; line-height: 40px;
-	text-align: center; background-color: #598700;
+	text-align: center; background-color: #0000a0;
 	font-weight: bold; color:#ffffff;
 	
 }
 
 .pulm{
 	border:1px solid #c0c0c0;
-	height:40px; line-height: 40px;
+	height:40px; line-height: 40px; width:280px;
 	text-align: center; background-color: #6ABC64;
 	font-weight: bold; color:#ffffff;
 }
@@ -51,7 +51,7 @@ ul,li {margin:0; padding:0;}
 	border-bottom-color:#BDBDBD;
 	background-color:#ffffff;
 	height:85px; line-height: 85px;
-	width:300px;
+	width:280px;
 }
 
 #schedule{

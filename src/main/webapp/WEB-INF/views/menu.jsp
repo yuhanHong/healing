@@ -18,8 +18,7 @@ http://www.templatemo.com/free-website-templates/
 <c:set var="root" value="${pageContext.request.contextPath }" />
 <!-- header css -->
 <link rel="stylesheet" href="${root}/css/header/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="${root}/css/header/css/templatemo-style.css">
+<link rel="stylesheet" href="${root}/css/header/css/templatemo-style.css">
 
 <!-- slide -->
 <link rel="icon" href="${root}/css/body/images/favicon.ico">

@@ -31,11 +31,10 @@
 					</div>
 					<div id="schedule2">
 						<ul id="schedule_ul" class="scedu" style="clear:both;">
-							<li class="day" id="firstDay" style="background-color: #22741C;">
+							<li class="ui-state-disabled day" id="firstDay" style="background-color: #0000a0;">
 								<input type="hidden" value="day1"/>
 								DAY1	
 							</li>
-							
 						</ul>
 					</div>
 				</div>

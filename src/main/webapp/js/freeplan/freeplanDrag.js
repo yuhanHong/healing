@@ -3,13 +3,14 @@ var day=1;
 $(function(){
 	$("#plus").click(function(){ // 클릭시 데이 1씩 추가
 		day=day+1;
-		$("#schedule_ul").append("<li id='day"+day+"' class='day' style='background-color: #22741C;'><input type='hidden' value='/day"+day+"'/>"+"DAY"+day+"</li>")
+		$("#schedule_ul").append("<li id='day"+day+"' class='ui-state-disabled' style='background-color: #0000a0;'><input type='hidden' value='/day"+day+"'/>"+"DAY"+day+"</li>")
 	});
 	
 	$("#minus").click(function(){ // 클릭시 데이 1씩 삭제
-		$("#day"+day).remove();
-		day=day-1;
-		
+		if($("#day"+day).val()!=null){	// 삭제를 계속 눌러도 day가 -로 내려가지않게 막아준다.
+			$("#day"+day).remove();
+			day=day-1;
+		}
 	});
 	
 	dragFunc();
@@ -54,10 +55,9 @@ function dragFunc(){
 		}
 		
 		 $( "#schedule_ul").sortable({  // 정렬
-	  	    cancle: ".day",				
-	  	    items: "li:not(#firstDay)"	// 첫번째 날짜는 적용되지 않는다
-	  	  });
-
+			 cancel: ".ui-state-disabled"	// 데이는 움직이지 않는다.
+	  	 });
+		 
 		 $("#schedule_ul li").disableSelection();
 		 
 		 $(".list_li").click(function(event){	// 리스트쪽 li에 클릭이벤트

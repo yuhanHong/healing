@@ -15,14 +15,21 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.healing.adminBanner.dao.AdminBannerDao;
+import com.healing.adminProduct.dao.AdminProductDao;
 import com.healing.aop.HomeAspect;
+import com.healing.product.dao.ProductDao;
 import com.healing.product.dto.ProductDto;
 import com.healing.product.dto.ProductPhotoDto;
+import com.healing.product.dto.ProductSearchDto;
 
 @Component
 public class HealingHomeServiceImp implements HealingHomeService {
 	@Autowired
 	private AdminBannerDao adminBannerDao;
+	@Autowired
+	private AdminProductDao adminProductDao;
+	@Autowired
+	private ProductDao productDao;
 
 	/**
 	 * @함수이름 : healingHome
@@ -54,6 +61,18 @@ public class HealingHomeServiceImp implements HealingHomeService {
 		
 		int listSize = productList.size();		// product 테이블하고 product_photo 테이블 조인한 결과에서 리스트 사이즈
 		//HomeAspect.logger.info(HomeAspect.logMsg +"배너배너배너~"+ listSize);
+		
+		int endRow = 6;
+		ProductSearchDto productSearchDto=new ProductSearchDto();
+		int productCount = adminProductDao.adminProductGetCount(productSearchDto);
+		
+		if(endRow > productCount) endRow = productCount;
+		
+		List<ProductDto> highestCountProductList=null;
+		if(endRow > 0) highestCountProductList = productDao.productHighestCount(endRow); 
+				
+		mav.addObject("highestCountProductList", highestCountProductList);
+
 		mav.addObject("count", count);							// 메인 배너에 등록됬는지를 알려주는 필드 개수
 		mav.addObject("listSize", listSize);
 		mav.addObject("productList", productList);				// 배너 상품 정보

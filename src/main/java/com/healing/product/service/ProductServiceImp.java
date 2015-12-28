@@ -63,7 +63,7 @@ public class ProductServiceImp implements ProductService {
 		int count=productDao.productGetCount(product_category);
 		if(endRow > count) endRow=count;
 		List<ProductDto> productList=null;
-
+		
 		ProductSearchDto productSearchDto=new ProductSearchDto();
 		productSearchDto.setStartRow(startRow);
 		productSearchDto.setEndRow(endRow);
@@ -114,6 +114,9 @@ public class ProductServiceImp implements ProductService {
 		int product_number=Integer.parseInt(pNum);
 		ProductDto productDto = productDao.productRead(product_number);
 		int flightCount = productDao.flightGetCount(product_number);		// 조건에 맞는 항공정보 개수
+		
+		int value=productDao.productPlusCount(product_number);
+		HomeAspect.logger.info(HomeAspect.logMsg + "value:" + value);
 		
 		if(flightCount == 0) {
 			mav.setViewName("product/flightList");

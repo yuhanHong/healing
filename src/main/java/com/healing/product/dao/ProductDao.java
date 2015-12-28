@@ -30,4 +30,6 @@ public interface ProductDao {
 	int getOrdered(int product_number);
 	String productCityRead(int product_number);
 	List<ReviewDto> reviewGetList(int product_number);
+	int productPlusCount(int product_number);
+	List<ProductDto> productHighestCount(int endRow);
 }

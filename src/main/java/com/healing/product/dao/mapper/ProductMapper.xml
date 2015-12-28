@@ -42,5 +42,13 @@
 	<select id="reviewGetList" parameterType="int" resultType="com.healing.memberMypage.dto.ReviewDto">
 		SELECT * FROM review WHERE PRODUCT_NUMBER = #{product_number} ORDER BY review_number desc
 	</select>
+	<update id="productPlusCount" parameterType="int">
+		update product set product_readcount = product_readcount + 1 where product_number=#{product_number}
+	</update>
+	<select id="productHighestCount" parameterType="int" resultType="com.healing.product.dto.ProductDto">
+		<![CDATA[
+		SELECT * FROM (SELECT ROWNUM rnum, b.* FROM (SELECT * FROM product ORDER BY product_readcount DESC) b) where rnum>= 1 and rnum<=#{endRow}
+		]]>
+	</select>
 </mapper>
 	

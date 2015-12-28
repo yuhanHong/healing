@@ -452,7 +452,7 @@ header h1 a img {
 }
 .banners {
     overflow: hidden;
-    padding-top: 100px;
+    padding-top: 10px;
 }
 
 .banners .banner {
