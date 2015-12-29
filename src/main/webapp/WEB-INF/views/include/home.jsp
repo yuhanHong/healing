@@ -76,36 +76,15 @@
 <%-- <jsp:include page="side_menu.jsp"/> --%>
 <!-- 최근 본 상품 include 된 부분  -->
 
-	${productDto.product_name}
-
-
-<%-- <div class="best_main">
-	<c:forEach var="productDto" items="${highestCountProductList}">
-		<div class="best_content">
-			<div class="banner">
-				<img src="${root}/css/body/images/page2_img5.jpg" width="200px" height="250px" alt="">
-				<div class="label">
-					<div class="title">TURKEY</div>
-					<div class="price">
-						from<span>$ 1.500</span>
-					</div>
-					<a href="#">LEARN MORE</a>
-				</div>
-			</div>
-		</div>
-	</c:forEach>
-</div>
- --%>
- 
  <div class="content">
 	<div class="container_12">
 		<div class="banners">
 			<c:forEach var="productDto" items="${highestCountProductList}">
 				<div class="grid_4">
-					<div class="banner" style="padding-top: 0px;">
+					<div class="banner"style="padding-top: 0px;">
 						<img src="${root}/resources/productPhoto/${productDto.product_number}/0-1-1.jpg" width="300px" height="350px" alt="">
 						<div class="label">
-							<div class="title">${productDto.product_name}</div>
+							<div class="title" align="center" style="width:100%; overflow: hidden; font-size:23px;">${productDto.product_name}</div>
 							<div class="price" style="clear:both;">
 								${productDto.product_summary}<span>${productDto.product_price_adult}</span>
 							</div>
