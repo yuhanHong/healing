@@ -29,4 +29,10 @@ public interface AdminProductDao {
 	int updateBargain(BargainDto bargainDto);
 	List<ProductDto> adminProductSearch(ProductSearchDto productSearchDto);
 	int adminProductGetCount(ProductSearchDto productSearchDto);
+	void adminProductDeletePhoto(int product_number);
+	void adminProductDeleteDetail(int product_number);
+	void adminProductDeleteDay(int product_number);
+	void adminProductDeleteFlight(int product_number);
+	void adminProductDeleteCity(int product_number);
+	int adminProductDeleteProduct(int product_number);
 }

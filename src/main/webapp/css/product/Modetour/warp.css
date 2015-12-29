@@ -1,0 +1,15 @@
+﻿@charset 'utf-8';
+
+/*공통 구성*/
+#Containerwrap, #Footerwrap {clear:both;}
+#Leftwrap {float:left;}
+#Rightwrap {float:right;}
+
+img {border:none;}
+
+.alertOuterBoxNone {}
+.alertOuterBoxflash {display:none; position:absolute; z-index:99997; background-color:#FFF;}
+.alertOuterBoxNormal {display:none; position:absolute; z-index:99997; background-color:#9a9a9a; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=35)"; filter:Alpha(Opacity=35); opacity:0.3; -moz-opacity:0.3;}
+
+/* 스킵네비게이션 용(웹접근성처리) */
+.Skipnav{position:fixed;top:-100px;left:0;width:0;height:0;display:block;font-size:0;line-height:0;overflow:hidden;}

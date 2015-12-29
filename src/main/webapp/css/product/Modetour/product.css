@@ -1,0 +1,1603 @@
+﻿@charset 'utf-8';
+/* list and main */
+.titles {width:930px; height:23px; padding:0px 0 6px 0; border-bottom:4px solid #029C14; margin:0 auto}
+.titles ul {float:right; margin-top:0px}
+.titles ul li {float:left; padding-right:5px; color:#898989}
+.titles ul li.current {padding-right:0px; color:#333333}
+
+
+/* start 10.09일 번호선택영역 추가 */
+.bannerarea {clear:both; width:930px; margin:9px 0 0 0} /* 20091202 수정 */
+.bannerarea div {float:left}
+.bannerarea div.box1 {float:left; width:619px;}
+.bannerarea div.box1 p {width:619px;}
+.bannerarea div.box1 ul {float:right; padding:0 0 1px 0;}
+.bannerarea div.box1 ul li {float:left; width:16px; _padding-bottom:1px;}
+.bannerarea div.box2 {float:left; width:302px; padding-left:9px; _padding-left:7px;}
+.bannerarea div.box2 ul.number {float:right; padding:0 0 1px 0;}
+.bannerarea div.box2 ul.number li {float:left; width:16px; _padding-bottom:1px;}
+.bannerarea div.box2 ul.banner_con {clear:both; float:left; width:302px; margin-right:1px;}
+.bannerarea div.box2 ul.banner_con li {display:inline; float:left; width:150px; margin-left:1px; margin-bottom:1px;}
+/* end 10.09일 번호선택영역 추가 */
+
+/* str 20091208 수정 */
+.salenews {margin:25px 0 0px 3px; line-height:15px;}
+.salenews .top {background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_showsale_top.gif') 0 0 no-repeat; width:930px; height:178px;}
+.salenews .top .left_con {float:left; clear:both; width:640px;}
+.salenews .top .left_con .moving {padding-left:10px;}
+.salenews .top .left_con p.le {float:left; padding-left:15px;}
+.salenews .top .left_con p.ri {float:left; width:550px; padding:7px 0 0 8px;}
+.salenews .top .left_con p.ri span.line {text-decoration:line-through; color:#888888; line-height:20px; font-weight:bold;}
+.salenews .top .left_con p.ri span.orange {padding-top:5px; color:#ff6600; line-height:20px; font-weight:bold;}
+.salenews .top .left_con p.le2 {float:left; padding:5px 0 0 15px; clear:both;}
+.salenews .top .left_con p.ri2 {float:left; width:550px; padding:5px 0 0 8px;}
+.salenews .top .left_con p.ri2 span.line {text-decoration:line-through; color:#888888; line-height:20px; font-weight:bold;}
+.salenews .top .left_con p.ri2 span.orange {padding-top:5px; color:#ff6600; line-height:20px; font-weight:bold;}
+.salenews .top .right_con {float:right; width:235px;}
+.salenews .top .right_con .tag {line-height:19px; margin:17px 20px 0 0;}
+.salenews .top .right_con .tag img {padding-bottom:10px;}
+.salenews .top .right_con .tag .green {font-weight:bold; color:#029c14; background-color:#dceed4;}
+.salenews .top .right_con .tag .gray {color:#999999;}
+.salenews .top .right_con .news {line-height:17px; margin:17px 20px 0 0;}
+.salenews .top .right_con .news img {padding-bottom:10px;}
+.salenews .bottom {background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_showsale_bottom.gif') 0 0 no-repeat; width:930px; height:10px; clear:both;}
+/* end 20091208 수정 */
+
+
+/* [윤선영 수정] .bannerarea2 {width:930px; margin:14px 0 0 3px} */
+.bannerarea2 {width:930px; margin:14px 0 20px 3px}
+.bannerarea3 {width:930px; margin:25px 0 0 3px}
+
+/* str 20091124 수정 */
+.hottag {border:4px solid #E7F4DE; width:922px; height:37px; margin:0px 0 0 3px;}
+.hottag div {float:left}
+.hottag div.area1 {width:585px; height:37px; border-right:4px solid #E7F4DE;}
+.hottag div.area1 ul {margin-top:8px}
+.hottag div.area1 li {float:left; margin:0 6px; _margin:0 6px; padding-top:1px;} /* 20091028 글자,이미지 정렬 */
+.hottag div.area1 li img {vertical-align:top; padding-top:3px; *padding-top:0; _padding-top:3px;} /* 20091028 글자,이미지 정렬 */
+.hottag div.area1 li.title {margin-left:13px; _margin-left:6px}
+.hottag div.area1 li.gray88 a {color:#888888}
+.hottag div.area1 li.green a {color:#029c14; background-color:#dceed4; font-weight:bold;}
+.hottag div.area1 li.bold a {font-weight:bold}
+.hottag div.area2 ul {margin:8px 0 0 8px}
+.hottag div.area2 li {float:left; margin:0 6px}
+.hottag div.area2 li img {vertical-align:top; padding-top:3px; *padding-top:0; _padding-top:3px;} /* 20091028 글자,이미지 정렬 */
+/* end 20091124 수정 */
+
+.advertise {margin:10px 0 0 3px}
+.advertise h3 {font-size:0px; line-height:0; margin:0; padding:0}
+.advertise ul {float:left; margin-left:10px}
+.advertise li {background:url('http://img.modetour.co.kr/mode2010/modetour/product/bullet_gray2.gif') 0 8px no-repeat; padding-left:7px; line-height:18px}
+.advertise li.on {font-weight:bold}
+/* [윤선영 수정] .advertise .low {float:left; width:442px;} */
+.advertise .low {float:left; width:460px; margin-left:0px;}
+.advertise .low div {float:left; margin-top:10px}
+.advertise .low ul {margin-top:10px;}
+.advertise .low ul li {padding-top:2px;}
+/* [윤선영 수정] .advertise .md {display:inline; float:left; margin-left:39px; width:442px}*/
+.advertise .md {display:inline; float:left; width:460px; margin-left:5px;}
+.advertise .md div {float:left; margin-top:10px}
+.advertise .md ul {float:left; margin-top:10px}
+.advertise .md ul li {padding-top:2px;}
+.advertise span {display:block; float:left}
+.advertise span.first {width:195px;}
+.advertise span.second {width:125px; text-align:right;} /* 20091208 수정 */
+
+
+/* str 20091124 수정 */
+.advertise2 {margin:0 0 0 3px; padding:14px 0 0 0}
+.advertise2 h3 {font-size:0px; line-height:0; margin:0; padding:0}
+.advertise2 ul {float:left; margin-left:10px}
+.advertise2 li {background:url('http://img.modetour.co.kr/mode2010/modetour/product/bullet_gray2.gif') 0 8px no-repeat; padding-left:7px; line-height:15px}
+.advertise2 li.on {font-weight:bold}
+.advertise2 li.title {background-image:none; padding:0 0 7px 8px}
+.advertise2 .low {float:left; width:442px;}
+.advertise2 .low div {float:left; margin-top:10px}
+.advertise2 .low ul {margin-top:10px;}
+.advertise2 .low ul li {padding-top:2px; line-height:17px; *line-height:15px; _line-height:14px;} /* 20091028 글자 간격 조절 */
+.advertise2 .md {display:inline; float:left; margin-left:39px; width:442px}
+.advertise2 .md div {float:left; margin-top:10px}
+.advertise2 .md ul {float:left; margin-top:10px}
+.advertise2 .md ul li {padding-top:2px; line-height:17px; *line-height:15px; _line-height:14px;} /* 20091028 글자 간격 조절 */
+.advertise2 span {display:block; float:left;}
+.advertise2 span.first {width:195px;}
+.advertise2 span.second {width:90px; text-align:right;}
+/* end 20091124 수정 */
+
+
+/* str 20091124 수정 */
+.clickbest_t {margin:10px 0 0 0; *margin-top:15px; _margin-top:15px}
+.clickbest_t h3 {font-size:0px; line-height:0; margin:5px 0 10px 0; padding:0}
+.clickbest {border-top:1px solid #029c14; background-color:#f1fbea; padding:0 0 15px 0; width:930px; margin:0 0 0 3px}
+.clickbest ul {float:left; padding:11px 0 7px 0; margin:15px 0 15px 0; margin-left:34px; _margin-left:18px;}
+.clickbest li {float:left; margin-left:1px; width:105px;}
+.clickbest li span {display:block; color:#464646}
+.clickbest li p {width:100px; word-break:break-all; line-height:15px; margin-top:5px; color:#888888}
+.clickbest li span.title {font-weight:bold}
+.clickbest li.icon1 {width:45px; margin-top:50px; margin-right:10px;}
+.clickbest li.icon2 {width:45px; margin-top:50px; margin-left:10px;}
+/* end 20091124 수정 */
+
+.newhot {width:930px; height:223px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_newhot.gif') 0 0 no-repeat; margin:15px 0 0 3px; position:relative} /*  20091127 */
+/*.newhot  .product_icon01{width:74px; height:74px;  position:absolute; top:3px; left:21px;}*/  /*  20091127 */
+/*.newhot  .product_icon02{width:74px; height:74px;  position:absolute; top:3px; left:466px;}*/  /*  20091127 */
+/*newhot  .product_icon{border:solid 1px red; width:74px; height:74px; display:inline;}*/
+.newhot  .product_icon{width:110px; height:74px; text-align:center; }
+.newhot div {display:inline; float:left; width:350px; margin-top:17px}
+.newhot div h3 {padding:0; margin:0}
+.newhot div ul {margin-top:10px}
+.newhot div li {line-height:23px;}
+.newhot div li.on {color:#464646; font-weight:bold}
+.newhot div h3.hotel {margin:18px 0 0 0}
+.newhot span {display:block; float:left; color:#464646}
+.newhot span a {color:#464646}
+.newhot span.date {width:75px;}
+.newhot span.subject {width:144px;}
+.newhot span.subject2 {width:245px;}
+.newhot span.price {width:94px; color:#029C14; font-weight:bold}
+.newhot .mgl111 {margin-left:111px}
+
+/* str 20091124 수정 */
+.province {border-bottom:1px solid #bfbfbf; padding:8px 0; width:930px; margin:10px 0 0px 3px}
+.province h3 {margin:0;}
+.province div.wrap {padding-top:10px;}
+.province div.wrap div.province_flash {margin-top:10px;}
+.province div.wrap ul {padding-top:5px;}
+.province div.wraplast {border-bottom:0px; padding-bottom:0px; padding-top:15px; margin-bottom:0px}
+.province div.wraptype3 {float:left; width:465px; margin-bottom:15px}
+.province div.wraptype3 ul {padding-top:5px;}
+.province div.wraptype3last {float:left; border-bottom:0px; padding-bottom:0px; margin-bottom:0px}
+.province p.kind {float:left; width:150px; padding-top:6px;}
+/*.province .btn_areas {clear:both; padding:10px 0 15px 0; _padding:15px 0 15px 0; width:741px; margin-left:189px; border-bottom:1px solid #E3E3E3}*/
+.province .btn_areas {clear:both; padding:10px 0 10px 0; _padding:5px 0 10px 0; width:741px; margin-left:189px; border-bottom:1px solid #E3E3E3}
+.province .btn_areas img {margin-right:1px}
+.province .btn_areaslast {clear:both; padding:25px 0 5px 0; _padding:15px 0 15px 0; width:741px; margin-left:189px; border-bottom:0}
+.province .btn_areaslast img {margin-right:1px}
+.province .grayline {font:0; height:1px; #height:1px; _height:1px; margin:0 0 5px 0; padding:0; background-color:#E3E3E3; line-height:0px; overflow:hidden}
+/* end 20091124 수정 */
+
+
+/* start 10.09일 버튼추가 위치변경 */
+.province p.btn_area {clear:both; padding:10px 0 0 188px;}
+.province p.btn_area2 {clear:both; padding:10px 0 10px 188px;}
+.province p.btn_area img {margin-right:1px}
+/* end 10.09일 버튼추가 위치변경 */
+
+
+.province p.kind span {display:block; margin-top:5px; line-height:15px; color:#888888}
+.province p.kind a {display:block; margin-top:8px}
+.province ul {float:left; margin-left:38px; _margin-left:37px}
+.province li {float:left; margin-left:1px; width:105px;}
+.province li span {display:block; color:#464646}
+.province li p {width:100px; word-break:break-all; line-height:15px; margin-top:5px; color:#888888}
+.province li span.title {font-weight:bold}
+
+
+
+.province2 {padding:5px 0 5px 0; width:930px; margin:5px 0 0 0;} /* 20091126 */
+.province2 div.wrap {border-bottom:1px solid #E3E3E3; padding-bottom:15px; margin-bottom:15px}
+.province2 div.wrap ul {padding-top:5px;}
+.province2 div.wraplast {border-bottom:0px; padding-bottom:0px; margin-bottom:0px}
+.province2 table.divide {width:930px; border-top:1px solid #888888;} /* 20091126 */
+.province2 table.divide p span {margin-left:5px; color:#888888}
+/* .province2 table.divide td {position:relative} 20091126 */
+
+/* str 20091124 */
+.province2 table.divide .left {width:463px; height:298px; border-right:1px solid #CCCCCC; border-bottom:1px solid #CCCCCC}
+.province2 table.divide .left div {margin-left:20px}
+.province2 table.divide .left div ul {clear:both;}
+.province2 table.divide .left div p img {vertical-align:middle; margin-bottom:2px;}
+.province2 table.divide .left2 {width:463px; height:298px; border-right:1px solid #CCCCCC;}
+.province2 table.divide .left2 div {margin-left:20px}
+.province2 table.divide .left2 div p img {vertical-align:middle; margin-bottom:2px;}
+.province2 table.divide .right {width:464px; height:298px; border-right:0px; border-bottom:1px solid #CCCCCC;}
+.province2 table.divide .right div {margin-left:20px}
+.province2 table.divide .right div p img {vertical-align:middle; margin-bottom:2px;}
+.province2 table.divide .right2 {width:464px; height:298px; border-right:0px;}
+.province2 table.divide .right2 div {margin-left:20px}
+.province2 table.divide .right2 div p img {vertical-align:middle; margin-bottom:2px;}
+/* end 20091124 */
+
+/* start 20091028 글자,이미지 정렬 */
+.province2 table.divide .type2 .wrap {width:908px; padding:24px 0 27px 20px; margin-bottom:0px}
+.province2 table.divide .type2 .last {border-bottom:0px}
+.province2 table.divide .type1 .wrap {width:908px; padding:24px 0 27px 20px; margin-bottom:0px; border-bottom:0;} /* 20091126 */
+.province2 table.divide .type1 .wrap .cities {width:173px}
+.province2 table.divide .type1 .wrap .cities p.kind span {margin-left:0px}
+.province2 table.divide .type1 .wrap .thums {width:695px;}
+.province2 table.divide .type1 .wrap div {float:left}
+.province2 table.divide .type1 .last {border-bottom:0px}
+
+
+/* str : 20091126 */
+.province2  .province2_bg{width:932px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_hit_tb_md.gif') 0 0 repeat-y;  line-height:14px; padding: 0 0 0 2px; margin-left:1px; position:relative}
+.province2  .province2_bg_btm{width:934px;  height:8px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_hit_tb_bt.gif') 0 0 no-repeat; margin-left:1px;  }
+.province2 table.divide .type3 .listbox_l{ width:463px; float:left; border-top:1px solid #cccccc;  border-right:1px solid #cccccc;} 
+.province2 table.divide .type3 .listbox_r { width:464px; float:left; border-top:1px solid #cccccc;  }
+.province2 table.divide .type3 .sun_top {border-top:0}
+.province2 table.divide .type3 .list { padding:24px 20px 25px 19px;}
+.province2 table.divide .type3 ul{width:425px; }
+.province2 .mark {position:absolute; right:2px; top:0px;} /* 20091126 */
+.province2 .mark img {vertical-align:top}
+/* .province2 .marktype2 {position:absolute; *left:831px; margin-top:-1px; *margin-top:-1px; padding-left:831px; *padding-left:0} 
+.province2 .marktype2 img {vertical-align:top}  20091126  */
+/* end : 20091126 */
+
+/* str : 20091202 추가*/
+.province2 table.divide .type3 .listbox_l div.flash_s01 {float:left; height:14px;}
+.province2 table.divide .type3 .listbox_l span.right_t {color:#888888; float:left;}
+.province2 table.divide .type3 .listbox_r div.flash_s01 {float:left; height:14px;}
+.province2 table.divide .type3 .listbox_r span.right_t {color:#888888; float:left;}
+.province2 table.divide .type2 .wrap div.flash_s01 {float:left; height:14px;}
+.province2 table.divide .type2 .wrap span.right_t {color:#888888; float:left;}
+/* end : 20091202 */
+
+/* str 20091124 수정 */
+.banner3 {width:930px; margin-left:3px; padding:0;}
+.banner3 li {float:left; margin-right:1px}
+/* end 20091124 수정 */
+
+.banner4 {width:930px; margin-left:3px; padding:25px 0 0 0;}
+.banner4 li {float:left; margin-right:1px }
+
+/* start 10.09일 버튼추가 위치변경 */
+.province2 p.btn_area {clear:both; padding:24px 0 0 188px;}
+.province2 p.btn_area2 {clear:both; padding:24px 0 10px 188px;}
+/* end 10.09일 버튼추가 위치변경 */
+
+.province2 p.kind span {display:block; margin-top:5px; line-height:15px; color:#888888}
+.province2 p.kind a {display:block; margin-top:8px}
+.province2 ul {clear:both;} /* 20091208 수정 */
+.province2 li {float:left; margin-left:1px; width:105px;}
+.province2 li span {display:block; color:#464646}
+.province2 li p {width:100px; word-break:break-all; line-height:15px; margin-top:5px; color:#888888}
+.province2 li span.title {font-weight:bold}
+
+/* str 20091124 수정 */
+.planning {clear:both; width:930px; margin:15px 0 0 3px; padding:5px 0; }
+.planning div {float:left;}
+.planning div.theme {width:464px}
+.planning div.theme h3 {padding:0; margin:0 0 8px 0; width:400px;}
+.planning div.theme p {float:left}
+.planning div.theme table {float:left; margin-left:10px}
+.planning div.theme td.subject {background:url('http://img.modetour.co.kr/mode2010/modetour/product/bullet_gray2.gif') 0 8px no-repeat; padding-left:8px; height:22px}
+.planning div.theme td.on {font-weight:bold}
+.planning .greendot a {display:inline-block; margin-top:3px; margin-right:5px; width:10px; height:10px; background:url('http://img.modetour.co.kr/mode2010/modetour/common/index/btn_round1_off.gif') 0 0 no-repeat;}
+.planning .greendot a.current {display:inline-block;  margin-top:3px; width:10px; height:10px; background:url('http://img.modetour.co.kr/mode2010/modetour/common/index/btn_round1_on.gif') 0 0 no-repeat;}
+.planning .greendot a span {display:none}
+.planning div.recom {width:465px}
+.planning div.recom h3 {padding:0; margin:0 0 8px 0}
+.planning div.recom li {float:left; margin-right:1px}
+.themeContent {display:none}
+.themeContent p.images {padding-top:3px;}
+.themeContent .flash_area {width:80px;}
+.recommandContent {display:none}
+/* end 20091124 수정 */
+
+
+/* start 10.09일 배너추가 위치변경 */
+.recommand {clear:both; width:930px; margin:10px 0 0 3px;}
+.recommand h3 {font-size:0; line-height:0; margin:15px 0 10px 0; padding:0}
+/*.recommand ul {clear:both; border-bottom:4px solid #E7F4DE; padding-bottom:15px; *padding-bottom:25px; _padding-bottom:15px; margin-top:10px; *margin-top:10px; _margin-top:5px}*/
+.recommand ul {clear:both;}
+.recommand ul.first {margin-top:0px}
+.recommand ul.last {padding-bottom:0px; border-bottom:0}
+.recommand li {display:inline; float:left; margin-right:1px; margin-bottom:0px;}
+.recommand ul li.lineup1 {margin-right:6px;} /* 20091204 추가 */
+.recommand ul li.lineup2 {margin-right:0px;} /* 20091204 추가 */
+/* end 10.09일 배너추가 위치변경 */
+
+/* str 20091208 수정 */
+.themes {padding:0 0 0 0; width:930px; margin:10px 0 0 0;}
+.themes h3 {float:left; width:150px; *padding-top:5px; _padding-top:5px; margin-left:3px;}
+.themes div {float:left; padding-top:14px;}
+.themes div.bg_top {background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_theme_top.gif') 0 0 no-repeat; width:934px; height:207px; margin:0px 0 0 1px;}
+.themes div.bg_bottom {background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_theme_bottom.gif') 0 0 no-repeat; width:934px; height:1px; margin-left:1px; }
+.themes div.themes_flash {float:left; width:150px; margin-left:15px;}
+.themes div.themes_con {float:left;}
+.themes .themetab {float:left;}
+.themes .themelist li {float:left; margin-left:1px; width:105px;}
+.themes .themelist li span {display:block; color:#464646; font-weight:bold}
+.themes .themelist li p {width:100px; word-break:break-all; line-height:15px; margin-top:5px; color:#888888}
+.themes .themelist li span.title {font-weight:bold}
+/* end 20091208 수정 */
+
+
+/* str 20091208 수정 */
+.etctheme {width:930px; margin-left:3px; margin-top:10px}
+.etctheme h3 {margin:0; padding:0; line-height:0}
+.etctheme h3 a {margin-left:2px}
+
+.etctheme .estimate {padding-top:25px; float:left; margin-left:3px;}
+.etctheme .estimate p.images {float:left; margin:10px 0 0 0;}
+.etctheme .estimate div.etcthemecon {width:250px; float:left; line-height:16px; margin:10px 0 0 10px;}
+.etctheme .estimate div.etcthemecon span {color:#888888;}
+.etctheme .estimate div.etcthemecon p.cont {padding-top:5px;}
+.etctheme .estimate ul {padding-top:3px; clear:both;}
+.etctheme .estimate ul li {background:url('http://img.modetour.co.kr/mode2010/modetour/product/bullet_gray1.gif') 0 5px no-repeat; padding-left:10px; margin-top:5px; line-height:16px; letter-spacing:-1px;}
+.etctheme .estimate ul li span {color:#888888;}
+
+.etctheme .middle_con {float:left;}
+.etctheme .expert {padding-top:25px; margin-left:20px; width:350px; letter-spacing:-1px; }
+.etctheme .expert div.con1 {margin-top:10px; clear:both;}  /* 20091209 */
+.etctheme .expert div.con1 img {float:left;}
+.etctheme .expert div.con1 ul {float:left; padding-left:10px;}
+.etctheme .expert div.con1 ul li.bd {font-weight:bold;}
+.etctheme .expert div.con1 ul li{line-height:16px;}/* 20091209 */
+
+
+.etctheme .package {margin-left:20px; margin-top:13px; width:350px; letter-spacing:-1px; } /* 20091209 */
+.etctheme .package div.con1 {margin-top:10px; clear:both;}  /* 20091209 */
+.etctheme .package div.con1 img {float:left;}
+.etctheme .package div.con1 ul {float:left; padding-left:10px;}
+.etctheme .package div.con1 ul li{line-height:16px;} /* 20091209 */
+.etctheme .package div.con1 ul li.bd {font-weight:bold;}
+.etctheme .package div.con2 {margin-top:8px; height:45px; clear:both;}
+.etctheme .package div.con2 img {float:left;}
+.etctheme .package div.con2 ul {float:left; padding-left:10px; margin-top:4px}
+.etctheme .package div.con2 ul li.bd {font-weight:bold}
+.etctheme .thismonth {float:left; margin-left:15px; padding-top:25px;}
+.etctheme .thismonth ul {clear:both;}
+.etctheme .thismonth ul li {float:left;}
+.etctheme .thismonth ul li img {margin-top:1px;}
+.etctheme .estimate div, .etctheme .thismonth div, .etctheme .pangpang div {margin-top:10px}
+/* end 20091208 수정 */
+
+/* start 10.09일 배너추가 위치변경 */
+.etctheme2 {width:930px; margin-left:3px; margin-top:25px}
+.etctheme2 h3 {font:0; margin:0; padding:0; line-height:0}
+.etctheme2 .pangpang {float:left; padding-top:25px;}
+.etctheme2 .pangpang ul {width:176px; _width:177px}
+.etctheme2 .pangpang li {float:left; margin-left:1px; margin-bottom:1px}
+.etctheme2 .estimate {padding-top:25px; float:left; width:190px; margin-left:15px;}
+.etctheme2 .estimate ul {padding-top:5px;}
+.etctheme2 .estimate ul li {background:url('http://img.modetour.co.kr/mode2010/modetour/product/bullet_gray1.gif') 0 5px no-repeat; padding-left:10px; margin-top:5px; line-height:16px; letter-spacing:-1px;}
+.etctheme2 .estimate ul li a:hover {font-weight:bold; letter-spacing:-1px}
+.etctheme2 .estimate ul li span {font-weight:bold}
+.etctheme2 .package {float:left; padding-top:25px; margin-left:15px; width:200px; letter-spacing:-1px;}
+.etctheme2 .package div.con1 {margin-top:10px; height:45px; clear:both;}
+.etctheme2 .package div.con1 img {float:left;}
+.etctheme2 .package div.con1 ul {float:left; padding-left:10px; padding-top:5px;}
+.etctheme2 .package div.con1 ul li.bd {font-weight:bold;}
+.etctheme2 .package div.con2 {margin-top:8px; height:45px; clear:both;}
+.etctheme2 .package div.con2 img {float:left;}
+.etctheme2 .package div.con2 ul {float:left; padding-left:10px; padding-top:5px;}
+.etctheme2 .package div.con2 ul li.bd {font-weight:bold}
+.etctheme2 .thismonth {float:left; margin-left:15px; padding-top:25px;}
+.etctheme2 .estimate div, .etctheme2 .thismonth div, .etctheme2 .pangpang div {margin-top:10px}
+
+.cityrecommand2 {margin:25px 0 0 3px}
+.cityrecommand2 h3 {font-size:0px; line-height:0; margin:0; padding:0}
+.cityrecommand2 .citytabs {margin-top:8px;}
+.cityrecommand2 .citytabs td {padding:0 15px; height:42px; color:#60A03F; font-weight:bold}
+
+
+.recommand_tab {width:930px; margin:10px auto 0px;  background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_tab.gif') repeat-x scroll 0 bottom;} /*  20091123 */
+.recommand_tab li {float:left;}
+.recommand_tab li img {vertical-align:top}
+.recommand_tab li span {display:block; position:absolute; width:116px; color:#60A03F; margin:22px 0 0 0; text-align:center;} /* 20091208 */
+/* .recommand_tab li.on span {display:block; position:absolute; width:90px; color:#FFFFFF; margin:28px 0 0 12px; text-align:center;}  */
+
+.recommand_banner {padding:0 0 0 3px}
+.recommand_banner div.left_banner {float:left;}
+.recommand_banner div.left_banner img {vertical-align:top;}/*20091127*/
+.recommand_banner div.left_banner p {padding-left:613px;}
+.recommand_banner div.left_banner p img {padding:3px 0 0 4px; } /*20091127*/
+.recommand_banner div.right_banner {float:left;}
+.recommand_banner div.right_banner img {vertical-align:top; }/*20091127*/
+.recommand_banner div.right_banner p {padding-left:181px;}
+.recommand_banner div.right_banner p img{padding:3px 0 0 4px;  }/*20091127*/
+.recommand_banner .bigimage {margin-right:10px; _padding-top:1px}
+.recommand_banner p a {padding:0 1px 10px 0; clear:both;}
+.recommand_banner ul {width:244px; _padding-top:1px;}
+.recommand_banner ul li {display:inline; float:left; margin-left:1px;}
+.recommand_banner ul li span img {opacity:0.4;filter:alpha(opacity=40)}
+.recommand_banner .recomm_tab1 { margin-left:1px; cursor:pointer; width:243px; height:105px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_banner_1.gif') 0 0 no-repeat}
+.recommand_banner .recomm_tab2 { margin-left:1px; cursor:pointer; width:243px; height:105px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_banner_2.gif') 0 0 no-repeat}
+.recommand_banner .recomm_tab3 { margin-left:1px; cursor:pointer; width:243px; height:105px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_banner_3.gif') 0 0 no-repeat}
+.recommand_banner .recomm_tab4 { margin-left:1px; cursor:pointer; width:243px; height:105px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_banner_4.gif') 0 0 no-repeat}
+.recommand_banner dl {padding:17px 0 0 9px}
+.recommand_banner dt {font-size:12px; font-weight:bold; color:#FFFFFF}
+.recommand_banner dd.content {font-size:12px; color:#A2CFDC}
+.recommand_banner dd.price {font-size:12px; color:#FFFFFF}
+.recommand_banner li.transparent img {opacity:0.4;filter:alpha(opacity=40)}
+
+.cityrecommand {margin:10px 0 15px 3px}
+.cityrecommand h3 {font-size:0px; line-height:0; margin:0; padding:0}
+.cityrecommand .citytabs ul {line-height:16px; border:1px solid #e1e1e1; margin-top:8px; height:39px; width:928px; text-align:center;}
+.cityrecommand .citytabs li {float:left; padding:5px 5px 0 5px; width:105px; height:34px; border-right:1px solid #e1e1e1;}
+.cityrecommand .citytabs li span {font-weight:bold;}
+.cityrecommand .citytabs li.play {color:#464646; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_libackground1.gif') 0 0 no-repeat;}
+.cityrecommand .citytabs li.no {color:#999999; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_libackground2.gif') 0 0 no-repeat;}
+
+.citylist {border-top:4px solid #E7F4DE; padding:5px 0 0 0; width:930px; margin:30px 0 0 3px}
+.citylist h3 {padding-bottom:5px;}
+.citylist div.wrap {padding-bottom:15px; margin-bottom:5px}
+.citylist div.wraplast {border-bottom:0px; padding-bottom:0px; margin-bottom:0px;}
+.citylist p.kind {float:left; width:150px;}
+.citylist p.kind span {display:block; margin-top:5px; line-height:15px; color:#888888}
+.citylist p.kind a {display:block; margin-top:8px; width:57px}
+.citylist ul.first {float:left; margin-left:38px; _margin-left:37px; border-bottom:1px solid #E3E3E3;}
+.citylist ul.middle {float:left; margin-left:38px; _margin-left:37px; border-bottom:1px solid #E3E3E3;}
+.citylist ul.last {float:left; margin-left:38px; _margin-left:37px;}
+.citylist li {float:left; margin-left:1px; width:105px;}
+.citylist li span {display:block; color:#464646}
+.citylist li p {width:100px; word-break:break-all; line-height:15px; margin-top:5px; color:#888888}
+.citylist li span.title {font-weight:bold}
+.citylist li.last {margin-left:62px; width:150px;}
+.citylist li.last img {margin-bottom:1px}
+.citylist li.btn {clear:both; padding:20px 0 10px 0;}
+.citylist ul.last li.btn {clear:both; padding:20px 0 0 0;}
+
+
+/* start : 20091117 수정 */
+.detaillist {margin-left:1px; margin-top:10px; width:930px;}
+.detaillist li {border-bottom:1px solid #D1D1D1; padding: 15px 15px 35px 15px; _padding:15px 13px 25px 13px;}  /* 20091208  */
+.detaillist li div.detailsBox {clear:both; margin:15px;}
+.detaillist li.banner {padding: 14px 0;  }  /* 20091208 */
+.detaillist li.on {border:1px solid #CCCCCC}
+/*.detaillist div { float:left; } */
+/*.detaillist li div {float:left}*/
+.detaillist li div dl {margin-left:15px}
+.detaillist li div dt {color:#464646}
+.detaillist li div dd {color:#888888; margin-top:5px}
+.detaillist li div.details { float:left; width:680px;} /* 20100128 ie6  */
+.detaillist li div.details div {clear:both; margin-left:15px; _margin-top:7px; width:100%;}/*20091231 - 이권태*/
+.detaillist li div.details div span.date {float:left; margin-left:0px; _margin-top:0px}/*20091231 - 이권태*/
+.detaillist li div.details td strong {color:#FF6600}
+
+.detaillist table.inshort {margin:10px 0 0 15px; width:681px;}  /* 20091208 */
+/*.detaillist table.contable {border-top:1px solid #029C14; margin-top:10px}*/
+.detaillist table.contable { margin:0; border-top:0;}
+.detaillist table.subtable {border-top:0px; margin-top:0px}
+.detaillist table.contable .bg {background-color:#F1FBEA; font-weight:bold}
+.detaillist table.contable td {padding:6px 0; border-bottom:1px solid #E3E3E3; text-align:center; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_sun_r.gif') right 0 no-repeat; } /* 20091208 */
+
+/*
+.detaillist table.contable th.no {background-image:none; height:23px;}
+.detaillist table.contable th.air_name {text-align:left; height:23px;} 
+*/
+
+.detaillist table.contable th.no {padding:4px 0;background-image:none; text-align:center; height:23px; border-bottom:1px solid #E3E3E3; font-weight:normal;}
+.detaillist table.contable th.air_name { padding:4px 0; background-image:none; text-align:left; height:23px; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3; font-weight:normal;} 
+
+
+.detaillist table.contable td.line {margin:0; padding:0; font-size:0px; line-height:0px; border-bottom:0px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/table_product1.gif') 0 0 no-repeat;}
+.detaillist table.contable td.startday {text-align:left;}
+.detaillist table.contable td.startday div.time {width:450px; height:23px; overflow:hidden; margin-left:55px;}
+.detaillist table.contable td.startday p {padding: 0; text-align:right; height:20px;}
+.detaillist table.contable td.startday p span input{width:12px; height:12px; padding:0; margin:0; vertical-align:middle;}
+.detaillist table.contable td.startday p span.red a{color:#FF0000}
+.detaillist table.contable td.startday p span.blue a{color:#0000FF}
+.detaillist table.contable td.startday p span.green a{color:#029C14}
+.detaillist table.contable td.startday p span.gray a{color:#888888}
+.detaillist table.contable td p {display:block; float:left; width:59px; _margin-bottom:5px}
+.detaillist table.contable td img {margin:0; padding:0; vertical-align:top}
+.detaillist table.contable th img {margin:0; padding:0; vertical-align:top}
+.detaillist table.contable th span {display:block; width:59px; float:left;}
+.detaillist table.contable th {padding:0; margin:0; height:35px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/table_product1.gif') 0 bottom no-repeat;}
+.detaillist table.contable th.or,
+.detaillist .schedule_table_head li.or {color:#ff6600} /* 20091208 */
+.detaillist .schedule_table_head li {font-weight:bold;}
+.detaillist table.contable th.last{width:21px; padding-right:17px; background-color:#F1FBEA; } /* 20091208 */
+.detaillist table.contable td.last{width:21px; padding-right:17px; background-image:none;} /* 20091208 */
+
+/* end : 20091117 수정 */
+
+/*20091214 이권태*/
+.detaillist table.contable thead th {background-color:#F1FBEA; font-weight:bold}
+
+
+/*.btns {padding:15px 0 0 0; _padding:15px 0 15px 0; font-size:11px; font-family:Dotum; width:900px;}*/ /* 20091208 */
+.btns {padding:7px 0 0 0; _padding:7px 0 0 0; font-size:11px; font-family:Dotum; width:900px;} /* 20091208 */
+.btns p {float:left}
+.btns span.red {color:#FF0000}
+.btns span.blue {color:#0000FF}
+.btns span.green {color:#029C14}
+.btns span.gray {color:#888888}
+.listarea {width:730px; height:300px; overflow:auto}
+.listarea02 {width:900px; height:320px; overflow:auto;} /* 20091208 */
+.listarea01 {width:900px; } /* 20091208 */
+
+.howmany {padding:17px 0; margin-left:3px; border-bottom:4px solid #E7F4DE}
+.howmany strong {color:#FF6600; font-weight:bold}
+.howmany span {font-weight:bold}
+
+.detailsearch {margin:20px 0 0 3px}
+.detailsearch h3 {font-size:0px; line-height:0; margin:0; padding:0}
+.detailsearch div { line-height:14px;}  /* 20091208 */
+.detailsearch div span{font-weight:bold;  color:#029c14; }  /* 20091208 */
+.content_center02 {float:left; width:763px;}/* search_product layout*/
+.content_right01 {float:left; *float:none; width:150px; margin:42px 0 0 20px; *padding-left:20px} /* 20091130 일부수정 */
+.noproduct {padding:150px 0 150px 0; text-align:center; border-top:1px solid #cfcfcf; border-bottom:1px solid #cfcfcf; margin:15px 0 0 3px; width:930px;}/* 20091215 */
+
+
+  /* str 20091208  */
+ .detailsearch_area {margin:8px 0 0 0px; width:930px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_detail930.gif') 0 0 no-repeat;} /* 20091208 */
+ .detailsearch_area p {display:inline; float:left}
+ .detailsearch_area p span {color:#FFFFFF; font-weight:bold} /* 20091208 */
+ .detailsearch_area p span.dateinput {display:block; float:left; width:124px; height:20px; background-color:#FFFFFF; border:1px solid #DCF1CD; margin-top:11px}
+ .detailsearch_area p.combine {margin:10px 0 0 280px} /* 20091117 width값 변경 */
+ .detailsearch_area p .nudetext {border:0px; }
+ .detailsearch_area  select{vertical-align:top;}
+ .detailsearch_area .btn_box{padding:10px 11px 10px 0; } /* 20091208 */
+ .detailsearch_area .btn_pd{float:left; padding-left:20px; } /* 20091208 */
+  /* end  20091208  */
+
+.startdate {width:462px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_start1.gif') 0 0 no-repeat; z-index:3000; display:none;}
+.startdate .startdateinner {width:462px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_start2.gif') 0 bottom no-repeat; padding:20px 20px 20px 20px}
+.startdate .startdateinner .date {color:#029C14; font-weight:bold}
+.startdate .startdateinner table {border-top:1px solid #029C14; margin-top:3px}
+.startdate .startdateinner table .bg {background-color:#F1FBEA;}
+.startdate .startdateinner table td {padding:6px 0; border-bottom:1px solid #E3E3E3; text-align:center; line-height:17px}
+.startdate .startdateinner table td.subject {padding-left:10px; text-align:left; word-break:break-all; width:300px;}
+.startdate .startdateinner table td.subject span {color:#029C14}
+.startdate .startdateinner table td.subject span.or {color:#ff6600; margin-left:10px;} /* 20091208 */
+.startdate .startdateinner table td.line {margin:0; padding:0; font-size:0px; line-height:0px; border-bottom:0px}
+.startsubject span {padding-left:5px;}
+.startsubject span.cate {color:#029C14}
+
+/* right detail search */
+.themetitle {width:150px; height:34px; background:url('http://img.modetour.co.kr/mode2010/modetour/search/openmenu1_on.gif') 0 0 no-repeat;}
+.theme {}
+.themebtm {width:150px; height:4px; background:url('http://img.modetour.co.kr/mode2010/modetour/search/openmenu_btm.gif') 0 0 no-repeat; font-size:0; line-height:0;}
+
+.types select{ margin:11px 0 0 9px; width:132px; height:20px; font-size:12px; color:#b3b3b3;}
+.types dt {cursor:pointer}
+.types dd {border-top:1px solid #E9E9E9; padding:13px}
+
+#type1 p {padding:3px 0;}
+/* str : 20091117 수정 */
+#type4 div.period {width:130px; padding:4px 0 0 0px; margin-top:10px; background:url('http://img.modetour.co.kr/mode2010/modetour/search/bg_date.gif') 0 0 no-repeat;} /* 20091112 */
+#type4 div.periodinner {width:130px; padding:2px 0; background:url('http://img.modetour.co.kr/mode2010/modetour/search/bg_date2.gif') 0 bottom no-repeat;  line-height:14px;} /* 20091112 */
+#type4 div.periodinner img {padding: 0 2px 5px 6px;} /* 20091112 */
+#type4 div.periodcar {width:128px; height:20px; border:1px solid #DCF1CD;}
+#type4 div.periodcar input.noline {border:0px; padding:0 0 0 4px}
+/* end: 20091117 수정 */
+/* #type1 ul{margin:5px 0 0 0;  padding:0 0 0 5px;} 공통적용으로 해당 부분 삭제 */
+
+
+
+/* str : 20091123 */
+.select_detail {margin-top:5px}
+.select_detail li{padding:0;  color:#464646; line-height:14px; margin-bottom:5px; _margin-bottom:0px;} 
+.select_detail li span{ margin-left:18px; font-family:Arial; font-size:12px;  color:#464646; margin-bottom:8px; _margin-bottom:0px;}
+.select_detail li label {padding: 0 0 0 1px;}
+
+.detailarea {position:absolute; margin:-17px 0 0 35px; z-index:999999999} 
+.detailarea img.arrow {position:absolute; margin:20px 0 0 -6px}
+.detailarea img {position:absolute; margin:0 0 0 0px}
+.detailarea img.closebtn {position:relative; margin:0}
+.detailarea2 {padding:10px 10px 2px 10px; border:1px solid #029C14; background-color:#FFFFFF; width:110px}
+.detailarea2 .offtxt { display:block; margin-left:17px; *margin-top:-14px; font-weight:normal}
+/* end : 20091123 */
+
+.pricebg {position:relative; width:131px; height:14px; background:url('http://img.modetour.co.kr/mode2010/modetour/search/bg_price.gif') 0 0 no-repeat}
+.pricebg span {display:inline-block}
+.pricebg img {cursor:pointer}
+.pricebg div {float:left}
+.pricebg .first {position:absolute; top:-30px; z-index:10;}
+.pricebg .second {position:absolute; top:-7px; text-align:right; left:20px; z-index:11}
+.pricebg .graphline {position:absolute; height:4px; width:55px; background-color:#FF6600}
+.priceleft {background:url('http://img.modetour.co.kr/mode2010/modetour/search/bg_price1_left.gif') 0 0 no-repeat; height:22px}
+.priceright {background:url('http://img.modetour.co.kr/mode2010/modetour/search/bg_price1_right.gif') right 0 no-repeat; color:#FF6600; font-weight:bold; padding:0 3px; height:22px}
+.priceleft2 {background:url('http://img.modetour.co.kr/mode2010/modetour/search/bg_price2_left.gif') 0 0 no-repeat; height:22px; margin-top:3px}
+.priceright2 {background:url('http://img.modetour.co.kr/mode2010/modetour/search/bg_price2_right.gif') right 0 no-repeat; color:#FF6600; font-weight:bold; padding:4px 3px 0 3px; height:18px;}
+
+/* str : 20091117 */
+.trip_period {position:absolute; padding:15px; border:4px solid #029C14; background-color:#FFFFFF; _width:450px; margin:130px 0 0 -360px; *margin:130px 0 0 -370px} /* 20091112 */
+.trip_period .closexbtn {position:absolute;   z-index:99999;  right:0; top:0; margin:6px 6px 0 0  ;} /* 20091112 */
+.trip_period p {text-align:center; font-weight:bold; padding-bottom:5px}
+.trip_period div {float:left; margin-right:8px;}
+.trip_period div.last {margin-right:0px}
+.trip_period td {border:1px solid #CBE3BA; font-size:11px; color:#464646; text-align:center}
+.trip_period td img {vertical-align:top}
+.trip_period td.normalpast {color:#D3D3D3; background-color:#F6F6F6}
+.trip_period td.holiday {color:#F26650}
+.trip_period td.holidaypast {color:#F9D2CB; background-color:#F6F6F6}
+.trip_period td.selectedday {color:#029C14; font-weight:bold; letter-spacing:-1px; border-top:1px solid #02AB17}
+.trip_period td.selecteddaybg {color:#FFFFFF; background-color:#029C14; border-top:1px solid #02AB17}
+.trip_period td.selecteddaybglight {color:#FFFFFF; background-color:#97D29E; border-top:1px solid #02AB17}
+/* end : 20091117 */
+
+.select_detail_inline {}
+.select_detail_inline li{padding:0; margin:0; color:#464646;}
+.select_detail_inline li span{ display:block; margin-left:18px; font-family:Arial; font-size:10px; font-weight:bold;  line-height:5px;color:#888888; margin-bottom:8px;}
+.select_detail_inline li label {padding: 0 0 0 1px;}
+
+.searchdetail {width:119px; height:20px; background:url('http://img.modetour.co.kr/mode2010/modetour/search/bg_selbox.gif') 0 0 no-repeat;}
+.search_detail {margin:2px 0 0 10px}
+.detailSearch {border:1px solid; width:119px;}
+.detailSearchbg { background-color:#FFFFFF}
+.detailSearchBtm {background:url('') 0 bottom no-repeat; padding-bottom:5px}
+.detailSearchBtm div {margin-left:10px}
+.selectBoxOptionOver {color:#029C14}
+.selectBoxOption {color:#999999}
+
+/* about popup */
+.imagemovie {margin:30px 0 0 3px}
+.imagemovie p.count {margin:20px 0 0 0; padding-bottom:8px; line-height:14px; border-bottom:1px solid #029C14; }
+.imagemovie p.count span {color:#029C14; font-weight:bold}
+.photolist {margin-top:30px; padding-left:10px; padding-bottom:26px; border-bottom:1px solid #E3E3E3;}
+.photolist li {float:left; width:172px; margin-right:17px; }
+.photolist li.last {margin-right:0}
+.photolist li.cen {margin-right:18px;}
+.photolist li span {display:block; text-align:center}
+.photolist li span.category {color:#888888; line-height:18px;}
+.photolist .thum {padding:5px; border:1px solid #DCDCDC; margin-bottom:10px}
+
+.aboutproduct {background-color:#CCCCCC; margin-top:10px; border-top:0px}
+.aboutproduct td {background-color:#FFFFFF; padding:5px; border:0px}
+.tablewrap {border-top:1px solid #029C14; *padding-top:10px}
+.slideCenter { width:759px; height:129px; background:url('http://img.modetour.co.kr/mode2010/modetour/search/bg_slide1.gif') 0 0 no-repeat}
+.slideCenter span {display:block; text-align:center; padding:14px 0}
+.slideCenter table {margin-left:18px}
+.slideCenter td.list img {margin-left:1px; width:90px; height:68px;}
+
+
+.slideleft {float:left; width:376px; height:129px; background:url('http://img.modetour.co.kr/mode2010/modetour/search/bg_slide.gif') 0 0 no-repeat}
+.slideleft span {display:block; text-align:center; padding:14px 0}
+.slideleft table {margin-left:18px}
+.slideleft td.list img {margin-left:1px}
+.slideright {float:right; width:376px; height:129px; background:url('http://img.modetour.co.kr/mode2010/modetour/search/bg_slide.gif') 0 0 no-repeat;}
+.slideright span {display:block; text-align:center; padding:14px 0}
+.slideright table {margin-left:18px}
+.slideright td.list img {margin-left:1px}
+.btnslideshow {text-align:center; padding:10px 0 30px 0}
+
+.movie {text-align:center; padding-top:5px; padding-bottom:5px}
+
+.sendmail {padding-top:15px;}
+.sendmail table {border-top:1px solid #029C14; margin:0 auto}
+.sendmail th,.sendmail td {padding-left:10px; border-bottom:1px solid #EEEEEE}
+.sendmail th{text-align:left;}
+.sendmail th.bgtd ,.sendmail td.bgtd {background-color:#F1FBEA}
+.sendmail td span {display:block}
+.sendmail td.inner {padding-top:8px; padding-bottom:8px}
+.sendmail td.inner p {margin-bottom:8px}
+.sendmail td.inner p input {width:13px; height:13px; margin-right:2px}
+
+.selectprint {width:720px; height:83px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_select.gif') 0 15px no-repeat; margin-left:5px; padding-top:15px}
+.selectprint p {text-align:center; margin-top:45px; *margin-top:60px}
+/* str : 20091019 print */
+.selectprint02 {width:720px; height:83px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/print_option_bg.gif') 0 15px no-repeat; margin-left:5px; padding-top:15px}
+.selectprint02 p{text-align:center;  font-size:0; line-height:14px;}
+.selectprint02 .print_option_txt{padding-top:20px;}
+.selectprint02 .print_option{padding-top:14px;}
+.selectprint02 input{height:13px; width:13px; margin-right:5px;}
+
+.print_tb {padding-top:15px;}
+.print_tb table {border-top:1px solid #029C14; margin:0 auto}
+.print_tb td {padding-left:10px; border-bottom:1px solid #EEEEEE}
+.print_tb td.bgtd {background-color:#F1FBEA; padding-left:0;}
+.print_tb td span {display:block}
+.print_tb td.inner {padding-top:8px; padding-bottom:8px}
+.print_tb td.inner p {margin-bottom:8px}
+.print_tb td.inner p input {width:13px; height:13px; margin-right:2px}
+
+/* th css 추가 2012.08.28 조정호 */
+.print_tb th.bgtd{background-color:#F1FBEA; padding-left:0; text-align:left;}
+
+/* end : 20091019 print */
+
+.meetingplace {width:720px; margin-left:5px; padding-top:15px; text-align:center}
+.meetingplace .explain {width:720px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_grayrecttop2.gif') 0 0 no-repeat; text-align:left}
+.meetingplace .explain p {padding:15px 0 10px 13px}
+.meetingplace .explainbtm {width:720px; height:7px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_grayrectbtm2.gif') 0 0 no-repeat; line-height:0;}
+
+.meetingplace2 {width:720px; padding:15px 15px 15px 15px; margin-top:10px; text-align:center; border:1px solid #cccccc;}
+.meetingplace2 .explain {width:720px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_grayrecttop2.gif') 0 0 no-repeat; text-align:left}
+.meetingplace2 .explain p {padding:15px 0 10px 13px}
+.meetingplace2 .explainbtm {width:720px; height:7px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_grayrectbtm2.gif') 0 0 no-repeat; font:0; line-height:0;}
+
+
+.recomm {width:720px; margin:0 auto; padding-bottom:10px;}
+.recomm .recommlist {background-color:#CCCCCC; margin-top:15px;}
+.recomm td {background-color:#FFFFFF; padding:10px}
+.recomm td.nopd {background-color:#FFFFFF; padding:0px}
+.recomm td.btm {background:url('http://img.modetour.co.kr/mode2010/modetour/search/img_popup_divide.gif') 0 bottom repeat-x}
+
+.schenumber {width:506px; height:39px; border-top:1px solid #029C14; border-bottom:1px solid #E3E3E3; background:url('http://img.modetour.co.kr/mode2010/modetour/product/schedule/bg_schenumber.gif') 0 0 repeat-x}
+.schenumber span {display:block; font-weight:bold; color:#434343}
+.leftimage {display:inline; float:left; width:204px; margin-left:5px}
+.rightinfo {float:left; width:506px; margin-left:8px}
+.startend span {display:block; display:block; line-height:17px}
+.startend .one1 {margin-top:7px;}
+.startend .one2 {margin-top:7px;}
+.startend .one3 {margin-left:45px; margin-top:1px;}
+.startend .one4 {margin-top:8px}
+.startend .one5 {margin-left:45px; margin-top:1px; margin-bottom:12px;}
+.btmviewexplain {padding-top:10px; margin-left:5px}
+
+
+.mailpreview {width:721px; margin:0 auto; border-top:4px solid #029C14; padding-bottom:10px;}
+.mailpreview .mailpreviewlist {background-color:#CCCCCC; margin-top:15px;}
+.mailpreview td {background-color:#FFFFFF;}
+.mailpreview td.nopd {background-color:#FFFFFF; padding:0px}
+.mailpreview td.btm {background:url('http://img.modetour.co.kr/mode2010/modetour/search/img_popup_divide.gif') 0 bottom repeat-x}
+.mailpreview .mailpreviewlist .thumcheck {float:left; width:33x}
+.mailpreview .mailpreviewlist .thumcheck input {width:13px; height:13px}
+.mailpreview .mailpreviewlist .thumarea {float:left; width:100px; margin-left:10px}
+.mailpreview .bannerhotel {float:left; margin-top:30px; margin-left:5px}
+.mailpreview .hoteladdr {float:right; width:420px; height:87px; background:url('http://img.modetour.co.kr/mode2010/modetour/search/bg_hoteladdr.gif') 0 0 no-repeat; margin-top:30px; margin-right:5px}
+.mailpreview .hoteladdr span {display:block; margin:59px 0 0 11px}
+.mailpreview .hoteladdr span img {margin-right:1px}
+.minicopyright {width:640px; background:url('http://img.modetour.co.kr/mode2010/modetour/common/top_logo.gif') right 0 no-repeat; margin:20px 0 0 10px; color:#888888;}
+.minicopyright2 {width:720px; background:url('http://img.modetour.co.kr/mode2010/modetour/common/bottom_logo_popup.gif') right 20px no-repeat; margin:40px 0 0 4px; color:#888888; border-top:2px solid #CCCCCC; padding-top:20px}
+.tourprofile .logo_title {margin:0px 0 15px 10px; width:720px; padding-left:5px}
+.mailpreviewlist .subject {padding:15px 0 17px 0; margin-left:5px}
+.mailpreviewlist .subject p {float:left; color:#464646; font-weight:bold}
+.mailpreviewlist .subject span {display:block; float:right; margin-right:15px}
+.mailpreviewlist .subject span img {margin-left:1px}
+
+.leftpreview {display:inline; float:left; width:204px; margin-left:5px; text-align:center}
+.rightpreview {float:left; width:473px; margin-left:10px; padding-bottom:20px}
+.airprice {padding:5px 0 10px 0}
+.airprice span {display:block; display:block; line-height:17px}
+.airprice .one1 {margin-top:7px;}
+.airprice .one2 {margin-top:4px;}
+.airprice .one3 {margin-left:45px; margin-top:1px;}
+.airprice .one4 {margin-top:2px}
+.airprice .one5 {margin-left:45px; margin-top:1px; margin-bottom:12px;}
+.btmviewexplain {padding-top:10px; margin-left:5px}
+.btmbanner {clear:both; padding-top:20px}
+.btmbanner span {display:block}
+.marks {position:absolute;}
+.marks img {vertical-align:top}
+
+.otherproduct { padding:0 5px 0  5px;} /* 20091008 수정 */
+/* str : 20091008 추가 */
+.other_tab_mg{ padding:7px 0 0 0; }
+.other_tab_right{float:right; left:470px; top:0; padding-bottom:4px;margin-top:-23px;}
+.other_tab_right li{float:left; padding-left:12px; font-size:11px;}
+.other_tab_right li.red{color:#ff0000}
+.other_tab_right li.blue{color:#0000ff}
+.other_tab_right li.green{color:#029c14}
+.other_tab_right li.gray{color:#888888}
+/* end : 20091008 추가 */
+
+.selectair {margin-top:18px;}
+.selectair td {background-color:#F1FBEA;}
+.selectair td.lb {border-bottom:1px solid #DCF1CD; border-left:1px solid #DCF1CD; padding:8px 0 8px 0}
+.selectair td.rb {border-bottom:1px solid #DCF1CD; border-right:1px solid #DCF1CD; padding:8px 0 8px 0}
+.selectair td.lb2 {border-left:1px solid #DCF1CD; padding:8px 0 8px 0}
+.selectair td.rb2 {border-right:1px solid #DCF1CD; padding:8px 0 8px 0}
+
+.viewlist {margin-top:20px}
+.viewlist td {padding:10px 0; border-bottom:1px solid #E3E3E3}
+.viewlist td.noline {padding:10px 0; border-bottom:0px}
+.viewlist th.bgtd {background-color:#F1FBEA}
+.viewlist td.bgtd {background-color:#F1FBEA}
+.viewlist td.linetd1 {height:3px; line-height:0px; overflow:hidden; margin:0px; padding:0px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/other_line1.gif') 0 0 repeat-x; }
+.viewlist td.linetd2 {height:3px; line-height:0px; overflow:hidden; margin:0px; padding:0px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/other_line2.gif') 0 0 repeat-x; }
+.redb {color:#FF0000; font-weight:bold}
+.blueb {color:#0000FF; font-weight:bold}
+.greenb {color:#029C14; font-weight:bold}
+.viewlist td span {margin:0 5px}
+
+.selectexplain {width:720px; margin-left:13px}
+.selectexplain .area1 {padding-bottom:20px; border-bottom:1px solid #E3E3E3}
+.selectexplain .area1 p {float:left; margin-top:20px;}
+.selectexplain .area1 p img {margin-right:7px}
+.selectexplain .area1 a {float:right; margin-top:40px;}
+.selectexplain .area2 {padding-bottom:20px;}
+.selectexplain .area2 p {float:left; margin-top:20px;}
+.selectexplain .area2 a {float:right; margin-top:20px;}
+.selectexplain .leftporition {width:291px; height:189px; border:1px solid #CCCCCC; overflow:auto; margin-top:5px}
+.selectexplain .leftporition .textform{margin:7px 0 5px 0px; padding:0 0 7px 0; border-bottom:1px solid #eaeaea;}
+.selectexplain .leftporition .textform li a {margin-left:9px;}
+.selectexplain .leftporition .textform li.on {font-weight:bold; color:#464646; background-color:#d1d1d1; }
+.selectexplain .leftporition .textform li.on span {text-decoration:underline}
+.selectexplain .leftporition .textform2{margin:10px 0 0 9px;}
+.selectexplain .rightporition {width:291px; height:171px; border:1px solid #CCCCCC; overflow:auto; margin-top:5px}
+.selectexplain .rightporition .textform3 {margin:7px 0 5px 9px; padding:0 0 7px 0;}
+
+
+.confirmcontract {width:721px; height:60px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_contract.gif') 0 0 no-repeat; margin-top:40px}
+
+.pointview {width:750px; padding-left:3px;}
+.pointview .pointsubject {width:100%; height:57px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_small_subject.gif') 0 0 no-repeat; margin-top:14px}
+.pointview .pointsubject .iconmark {float:left; vertical-align:top; margin-left:5px}
+.pointview .pointsubject p.img {float:left; padding:10px 0 0 10px;}
+.pointview .pointsubject span.text {display:block; color:#464646; font-weight:bold; padding-top:3px;}
+.pointview .pointsubject p img {margin-left:1px}
+
+/* str : 20091029 수정 */
+.pointview .top_accounttop {background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_topaccounttop.gif') 0 top no-repeat; width:100%; padding-top:10px}
+.pointview .top_accountmd {background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_topaccountmd.gif') 0 0 repeat-y; width:100%;}
+.pointview .top_accountmd span{float:left; display:block; padding:2px 0 2px 20px; color:#888888}
+.pointview .top_accountmd strong{color:#029c14}
+.pointview .top_accountmd  img.print_bt{float:right; margin-right:10px;}
+.pointview .top_accountbt {background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_topaccountbt.gif') 0 bottom no-repeat; width:749px;  padding-bottom:10px}
+/* end : 20091029 수정 */
+
+/* str : 20100216 수정 */
+.pointview2 {width:1050px; padding-left:3px;}
+.pointview2 .pointsubject {width:100%; height:57px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_small_subject.gif') 0 0 no-repeat; margin-top:14px}
+.pointview2 .pointsubject .iconmark {float:left; vertical-align:top; margin-left:5px}
+.pointview2 .pointsubject p.img {float:left; padding:10px 0 0 10px;}
+.pointview2 .pointsubject span.text {display:block; color:#464646; font-weight:bold; padding-top:3px;}
+.pointview2 .pointsubject p img {margin-left:1px}
+/* str : 20100216 수정 */
+
+.chartschedule {width:750px; height:100%; border:1px solid #CCCCCC; margin-top:10px} /*overflow:auto;*/
+.chartschedule dl {margin:20px 10px 0 10px}
+.chartschedule dt {color:#029C14; font-weight:bold}
+.chartschedule dd {margin-bottom:20px}
+.chartschedule2 {width:748px; height:100%; border-right:1px solid #CCCCCC; border-left:1px solid #CCCCCC; border-bottom:1px solid #CCCCCC;}
+.chartschedule2 dl {margin:20px 10px 0 10px}
+.chartschedule2 dt {color:#029C14; font-weight:bold}
+.chartschedule2 dd {margin-bottom:20px}
+.pointview table {border-top:1px solid #029C14; margin:0 auto}
+.pointview td {padding-left:10px; border-bottom:1px solid #EEEEEE}
+.pointview td.bgtd {background-color:#F1FBEA}
+.pointview td span {display:block}
+.pointview td.inner {padding-top:8px; padding-bottom:8px}
+.pointview td.inner p {margin-bottom:8px}
+.pointview td.inner p input {width:13px; height:13px; margin-right:2px}
+.pointview td u.poss {color:#888888}
+
+.levelguide {margin-top:10px}
+.levelguide td {padding:0 10px; border-bottom:1px solid #E3E3E3}
+.levelguide td.noline {padding:10px 0; border-bottom:0px}
+.levelguide td.noline2 {border-bottom:0px}
+.levelguide th.bgtd {background-color:#F1FBEA}
+.levelguide td.bgtd {background-color:#F1FBEA}
+.levelguide td.bgtd img {margin-left:5px}
+.levelguide td.inner {padding-top:8px; padding-bottom:8px}
+.levelguide td.linetd1 {height:3px; line-height:0px; font:0px; overflow:hidden; margin:0px; padding:0px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/other_line1.gif') 0 0 no-repeat}
+.levelguide td.linetd2 {height:3px; line-height:0px; font:0px; overflow:hidden; margin:0px; padding:0px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/other_line2.gif') 0 0 no-repeat}
+.redb {color:#FF0000; font-weight:bold}
+.blueb {color:#0000FF; font-weight:bold}
+.greenb {color:#029C14; font-weight:bold}
+.levelguide {margin-left:10px}
+.levelguide td span {margin:0 5px}
+.tabledivide {height:3px; padding:0; margin:0; overflow:hidden; line-height:0px; font:0px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/divide_table.gif') 0 0 no-repeat;}
+.tgreen {border-top:1px solid #029C14}
+.tgreen img.level {position:absolute; margin-top:-30px}
+
+
+/* str : 20091008 TAB 메뉴 추가 */
+.tabmenu { width:100%; margin:0 auto; background:url('http://img.modetour.co.kr/mode2010/modetour/product/schedule/bg_tab_x.gif') 0 0 repeat-x; }
+.tabmenu li {float:left;}
+.tabmenu li img {vertical-align:top}
+/* end : 20091008 TAB 메뉴 추가 */
+
+/* str : 2009.10.19 printing 페이지 */
+.printing {width:746px; border:1px solid #cccccc; margin:15px 15px 0 15px;}
+.printing td.top {height:48px;}
+.printing td.print {text-align:right; padding-right:15px;}
+
+.printing_table {width:746px; border:1px solid #cccccc; margin:15px 15px 0 15px; color:#464646;}
+.printing_table td {border-bottom:1px solid #cccccc; font-size:14px;}
+.printing_table th {border-bottom:1px solid #cccccc; text-align:left; font-size:14px;}
+.printing_table td span {font-weight:normal;}
+.printing_table td p {color:#888888;}
+.printing_table td p span {font-weight:none; padding-left:15px;}
+.printing_table th.tit {background-color:#f2f2f2; padding:5px 0 2px 10px;}
+.printing_table td.con {padding:2px 0 1px 10px;}
+.printing_table td.check1 {border-right:1px solid #cccccc; line-height:16px;}
+.printing_table td.check2 {line-height:16px;}
+.printing_table td.bdnone {border-bottom:none;}
+.printing_table td h1 {font-size:20px; font-weight:bold; text-align:center; padding:10px 0 7px 0; color:#333;}
+.printing_table td p.text_check {text-align:center; padding-bottom:5px; color:#464646;}
+
+.printing_table2 {width:746px; margin:0 15px 0 15px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_stamp.png') 150px 70px no-repeat; border-left:1px solid #cccccc; border-right:1px solid #cccccc; border-bottom:1px solid #cccccc;}
+.printing_table2 div p {padding:5px 0 0 0; text-align:center; font-weight:bold;}
+.printing_table2 table.tb_m1 {margin:0 0 0 26px; width:695px;}
+.printing_table2 table.tb_m1 td {font-size:14px;}
+.printing_table2 table.tb_m1 td span {font-weight:bold;}
+.printing_table2 table.tb_m1 td h1 {font-size:16px; width:}
+.printing_table2 table.tb_m2 {margin:0 0 0 26px; border-top:1px solid #cccccc; width:695px;}
+.printing_table2 table.tb_m2 td span {font-weight:bold;}
+.printing_table2 table.tb_m2 td h1 {font-size:16px; padding:5px 0 3px 0;}
+.printing_table2 table.tb_m3 {margin:0 0 0 26px; border-top:1px solid #cccccc; width:695px;}
+.printing_table2 table.tb_m3 td span {font-weight:bold;}
+.printing_table2 table.tb_m3 td h1 {font-size:16px; padding:5px 0 3px 0;}
+.printing_table2 table.tb_m3 td.bt_line {}
+.printing_bottom {width:780px; text-align:center; padding:20px 0 20px 0;}
+.printing_bottom img {padding-left:1px;}
+/* end : 2009.10.19 printing 페이지 */
+
+/* str : 2009.10.19 간략히보기 tabmenu */
+.pointview div.tab {background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_minitabline.gif') 0 bottom repeat-x; width:750px; height:37px; border-collapse:collapse; border-spacing:0px; padding:10px 0 0 0;}
+.pointview div.tab img {vertical-align:top; }
+/* end : 2009.10.19 간략히보기 tabmenu */
+
+
+/* str 20091020 간략히 보기 */
+
+/* str : 20091029 간략히보기 mail  top 부분 */
+.popuptoptitle {width:799px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_printgreen_middle.png') 0 0 repeat-y; position:relative;}
+.roundtop { width:799px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_printgreen_top1.png') 0 top no-repeat;padding-top:10px;}
+.roundbt { width:799px;background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_printgreen_bottom.png') 0 bottom repeat; padding-bottom:10px;}
+.popuptoptitle img.print_close_x {position:absolute; right:0; margin:0 7px 0 0;}
+.popuptoptitle img.title_logo {float:left; margin:15px 0 0 22px;}
+.popuptoptitle dl {float:right; width:300px; margin-top:10px;}
+.popuptoptitle dt{clear:both; float:left;  width:50px; padding:4px 0 0 0; margin:0;} 
+.popuptoptitle dd{float:left; width:240px;  padding:3px 0 3px 10px; color:#FFFFFF; line-height:14px;}
+.popuptoptitle.data{clear:both; margin-left:581px; color:#fff; }
+/* end : 20091029 간략히보기 mail  top 부분 */
+
+/* str 20091029 추가 */
+.popuptoptitle2 {width:799px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_printwite_middle.gif') 0 0 repeat-y; position:relative;}
+.roundtop2 {width:799px;background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_printwite_top.gif') 0 top no-repeat;  padding-top:10px;}
+.roundbt2 {width:799px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_printwite_bottom.gif') 0 bottom no-repeat; padding-bottom:10px;}
+.popuptoptitle2 img.print_close_x {position:absolute; right:0; margin:0 30px 0 0;}
+.popuptoptitle2 img.title_logo2 {float:left; margin:15px 0 0 22px;}
+.popuptoptitle2 dl {float:right; width:300px; margin-top:10px;}
+.popuptoptitle2 dt{clear:both; float:left;  width:50px; padding:4px 0 0 0; margin:0;}
+.popuptoptitle2 dd{float:left; width:240px;  padding:3px 0 3px 10px; line-height:14px;}
+.popuptoptitle2.data{clear:both; margin-left:581px; color:#fff; }
+/* end 20091029 추가 */
+
+/* str 20100203 추가 */
+.popuptoptitle3 {width:1029px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_printgreen_middle.png') 0 0 repeat-y; position:relative;}
+.roundtop3 { width:1029px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_printgreen_top2.png') 0 top no-repeat; padding-top:10px;}
+.roundbt3 { width:1029px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_printgreen_bottom2.png') 0 bottom repeat; padding-bottom:10px;}
+.popuptoptitle3 img.print_close_x {position:absolute; right:0; margin:0 7px 0 0;}
+.popuptoptitle3 img.title_logo {float:left; margin:15px 0 0 22px;}
+.popuptoptitle3 dl {float:right; width:300px; margin-top:10px;}
+.popuptoptitle3 dt{clear:both; float:left;  width:50px; padding:4px 0 0 0; margin:0;} 
+.popuptoptitle3 dd{float:left; width:240px;  padding:3px 0 3px 10px; color:#FFFFFF; line-height:14px;}
+.popuptoptitle3.data{clear:both; margin-left:581px; color:#fff; }
+/* end 20100203 추가 */
+
+/* str 20100203 추가 */
+.popuptoptitle4 {width:999px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_printwite_middle2.png') 0 0 repeat-y; position:relative;}
+.roundtop4 {width:999px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_printwite_top2.png') 0 top repeat; padding-top:10px;}
+.roundbt4 {width:999px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_printwite_bottom2.png') 0 bottom repeat; padding-bottom:10px;}
+.popuptoptitle4 img.print_close_x {position:absolute; right:0; margin:0 7px 0 0;}
+.popuptoptitle4 img.title_logo2 {float:left; margin:15px 0 0 22px;}
+.popuptoptitle4 dl {float:right; width:300px; margin-top:10px;}
+.popuptoptitle4 dt{clear:both; float:left;  width:50px; padding:4px 0 0 0; margin:0;}
+.popuptoptitle4 dd{float:left; width:240px;  padding:3px 0 3px 10px; line-height:14px;}
+.popuptoptitle4.data{clear:both; margin-left:581px; color:#fff; }
+/* end 20100203 추가 */
+
+.print_btn01{margin:15px 0 0 5px;}
+.print_btn02{margin:10px 0 0 0;}
+.print_title{width:778px; margin:13px 0 0 5px; } 
+
+.print_title table{margin:0; border-top:1px solid #029c14; width:100% }
+.print_title th{ padding:10px 0 10px 10px; text-align:left; font-weight:bold; color:#464646; background-color:#f1fbea; border-bottom:1px solid #e3e3e3;}
+.print_title td{font-weight:bold; padding:10px 0 10px 10px;  color:#464646; border-bottom:1px solid #e3e3e3;}
+.print_title td.con_text{font-weight:normal; }
+
+/* str 20100203 */
+.print_title2{width:1015px; margin:13px 0 0 5px; } 
+.print_title2 table{margin:0; border-top:1px solid #029c14; width:100% }
+.print_title2 th{ padding:10px 0 10px 10px; text-align:left; font-weight:bold; color:#464646; background-color:#f1fbea; border-bottom:1px solid #e3e3e3;}
+.print_title2 td{font-weight:bold; padding:10px 0 10px 10px;  color:#464646; border-bottom:1px solid #e3e3e3;}
+.print_title2 td.con_text{font-weight:normal; }
+/* end 20100203 */
+
+.printsubject{ position:relative; margin:15px 0 12px 5px;}
+.printsubject .iconmark {position:absolute;  margin-left:6px; }
+.printsubject_btm {width:780px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/print_txt_title_btm1.gif') 0 bottom no-repeat;  padding-bottom:13px; }
+.printsubject_top {width:780px;  background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/print_txt_title_top1.gif') 0 0 no-repeat;  padding-top:10px;}
+.printsubject_mid {width:780px;  background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/print_txt_title_mid1.gif') 0 0 repeat-y;   line-height:14px;  }
+.printsubject_mid  p.img {float:left; padding:0 0 0 10px} /* 20091106 */
+.printsubject_mid  span.text {display:block; color:#464646; font-weight:bold; padding:8px 10px 0 0;}
+.printsubject_mid  p img {margin-left:1px} 
+
+/* str 20100203 */
+.printsubject_btm2 {width:1015px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/print_txt_title_btm2.gif') 0 bottom no-repeat;  padding-bottom:13px; }
+.printsubject_top2 {width:1015px;  background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/print_txt_title_top2.gif') 0 0 no-repeat;  padding-top:10px;}
+.printsubject_mid2 {width:1015px;  background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/print_txt_title_mid2.gif') 0 0 repeat-y;   line-height:14px;  }
+.printsubject_mid2  p.img {float:left; padding:0 0 0 10px} /* 20091106 */
+.printsubject_mid2  span.text {display:block; color:#464646; font-weight:bold; padding:8px 10px 0 0;}
+.printsubject_mid2  p img {margin-left:1px} 
+/* end 20100203 */
+
+/* end : 20091029 간략히보기 mail  top 부분 */
+
+/* str 20100203 */
+.pointview_box2{width:1005px; border:1px solid #cccccc; margin:0; padding:13px 5px 0  5px; }  /* height:907px; overflow:auto; */
+.pointview_box2 th{background-color:#F1FBEA; color:#90c094; text-align:left; padding:13px 0 15px 10px; border-bottom:1px solid #e3e3e3; vertical-align:top; line-height:13px; }
+.pointview_box2 th.list{background-color:#F1FBEA; color:#464646; text-align:left; padding:13px 0 15px 10px; border-bottom:1px solid #e3e3e3; vertical-align:top; line-height:13px; letter-spacing:-0.1em;}
+.pointview_box2 td{padding-left:10px; border-bottom:1px solid #e3e3e3; margin-top:14px;}/* 20091230 수정 */
+.pointview_box2 td.tb_title{padding:0; margin:0;}
+.pointview_box2 td.pd_tb{padding:10px 0 10px 10px;}
+.pointview_box2 td.plan_tit1{clear:both; height:40px; color:#029c14; padding:0 0 0 10px; border-bottom:1px solid #e3e3e3; text-align:left; background:#f1fbea;}
+.pointview_box2 td.plan_tit1 span{display:block; float:left; margin:0 0 0 5px; font-weight:bold;}
+.pointview_box2 td.plan_tit2{height:29px;}
+.pointview_box2 td.plan_con1{background:url('http://img.modetour.co.kr/mode2010/modetour/product/schedule/bg_tableLine.gif') 0 0 repeat-x;padding:15px 0 14px 0; vertical-align:top}
+.pointview_box2 td.plan_con2{background:url('http://img.modetour.co.kr/mode2010/modetour/product/schedule/bg_tableLine.gif') 0 0 repeat-x; padding:10px 0 10px 30px; text-align:left;}
+.pointview_box2 td.plan_con3{padding:15px 0 14px 0; vertical-align:top}
+.pointview_box2 td.plan_con4{padding:15px 0 14px 30px; text-align:left;}
+.pointview_box2 td.plan_con2 p, .pointview_box td.plan_con4 p {margin-bottom:6px;}
+.pointview_box2 td.plan_con5{vertical-align:top; background:#f5f5f5; padding:16px 0 14px 9px; text-align:left;}
+.pointview_box2 td.plan_con6 {vertical-align:top; line-height:25px; text-align:left; background:#f5f5f5;  padding:15px 0 10px 10px}
+.pointview_box2 td.plan_con6 li{float:left; padding-left:15px;}
+.pointview_box2 td .qna_list li{margin-bottom:15px;}
+.pointview_box2 .notable{width:100%}
+/* end 20100203 */
+
+.pointview_box{width:746px; border:1px solid #cccccc; margin:0; padding:13px 0 0 0 }  /* width:786px; height:907px; overflow:auto; */
+.pointview_box th{background-color:#F1FBEA; color:#90c094; text-align:left; padding:13px 0 15px 10px; border-bottom:1px solid #e3e3e3; vertical-align:top; line-height:13px; }
+.pointview_box th.list{background-color:#F1FBEA; color:#464646; text-align:left; padding:13px 0 15px 10px; border-bottom:1px solid #e3e3e3; vertical-align:top; line-height:13px; letter-spacing:-0.1em;}
+.pointview_box td{padding-left:10px; border-bottom:1px solid #e3e3e3; margin-top:14px;}
+.pointview_box td.tb_title{padding:0; margin:0;}
+.pointview_box td.pd_tb{padding:10px 0 10px 10px;}
+.pointview_box td.plan_tit1{clear:both; height:40px; color:#029c14; padding:0 0 0 10px; border-bottom:1px solid #e3e3e3; text-align:left; background:#f1fbea;}
+.pointview_box td.plan_tit1 span{display:block; float:left; margin:0 0 0 5px; font-weight:bold;}
+.pointview_box td.plan_tit2{height:29px;}
+.pointview_box td.plan_con1{background:url('http://img.modetour.co.kr/mode2010/modetour/product/schedule/bg_tableLine.gif') 0 0 repeat-x;padding:15px 0 14px 0; vertical-align:top}
+.pointview_box td.plan_con2{background:url('http://img.modetour.co.kr/mode2010/modetour/product/schedule/bg_tableLine.gif') 0 0 repeat-x; padding:10px 0 10px 30px; text-align:left;}
+.pointview_box td.plan_con3{padding:15px 0 14px 0; vertical-align:top}
+.pointview_box td.plan_con4{padding:15px 0 14px 30px; text-align:left;}
+.pointview_box td.plan_con2 p, .pointview_box td.plan_con4 p {margin-bottom:6px;}
+.pointview_box td.plan_con5{vertical-align:top; background:#f5f5f5; padding:16px 0 14px 9px; text-align:left;}
+.pointview_box td.plan_con6 {vertical-align:top; line-height:25px; text-align:left; background:#f5f5f5;  padding:15px 0 10px 10px}
+.pointview_box td.plan_con6 li{float:left;}
+.pointview_box td .qna_list li{margin-bottom:15px;}
+.pointview_box .notable{width:100%}
+.title_text{background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/icon_tit.gif') 10px 1px  no-repeat; padding-left:31px; font-weight:bold; color:#434343; margin-bottom:10px; font-size:14px;}
+.title_text02{font-size:14px; color:#434343; font-weight:bold; margin-top:16px; margin-bottom:6px;}
+.title_text02 span{color:#888888}
+.title_text03{background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/icon_info.gif') 0 0  no-repeat; padding-left:25px; font-weight:bold; color:#434343; margin-bottom:5px; font-size:14px;}
+
+
+/* TEXT */
+.text_list01 {margin:10px 0; }
+.text_list01 p{margin-top:20px; font-weight:bold;}
+.text_list01 span.txt_color{color:#888888; display:inline}
+
+.text_list02 {margin:20px 0; padding-left:10px}
+.text_list02 ul{margin-bottom:10px;}
+.text_list02 li{color:#888888}
+.text_list02 ul.info li{background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/icon_list01.gif') 0 5px  no-repeat; padding-left:10px;}
+.text_list02 ul li.txt_top{color:#464646}
+
+strong.icon_txt{ letter-spacing:-0.2em; color:#464646; line-height:12px;}
+strong.icon_txt span{display:block; text-align:right;}
+
+.agreement_box{ border-top:1px solid #cccccc;  border-bottom:1px solid #cccccc; padding:10px; color:#464646; margin-bottom:20px;}
+.agreement_box p {margin-top:10px;}
+
+
+/* POP INFO */
+.pop_info_title{margin-bottom:10px;}
+.national_info_list dt{ font-weight:bold; padding:10px 0 10px 4px; line-height:12px;}
+.national_info_list dd{ padding: 0 2px 10px 2px; border-bottom:1px solid #e3e3e3; line-height:17px;}
+.national_info_list dd.box{padding:0 0 10px 0}
+.national_img_list {float:left; margin:0 15px 0 0;}
+.national_img_list ul{margin-top:3px;}
+.national_img_list li{float:left; margin-right:1px }
+.national_text_list{float:left;}
+.national_text_list li{background:url('http://img.modetour.co.kr/mode2010/modetour/product/list_icon.gif') 0 7px  no-repeat; padding-left:7px;}
+.nation_box{border:1px solid #cccccc; padding:10px;}
+
+.nation_phone{border-collapse:collapse; width:100%;  border:0; margin:0; padding:0px; border-spacing:0px;}
+.nation_phone th{background-color:#F1FBEA; text-align:center; height:33px; padding:0; vertical-align:middle;}
+.nation_phone th.title{background:#FFFFFF url('http://img.modetour.co.kr/mode2010/modetour/product/nation_tb_bg.gif') 0 bottom repeat-x; text-align:center; height:30px; border:0}
+.nation_phone td {padding-left:10px;}
+
+table.national_info_tb{float:left; border-collapse:collapse; border:0; margin:0 0 0 30px; padding:0px; border-spacing:0px; }
+table.national_info_tb th{padding:0; margin:0; background:none; border:0;}
+table.national_info_tb th img{padding-top:4px;}
+table.national_info_tb td{ padding:0; margin:0; border:0;}
+
+.city_info_navi {background:url('http://img.modetour.co.kr/mode2010/modetour/product/pop_city_info_bg.gif') 0 0  no-repeat; width:731px; height:23px; padding:10px 0 0 10px;  font-weight:bold; color:#029c14; line-height:14px; margin-bottom:10px;}
+.city_info_img{float:left; margin-right:15px;}
+.city_info_text{float:left; width:510px;}
+.city_info_list{padding:15px 12px; background-color:#f8f8f8; margin-bottom:30px;}
+.city_info_list li{float:left; background:url('http://img.modetour.co.kr/mode2010/modetour/product/city_list_icon.gif') 0 7px  no-repeat; width:132px; padding-left:8px; height:27px; }
+
+table.city_weather_tb {border:0; width:98%}
+.city_weather_tb{border-collapse:collapse; border:0; margin:0; padding:0; border-spacing:0px; }
+.city_weather_tb th{background:none; padding:10px 0 10px 10px;}
+.city_weather_tb td{padding:10px 0 0 0; border:0; height:100px;}
+.city_weather_tb td.txt{ padding:10px 0 10px 10px;}
+.city_weather_tb td p{ margin-bottom:5px;}
+.city_weather_tb td span{display:block; line-height:14px; font-weight:bold}
+.city_weather_tb td li{float:left; width:100px; text-align:center;}
+.city_weather{background:url('http://img.modetour.co.kr/mode2010/modetour/product/city_weather_bg.gif') -3px 0 no-repeat; width:742px; height:165px; margin-bottom:25px;}
+
+.phone_txt{font-weight:bold; color:#029c14}
+.printing_tb01 {width:746px; border:0; margin:15px 0 0 0px; color:#464646; border-top:1px solid #cccccc; border-bottom:1px solid #cccccc;}
+.printing_tb01 table{border-collapse:collapse; width:100%;  border:0; margin:0; padding:0px; border-spacing:0px; }
+.printing_tb01 td {border-bottom:1px solid #cccccc; font-size:14px;}
+.printing_tb01 th {border-bottom:1px solid #cccccc; text-align:left; color:#464646; font-size:14px;}
+.printing_tb01 td span {font-weight:normal; display:inline}
+.printing_tb01 td p {color:#888888;}
+.printing_tb01 td p span {font-weight:none; padding-left:15px;}
+.printing_tb01 th.tit {background-color:#f2f2f2; padding:5px 0 2px 10px;}
+.printing_tb01 td.con {padding:2px 0 1px 10px;}
+.printing_tb01 td.check1 {border-right:1px solid #cccccc; line-height:16px;}
+.printing_tb01 td.check2 {line-height:16px;}
+.printing_tb01 td.bdnone {border-bottom:none;}
+.printing_tb01 td h1 {font-size:20px; font-weight:bold; text-align:center; padding:10px 0 7px 0; color:#333;}
+.printing_tb01 td p.text_check {text-align:center; padding-bottom:5px; color:#464646;}
+
+.printing_tb02 {width:100%; margin:10px 0 0 0px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/printing/bg_stamp.png') 150px 70px no-repeat; border-bottom:1px solid #cccccc;}
+.printing_tb02 table, .printing_tb02 td{border:0}
+.printing_tb02  div p {padding:5px 0 0 0; text-align:center; font-weight:bold;}
+.printing_tb02  table.tb_m1 {margin:0 0 5px 26px; width:695px;}
+.printing_tb02  table.tb_m1 td {font-size:14px;}
+.printing_tb02  table.tb_m1 td span {font-weight:bold; display:inline}
+.printing_tb02  table.tb_m1 td h1 {font-size:16px; padding:5px 0 3px 0;}
+.printing_tb02  table.tb_m2 {margin:0 0 5px 26px; border-top:1px solid #cccccc; width:695px;}
+.printing_tb02  table.tb_m2 td span {font-weight:bold; display:inline}
+.printing_tb02  table.tb_m2 td h1 {font-size:16px; padding:5px 0 3px 0;}
+.printing_tb02  table.tb_m3 {margin:0 0 5px 26px; border-top:1px solid #cccccc; width:695px;}
+.printing_tb02  table.tb_m3 td span {font-weight:bold; display:inline}
+.printing_tb02  table.tb_m3 td h1 {font-size:16px; padding:5px 0 3px 0;}
+.printing_bottom {width:780px; text-align:center; padding:20px 0 20px 0;}
+.printing_bottom img {padding-left:1px;}
+
+.meeting_place {width:720px; padding:15px 0 50px 0; text-align:center; margin:0 auto;}
+.meeting_place .explain {width:720px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_grayrecttop2.gif') 0 0 no-repeat; text-align:left; }
+.meeting_place .explain p {padding:15px 0 10px 13px}
+.meeting_place .explainbtm {width:720px; height:7px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_grayrectbtm2.gif') 0 0 no-repeat; font:0; line-height:0;}
+
+.popupbody {border-left:1px solid #CCCCCC; border-right:1px solid #CCCCCC; padding:0;}
+.popupbody3 {border-left:1px solid #CCCCCC; border-right:1px solid #CCCCCC; padding:0 10px 0 0;}/* 20100203 */
+/* end 20091020 간략히 보기 */
+
+
+/* str 20091106  print table top부분  */
+.print_top_title {position:relative;  width:100%; height:39px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/schedule/bg_schenumber.gif') 0 0 repeat-x; }
+.print_top_title .tit_tb_box{ color:#029c14; font-weight:bold; padding:13px 0 0 60px; line-height:14px;}
+.print_top_title .tit_tb_box span {padding: 0 1px 0 27px; color:#464646; display:inline}
+
+.print_top_title img.tit_icon01{display:block; float:left; position:absolute; bottom:0}
+.print_top_title img.tit_icon02{display:block; float:left; position:absolute; left:37px; bottom:0;}
+.print_top_title img.tit_code{display:block; float:left; padding-left:90px; padding-top:14px}
+.print_top_title img.tit_number{display:block; float:left; padding-left:20px; padding-top:14px}
+.print_top_title strong{display:block; float:left; margin-left:8px; margin-top:11px;}
+/* end 20091106  print table top부분  */
+
+
+/* str : 20091116  슬라이드쇼 수정 */
+.trip_slideshow{margin:0; padding:0;}
+.slideshow_top_btn {width:640px; margin:0 auto; padding-bottom:3px;}
+.trip_slideshow .img_p{margin-right:228px;}
+.trip_slideshow .img_n{margin-left:228px;}
+ img.slidebar_img{position:relative; z-index:1;}
+ .slidebar_txt{position:absolute; width:640px; height:40px; margin-top:440px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_slideshow_text.png') 0 0 no-repeat; color:#ffffff; text-align:center; z-index:10;}
+ .slidebar_txt span{display:block; line-height:14px; margin-top:15px;}
+.slidebar {width:408px; height:36px; padding:7px 0 0 1px;  background:url('http://img.modetour.co.kr/mode2010/modetour/common/bg_slideshow_bar.png') 0 0 no-repeat;  margin:0 auto; }
+.slidebar table{margin:0; padding:0;}
+.slidebar table td{line-height:0; font-size:0; padding:0;}
+.slidebar table td.btn {text-align:center;}
+.slidebar table td.btn_time{padding-left:7px;}
+.slidebar table td.btn_time img{float:left; margin-left:2px;}
+/* end : 20091116  슬라이드쇼 수정 */
+
+/* str : 20091117 PAGE  :: 윤선영 Common.css로 공통으로 이동된 부분임 */
+/*.paging_tb {height:22px;border-collapse:collapse; margin:0 auto; margin-top:10px; padding:0px; border-spacing:0px; border:0px solid;}
+.paging_tb img{vertical-align:top}
+.paging_tb td{margin:0; padding:0; border:0;}
+.paging_tb td.pr{padding:0 4px}
+.paging_tb td.next{padding: 0 4px}
+.paging_tb td span a{color:#606060; margin:0 6px;}
+.paging_tb td span a.cel_num{font-weight:bold;}*/
+/* end : 20091117 PAGE */
+
+
+/* str:  20091117  calendar  */
+.calendar_box{position:relative; float:left; }
+.trip_calendar {padding:15px 0 15px 15px; border:4px solid #029C14; background-color:#FFFFFF; width:164px; _width:168px; top:-70px;  left:250px;  position:absolute;}
+.trip_calendar  .calenda_x { position:absolute; right:0; top:0; margin:7px 6px 0 0;z-index:99999999; }
+.trip_calendar  p {text-align:center; font-weight:bold; padding-bottom:5px;}
+.trip_calendar  div{float:left; margin-right:8px;}
+.trip_calendar  div.last { float:left; margin-right:0px;}
+.trip_calendar  div.btn_l{margin:64px 14px 0 0; }
+.trip_calendar  div.btn_r{margin:64px 0 0 14px}
+.trip_calendar  td {border:1px solid #CBE3BA; font-size:11px; color:#464646; text-align:center;}
+.trip_calendar  td img {vertical-align:top}
+.trip_calendar  td.normalpast {color:#D3D3D3; background-color:#F6F6F6}
+.trip_calendar  td.holiday {color:#F26650}
+.trip_calendar td.holidaypast {color:#F9D2CB; background-color:#F6F6F6}
+.trip_calendar  td.selectedday {color:#029C14; font-weight:bold; letter-spacing:-1px; } 
+.trip_calendar  td.selecteddaybg {color:#FFFFFF; background-color:#029C14; }
+.trip_calendar  td.selecteddaybglight {color:#FFFFFF; background-color:#97D29E; } 
+/* end:  20091117  calendar  */
+
+
+/* str 20091208 */
+.search_result_tb {margin-top:15px;}
+.search_result_tb table {border-top:1px solid #029C14; margin:0; padding:0;}
+.search_result_tb table th{height:30px; background:#F1FBEA url('http://img.modetour.co.kr/mode2010/modetour/product/bg_tit_sun.gif') 0 bottom repeat-x; text-align:center;}
+.search_result_tb table th.bgno{background-color:#ffffff;}
+.search_result_tb table td {padding:7px 9px;  margin:0; border-bottom:1px solid #E3E3E3; text-align:left; line-height:14px;  letter-spacing:-1px}
+.search_result_tb table td.bg {background-color:#F1FBEA; font-weight:bold;}
+.search_result_tb table td input{height:13px; width:13px; margin-right:3px;; padding:0;}
+.search_result_tb table td span{margin:0; display:block; float:left; width:160px; padding:3px 0;}
+
+
+.product_choice_tb {margin-top:15px;}
+.product_choice_tb table {width:750px; border-top:1px solid #029C14; margin:0; padding:0;}
+.product_choice_tb table th{height:30px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/bg_tit_sun.gif') 0 bottom repeat-x; text-align:center;}
+.product_choice_tb table th.bg {background-color:#F1FBEA;}
+.product_choice_tb table td {padding:6px;  margin:0; border-bottom:1px solid #E3E3E3; text-align:center; line-height:18px; }
+.product_choice_tb table td.txt{text-align:left;}
+.product_choice_tb table td.air_name{text-align:left; padding: 0 0 0 12px; } /* 20091209 */
+.product_choice_tb table td.bg {background-color:#F1FBEA; font-weight:bold;}
+.product_choice_tb table td input{height:13px; width:13px; margin-right:3px; padding:0;}
+.product_choice_tb table td span{color:#029c14}
+.product_choice_tb table td span.or{color:#ff6600; padding:0 0 0 10px;}
+
+/* end 20091208 */
+
+
+/*여행후기,  Q&A*/
+.tabwrap {margin-left:3px}
+.tabwrap table.list {margin:10px 0 0 0; *margin:10px 0 0 0;}
+.tabwrap table.list th {border-top:1px solid #e3e3e3; height:30px; padding-bottom:5px; background:url('http://img.modetour.co.kr/mode2010/modetour/product/schedule/bg_tableLine2.gif') 0 bottom repeat-x;}
+.tabwrap td {padding:9px 0 6px 0; color:#888888; text-align:center}
+.tabwrap table.list td {border-bottom:1px solid #e3e3e3;}
+.tabwrap td.subject {padding:9px 0 6px 10px; color:#888888; text-align:left}
+.tabwrap td.subject a:hover {font-weight:bold; text-decoration:underline}
+
+.tabwrap table.view {margin:10px 0 15px 0; *margin:10px 0 15px 0;}
+.tabwrap table.view .title {text-align:left; border-top:1px solid #e3e3e3; padding:9px 0 6px 10px;}
+.tabwrap table.view td {border-bottom:1px solid #e3e3e3; padding:9px 0 8px 10px; color:#666666;}
+.tabwrap table.view td.btn {padding:10px 0 20px 0; margin:0;}
+.tabwrap table.view td.btn p.le {float:left; padding:0 0 0 0; margin:0;}
+.tabwrap table.view td.btn p.ri {float:right; padding:0 0 0 0; margin:0;}
+.tabwrap table.view td.content {text-align:left; background:url('http://img.modetour.co.kr/mode2010/modetour/product/schedule/bg_tableLine2.gif') 0 0 repeat-x; border-bottom:0px; padding:20px 0 6px 20px;}
+.tabwrap table.view td.count {text-align:left; font-size:11px; padding-bottom:0px; padding-left:0px}
+.tabwrap table.view td.comment {text-align:left; color:#666666; font-weight:bold; border-bottom:0px; padding-bottom:0px; padding-left:0px}
+.tabwrap table.view td.preview {border-top:1px solid #029c14; border-bottom:1px solid #e3e3e3;}
+.tabwrap table.view td.preview p {display:inline; float:left; margin-left:5px}
+.tabwrap table.view td.next {border-top:1px solid #029c14; border-bottom:1px solid #e3e3e3;}
+.tabwrap table.view td.next p {display:inline; float:left; margin-left:5px}
+
+.tabwrap table.write {margin:10px 0 5px 11px; *margin:10px 0 5px 2px}
+.tabwrap table.write td {border-top:1px solid #029C14; border-bottom:1px solid #e3e3e3; padding:10px 0 10px 10px; text-align:left}
+.tabwrap table.write td.tdbg {background:#f1fbea; border-bottom:1px solid #e3e3e3; padding:10px 0 10px 10px;}
+.tabwrap table.write td.recommand li {float:left}
+.tabwrap table.write td.recommand li input {margin:5px 0 0 15px; width:13px; height:14px}
+.tabwrap table.write td.recommand li.first input {margin-left:0px}
+.tabwrap table.write td.guide li {background:url('http://img.modetour.co.kr/mode2010/modetour/product/moproduct/bullet_gray.gif') 0 7px no-repeat; padding-left:8px; color:#777777}
+.tabwrap table.write td.btns {text-align:center; border-bottom:0px} 
+
+.tabwrap .blog { padding-top:5px; border-top:1px solid #029c14; margin:10px 15px 0px 15px; *margin:10px 15px 0px 15px; _margin:10px 15px 0px 15px;} /* 20091013 수정 */
+.tabwrap .blog li {width:720px; border-bottom:1px solid #e3e3e3; text-align:left; margin:0 0 5px 0; *margin:0 0 5px 0; _margin:0 0 5px 0; padding:10px 0 10px 0;}  /* 20091013 수정 */
+.tabwrap .blog dl {padding-left:10px}
+.tabwrap .blog dt {color:#666666; font-weight:bold; padding-bottom:2px;}
+.tabwrap .blog dd {color:#666666; padding-top:3px;}
+.tabwrap .blog dd span {color:#999999; padding:0 5px}
+.tabwrap .blog dd.content {color:#888888; margin-top:0px; line-height:15px;}
+/*여행후기,  Q&A*/
+
+
+/* str 월탭 및 상품명보기 */
+.product_tab_wrap { position:relative; margin:10px 0 0;  padding:0; width:100%; list-style-type:none;}
+.product_tab_wrap .schedule_tab { clear:both; font-size:1px; width:100%; height:1%; line-height:1px; background:url(http://img.modetour.co.kr/mode2010/modetour/product/tab_month/tab_bg.gif) repeat-x left bottom; overflow:hidden; }
+.product_tab_wrap .schedule_tab span { float:left; padding:0 0 0 1px; overflow:hidden; }
+.product_tab_wrap .schedule_tab span a img { padding:0 1px 0 0; }
+.product_tab_wrap .schedule_tab a { float:left; }
+.product_tab_wrap .schedule_table_head { border-bottom:1px solid #e3e3e3; }
+.product_tab_wrap .schedule_table_head table { width:100%; }
+.product_tab_wrap .schedule_table_head table thead th { background-image:none; background-color:#f1fbea; height:32px; text-align:center; }
+.product_tab_wrap .schedule_table_head table thead th.Sub2_DanList a { display:inline-block; padding:6px 20px 6px 0; background:url(http://img.modetour.co.kr/mode2010/modetour/product/btn_up2.gif) no-repeat right center; color:#7b8fa8; }
+.product_tab_wrap .schedule_table_head table thead th.Sub2_DanList2 a { display:inline-block; padding:6px 20px 6px 0; background:url(http://img.modetour.co.kr/mode2010/modetour/product/btn_down2.gif) no-repeat right center; color:#7b8fa8; }
+
+.product_tab_wrap .schedule_table_head { border-bottom:1px solid #e3e3e3; }
+.product_tab_wrap .schedule_table_head ul { width:100%; list-style:none; margin:0; padding:0;}
+.product_tab_wrap .schedule_table_head ul li { float:left; background-image:none; background-color:#f1fbea; text-align:center; padding:8px 0;}
+.product_tab_wrap .schedule_table_head ul li.Sub2_DanList span {display:inline-block; padding:6px 40px 6px 0;}
+.product_tab_wrap .schedule_table_head ul li.Sub2_DanList div {position:absolute; top:0; left:840px;}
+.product_tab_wrap .schedule_table_head ul li.Sub2_DanList a { display:inline-block; padding:6px 20px 6px 0; background:url(http://img.modetour.co.kr/mode2010/modetour/product/btn_up2.gif) no-repeat right center; color:#7b8fa8; }
+.product_tab_wrap .schedule_table_head ul li.Sub2_DanList2 a { display:inline-block; padding:6px 20px 6px 0; background:url(http://img.modetour.co.kr/mode2010/modetour/product/btn_down2.gif) no-repeat right center; color:#7b8fa8; }
+
+.product_tab_wrap .schedule_table { clear:both; width:100%; margin:0 0px;  height:310px; overflow:hidden; overflow-y:scroll; border-bottom:1px solid #e3e3e3; }
+.product_tab_wrap .schedule_table2 { clear:both; width:100%; margin:0 0px;  overflow:hidden; overflow-y:auto; border-bottom:1px solid #e3e3e3; }
+
+.product_tab_wrap .schedule_table table { width:100%; }
+.product_tab_wrap .schedule_table table thead {display:none;}
+.product_tab_wrap .schedule_table table tbody td { padding:8px 0; font:12px/16px Gulim; color:#464646; background-color:#ffffff; text-align:center; border-bottom:1px solid #e3e3e3; }
+.product_tab_wrap .schedule_table table tbody td.subject { text-align:left; color:#464646; text-decoration:none; }
+.product_tab_wrap .schedule_table table tbody td.subject p.txt_package { font:11px/14px Dotum; color:#029C14; }
+.product_tab_wrap .schedule_table table tbody td a { color:#464646; text-decoration:none; }
+.product_tab_wrap .schedule_table table tbody td a:hover { color:#029c14; text-decoration:none; }
+.product_tab_wrap .schedule_table2 table { width:100%; }
+.product_tab_wrap .schedule_table2 table thead th { background-image:none; background-color:#f1fbea; height:32px; }
+.product_tab_wrap .schedule_table2 table tbody td { padding:8px 0; font:12px/16px Gulim; color:#464646; background-color:#ffffff; text-align:center; border-bottom:1px solid #e3e3e3; }
+.product_tab_wrap .schedule_table2 table tbody td.subject { text-align:left; color:#464646; text-decoration:none; }
+.product_tab_wrap .schedule_table2 table tbody td.subject p.txt_package { font:11px/14px Dotum; color:#029C14; }
+.product_tab_wrap .schedule_table2 table tbody td a { color:#464646; text-decoration:none; }
+.product_tab_wrap .schedule_table2 table tbody td a:hover { color:#029c14; text-decoration:none; }
+
+.product_tab_wrap .schedule_btn { clear:both; margin:10px 0 0; width:100%; height:1%; } /* overflow:hidden; */
+.product_tab_wrap .schedule_btn p.status_txt { float:left; font:11px/22px Dotum; }
+.product_tab_wrap .schedule_btn p.status_txt span.red { color:#ff0000; }
+.product_tab_wrap .schedule_btn p.status_txt span.blue { color:#0000ff; }
+.product_tab_wrap .schedule_btn p.status_txt span.green { color:#029c14; }
+.product_tab_wrap .schedule_btn p.status_txt span.gray { color:#888888; }
+.product_tab_wrap .schedule_btn p.close {position:relative; clear:both; width:100%; height:0; }
+.product_tab_wrap .schedule_btn p.close a {position:absolute; display:block; width:927px; margin:0; padding:3px 0; left:-15px; top:9px; text-align:center; background-color:#f6f5f6;}
+
+.product_tab_wrap .schedule_func { position:absolute; right:0; top:0; line-height:1px; }
+.Sub2_Text_Green {background:url(http://img.modetour.co.kr/mode2010/modetour/search/btn_reservewait.gif) no-repeat center; width:71px; height:22px; }
+.Sub2_Text_Green {background:url(http://img.modetour.co.kr/mode2010/modetour/search/btn_reservewait.gif) no-repeat center; width:71px; height:22px; }
+.Sub2_Text_Blue {background:url(http://img.modetour.co.kr/mode2010/modetour/search/btn_reservepossible.gif) no-repeat center; width:71px; height:22px; }
+.Sub2_Text_Gray {background:url(http://img.modetour.co.kr/mode2010/modetour/search/btn_endreserve.gif) no-repeat center; width:71px; height:22px; }
+.Sub2_Text_Red {background:url(http://img.modetour.co.kr/mode2010/modetour/search/btn_posssible.gif) no-repeat center; width:71px; height:22px; }
+/* end 월탭 및 상품명보기 */
+
+
+/* str 상단 좌측 기획전 , 우측 특선상품 */
+.left_section { float:left; width:677px; }
+.left_section .thumb { width:677px; font-size:1px; line-height:1px; overflow:hidden; }
+.left_section .thumb img { vertical-align:top; }
+.left_section .subject { padding:12px 20px; width:637px; font:12px/14px Dotum; background-color:#464646; overflow:hidden; }
+.left_section .subject .title { float:left; font-weight:bold; color:#ffffff; }
+.left_section .subject .paging { float:right; text-align:right; }
+.right_section { float:right; position:relative; margin:0 3px 0 0; padding:1px; width:241px; height:186px; background-color:#0d3e98; overflow:hidden; }
+.right_section div, .right_section p { margin:0; padding:0; }
+.right_section img { border:0; }
+.right_section .right_banner_content { padding:5px; font-size:11px; line-height:1.4em; font-family:Dotum; color:#ffffff; }
+.right_section div, .right_section p { margin:0; padding:0; }
+.right_section .right_banner_content a { color:#a2cfdc; text-decoration:none; }
+.right_section .pagenate { position:absolute; right:5px; bottom:5px; font-size:1px; line-height:1px; }
+.right_section .pagenate a { float:left; margin:0 3px 0 0; }
+/* end 상단 좌측 기획전 , 우측 특선상품 */
+
+
+/*페이징*/
+div.paging { margin:10px auto 0; text-align:center; }
+div.paging button { background-color:Transparent; border:none; }
+div.paging button.cel_num{font-weight:bold; color:#008000; }
+
+
+.slidearea { width:677px; height:150px; overflow:hidden;}
+.slidearea img { width:677px; height:150px; }
+
+.TempRed {font-weight:bold;color:red;}
+.TempBlue {font-weight:bold;color:blue;}
+.TempGreen {font-weight:bold;color:green;}
+.TempGray {font-weight:bold;color:gray;}
+
+.product_selected { width:928px; font-family:Dotum; font-size:12px; line-height:18px; color:#454545; overflow:hidden; border:1px solid #90cb74; margin:10px auto 0px;}
+.product_selected .local_list_wrap { width:100%; background:url(http://img.modetour.co.kr/mode2010/modetour/product/tab_bg_new.gif) repeat-x; }
+.product_selected .local_list { margin:0 0 0 -1px; padding:0; width:930px; overflow:hidden; }
+.product_selected .local_list li { list-style-type:none; float:left; font-size:1px; line-height:1px; border-left:1px solid #dcf2cc; }
+.product_selected .local_list li.off a { display:block; padding:15px 0 15px 0; width:115px; background:url(http://img.modetour.co.kr/mode2010/modetour/product/tab_bg_off.gif) repeat-x right top; border-bottom:1px solid #90cb74; text-align:center; }
+.product_selected .local_list li.on a {  display:block; padding:15px 0 15px 0; width:116px; background:url(http://img.modetour.co.kr/mode2010/modetour/product/tab_bg_on.gif) repeat-x right top; border-right:1px solid #90CA73; border-bottom:1px solid #ffffff;text-align:center; }
+.product_selected .content { clear:both; padding:15px; width:898px; }
+.product_selected .content .items { clear:both; width:898px; overflow:hidden; }
+.product_selected .content .items .ls { float:left; width:170px; background:url(http://img.modetour.co.kr/mode2010/modetour/product/tab_bg_dotline_2h.gif) repeat-y right top; }
+.product_selected .content .items .ls ul { margin:0; padding:0; }
+.product_selected .content .items .ls ul li { list-style-type:none; color:#d0d0d0; }
+.product_selected .content .items .ls ul li a { color:#464646; text-decoration:none; }
+.product_selected .content .items .ls ul li a.selected { font-weight:bold; color:#059d14; background-color:#ebf7eb; text-decoration:underline; }
+.product_selected .content .items .ls ul li a.no { color:#464646; text-decoration:none; }
+.product_selected .content .items .rs { float:right; width:700px; }
+.product_selected .content .items .rs ul { margin:0; padding:0; }
+.product_selected .content .items .rs ul li { list-style-type:none; color:#878787; }
+.product_selected .content .items .rs ul li a { margin:0 8px 0 0; color:#878787; text-decoration:none; }
+.product_selected .content .items .rs ul li a.selected { margin:0 8px 0 0; font-weight:bold; color:#059d14; background-color:#ebf7eb; text-decoration:underline; }
+.product_selected .content .items .rs ul li a.no { margin:0 8px 0 0; color:#878787; text-decoration:none; }
+.product_selected .content .check_local { clear:both; margin:10px 0 0; padding:10px 0 0; background:url(http://img.modetour.co.kr/mode2010/modetour/product/tab_bg_dotline_2w.gif) repeat-x left top; }
+.product_selected .content .check_local a { color:#464646; text-decoration:none; }
+.product_selected .content .check_local a.selected { font-weight:bold; color:#059d14; background-color:#ebf7eb; text-decoration:underline; }
+.product_selected .content .check_local a.no { color:#464646; text-decoration:none; }
+.product_selected .content .check_local2 { clear:both; margin:10px 0 0; padding:0px 0 0; repeat-x left top; }
+.product_selected .content .check_local2 a { color:#464646; text-decoration:none; }
+.product_selected .content .check_local2 a.selected { font-weight:bold; color:#059d14; background-color:#ebf7eb; text-decoration:underline; }
+.product_selected .content .check_local2 a.no { color:#464646; text-decoration:none; }
+
+.searchResult { width:930px; margin:10px 0 0 3px;}
+.searchResult p { margin:0; padding:0; }
+.searchResult .resultBox { margin:10px 0 0 0px; width:930px; background:url(http://img.modetour.co.kr/mode2010/modetour/product/img_result_bg.jpg) repeat-y; }
+.searchResult .resultBox .blank { font-size:1px; line-height:1px; }
+.searchResult .resultBox .resultContents { padding:10px; width:910px; overflow:hidden; }
+.searchResult .resultBox .resultContents .txtResult { float:left; font-size:12px; font-family:Gulim; line-height:18px; color:#029c14; }
+.searchResult .resultBox .resultContents .listView { float:right; }
+.searchResult .resultBox .resultContents .listView select { font-size:12px; font-family:Gulim; vertical-align:middle; }
+
+/*
+td.Sub2_List_6
+*/
+.Sub2_Text_Green {background:url(http://img.modetour.co.kr/mode2010/modetour/search/btn_reservewait.gif) no-repeat center; width:71px; height:22px;}
+.Sub2_Text_Green {background:url(http://img.modetour.co.kr/mode2010/modetour/search/btn_reservewait.gif) no-repeat center; width:71px; height:22px;}
+.Sub2_Text_Blue {background:url(http://img.modetour.co.kr/mode2010/modetour/search/btn_reservepossible.gif) no-repeat center; width:71px; height:22px;}
+.Sub2_Text_Gray {background:url(http://img.modetour.co.kr/mode2010/modetour/search/btn_endreserve.gif) no-repeat center; width:71px; height:22px;}
+.Sub2_Text_Red {background:url(http://img.modetour.co.kr/mode2010/modetour/search/btn_posssible.gif) no-repeat center; width:71px; height:22px;}
+
+th.Sub2_DanList a {background:url(http://img.modetour.co.kr/mode2010/modetour/product/btn_up2.gif) no-repeat right; padding-right:16px; color:#7B8FA8;}
+th.Sub2_DanList2 a {background:url(http://img.modetour.co.kr/mode2010/modetour/product/btn_down2.gif) no-repeat right; padding-right:16px; color:#7B8FA8;}
+
+div.listarea02 table thead{display:none;}
+div.listarea02 table tbody th{ background:none;}
+
+#canlenderStateTitle{ display:none;}
+
+
+
+/*2013-06-27 이후*/
+.detail_product { padding:25px 17px 25px 25px; width:719px; height:207px; background:url("http://img.modetour.co.kr/mode2010/modetour/product/moproduct/bg_detail.gif") no-repeat  0 0; overflow:hidden; }
+.detail_product .detail_info { float:right; width:504px; }		
+.detail_product .detail_info h1 { font-size:12px; line-height:1.4em; }		
+.detail_product .detail_info .explain { margin:10px 0 0; height:70px; font-size:12px; line-height:1.4em; }
+.detail_product .detail_info .summary_table { margin:10px 0 0; }
+.detail_product .detail_info .summary_table th,
+.detail_product .detail_info .summary_table td { padding:5px 0; text-transform:uppercase; }
+.detail_product .detail_info .summary_table td .won { color:#FF6600; }
+.detail_product .photo { float:left; width:205px; height:154px; }
+.detail_product .photo img { width:100%; height:100%; }
+
+.schedule_picker { margin:0; position:relative; display:none;}
+.schedule_picker .combineBTN{ position:absolute; top:0; right:0;}
+.schedule_picker .combineBTN button.combinebtn1{width:174px; height:22px; border:none; float:left; padding:0px;border:0px;}
+.schedule_picker .combineBTN button.combinebtn2{ margin-left:5px; width:96px; height:22px; border:none; float:left; padding:0px;border:0px;}
+
+.schedule_picker .month { height:30px; background:#fff url("http://img.modetour.co.kr/mode2010/modetour/product/tab_month/tab_bg.gif") repeat-x 0 0; overflow:hidden; }
+.schedule_picker .month ul { margin:0; padding:0; list-style-type:none; }
+.schedule_picker .month ul li { float:left; margin:0 1px 0 0; }
+.schedule_picker .daily { padding:17px; border:1px solid #029C14; border-top:0; box-shadow:0 1px 5px #c6c4c4; }
+.schedule_picker .daily ol { margin:0; padding:0; list-style-type:none; font:11px/20px Dotum; overflow:hidden; }
+.schedule_picker .daily ol li { float:left; margin:0 3px 0 0; padding:0 0 3px; width:24px; text-align:center; background-color:#f6f5f6; }
+.schedule_picker .daily ol li a { display:block; color:#555555; text-decoration:none; }
+.schedule_picker .daily ol li a:hover { color:#ffffff; background-color:#58C265; }
+.schedule_picker .daily ol li b { display:block; padding:3px 0; font-weight:normal; color:#555555; background-color:#dbecdb; }
+.schedule_picker .daily ol li.day a,
+.schedule_picker .daily ol li.day a b { color:#555555; }
+.schedule_picker .daily ol li.sat a,
+.schedule_picker .daily ol li.sat a b { color:#1A6AFC; }
+.schedule_picker .daily ol li.sun a,
+.schedule_picker .daily ol li.sun a b { color:#FF1414; }
+.schedule_picker .daily ol li.day a.on { color:#fff; background-color:#029c14; }
+.schedule_picker .daily ol li.day a.on b { color:#fff; background-color:#555555; }
+.schedule_picker .daily ol li.sat a.on { color:#fff; background-color:#029c14; }
+.schedule_picker .daily ol li.sat a.on b { color:#fff; background-color:#1a6afc; }
+.schedule_picker .daily ol li.sun a.on { color:#fff; background-color:#029c14; }		
+.schedule_picker .daily ol li.sun a.on b { color:#fff; background-color:#ff1414; }		
+.schedule_picker .daily ol li.disable a { cursor:default; color:#BBBBBB !important; text-decoration:line-through; opacity:0.5;  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=50); }		
+.schedule_picker .daily ol li.disable a:hover { background:#F6F5F6; }
+
+.schedule_manual { margin-top:10px; font:11px Dotum; color:#8e8e8e; letter-spacing:-1px; display:none;}
+.schedule_list { position: relative; margin:20px 0 0; padding: 40px 0 0; width:898px; display:none; }
+.schedule_list .table_inner { width:898px; height:360px; padding-top:5px; overflow:hidden; overflow-y:scroll; }
+.schedule_list table thead tr { position: absolute; left:0; right:0; top:0; }	
+.schedule_list table { width:898px; font-size:12px; }
+.schedule_list table thead th { height:40px; font-size:0; line-height:0; text-align:center; border-top:1px solid #029c14; border-bottom:1px solid #ccdcbd; background:#F1FBEA url("http://img.modetour.co.kr/mode2010/modetour/product/moproduct/bg_package_list_horizon.gif") no-repeat 100% center; overflow:hidden; }
+.schedule_list table thead th.col_1 { width:120px; }
+.schedule_list table thead th.col_2 { width:57px; }
+.schedule_list table thead th.col_3 { width:52px; }
+.schedule_list table thead th.col_4 { width:83px; }
+.schedule_list table thead th.col_5 { width:64px; }
+.schedule_list table thead th.col_6 { width:421px; }
+.schedule_list table thead th.col_7 { width:101px; background-image:none; }
+.schedule_list table thead th.col_7 img { margin-left:-16px; }
+.schedule_list table thead th a { display:block; }
+
+.schedule_list table tbody td { padding:5px 0; font-size:11px; font-family:Dotum; text-align:center; border-bottom:1px solid #eee; }
+.schedule_list table tbody td p.departure { color:#3568DA; }
+.schedule_list table tbody td p.arrival { color:#999898; }
+.schedule_list table tbody td b { color:#5AAB4C; }
+.schedule_list table tbody td a { display:block; color:#555555; text-align:left; text-decoration:none; overflow:hidden; }
+.schedule_list table tbody td a span{color:#018a11;}
+.schedule_list table tbody td a:hover,
+.schedule_list table tbody td a:focus { font-weight:bold; letter-spacing:-1px; }
+.schedule_list table tbody td.last a { padding:1px 0; text-align:center; }
+.schedule_list table tbody td.last img { margin-left:-16px; }
+
+.schedule_list table tbody td .tooltip {}
+.schedule_list table tbody td .tooltip .inner { display:none; position:absolute; z-index:1000; top:-30px; left:25px; padding:0 0 8px; color:#fff; background:url("http://img.modetour.co.kr/mode2010/modetour/product/moproduct/ico_tooltip_tail.gif") no-repeat 10px 100%; }
+.schedule_list table tbody td .tooltip .inner p { padding:5px 10px; white-space:nowrap; background-color:#029C14; }		
+.banner_section { float:right; width:150px; }
+.banner_section.customer_center { width:150px; height:304px; background:url("http://img.modetour.co.kr/mode2010/modetour/common/banner/img_banner01.gif") no-repeat 0 0; overflow:hidden; }		
+.customer_center .hide { margin:-5000em 0 0; }
+
+.schedule_btn{display:none;}
+
+.Product_loading {filter:Alpha(opacity=20); opacity:0.2; -moz-opacity:0.2;}
+.schedule_list2 {margin-top:0;padding-top:0;}
+#paging_tb td{border:none;}
+/*2013-06-27 이후*/
+
+
+
+/*2013-12-13*/
+#contents .subsection {width:930px;}
+#contents .subsection .location { margin:10px 0; }
+#contents .subsection .location li { float:left; margin:0 5px 0 0; font:12px Dotum; }
+#contents .subsection .location li span,
+#contents .subsection .location li a { display:block; padding:0 11px 0 0; color:#565960; background:url("http://img.modetour.co.kr/modetour/2014/sublist/icon_navi_arrow.png") no-repeat 100% 45%; }
+#contents .subsection .location li b { background:none; color:#04a583;}
+#contents .subsection .location li:first-child { padding-left:15px; background:url("http://img.modetour.co.kr/modetour/2014/sublist/icon_home.gif") no-repeat 0 45%; }
+#contents .subsection .area_list { position:relative; font-family:Dotum; }
+#contents .subsection .area_list .current_area { position:absolute; top:0; bottom:0; left:0; padding:10px; width:155px; border:1px solid #28a28a; background:#51c0aa; }
+#contents .subsection .area_list .current_area h1 { font-weight:normal; font-size:12px; color:#b5f7ea; }
+#contents .subsection .area_list .current_area h2 { margin:2px 0 0; font-weight:bold; font-size:18px; color:#fff; }
+#contents .subsection .area_list .list_item { margin-left:179px; border:1px solid #DDDDDD; border-right:0; background:#F4F4F4 url("http://img.modetour.co.kr/modetour/2014/sublist/bg_area_list.png") repeat-y 100% 0; }
+#contents .subsection .area_list .list_item ul { margin:0 0 -1px; }
+#contents .subsection .area_list .list_item li { float:left; width:150px; background:#FFF url("http://img.modetour.co.kr/modetour/2014/sublist/bg_area_list.png") repeat-x 0 100%; }
+#contents .subsection .area_list .list_item li ul { display:none; }
+#contents .subsection .area_list .list_item li button { display:block; width:100%; height:50px; background:url("http://img.modetour.co.kr/modetour/2014/sublist/bg_area_list.png") repeat-y 100% ; overflow:hidden; }
+#contents .subsection .area_list .list_item li button span { display:block; margin:0 15px; padding:0 15px 0 0; font:12px Dotum; color:#57575F; text-align:left; word-wrap:normal; background:url("http://img.modetour.co.kr/modetour/2014/sublist/icon_down_arrow.png") no-repeat 100% center; overflow:hidden; }
+#contents .subsection .area_list .list_item li button:hover,
+#contents .subsection .area_list .list_item li button:focus,
+#contents .subsection .area_list .list_item li.selLoc button,
+#contents .subsection .area_list .list_item li.active button { position:relative; background:url("http://img.modetour.co.kr/modetour/2014/sublist/bg_sublist_selected.png") no-repeat 0 0; z-index:3; }
+#contents .subsection .area_list .list_item li.selLoc button span,
+#contents .subsection .area_list .list_item li button:hover span,
+#contents .subsection .area_list .list_item li button:focus span,
+#contents .subsection .area_list .list_item li.active button span { font-weight:bold; color:#FFF700; letter-spacing:-1px; background:none; }
+#contents .subsection .area_list .list_item li.active { position:relative; }
+#contents .subsection .area_list .list_item li.active ul { display:block; position:absolute; left:0; right:0; top:0; padding:60px 10px 10px; width:128px; border:1px solid #262D3E; background-color:#FFF; z-index:2; }
+#contents .subsection .area_list .list_item li.active ul li { float:none; width:100%; border:0; background:none; }
+#contents .subsection .area_list .list_item li.active ul li a { display:block; margin:0; padding:5px 0; border:0; font:12px/14px Dotum; color:#565960; background:none; }
+#contents .subsection .area_list .list_item li.active ul li a span { margin:0; padding:0; border:0; background:none; }
+#contents .subsection .area_list .list_item li.active ul li a:hover { text-decoration:underline; }
+
+#contents .list_ad309x130_spot { margin:25px 0 0; width:930px; overflow:hidden; } 
+#contents .list_ad309x130_spot ul { width:940px; }
+#contents .list_ad309x130_spot ul li { float:left; margin:0 1px 0 0; }
+
+/* 리스트내 검색 셀렉트박스 */
+#contents .search_in_list .ui_select { background:#FFFFFF; }
+#contents .search_in_list .ui_select * { font-size:12px; font-family:Dotum; color:#787878; }
+#contents .search_in_list .ui_select .ctrl,
+#contents .search_in_list .ui_select div.myValue,
+#contents .search_in_list .ui_select li, 
+#contents .search_in_list .ui_select li a,
+#contents .search_in_list .ui_select li input.option,
+#contents .search_in_list .ui_select li label { height:20px; line-height:20px; }
+#contents .search_in_list .ui_select .ctrl { width:23px; border:0; background:url("http://img.modetour.co.kr/modetour/2014/sublist/ico_sort_down.png") no-repeat 0 1px;  }
+#contents .search_in_list .ui_select .arrow { visibility:hidden; }
+#contents .search_in_list .ui_select .myValue { position:relative; left:0; top:0; color:#787878; text-align:left; border:1px solid #BEBEBE; background:transparent; overflow:visible; z-index:2; }
+#contents .search_in_list .ui_select .myValue.outLine { border:1px solid #CCCCCC; }
+#contents .search_in_list .ui_select button.myValue { height:21px; width:100%; text-indent:5px; }
+#contents .search_in_list .ui_select div.myValue { text-indent:8px; }
+#contents .search_in_list .ui_select ul { top:21px; left:0; width:100%; list-style:none; border:0; border-top:1px solid #BEBEBE; border-bottom:1px solid #BEBEBE; background:#FFF; overflow:hidden; }
+#contents .search_in_list .ui_select ul.aList { display:none; }
+#contents .search_in_list .ui_select ul.iList { left:-2000%; }
+#contents .search_in_list .ui_select ul li a { display:block; text-indent:8px; *text-indent:6px; color:#767676; background:#464E60; text-decoration:none; }
+#contents .search_in_list .ui_select ul li { position:relative; white-space:nowrap; border-left:1px solid #BEBEBE; border-right:1px solid #BEBEBE; overflow:hidden; }
+#contents .search_in_list .ui_select ul li input.option { position:absolute; width:100%; }
+#contents .search_in_list .ui_select ul li label { position:absolute; left:0; top:0; width:100%; text-indent:8px; *text-indent:6px; color:#787878; background:#FFF; }
+#contents .search_in_list .ui_select ul li.hover * { font-weight:bold; color:#787878; letter-spacing:-1px; background:#FFF; }
+#contents .search_in_list .ui_select.open .myValue { border:1px solid #BEBEBE; }
+#contents .search_in_list .ui_select.open { z-index:10; }
+#contents .search_in_list .ui_select.open ul.aList { display:block; }
+#contents .search_in_list .ui_select.open ul.iList { left:0; }
+#contents .search_in_list .ie7.ui_select { display:inline; zoom:1; }
+#contents .search_in_list .ie7.ui_select button.myValue { padding-left:5px; text-indent:0; }
+#contents .search_in_list { margin:25px 0 0; }
+#contents .search_in_list .caption { float:left; font:14px/22px Dotum; color:#333333; }
+#contents .search_in_list .caption strong { color:#FF0000; }
+#contents .search_in_list .view_option { float:right; }
+#contents .search_in_list .linkage { border:1px solid #BEBEBE; border-top:2px solid #039F80; background:url("http://img.modetour.co.kr/modetour/2014/sublist/bg_search_in_list.png") repeat-x 0 100%; }
+#contents .search_in_list .linkage .clearfix { padding:10px; }
+#contents .search_in_list .linkage h1 { float:left; padding:0 13px 0 0; background:url("http://img.modetour.co.kr/modetour/2014/sublist/bg_search_in_list_heading.png") no-repeat 100% 0; }
+#contents .search_in_list .linkage h1 b { display:block; padding:0 10px; height:25px; font:bold 12px/26px Dotum; color:#FFFFFF; background-color:#51C0AA;  }
+#contents .search_in_list .linkage ul { float:left; margin:0 0 0 20px; }
+#contents .search_in_list .linkage ul li { float:left; }
+#contents .search_in_list .linkage ul li a { padding:0 20px 0 10px; height:25px; font:bold 12px/26px Dotum; color:#565960; background:url("http://img.modetour.co.kr/modetour/2014/sublist/bg_linkage_bullet.png") no-repeat 2px 5px; }
+#contents .search_in_list .linkage ul li a:hover,
+#contents .search_in_list .linkage ul li a:focus,
+#contents .search_in_list .linkage ul li a.active { color:#FF552E; }
+
+/* 리스트내 검색 가격범위 */
+#contents .search_in_list .slider_range { float:left; position:relative; margin:2px 0 0; width:210px !important; height:16px !important; border:0 !important; border-radius:0 !important; background:url("http://img.modetour.co.kr/modetour/2014/sublist/bg_slider_ranger.png") repeat-x 0 0 !important; }
+#contents .search_in_list .slider_range .ui-widget-header { height:16px !important; border:0 !important; border-radius:0 !important; background:url("http://img.modetour.co.kr/modetour/2014/sublist/bg_slider_ranger2.png") repeat-x 0 0 !important; overflow:hidden; }
+#contents .search_in_list .slider_range .ui-state-default { top:0 !important; margin:0 !important; width:19px !important; height:16px !important; border:0 !important; border-radius:0 !important; background:url("http://img.modetour.co.kr/modetour/2014/sublist/ico_slider_range.png") no-repeat 0 0 !important; overflow:hidden; cursor:pointer; }
+#contents .search_in_list .slider_range .min_price { position:absolute; left:0; top:-15px; width:70px; height:23px; font:11px Dotum; color:#D24524; text-align:left; overflow:hidden; }
+#contents .search_in_list .slider_range .max_price { position:absolute; left:100%; top:-15px; margin:0 0 0 -50px; width:70px; height:23px; font:11px Dotum; color:#D24524; text-align:right; overflow:hidden; }
+#contents .search_in_list { margin:25px 0 0; }
+#contents .search_in_list .caption { float:left; font:14px/22px Dotum; color:#333333; }
+#contents .search_in_list .caption strong { color:#FF0000; }
+#contents .search_in_list .view_option { float:right; }
+#contents .search_in_list .sort_option { border-top:2px solid #039F80; background:url("http://img.modetour.co.kr/modetour/2014/sublist/bg_search_in_list.png") repeat-x 0 100%; }
+#contents .search_in_list .sort_option legend { display:none; }
+#contents .search_in_list .sort_option h1 { height:20px; font:bold 12px/20px Dotum; color:#039F80; overflow:hidden; }
+#contents .search_in_list .sort_option .outline { padding:15px 20px; font-family:Dotum; line-height:25px; color:#2F2F2F; border:1px solid #BEBEBE; border-top:0; }
+#contents .search_in_list .sort_option .outline label { float:left; display:block; margin:0 8px 0 0; padding:0 8px 0 0; height:24px; font-size:12px; background:url("http://img.modetour.co.kr/modetour/2014/common/bg_fix_head_horizon.png") no-repeat 100% 6px; overflow:hidden; }
+#contents .search_in_list .sort_option .outline .date_input { float:left; height:22px; border:1px solid #BEBEBE; overflow:hidden; }
+#contents .search_in_list .sort_option .outline .date_input input[type="text"] { float:left; padding:0 8px; width:86px; height:22px; font:12px/23px Dotum; color:#2F2F2F; border:0; overflow:hidden; }
+#contents .search_in_list .sort_option .outline .to { float:left; padding:0 10px 0 5px; font-size:11px; }
+#contents .search_in_list .sort_option .outline .trip_term { float:left; margin:0 20px 0 0; }
+#contents .search_in_list .sort_option .outline .price_term { float:left; }
+#contents .search_in_list .sort_option .outline .sort_search { float:right; margin:-10px 0 0; }
+#contents .search_in_list .sort_option .outline .summary { clear:both; margin:5px 0 0; font:11px Dotum; color:#83878E; }
+.ie7 #contents .search_in_list .slider_range { margin:3px 0 0; }
+.ie7 #contents .search_in_list .sort_option .outline label { background-position:100% 8px; }
+.ie7 #contents .search_in_list .sort_option .outline .date_input button { margin:-2px 0 0; }
+/*2013-12-13*/

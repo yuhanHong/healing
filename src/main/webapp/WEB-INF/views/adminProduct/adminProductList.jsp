@@ -12,20 +12,6 @@
 <link rel="stylesheet" href="${root}/css/product/product.css" type="text/css"/>
 <script>
 var root="${root}";
-
-function productOnClick(product_number){
-	location.href=root+"/adminProduct/adminProductUpdate.do?pNum="+product_number;
-}
-
-function productOnMouseOver(product_number){
-	var li=document.getElementById("product"+product_number);
-	li.style.backgroundColor="#f6f6f6";
-}
-
-function productOnMouseOut(product_number){
-	var li=document.getElementById("product"+product_number);
-	li.style.backgroundColor="#ffffff";
-}
 </script>
 </head>
 <body>
@@ -67,10 +53,10 @@ function productOnMouseOut(product_number){
 					<div class="adminProducListHeadItem1">숙박일</div>
 					<div class="adminProducListHeadItem1">조회수</div>
 					<div class="adminProducListHeadItem1">평균평점</div>
-					<div class="adminProducListHeadItem1">추천상품여부</div>
+					<div class="adminProducListHeadItem1">삭제</div>
 				</div>
 				<c:forEach var="productDto" items="${productList}">
-					<div class="product" id="product${productDto.product_number}" onmouseover="productOnMouseOver('${productDto.product_number}')" onmouseout="productOnMouseOut('${productDto.product_number}')" onclick="productOnClick('${productDto.product_number}')">
+					<div class="product" id="product${productDto.product_number}" onmouseover="productOnMouseOver('${productDto.product_number}')" onmouseout="productOnMouseOut('${productDto.product_number}')" onclick="productOnClick('${productDto.product_number}',event)">
 						<div class="adminProducListItem1"><input type="checkbox" class="checkBox" name="check${productDto.product_number}"/></div>
 						<div class="adminProducListItem1">${productDto.product_number}</div>
 						<div class="adminProducListItem2">${productDto.product_name}</div>
@@ -78,7 +64,7 @@ function productOnMouseOut(product_number){
 						<div class="adminProducListItem1">${productDto.product_stay_days}</div>
 						<div class="adminProducListItem1">${productDto.product_readcount}</div>
 						<div class="adminProducListItem1">${productDto.product_average_score}</div>
-						<div class="adminProducListItem1">${productDto.product_banner}</div>
+						<div class="adminProducListItem1"><input type="button" value="삭제" onclick="deleteProduct('${productDto.product_number}')"/></div>
 					</div>
 				</c:forEach>
 				

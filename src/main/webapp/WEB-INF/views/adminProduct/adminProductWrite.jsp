@@ -140,7 +140,7 @@
 					</div>
 					
 					<div align="center">
-						<a href="javascript:productWrite('${root}')">등록?!</a>
+						<input type="button" value="등록" onclick="javascript:productWrite('${root}')"/>
 					</div>
 				</div>
 			</div>

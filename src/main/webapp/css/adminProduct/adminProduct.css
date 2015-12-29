@@ -25,15 +25,15 @@ ul{
 	text-align: right;
 }
 .content{
-	margin-left: 180px;
-	width: 382px;
+	margin: 0 0 0 180px;
+	width: 270px;
 	height: 30px;
 	border: 0px blue solid;
 	align: right;
 }
 .content_wrapper{
-	margin-left:150px;
-	width: 530px;
+	margin: 0 0 0 150px;
+	width: 600px;
 	font-size: 13px;
 }
 input { 
@@ -42,4 +42,13 @@ input {
 }
 .bargainSubmit{
 	align: center;
+}
+.flight{
+	height: 490px;
+}
+.day{
+	height: 700px;
+}
+.ui-accordion{
+	width: 555px;
 }

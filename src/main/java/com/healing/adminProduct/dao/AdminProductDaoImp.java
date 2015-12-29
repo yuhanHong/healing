@@ -100,4 +100,34 @@ public class AdminProductDaoImp implements AdminProductDao{
 	public int adminProductGetCount(ProductSearchDto productSearchDto) {
 		return sessionTemplate.selectOne("dao.adminProductMapper.adminProductGetCount",productSearchDto);
 	}
+
+	@Override
+	public void adminProductDeletePhoto(int product_number) {
+		sessionTemplate.delete("dao.adminProductMapper.adminProductDeletePhoto",product_number);
+	}
+
+	@Override
+	public void adminProductDeleteDetail(int product_number) {
+		sessionTemplate.delete("dao.adminProductMapper.adminProductDeleteDetail",product_number);
+	}
+
+	@Override
+	public void adminProductDeleteDay(int product_number) {
+		sessionTemplate.delete("dao.adminProductMapper.adminProductDeleteDay",product_number);
+	}
+
+	@Override
+	public void adminProductDeleteFlight(int product_number) {
+		sessionTemplate.delete("dao.adminProductMapper.adminProductDeleteFlight",product_number);
+	}
+
+	@Override
+	public void adminProductDeleteCity(int product_number) {
+		sessionTemplate.delete("dao.adminProductMapper.adminProductDeleteCity",product_number);
+	}
+
+	@Override
+	public int adminProductDeleteProduct(int product_number) {
+		return sessionTemplate.delete("dao.adminProductMapper.adminProductDeleteProduct",product_number);
+	}
 }

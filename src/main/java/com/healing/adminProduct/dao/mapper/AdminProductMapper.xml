@@ -82,7 +82,24 @@
 				AND product_country like '%'||#{product_country}||'%'
 			</if>
 		<![CDATA[  ORDER BY product_number DESC) b)]]>
-		
 	</select>
+	<delete id="adminProductDeletePhoto" parameterType="int">
+		delete product_photo where product_number=#{product_number}
+	</delete>
+	<delete id="adminProductDeleteDetail" parameterType="int">
+		delete product_detail where product_number=#{product_number}
+	</delete>
+	<delete id="adminProductDeleteDay" parameterType="int">
+		delete product_day where product_number=#{product_number}
+	</delete>
+	<delete id="adminProductDeleteFlight" parameterType="int">
+		delete flight where product_number=#{product_number}
+	</delete>
+	<delete id="adminProductDeleteCity" parameterType="int">
+		delete product_city where product_number=#{product_number}
+	</delete>
+	<delete id="adminProductDeleteProduct" parameterType="int">
+		delete product where product_number=#{product_number}
+	</delete>
 </mapper>
 	

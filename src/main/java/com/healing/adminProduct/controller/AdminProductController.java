@@ -300,4 +300,20 @@ public class AdminProductController {
 		
 		return mav;
 	}
+	
+	/**
+	 * @함수이름 : adminProductDelete
+	 * @작성일 : 2015. 12. 29.
+	 * @개발자 : 홍유한
+	 * @함수설명 : admin이 상품을 수정할때 호출하여 adminProductUpdate.jsp를 엽니다.
+	 */
+	@RequestMapping(value="/adminProduct/adminProductDelete.do",method=RequestMethod.GET)
+	public ModelAndView adminProductDelete(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("product_number",request.getParameter("pNum"));
+		
+		adminProductService.adminProductDelete(mav);
+		
+		return mav;
+	}
 }

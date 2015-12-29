@@ -1,7 +1,6 @@
 package com.healing.product.dto;
 
 public class ProductDto {
-
 	private int product_number;
 	private String product_name;
 	private String product_summary;

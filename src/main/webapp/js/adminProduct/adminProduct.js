@@ -5,21 +5,11 @@
  * addFlight가 호출
  * addDay가 호출
  * input 태그의 onfocus 이벤트 정의
- * input 태그의 onblur 이벤트 정의
- * select 태그의 onfocus 이벤트 정의
- * select 태그의 onblur 이벤트 정의
 */
 function writeSetDefault(){
 	var inputText=document.getElementsByTagName("input");
 	for(var i=0;i<inputText.length;i++){
-		
 		inputText[i].onfocus=function(){writeFocus(event);};
-		inputText[i].onblur=function(){writeBlur(event);};
-	}
-	var select=document.getElementsByTagName("select");
-	for(var i=0;i<select.length;i++){
-		select[i].onfocus=function(){writeFocus(event);};
-		select[i].onblur=function(){writeBlur(event);};
 	}
 	
 	if(flights.children.length==0){
@@ -29,28 +19,24 @@ function writeSetDefault(){
 }
 
 /*
- * writeSetDefault가 호출
- * input 태그의 onfocus 이벤트 정의 (
- * select 태그의 onfocus 이벤트 정의
+ * productUpdate.jsp가 onload에서 호출
 */
-function writeFocus(e){
-//	e.target.style.backgroundColor="yellow";
-//	e.target.parentElement.style.backgroundColor="yellow";
-//	e.target.parentElement.previousElementSibling.style.backgroundColor="yellow";
-	
-	if(e.target.tagName=="INPUT" && e.target.type=="text") e.target.select();
+function updateSetDefault(){
+	var flightCount = flights.children.length/2 + 1;
+	var dayCount = days.children.length/2 + 1;
+	$('#flights').accordion({collapsible: true});
+	$('#days').accordion({collapsible: true});
 }
 
 /*
  * writeSetDefault가 호출
- * input 태그의 onblur 이벤트 정의 (
- * select 태그의 onblur 이벤트 정의
+ * input 태그의 onfocus 이벤트 정의 (
 */
-function writeBlur(e){
-//	e.target.style.backgroundColor="white";
-//	e.target.parentElement.style.backgroundColor="white";
-//	e.target.parentElement.previousElementSibling.style.backgroundColor="white";
+function writeFocus(e){
+	if(e.target.tagName=="INPUT" && e.target.type=="text") e.target.select();
 }
+
+
 
 /*
  * 숫자만 입력받도록 하는 숫자 필드의 oninput이벤트 호출 함수 (formatted)
@@ -206,7 +192,6 @@ function addFlight(){
 					+ '<div class="content"><input type="text" name="flight_end_departure_city'+index+'"/></div>'
 					+ '<div class="title"><label>착륙 도시</label></div>'
 					+ '<div class="content"><input type="text" name="flight_end_arrival_city'+index+'"/></div>'
-					+ '<div id="datetime'+index+'">';
 	flights.appendChild(title);
 	flights.appendChild(content);
 	
@@ -228,7 +213,6 @@ function addFlight(){
 	}
 	
 	window.location.href="#flight"+(index);
-	flights.children[flights.children.length-1].children[3].children[0].focus();
 	return false;
 }
 
@@ -363,4 +347,3 @@ function renumber(title){
 		alert("details");
 	}
 }
-

@@ -22,4 +22,5 @@ public interface AdminProductService {
 	void adminProductList(ModelAndView mav);
 	void adminProductUpdate(ModelAndView mav);
 	void adminProductUpdateOk(ModelAndView mav);
+	void adminProductDelete(ModelAndView mav);
 }

@@ -50,8 +50,6 @@ public class AdminProductServiceImp implements AdminProductService {
 	
 	@Override
 	public void productWrite(ModelAndView mav) {
-		Map<String,Object> map=mav.getModelMap();
-		
 		BargainDto bargainDto=adminProductDao.getBargain();
 		
 		mav.addObject("bargainDto", bargainDto);
@@ -200,7 +198,6 @@ public class AdminProductServiceImp implements AdminProductService {
 	public void productPhotoWriteOk(ModelAndView mav) {
 		Map<String,Object> map=mav.getModelMap();
 		MultipartHttpServletRequest request = (MultipartHttpServletRequest)map.get("request");
-		HttpServletResponse response=(HttpServletResponse)map.get("response");
 		ProductPhotoDto productPhotoDto=(ProductPhotoDto)map.get("productPhotoDto");
 		
 		String[] photoIndex=request.getParameter("product_photo_index").split(",");
@@ -393,7 +390,24 @@ public class AdminProductServiceImp implements AdminProductService {
 
 	@Override
 	public void adminProductUpdateOk(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
 		
 		mav.setViewName("adminProduct/adminProductUpdate");
+	}
+
+	@Override
+	public void adminProductDelete(ModelAndView mav) {
+		Map<String,Object> map=mav.getModelMap();
+		int product_number=Integer.parseInt((String) map.get("product_number"));
+		
+		adminProductDao.adminProductDeletePhoto(product_number);
+		adminProductDao.adminProductDeleteDetail(product_number);
+		adminProductDao.adminProductDeleteDay(product_number);
+		adminProductDao.adminProductDeleteFlight(product_number);
+		adminProductDao.adminProductDeleteCity(product_number);
+		
+		int check= adminProductDao.adminProductDeleteProduct(product_number);
+		mav.addObject("check", check);
+		mav.setViewName("adminProduct/adminProductDelete");
 	}
 }
